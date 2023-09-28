@@ -4,10 +4,10 @@
                 <h3 class="font-montserrat cover-heading mb20 mt20">Login Form</h3>
                 <form class="clearfix mb35">
                     <div class="col-sm-8 col-sm-offset-2">
-                        <input type="text" name="username1" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Username">
+                        <input type="email" name="email" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Email">
                     </div>
                     <div class="col-sm-8 col-sm-offset-2 mt10">
-                        <input type="password" name="password2" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Password">
+                        <input type="password" name="password" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Password">
                     </div>
                     <div class="col-sm-8 col-sm-offset-2 mt5">
                         <button class="button button-lg button-circle button-block button-pasific hover-ripple-out">Login</button><br><br>
@@ -22,10 +22,10 @@
                 <h3 class="font-montserrat cover-heading mb20 mt20">Register Form</h3>
                 <form class="clearfix mb35">
                     <div class="col-sm-8 col-sm-offset-2">
-                        <input type="text" name="fullname" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Your fullname">
+                        <input type="email" name="email" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Email">
                     </div>
                     <div class="col-sm-8 col-sm-offset-2 mt10">
-                        <input type="email" name="email" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Email address">
+                        <input type="password" name="password" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Password">
                     </div>
                     <div class="col-sm-8 col-sm-offset-2 mt5">
                         <button class="button button-lg button-circle button-block button-pasific hover-ripple-out">Register Now</button><br><br>
