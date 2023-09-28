@@ -5,23 +5,17 @@
                 <div class="row">
                     
                     <div class="col-md-2 col-xs-12 mb25">
-                        <div class="navbar-brand-footer center-block">Pasific</div>
-                        <div class="copyright center-block">&copy; 2016. All rights reserved.</div>
+                        <div class="navbar-brand-footer center-block">Academia</div>
+                        <div class="copyright center-block">&copy; 2023. All rights reserved.</div>
                     </div>
                     
                     <div class="col-md-8 col-xs-12 text-center">
                         <div class="row">
                             <div class="col-sm-12">
                                 <ul class=" bb-solid-1">
-                                    <li><a href="view/shortcode-tables.html#">Home</a></li>
-                                    <li><a href="view/shortcode-tables.html#">About</a></li>
-                                    <li><a href="view/shortcode-tables.html#">Service</a></li>
-                                    <li><a href="view/shortcode-tables.html#">Price</a></li>
-                                    <li><a href="view/shortcode-tables.html#">Feature</a></li>
-                                    <li><a href="view/shortcode-tables.html#">Works</a></li>
-                                    <li><a href="view/shortcode-tables.html#">Shop</a></li>
-                                    <li><a href="view/shortcode-tables.html#">Blog</a></li>
-                                    <li><a href="view/shortcode-tables.html#">Contact</a></li>
+                                    <li><a href="view/shortcode-tables.html#">Inicio</a></li>
+                                    <li><a href="view/shortcode-tables.html#">Cursos</a></li>
+                                    <li><a href="view/shortcode-tables.html#">Mis Cursos</a></li>
                                 </ul>
                             </div>
                             
