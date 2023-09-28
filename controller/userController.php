@@ -11,7 +11,7 @@
     }
 
     function admin() {
-      $this->view = 'admin';
+      $this->view = 'login';
       return $this->userManagement->getUsers();
     }
 

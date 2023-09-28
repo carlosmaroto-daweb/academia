@@ -26,6 +26,7 @@
         <link rel="stylesheet" href="view/assets/css/main/main.css">
         <link rel="stylesheet" href="view/assets/css/main/setting.css">
         <link rel="stylesheet" href="view/assets/css/main/hover.css">
+        <link rel="stylesheet" href="view/assets/css/main/cover.css">
         
         <!-- Load Magnific Popup CSS 
         =====================================-->

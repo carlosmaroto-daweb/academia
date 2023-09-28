@@ -58,7 +58,7 @@
         =====================================-->
         <script src="view/assets/js/core/jquery.min.js"></script>
         <script src="view/assets/js/core/bootstrap-3.3.7.min.js"></script>
-        
+
         <!-- JQuery Main
         =====================================-->
         <script src="view/assets/academia/js/index.js"></script>
@@ -71,5 +71,21 @@
         <script src="view/assets/js/main/ion.rangeSlider.min.js"></script>
         <script src="view/assets/js/main/imagesloaded.pkgd.min.js"></script>
         <script src="view/assets/js/main/main.js"></script>
+    
+        <!-- Custom Script
+        =====================================-->
+        <script>
+            $(function(){
+                "use strict";
+                $("#showFormRegister").on('click',function(){
+                    $("#formLogin").addClass("hidden");
+                    $("#formRegister").removeClass("hidden");
+                });
+                $("#showFormLogin").on('click',function(){
+                    $("#formLogin").removeClass("hidden");
+                    $("#formRegister").addClass("hidden");
+                })
+            })
+        </script>
     </body>
 </html>
