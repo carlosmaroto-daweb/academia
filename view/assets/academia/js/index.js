@@ -29,6 +29,41 @@ $(document).ready(function(){
         }
     });
 
+    $("#btn-register").on('click', function(e) {
+        e.preventDefault();
+        let email    = $('#register-email').val();
+        let password = $('#register-password').val();
+        if (!email.length || !password.length) {
+            alert('No has introducido los datos.');
+        }
+        else {
+            $.ajax({
+                type: "POST",
+                url: 'index.php?controller=userController&action=create&ajax=true',
+                data: {
+                    'email':        email,
+                    'password':     password,
+                    'name':         '',
+                    'last_name':    '',
+                    'phone_number': '',
+                    'dni':          '',
+                    'type':         'student'
+                },
+                success: function(response) {
+                    console.log("SE HA MANDADO UN REGISTRO DE SESIÓN");
+                    let jsonData = JSON.parse(response);
+                    if (jsonData.success == "1") {
+                        alert('Se ha registrado correctamente.');
+                        window.location.href = 'index.php?controller=userController&action=admin';
+                    }
+                    else {
+                        alert('No se ha podido registrar.');
+                    }
+                }
+            });
+        }
+    });
+
     $("#user-edit").on('show.bs.modal', function(event) {
         let option = $(event.relatedTarget);
         let id_row       = option.data('id_row');
