@@ -61,5 +61,9 @@
     function getView() {
       return $this->view;
     }
+
+    function login() {
+      $this->view = 'login';
+    }
   }
 ?>
