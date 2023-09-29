@@ -67,6 +67,16 @@
             return $this->users;
         }
 
+        function isUser() {
+            $result = false;
+            for ($i=0; $i<count($this->users) && !$result; $i++) {
+                if ($this->users[$i]->getEmail() == $_POST['email'] && $this->users[$i]->getPassword() == $_POST['password']) {
+                    $result = true;
+                }
+            }
+            return $result;
+        }
+
         private function isRegistered($id) {
             $result = false;
             for ($i=0; $i<count($this->users) && !$result; $i++) {

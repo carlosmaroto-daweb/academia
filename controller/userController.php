@@ -63,7 +63,17 @@
     }
 
     function login() {
-      $this->view = 'login';
+      if (isset($_POST['email']) && isset($_POST['password'])){
+        if ($this->userManagement->isUser()) {
+          echo json_encode(array('success' => 1));
+        }
+        else {
+          echo json_encode(array('success' => 0));
+        }
+      }
+      else {
+        $this->view = 'login';
+      }
     }
   }
 ?>

@@ -1,4 +1,34 @@
 $(document).ready(function(){
+    $("#btn-login").on('click', function(e) {
+        e.preventDefault();
+        let email    = $('#login-email').val();
+        let password = $('#login-password').val();
+        if (!email.length || !password.length) {
+            alert('No has introducido los datos.');
+        }
+        else {
+            $.ajax({
+                type: "POST",
+                url: 'index.php?controller=userController&action=login&ajax=true',
+                data: {
+                    'email':    email,
+                    'password': password
+                },
+                success: function(response) {
+                    console.log("SE HA MANDADO UN INICIO DE SESIÓN");
+                    let jsonData = JSON.parse(response);
+                    if (jsonData.success == "1") {
+                        alert('Se ha iniciado correctamente sesión.');
+                        window.location.href = 'index.php?controller=userController&action=admin';
+                    }
+                    else {
+                        alert('No se ha podido iniciar sesión.');
+                    }
+                }
+            });
+        }
+    });
+
     $("#user-edit").on('show.bs.modal', function(event) {
         let option = $(event.relatedTarget);
         let id_row       = option.data('id_row');
