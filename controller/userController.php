@@ -16,7 +16,7 @@
     }
 
     function create() {
-      if (isset($_POST['dni']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['email']) && isset($_POST['type'])) {
+      if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type'])) {
         $jsonData = json_decode($this->userManagement->createUser());
         if ($jsonData->success) {
           echo json_encode($jsonData);
@@ -45,7 +45,7 @@
     }
 
     function edit() {
-      if (isset($_POST['id']) && !empty($_POST['id']) && isset($_POST['dni']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['email']) && isset($_POST['type'])) {
+      if (isset($_POST['id']) && !empty($_POST['id']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type'])) {
         if ($this->userManagement->editUser()) {
           echo json_encode(array('success' => 1));
         }

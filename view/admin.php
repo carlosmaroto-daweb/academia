@@ -9,11 +9,12 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Dni</th>
+                                    <th>Correo</th>
+                                    <th>Contraseña</th>
                                     <th>Nombre</th>
                                     <th>Apellidos</th>
                                     <th>Teléfono</th>
-                                    <th>Correo</th>
+                                    <th>Dni</th>
                                     <th>Tipo</th>
                                     <th>Acciones</th>
                                 </tr>
@@ -23,11 +24,12 @@
                                     $count = 0; 
                                     foreach ($dataToView as $row):
                                         echo "<tr id='row{$count}'>";
-                                            echo "<td>{$row->getDni()}</td>";
+                                            echo "<td>{$row->getEmail()}</td>";
+                                            echo "<td>{$row->getPassword()}</td>";
                                             echo "<td>{$row->getName()}</td>";
                                             echo "<td>{$row->getLastName()}</td>";
                                             echo "<td>{$row->getPhoneNumber()}</td>";
-                                            echo "<td>{$row->getEmail()}</td>";
+                                            echo "<td>{$row->getDni()}</td>";
                                             switch ($row->getType()) {
                                                 case "student":
                                                     $type = "Alumno";
@@ -44,7 +46,7 @@
                                             };
                                             echo "<td>{$type}</td>";
                                             echo "<td>";
-                                                echo "<a class='button-o button-sm button-rounded button-blue hover-fade' data-toggle='modal' data-target='#user-edit' data-id_row='row{$count}' data-id='{$row->getId()}' data-dni='{$row->getDni()}' data-name='{$row->getName()}' data-last_name='{$row->getLastName()}' data-phone_number='{$row->getPhoneNumber()}' data-email='{$row->getEmail()}' data-type='{$row->getType()}'>Modificar</a>&nbsp;";
+                                                echo "<a class='button-o button-sm button-rounded button-blue hover-fade' data-toggle='modal' data-target='#user-edit' data-id_row='row{$count}' data-id='{$row->getId()}' data-email='{$row->getEmail()}' data-password='{$row->getPassword()}' data-name='{$row->getName()}' data-last_name='{$row->getLastName()}' data-phone_number='{$row->getPhoneNumber()}' data-dni='{$row->getDni()}' data-type='{$row->getType()}'>Modificar</a>&nbsp;";
                                                 echo "<a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#user-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
                                             echo "</td>";
                                         echo "</tr>";
@@ -83,9 +85,14 @@
                 <div class="modal-body">
                     <div>
                         <form id="edit-form">
-                            DNI
+                            Correo
                             <br>
-                            <input id="edit-form-dni" type="text" name="dni">
+                            <input id="edit-form-email" type="text" name="email">
+                            <br>
+                            <br>
+                            Contraseña
+                            <br>
+                            <input id="edit-form-password" type="text" name="password">
                             <br>
                             <br>
                             Nombre
@@ -103,9 +110,9 @@
                             <input id="edit-form-phone_number" type="text" name="phone_number">
                             <br>
                             <br>
-                            Correo
+                            DNI
                             <br>
-                            <input id="edit-form-email" type="text" name="email">
+                            <input id="edit-form-dni" type="text" name="dni">
                             <br>
                             <br>
                             Tipo
@@ -161,9 +168,14 @@
                 <div class="modal-body">
                     <div>
                         <form id="create-form">
-                            DNI
+                            Correo
                             <br>
-                            <input id="create-form-dni" type="text" name="dni">
+                            <input id="create-form-email" type="text" name="email">
+                            <br>
+                            <br>
+                            Contraseña
+                            <br>
+                            <input id="create-form-password" type="text" name="password">
                             <br>
                             <br>
                             Nombre
@@ -181,9 +193,9 @@
                             <input id="create-form-phone_number" type="text" name="phone_number">
                             <br>
                             <br>
-                            Correo
+                            DNI
                             <br>
-                            <input id="create-form-email" type="text" name="email">
+                            <input id="create-form-dni" type="text" name="dni">
                             <br>
                             <br>
                             Tipo

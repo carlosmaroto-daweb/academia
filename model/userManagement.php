@@ -14,20 +14,21 @@
 
         function createUser() {
             $result = json_encode(array('success' => 0));
-            if (!$this->isRepeated($_POST['dni']) && $this->db->createUser()) {
+            if (!$this->isRepeated($_POST['email']) && $this->db->createUser()) {
                 $this->updateUsers();
-                $user = $this->getUser($_POST['dni']);
+                $user = $this->getUser($_POST['email']);
                 $result = json_encode(
                     array(
                         'success' => 1, 
-                        'user' => array(
-                            'id' => $user->getId(),
-                            'dni' => $user->getDni(),
-                            'name' => $user->getName(),
-                            'last_name' => $user->getLastName(),
+                        'user'    => array(
+                            'id'           => $user->getId(),
+                            'email'        => $user->getEmail(),
+                            'password'     => $user->getPassword(),
+                            'name'         => $user->getName(),
+                            'last_name'    => $user->getLastName(),
                             'phone_number' => $user->getPhoneNumber(),
-                            'email' => $user->getEmail(),
-                            'type' => $user->getType(),
+                            'dni'          => $user->getDni(),
+                            'type'         => $user->getType()
                         )
                     )
                 );
@@ -53,9 +54,9 @@
             return $result;
         }
 
-        private function getUser($dni) {
+        private function getUser($email) {
             for ($i=0; $i<count($this->users); $i++) {
-                if ($this->users[$i]->getDni() == $dni) {
+                if ($this->users[$i]->getEmail() == $email) {
                     $result = $this->users[$i];
                 }
             }
@@ -76,10 +77,10 @@
             return $result;
         }
 
-        private function isRepeated($dni) {
+        private function isRepeated($email) {
             $result = false;
             for ($i=0; $i<count($this->users) && !$result; $i++) {
-                if ($this->users[$i]->getDni() == $dni) {
+                if ($this->users[$i]->getEmail() == $email) {
                     $result = true;
                 }
             }
@@ -90,7 +91,7 @@
             $this->users = [];
             $query = $this->db->getUsers();
             foreach ($query as $row) {
-                array_push($this->users, new User($row['id'], $row['dni'], $row['name'], $row['last_name'], $row['phone_number'], $row['email'], $row['type']));
+                array_push($this->users, new User($row['id'], $row['email'], $row['password'], $row['name'], $row['last_name'], $row['phone_number'], $row['dni'], $row['type']));
             }
         }
     }
