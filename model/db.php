@@ -23,17 +23,16 @@
       }
     }
 
-    function editUser() {
+    function createUser() {
       $data = [
         'dni'          => $_POST['dni'],
         'name'         => $_POST['name'],
         'last_name'    => $_POST['last_name'],
         'phone_number' => $_POST['phone_number'],
         'email'        => $_POST['email'],
-        'type'         => $_POST['type'],
-        'id'           => $_POST['id']
+        'type'         => $_POST['type']
       ];
-      $sql = "update user set dni=:dni, name=:name, last_name=:last_name, phone_number=:phone_number, email=:email, type=:type where id=:id";
+      $sql = "insert into user (dni, name, last_name, phone_number, email, type) values (:dni, :name, :last_name, :phone_number, :email, :type)";
       $stmt = $this->conection->prepare($sql);
       return $stmt->execute($data);
     }
@@ -47,16 +46,17 @@
       return $stmt->execute($data);
     }
 
-    function createUser() {
+    function editUser() {
       $data = [
         'dni'          => $_POST['dni'],
         'name'         => $_POST['name'],
         'last_name'    => $_POST['last_name'],
         'phone_number' => $_POST['phone_number'],
         'email'        => $_POST['email'],
-        'type'         => $_POST['type']
+        'type'         => $_POST['type'],
+        'id'           => $_POST['id']
       ];
-      $sql = "insert into user (dni, name, last_name, phone_number, email, type) values (:dni, :name, :last_name, :phone_number, :email, :type)";
+      $sql = "update user set dni=:dni, name=:name, last_name=:last_name, phone_number=:phone_number, email=:email, type=:type where id=:id";
       $stmt = $this->conection->prepare($sql);
       return $stmt->execute($data);
     }

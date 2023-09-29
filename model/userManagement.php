@@ -12,52 +12,6 @@
             $this->updateUsers();
         }
 
-        private function updateUsers() {
-            $this->users = [];
-            $query = $this->db->getUsers();
-            foreach ($query as $row) {
-                array_push($this->users, new User($row['id'], $row['dni'], $row['name'], $row['last_name'], $row['phone_number'], $row['email'], $row['type']));
-            }
-        }
-
-        private function isRegistered($id) {
-            $result = false;
-            for ($i=0; $i<count($this->users) && !$result; $i++) {
-                if ($this->users[$i]->getId() == $id) {
-                    $result = true;
-                }
-            }
-            return $result;
-        }
-
-        private function isRepeated($dni) {
-            $result = false;
-            for ($i=0; $i<count($this->users) && !$result; $i++) {
-                if ($this->users[$i]->getDni() == $dni) {
-                    $result = true;
-                }
-            }
-            return $result;
-        }
-
-        function editUser() {
-            $result = false;
-            if ($this->isRegistered($_POST['id']) && $this->db->editUser()) {
-                $this->updateUsers();
-                $result = true;
-            }
-            return $result;
-        }
-
-        function deleteUser() {
-            $result = false;
-            if ($this->isRegistered($_GET['id']) && $this->db->deleteUser()) {
-                $this->updateUsers();
-                $result = true;
-            }
-            return $result;
-        }
-
         function createUser() {
             $result = json_encode(array('success' => 0));
             if (!$this->isRepeated($_POST['dni']) && $this->db->createUser()) {
@@ -81,6 +35,24 @@
             return $result;
         }
 
+        function deleteUser() {
+            $result = false;
+            if ($this->isRegistered($_GET['id']) && $this->db->deleteUser()) {
+                $this->updateUsers();
+                $result = true;
+            }
+            return $result;
+        }
+
+        function editUser() {
+            $result = false;
+            if ($this->isRegistered($_POST['id']) && $this->db->editUser()) {
+                $this->updateUsers();
+                $result = true;
+            }
+            return $result;
+        }
+
         private function getUser($dni) {
             for ($i=0; $i<count($this->users); $i++) {
                 if ($this->users[$i]->getDni() == $dni) {
@@ -92,6 +64,34 @@
 
         function getUsers() {
             return $this->users;
+        }
+
+        private function isRegistered($id) {
+            $result = false;
+            for ($i=0; $i<count($this->users) && !$result; $i++) {
+                if ($this->users[$i]->getId() == $id) {
+                    $result = true;
+                }
+            }
+            return $result;
+        }
+
+        private function isRepeated($dni) {
+            $result = false;
+            for ($i=0; $i<count($this->users) && !$result; $i++) {
+                if ($this->users[$i]->getDni() == $dni) {
+                    $result = true;
+                }
+            }
+            return $result;
+        }
+
+        private function updateUsers() {
+            $this->users = [];
+            $query = $this->db->getUsers();
+            foreach ($query as $row) {
+                array_push($this->users, new User($row['id'], $row['dni'], $row['name'], $row['last_name'], $row['phone_number'], $row['email'], $row['type']));
+            }
         }
     }
 ?>
