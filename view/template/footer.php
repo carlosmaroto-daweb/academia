@@ -1,6 +1,6 @@
         <!-- Footer Area
         =====================================-->
-        <footer id="footer" class="footer-one center-block bg-light pt50 pb30 ">
+        <footer id="footer" class="footer-one center-block bg-light pt50 pb30 mb70">
             <div class="container">
                 <div class="row">
                     

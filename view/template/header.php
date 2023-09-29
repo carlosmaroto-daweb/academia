@@ -98,17 +98,37 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand page-scroll" href="view/shortcode-tables.html#page-top">
+                    <a class="navbar-brand page-scroll" href="index.php">
                         <img src="view/assets/img/logo/logo-default.png" alt="logo">
                         Academia
                     </a>
                 </div>
                 <div class="navbar-collapse collapse navbar-main-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="view/shortcode-tables.html#" class="color-light">Inicio</a></li>
-                        <li><a href="view/shortcode-tables.html#" class="color-light">Cursos</a></li>
-                        <li><a href="view/shortcode-tables.html#" class="color-light">Mis Cursos</a></li>
-                        <li><button class="button-3d button-sm button-circle button-orange">Administación <i class="fa fa-lock"></i></button></li>
+                        <li><a href="index.php" class="color-light">Inicio</a></li>
+                        <li><a href="index.php?controller=userController&action=courses" class="color-light">Cursos</a></li>
+                        <?php
+                            if (!isset($_SESSION["type"])) {
+                                echo "<li><a href='index.php?controller=userController&action=home'>";
+                                    echo "<button class='button-3d button-sm button-circle button-orange'>Mi área <i class='fa fa-lock'></i></button>";
+                                echo "</a></li>";
+                            }
+                            else {
+                                if ($_SESSION["type"] == "admin") {
+                                    echo "<li><a href='index.php?controller=userController&action=admin'>";
+                                        echo "<button class='button-3d button-sm button-circle button-orange'>Administración <i class='fa  fa-unlock'></i></button>";
+                                    echo "</a></li>";
+                                }
+                                else {
+                                    echo "<li><a href='index.php?controller=userController&action=home'>";
+                                        echo "<button class='button-3d button-sm button-circle button-orange'>Mi área <i class='fa  fa-unlock'></i></button>";
+                                    echo "</a></li>";
+                                }
+                                echo "<li><a href='index.php?controller=userController&action=logout'>";
+                                    echo "<button class='button-3d button-sm button-circle button-red'>Cerrar sesión <i class='fa fa-sign-out'></i></button>";
+                                echo "</a></li>";
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>

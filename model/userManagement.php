@@ -71,6 +71,7 @@
             $result = false;
             for ($i=0; $i<count($this->users) && !$result; $i++) {
                 if ($this->users[$i]->getEmail() == $_POST['email'] && $this->users[$i]->getPassword() == $_POST['password']) {
+                    $_SESSION["type"] = $this->users[$i]->getType();
                     $result = true;
                 }
             }
@@ -93,6 +94,15 @@
                 if ($this->users[$i]->getEmail() == $email) {
                     $result = true;
                 }
+            }
+            return $result;
+        }
+
+        function registerUser() {
+            $result = false;
+            if (!$this->isRepeated($_POST['email']) && $this->db->registerUser()) {
+                $_SESSION["type"] = $_POST['type'];
+                $result = true;
             }
             return $result;
         }
