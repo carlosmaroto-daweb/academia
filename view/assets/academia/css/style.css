@@ -1,0 +1,28 @@
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+#showFormRegister {
+    padding: 10px;
+}
+
+#showFormLogin {
+    padding: 10px;
+}
+
+#showFormRegister:hover {
+    cursor: pointer;
+    color: #ff4530;
+}
+
+#showFormLogin:hover {
+    cursor: pointer;
+    color: #ff4530;
+}

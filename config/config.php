@@ -5,5 +5,5 @@
     define("DB_PASS", "u-Area14");
 
     define("DEFAULT_CONTROLLER", "userController");
-    define("DEFAULT_ACTION", "login");
+    define("DEFAULT_ACTION", "index");
 ?>

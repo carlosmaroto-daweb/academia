@@ -10,8 +10,8 @@
                         <input id="login-password" type="password" name="password" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Password">
                     </div>
                     <div class="col-sm-8 col-sm-offset-2 mt5">
-                        <button id="btn-login" class="button button-lg button-circle button-block button-pasific hover-ripple-out">Iniciar</button><br><br>
-                        <a href="#" class="color-dark mt20" id="showFormRegister">¿No tienes cuenta? Regístrate</a>
+                        <button id="btn-login" class="button button-lg button-circle button-block button-pasific hover-ripple-out">Iniciar</button><br>
+                        <div class="mt20" id="showFormRegister">¿No tienes cuenta? Regístrate</div>
                     </div>
                 </form>
                 <br>
@@ -28,8 +28,8 @@
                         <input id="register-password" type="password" name="password" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Password">
                     </div>
                     <div class="col-sm-8 col-sm-offset-2 mt5">
-                        <button id="btn-register" class="button button-lg button-circle button-block button-pasific hover-ripple-out">Regístrate</button><br><br>
-                        <a href="#" class="color-dark mt20" id="showFormLogin">¿Tienes una cuenta? Inicia sesión</a><br>
+                        <button id="btn-register" class="button button-lg button-circle button-block button-pasific hover-ripple-out">Regístrate</button><br>
+                        <div class="mt20" id="showFormLogin">¿Tienes una cuenta? Inicia sesión</div>
                     </div>
                 </form>
                 <br>

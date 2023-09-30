@@ -69,5 +69,20 @@
       $stmt->execute();
       return $stmt->fetchAll();
     }
+
+    function registerUser() {
+      $data = [
+        'email'        => $_POST['email'],
+        'password'     => $_POST['password'],
+        'name'         => '',
+        'last_name'    => '',
+        'phone_number' => '',
+        'dni'          => '',
+        'type'         => $_POST['type']
+      ];
+      $sql = "insert into user (email, password, name, last_name, phone_number, dni, type) values (:email, :password, :name, :last_name, :phone_number, :dni, :type)";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
   }
 ?>

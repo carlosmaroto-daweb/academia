@@ -19,7 +19,7 @@ $(document).ready(function(){
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
                         alert('Se ha iniciado correctamente sesión.');
-                        window.location.href = 'index.php?controller=userController&action=admin';
+                        window.location.href = window.location.href;
                     }
                     else {
                         alert('No se ha podido iniciar sesión.');
@@ -39,22 +39,18 @@ $(document).ready(function(){
         else {
             $.ajax({
                 type: "POST",
-                url: 'index.php?controller=userController&action=create&ajax=true',
+                url: 'index.php?controller=userController&action=register&ajax=true',
                 data: {
-                    'email':        email,
-                    'password':     password,
-                    'name':         '',
-                    'last_name':    '',
-                    'phone_number': '',
-                    'dni':          '',
-                    'type':         'student'
+                    'email':    email,
+                    'password': password,
+                    'type':     'student'
                 },
                 success: function(response) {
                     console.log("SE HA MANDADO UN REGISTRO DE SESIÓN");
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
                         alert('Se ha registrado correctamente.');
-                        window.location.href = 'index.php?controller=userController&action=admin';
+                        window.location.href = window.location.href;
                     }
                     else {
                         alert('No se ha podido registrar.');
