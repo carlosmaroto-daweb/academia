@@ -23,7 +23,7 @@
         $dataToView = $controller->{$_GET["action"]}();
     }
 
-    if (!isset($_GET["ajax"]) && $_GET["ajax"] != "true") {
+    if (!isset($_GET["ajax"]) || $_GET["ajax"] != "true") {
         require_once 'view/template/header.php';
         require_once 'view/'.$controller->getView().'.php';
         require_once 'view/template/footer.php';
