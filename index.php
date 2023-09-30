@@ -1,8 +1,6 @@
 <?php
     require_once 'config/config.php';
 
-    session_start();
-
     if (!isset($_GET["controller"])) {
         $_GET["controller"] = constant("DEFAULT_CONTROLLER");
     }
