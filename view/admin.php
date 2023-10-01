@@ -1,8 +1,8 @@
         <!-- Table Styles
         ===================================== -->
-        <section class="mt70" id="shortcodeTable">
+        <section class="pt100 pb70" id="shortcodeTable">
             <!-- Table Style 2 -->
-            <div class="container pt50">
+            <div class="container pt70">
                 <div class="row">
                     <div class="col-md-12">
                         <h4 class="text-center mb30">Gestión Usuarios</h4>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container-fluid pb70">
+            <div class="container-fluid pb50">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center">

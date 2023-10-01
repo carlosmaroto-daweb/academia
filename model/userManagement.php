@@ -39,7 +39,6 @@
         function deleteUser() {
             $result = false;
             if ($this->isRegistered($_GET['id']) && $this->db->deleteUser()) {
-                $this->updateUsers();
                 $result = true;
             }
             return $result;
@@ -48,7 +47,6 @@
         function editUser() {
             $result = false;
             if ($this->isRegistered($_POST['id']) && $this->db->editUser()) {
-                $this->updateUsers();
                 $result = true;
             }
             return $result;
@@ -101,7 +99,6 @@
         function registerUser() {
             $result = false;
             if (!$this->isRepeated($_POST['email']) && $this->db->registerUser()) {
-                $this->updateUsers();
                 $_SESSION["type"] = $_POST['type'];
                 $result = true;
             }
