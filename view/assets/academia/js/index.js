@@ -32,7 +32,7 @@ $(document).ready(function(){
                         let msg = `
                             <div class="alert alert-danger alert-dismissible fade in col-sm-8 col-sm-offset-2">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>¡Error!</strong> No se ha podido iniciar sesión.
+                                <strong>¡Error!</strong> ${jsonData.msg}
                             </div>
                         `;
                         $("#formLogin").append(msg);
@@ -76,7 +76,7 @@ $(document).ready(function(){
                         let msg = `
                         <div class="alert alert-danger alert-dismissible fade in col-sm-8 col-sm-offset-2">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>¡Error!</strong> No se ha podido registrar.
+                                <strong>¡Error!</strong> ${jsonData.msg}
                             </div>
                         `;
                         $("#formRegister").append(msg);
@@ -203,7 +203,7 @@ $(document).ready(function(){
                             let msg = `
                                 <div class="alert alert-danger alert-dismissible fade in">
                                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    <strong>¡Error!</strong> No se ha podido modificar el usuario.
+                                    <strong>¡Error!</strong> ${jsonData.msg}
                                 </div>
                             `;
                             $("#edit-form").append(msg);
@@ -240,7 +240,7 @@ $(document).ready(function(){
                         let msg = `
                             <div class="alert alert-danger alert-dismissible fade in">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>¡Error!</strong> No se ha podido eliminar el usuario.
+                                <strong>¡Error!</strong> ${jsonData.msg}
                             </div>
                         `;
                         $("#delete-form").append(msg);
@@ -338,7 +338,7 @@ $(document).ready(function(){
                         let msg = `
                             <div class="alert alert-danger alert-dismissible fade in">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>¡Error!</strong> No se ha podido crear el usuario.
+                                <strong>¡Error!</strong> ${jsonData.msg}
                             </div>
                         `;
                         $("#create-form").append(msg);
