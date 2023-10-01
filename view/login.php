@@ -1,8 +1,8 @@
         <div class="mt100">
-            <div id="formLogin" class="inner cover text-center animated" data-animation="fadeIn" data-animation-delay="100">
+            <div id="formLogin" class="inner cover text-center animated mb35" data-animation="fadeIn" data-animation-delay="100">
                 <br>
                 <h3 class="font-montserrat cover-heading mb20 mt20">Inicio sesión</h3>
-                <form class="clearfix mb35">
+                <form class="clearfix">
                     <div class="col-sm-8 col-sm-offset-2">
                         <input id="login-email" type="email" name="email" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Email">
                     </div>
@@ -17,10 +17,10 @@
                 <br>
             </div>
         
-            <div id="formRegister" class="inner cover text-center hidden animated" data-animation="fadeIn" data-animation-delay="100">
+            <div id="formRegister" class="inner cover text-center hidden animated mb35" data-animation="fadeIn" data-animation-delay="100">
                 <br>
                 <h3 class="font-montserrat cover-heading mb20 mt20">Crear cuenta</h3>
-                <form class="clearfix mb35">
+                <form class="clearfix">
                     <div class="col-sm-8 col-sm-offset-2">
                         <input id="register-email" type="email" name="email" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Email">
                     </div>

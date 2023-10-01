@@ -4,7 +4,14 @@ $(document).ready(function(){
         let email    = $('#login-email').val();
         let password = $('#login-password').val();
         if (!email.length || !password.length) {
-            alert('No has introducido los datos.');
+            $(".alert").remove();
+            let msg = `
+                <div class="alert alert-danger alert-dismissible fade in col-sm-8 col-sm-offset-2">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>¡Error!</strong> No has introducido los datos.
+                </div>
+            `;
+            $("#formLogin").append(msg);
         }
         else {
             $.ajax({
@@ -18,11 +25,17 @@ $(document).ready(function(){
                     console.log("SE HA MANDADO UN INICIO DE SESIÓN");
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
-                        alert('Se ha iniciado correctamente sesión.');
                         location.reload();
                     }
                     else {
-                        alert('No se ha podido iniciar sesión.');
+                        $(".alert").remove();
+                        let msg = `
+                            <div class="alert alert-danger alert-dismissible fade in col-sm-8 col-sm-offset-2">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>¡Error!</strong> No se ha podido iniciar sesión.
+                            </div>
+                        `;
+                        $("#formLogin").append(msg);
                     }
                 }
             });
@@ -34,7 +47,14 @@ $(document).ready(function(){
         let email    = $('#register-email').val();
         let password = $('#register-password').val();
         if (!email.length || !password.length) {
-            alert('No has introducido los datos.');
+            $(".alert").remove();
+            let msg = `
+            <div class="alert alert-danger alert-dismissible fade in col-sm-8 col-sm-offset-2">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>¡Error!</strong> No has introducido los datos.
+                </div>
+            `;
+            $("#formRegister").append(msg);
         }
         else {
             $.ajax({
@@ -49,11 +69,17 @@ $(document).ready(function(){
                     console.log("SE HA MANDADO UN REGISTRO DE SESIÓN");
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
-                        alert('Se ha registrado correctamente.');
                         location.reload();
                     }
                     else {
-                        alert('No se ha podido registrar.');
+                        $(".alert").remove();
+                        let msg = `
+                        <div class="alert alert-danger alert-dismissible fade in col-sm-8 col-sm-offset-2">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>¡Error!</strong> No se ha podido registrar.
+                            </div>
+                        `;
+                        $("#formRegister").append(msg);
                     }
                 }
             });
@@ -115,7 +141,14 @@ $(document).ready(function(){
             }
 
             if (email==new_email && password==new_password && name==new_name && last_name==new_last_name && phone_number==new_phone_number && dni==new_dni && type==new_type) {
-                alert('No has cambiado los datos.');
+                $(".alert").remove();
+                let msg = `
+                    <div class="alert alert-danger alert-dismissible fade in">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>¡Error!</strong> No has cambiado los datos.
+                    </div>
+                `;
+                $("#edit-form").append(msg);
             }
             else {
                 $.ajax({
@@ -135,7 +168,6 @@ $(document).ready(function(){
                         console.log("SE HA MANDADO UNA EDICIÓN");
                         let jsonData = JSON.parse(response);
                         if (jsonData.success == "1") {
-                            alert('Se ha modificado correctamente el usuario.');
                             switch (new_type) {
                                 case "student":
                                     type = "Alumno";
@@ -167,7 +199,14 @@ $(document).ready(function(){
                             $("#user-edit").modal('hide');
                         }
                         else {
-                            alert('No se ha podido modificar el usuario.');
+                            $(".alert").remove();
+                            let msg = `
+                                <div class="alert alert-danger alert-dismissible fade in">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>¡Error!</strong> No se ha podido modificar el usuario.
+                                </div>
+                            `;
+                            $("#edit-form").append(msg);
                         }
                     }
                 });
@@ -176,6 +215,7 @@ $(document).ready(function(){
     });
 
     $('#user-edit').on('hidden.bs.modal', function() {
+        $(".alert").remove();
         $('#edit-form').trigger("reset");
     });
 
@@ -192,16 +232,26 @@ $(document).ready(function(){
                     console.log("SE HA MANDADO UNA ELIMINACIÓN");
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
-                        alert('Se ha eliminado correctamente el usuario.');
                         $('#' + id_row).remove();
                         $("#user-delete").modal('hide');
                     }
                     else {
-                        alert('No se ha podido eliminar el usuario.');
+                        $(".alert").remove();
+                        let msg = `
+                            <div class="alert alert-danger alert-dismissible fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>¡Error!</strong> No se ha podido eliminar el usuario.
+                            </div>
+                        `;
+                        $("#delete-form").append(msg);
                     }
                 }
             });
         });
+    });
+
+    $('#user-delete').on('hidden.bs.modal', function() {
+        $(".alert").remove();
     });
 
     $("#user-create").on('show.bs.modal', function() {
@@ -243,7 +293,6 @@ $(document).ready(function(){
                     console.log("SE HA MANDADO UNA CREACIÓN");
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
-                        alert('Se ha creado correctamente el usuario.');
                         let id               = jsonData.user.id;
                         let id_row           = 'row' + $('#user-table').children('tr').length;
                         let new_email        = jsonData.user.email;
@@ -285,7 +334,14 @@ $(document).ready(function(){
                         $("#user-create").modal('hide');
                     }
                     else {
-                        alert('No se ha podido crear el usuario.');
+                        $(".alert").remove();
+                        let msg = `
+                            <div class="alert alert-danger alert-dismissible fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>¡Error!</strong> No se ha podido crear el usuario.
+                            </div>
+                        `;
+                        $("#create-form").append(msg);
                     }
                 }
             });
@@ -293,6 +349,7 @@ $(document).ready(function(){
     });
 
     $('#user-create').on('hidden.bs.modal', function() {
+        $(".alert").remove();
         $('#create-form').trigger("reset");
     });
 });

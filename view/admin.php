@@ -145,7 +145,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div>
+                        <div id="delete-form">
                             <p>¿Seguro que quieres eliminar este usuario?</p>
                         </div>
                     </div>
