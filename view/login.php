@@ -4,10 +4,10 @@
                 <h3 class="font-montserrat cover-heading mb20 mt100">Inicio sesión</h3>
                 <form class="clearfix">
                     <div class="col-sm-8 col-sm-offset-2">
-                        <input id="login-email" type="email" name="email" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Email">
+                        <input id="login-email" type="email" name="email" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Correo">
                     </div>
                     <div class="col-sm-8 col-sm-offset-2 mt10">
-                        <input id="login-password" type="password" name="password" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Password">
+                        <input id="login-password" type="password" name="password" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Contraseña">
                     </div>
                     <div class="col-sm-8 col-sm-offset-2 mt5">
                         <button id="btn-login" class="button button-lg button-circle button-block button-pasific hover-ripple-out">Iniciar</button><br>
@@ -22,10 +22,10 @@
                 <h3 class="font-montserrat cover-heading mb20 mt100">Crear cuenta</h3>
                 <form class="clearfix">
                     <div class="col-sm-8 col-sm-offset-2">
-                        <input id="register-email" type="email" name="email" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Email">
+                        <input id="register-email" type="email" name="email" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Correo">
                     </div>
                     <div class="col-sm-8 col-sm-offset-2 mt10">
-                        <input id="register-password" type="password" name="password" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Password">
+                        <input id="register-password" type="password" name="password" class="form-control text-center no-border input-lg input-circle bg-gray2" placeholder="Contraseña">
                     </div>
                     <div class="col-sm-8 col-sm-offset-2 mt5">
                         <button id="btn-register" class="button button-lg button-circle button-block button-pasific hover-ripple-out">Regístrate</button><br>
