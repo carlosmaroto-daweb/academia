@@ -101,6 +101,7 @@
         function registerUser() {
             $result = false;
             if (!$this->isRepeated($_POST['email']) && $this->db->registerUser()) {
+                $this->updateUsers();
                 $_SESSION["type"] = $_POST['type'];
                 $result = true;
             }
