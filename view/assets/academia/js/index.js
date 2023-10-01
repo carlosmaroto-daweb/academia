@@ -19,7 +19,7 @@ $(document).ready(function(){
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
                         alert('Se ha iniciado correctamente sesión.');
-                        window.location.href = window.location.href;
+                        location.reload();
                     }
                     else {
                         alert('No se ha podido iniciar sesión.');
@@ -50,7 +50,7 @@ $(document).ready(function(){
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
                         alert('Se ha registrado correctamente.');
-                        window.location.href = window.location.href;
+                        location.reload();
                     }
                     else {
                         alert('No se ha podido registrar.');
