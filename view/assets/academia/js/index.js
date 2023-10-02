@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
     $("#btn-login").on('click', function(e) {
         e.preventDefault();
         let email    = $('#login-email').val();
@@ -142,6 +142,7 @@ $(document).ready(function(){
                     success: function(response) {
                         //console.log("SE HA MANDADO UNA EDICIÓN");
                         let jsonData = JSON.parse(response);
+                        new_password = jsonData.password;
                         if (jsonData.success == "1") {
                             switch (new_type) {
                                 case "student":

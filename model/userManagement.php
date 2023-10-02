@@ -1,5 +1,6 @@
 <?php
     require_once 'model/db.php';
+    require_once 'config/config.php';
     require_once 'model/user.php';
 
     class UserManagement {
@@ -14,6 +15,7 @@
 
         function createUser() {
             if (!$this->isRepeated(null, $_POST['email'])) {
+                $_POST['password'] = password_hash($_POST['password'], constant('PASSWORD_HASH'), ['cost' => constant('PASSWORD_COST')]);
                 if ($this->db->createUser()) {
                     $this->updateUsers();
                     $user = $this->getUser($_POST['email']);
@@ -85,10 +87,15 @@
         function editUser() {
             if ($this->isRegistered($_POST['id'])) {
                 if (!$this->isRepeated($_POST['id'], $_POST['email'])) {
+                    $user = $this->getUser($_POST['email']);
+                    if ($_POST['password'] != $user->getPassword()) {
+                        $_POST['password'] = password_hash($_POST['password'], constant('PASSWORD_HASH'), ['cost' => constant('PASSWORD_COST')]);
+                    }
                     if ($this->db->editUser()) {
                         $result = json_encode(
                             array(
-                                'success' => 1
+                                'success' => 1, 
+                                'password' => $_POST['password']
                             )
                         );
                     }
@@ -122,7 +129,8 @@
         }
 
         private function getUser($email) {
-            for ($i=0; $i<count($this->users); $i++) {
+            $result = null;
+            for ($i=0; $i<count($this->users) && !$result; $i++) {
                 if ($this->users[$i]->getEmail() == $email) {
                     $result = $this->users[$i];
                 }
@@ -164,7 +172,7 @@
         function isUser() {
             $result = false;
             for ($i=0; $i<count($this->users) && !$result; $i++) {
-                if ($this->users[$i]->getEmail() == $_POST['email'] && $this->users[$i]->getPassword() == $_POST['password']) {
+                if ($this->users[$i]->getEmail() == $_POST['email'] && password_verify($_POST['password'], $this->users[$i]->getPassword())) {
                     $_SESSION["type"] = $this->users[$i]->getType();
                     $result = true;
                 }
@@ -174,6 +182,7 @@
 
         function registerUser() {
             if (!$this->isRepeated(null, $_POST['email'])) {
+                $_POST['password'] = password_hash($_POST['password'], constant('PASSWORD_HASH'), ['cost' => constant('PASSWORD_COST')]);
                 if ($this->db->registerUser()) {
                     $_SESSION["type"] = 'student';
                     $result = json_encode(

@@ -38,7 +38,7 @@
                 echo json_encode(
                   array(
                     'success' => 0, 
-                    'msg'     => 'La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.'
+                    'msg'     => 'La contraseña debe tener entre 8 y 60 carácteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter especial.'
                   )
                 );
               }
@@ -116,7 +116,7 @@
                 echo json_encode(
                   array(
                     'success' => 0, 
-                    'msg'     => 'La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.'
+                    'msg'     => 'La contraseña debe tener entre 8 y 60 carácteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter especial.'
                   )
                 );
               }
@@ -205,7 +205,7 @@
               echo json_encode(
                 array(
                   'success' => 0, 
-                  'msg'     => 'La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.'
+                  'msg'     => 'La contraseña debe tener entre 8 y 60 carácteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter especial.'
                 )
               );
             }
@@ -252,7 +252,7 @@
               echo json_encode(
                 array(
                   'success' => 0, 
-                  'msg'     => 'La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.'
+                  'msg'     => 'La contraseña debe tener entre 8 y 60 carácteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter especial.'
                 )
               );
             }
@@ -290,7 +290,7 @@
     }
 
     function validPassword($password) {
-      return preg_match('/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/', $password);
+      return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&.])([A-Za-z\d$@$!%*?&.]|[^ ]){8,60}$/', $password);
     }
   }
 ?>
