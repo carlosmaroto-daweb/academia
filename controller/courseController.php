@@ -18,6 +18,10 @@
       $this->view = 'courses';
     }
 
+    function secretary() {
+      $this->view = 'secretary';
+    }
+
     function subject() {
       $this->view = 'subject';
     }
