@@ -118,8 +118,16 @@
                                 }
                                 else {
                                     if ($_SESSION["type"] == "admin") {
+                                        echo "<li><a href='index.php?controller=userController&action=secretary'>";
+                                            echo "<button class='button-3d button-sm button-circle button-orange'>Secretaría <i class='fa fa-unlock'></i></button>";
+                                        echo "</a></li>";
                                         echo "<li><a href='index.php?controller=userController&action=home'>";
                                             echo "<button class='button-3d button-sm button-circle button-orange'>Administración <i class='fa  fa-unlock'></i></button>";
+                                        echo "</a></li>";
+                                    }
+                                    else if ($_SESSION["type"] == "secretary") {
+                                        echo "<li><a href='index.php?controller=userController&action=secretary'>";
+                                            echo "<button class='button-3d button-sm button-circle button-orange'>Secretaría <i class='fa fa-unlock'></i></button>";
                                         echo "</a></li>";
                                     }
                                     else {

@@ -281,6 +281,10 @@
       }
     }
 
+    function secretary() {
+      $this->view = 'secretary';
+    }
+
     function validEmail($email) {
       return preg_match('/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/', $email);
     }
