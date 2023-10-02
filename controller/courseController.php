@@ -1,11 +1,13 @@
 <?php
+  require_once 'model/courseManagement.php';
 
   class courseController {
 
     private $view;
+    private $courseManagement;
 
     function __construct() {
-
+      $this->courseManagement = new CourseManagement();
     }
     
     function getView() {
