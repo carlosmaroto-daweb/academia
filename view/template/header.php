@@ -109,7 +109,7 @@
                     <div class="navbar-collapse collapse navbar-main-collapse">
                         <ul class="nav navbar-nav">
                             <li><a href="index.php" class="color-light">Inicio</a></li>
-                            <li><a href="index.php?controller=userController&action=courses" class="color-light">Cursos</a></li>
+                            <li><a href="index.php?controller=courseController&action=index" class="color-light">Cursos</a></li>
                             <?php
                                 if (!isset($_SESSION["type"])) {
                                     echo "<li><a href='index.php?controller=userController&action=home'>";

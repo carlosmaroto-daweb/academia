@@ -22,10 +22,6 @@
       return $result;
     }
 
-    function courses() {
-      $this->view = 'courses';
-    }
-
     function create() {
       if ($this->isAdmin()) {
         if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type']) && !empty($_POST['type'])) {
