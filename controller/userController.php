@@ -30,7 +30,27 @@
       if ($this->isAdmin()) {
         if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type']) && !empty($_POST['type'])) {
           if (!empty($_POST['email']) && !empty($_POST['password'])) {
-            echo $this->userManagement->createUser();
+            if ($this->validEmail($_POST['email'])) {
+              if ($this->validPassword($_POST['password'])) {
+                echo $this->userManagement->createUser();
+              }
+              else {
+                echo json_encode(
+                  array(
+                    'success' => 0, 
+                    'msg'     => 'La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.'
+                  )
+                );
+              }
+            }
+            else {
+              echo json_encode(
+                array(
+                  'success' => 0, 
+                  'msg'     => 'El formato del correo no es correcto.'
+                )
+              );
+            }
           }
           else {
             echo json_encode(
@@ -88,7 +108,27 @@
       if ($this->isAdmin()) {
         if (isset($_POST['id']) && !empty($_POST['id']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type']) && !empty($_POST['type'])) {
           if (!empty($_POST['email'])  && !empty($_POST['password'])) {
-            echo $this->userManagement->editUser();
+            if ($this->validEmail($_POST['email'])) {
+              if ($this->validPassword($_POST['password'])) {
+                echo $this->userManagement->editUser();
+              }
+              else {
+                echo json_encode(
+                  array(
+                    'success' => 0, 
+                    'msg'     => 'La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.'
+                  )
+                );
+              }
+            }
+            else {
+              echo json_encode(
+                array(
+                  'success' => 0, 
+                  'msg'     => 'El formato del correo no es correcto.'
+                )
+              );
+            }
           }
           else {
             echo json_encode(
@@ -147,14 +187,34 @@
     function login() {
       if (isset($_POST['email']) && isset($_POST['password'])){
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
-          if ($this->userManagement->isUser()) {
-            echo json_encode(array('success' => 1));
+          if ($this->validEmail($_POST['email'])) {
+            if ($this->validPassword($_POST['password'])) {
+              if ($this->userManagement->isUser()) {
+                echo json_encode(array('success' => 1));
+              }
+              else {
+                echo json_encode(
+                  array(
+                    'success' => 0, 
+                    'msg'     => 'El correo o la contraseña no coinciden.'
+                  )
+                );
+              }
+            }
+            else {
+              echo json_encode(
+                array(
+                  'success' => 0, 
+                  'msg'     => 'La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.'
+                )
+              );
+            }
           }
           else {
             echo json_encode(
               array(
                 'success' => 0, 
-                'msg'     => 'El correo o la contraseña no coinciden.'
+                'msg'     => 'El formato del correo no es correcto.'
               )
             );
           }
@@ -184,7 +244,27 @@
     function register() {
       if (isset($_POST['email']) && isset($_POST['password'])) {
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
-          echo $this->userManagement->registerUser();
+          if ($this->validEmail($_POST['email'])) {
+            if ($this->validPassword($_POST['password'])) {
+              echo $this->userManagement->registerUser();
+            }
+            else {
+              echo json_encode(
+                array(
+                  'success' => 0, 
+                  'msg'     => 'La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.'
+                )
+              );
+            }
+          }
+          else {
+            echo json_encode(
+              array(
+                'success' => 0, 
+                'msg'     => 'El formato del correo no es correcto.'
+              )
+            );
+          }
         }
         else {
           echo json_encode(
@@ -203,6 +283,14 @@
           )
         );
       }
+    }
+
+    function validEmail($email) {
+      return preg_match('/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/', $email);
+    }
+
+    function validPassword($password) {
+      return preg_match('/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/', $password);
     }
   }
 ?>
