@@ -3,87 +3,62 @@ $(document).ready(function(){
         e.preventDefault();
         let email    = $('#login-email').val();
         let password = $('#login-password').val();
-        if (!email.length || !password.length) {
-            $(".alert").remove();
-            let msg = `
-                <div class="alert alert-danger alert-dismissible fade in col-sm-8 col-sm-offset-2">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>¡Error!</strong> No has introducido los datos.
-                </div>
-            `;
-            $("#formLogin").append(msg);
-        }
-        else {
-            $.ajax({
-                type: "POST",
-                url: 'index.php?controller=userController&action=login&ajax=true',
-                data: {
-                    'email':    email,
-                    'password': password
-                },
-                success: function(response) {
-                    console.log("SE HA MANDADO UN INICIO DE SESIÓN");
-                    let jsonData = JSON.parse(response);
-                    if (jsonData.success == "1") {
-                        location.reload();
-                    }
-                    else {
-                        $(".alert").remove();
-                        let msg = `
-                            <div class="alert alert-danger alert-dismissible fade in col-sm-8 col-sm-offset-2">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>¡Error!</strong> ${jsonData.msg}
-                            </div>
-                        `;
-                        $("#formLogin").append(msg);
-                    }
+        $.ajax({
+            type: "POST",
+            url: 'index.php?controller=userController&action=login&ajax=true',
+            data: {
+                'email':    email,
+                'password': password
+            },
+            success: function(response) {
+                //console.log("SE HA MANDADO UN INICIO DE SESIÓN");
+                let jsonData = JSON.parse(response);
+                if (jsonData.success == "1") {
+                    location.reload();
                 }
-            });
-        }
+                else {
+                    $(".alert").remove();
+                    let msg = `
+                        <div class="alert alert-danger alert-dismissible fade in col-sm-8 col-sm-offset-2">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>¡Error!</strong> ${jsonData.msg}
+                        </div>
+                    `;
+                    $("#formLogin").append(msg);
+                }
+            }
+        });
     });
 
     $("#btn-register").on('click', function(e) {
         e.preventDefault();
         let email    = $('#register-email').val();
         let password = $('#register-password').val();
-        if (!email.length || !password.length) {
-            $(".alert").remove();
-            let msg = `
-            <div class="alert alert-danger alert-dismissible fade in col-sm-8 col-sm-offset-2">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>¡Error!</strong> No has introducido los datos.
-                </div>
-            `;
-            $("#formRegister").append(msg);
-        }
-        else {
-            $.ajax({
-                type: "POST",
-                url: 'index.php?controller=userController&action=register&ajax=true',
-                data: {
-                    'email':    email,
-                    'password': password,
-                    'type':     'student'
-                },
-                success: function(response) {
-                    console.log("SE HA MANDADO UN REGISTRO DE SESIÓN");
-                    let jsonData = JSON.parse(response);
-                    if (jsonData.success == "1") {
-                        location.reload();
-                    }
-                    else {
-                        $(".alert").remove();
-                        let msg = `
-                        <div class="alert alert-danger alert-dismissible fade in col-sm-8 col-sm-offset-2">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>¡Error!</strong> ${jsonData.msg}
-                            </div>
-                        `;
-                        $("#formRegister").append(msg);
-                    }
+        $.ajax({
+            type: "POST",
+            url: 'index.php?controller=userController&action=register&ajax=true',
+            data: {
+                'email':    email,
+                'password': password
+            },
+            success: function(response) {
+                //console.log("SE HA MANDADO UN REGISTRO DE SESIÓN");
+                let jsonData = JSON.parse(response);
+                if (jsonData.success == "1") {
+                    location.reload();
                 }
-            });
-        }
+                else {
+                    $(".alert").remove();
+                    let msg = `
+                    <div class="alert alert-danger alert-dismissible fade in col-sm-8 col-sm-offset-2">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>¡Error!</strong> ${jsonData.msg}
+                        </div>
+                    `;
+                    $("#formRegister").append(msg);
+                }
+            }
+        });
     });
 
     $("#user-edit").on('show.bs.modal', function(event) {
@@ -165,7 +140,7 @@ $(document).ready(function(){
                         'type':         new_type
                     },
                     success: function(response) {
-                        console.log("SE HA MANDADO UNA EDICIÓN");
+                        //console.log("SE HA MANDADO UNA EDICIÓN");
                         let jsonData = JSON.parse(response);
                         if (jsonData.success == "1") {
                             switch (new_type) {
@@ -229,7 +204,7 @@ $(document).ready(function(){
                 type: "GET",
                 url: 'index.php?controller=userController&action=delete&ajax=true&id=' + id,
                 success: function(response) {
-                    console.log("SE HA MANDADO UNA ELIMINACIÓN");
+                    //console.log("SE HA MANDADO UNA ELIMINACIÓN");
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
                         $('#' + id_row).remove();
@@ -290,7 +265,7 @@ $(document).ready(function(){
                     'type':         type
                 },
                 success: function(response) {
-                    console.log("SE HA MANDADO UNA CREACIÓN");
+                    //console.log("SE HA MANDADO UNA CREACIÓN");
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
                         let id               = jsonData.user.id;

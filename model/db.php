@@ -78,7 +78,7 @@
         'last_name'    => '',
         'phone_number' => '',
         'dni'          => '',
-        'type'         => $_POST['type']
+        'type'         => 'student'
       ];
       $sql = "insert into user (email, password, name, last_name, phone_number, dni, type) values (:email, :password, :name, :last_name, :phone_number, :dni, :type)";
       $stmt = $this->conection->prepare($sql);

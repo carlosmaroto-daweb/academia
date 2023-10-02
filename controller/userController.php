@@ -28,14 +28,24 @@
 
     function create() {
       if ($this->isAdmin()) {
-        if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type']) && !empty($_POST['type'])) {
-          echo $this->userManagement->createUser();
+        if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type']) && !empty($_POST['type'])) {
+          if (!empty($_POST['email']) && !empty($_POST['password'])) {
+            echo $this->userManagement->createUser();
+          }
+          else {
+            echo json_encode(
+              array(
+                'success' => 0, 
+                'msg'     => 'No puedes dejar vacíos los campos: correo y contraseña.'
+              )
+            );
+          }
         }
         else {
           echo json_encode(
             array(
-                'success' => 0, 
-                'msg'     => 'No se ha podido crear el usuario.'
+              'success' => 0, 
+              'msg'     => 'No se ha podido crear el usuario.'
             )
           );
         }
@@ -43,8 +53,8 @@
       else {
         echo json_encode(
           array(
-              'success' => 0, 
-              'msg'     => 'No tienes permisos para crear un usuario.'
+            'success' => 0, 
+            'msg'     => 'No tienes permisos para crear un usuario.'
           )
         );
       }
@@ -58,8 +68,8 @@
         else {
           echo json_encode(
             array(
-                'success' => 0, 
-                'msg'     => 'No se ha podido eliminar el usuario.'
+              'success' => 0, 
+              'msg'     => 'No se ha podido eliminar el usuario.'
             )
           );
         }
@@ -67,8 +77,8 @@
       else {
         echo json_encode(
           array(
-              'success' => 0, 
-              'msg'     => 'No tienes permisos para eliminar un usuario.'
+            'success' => 0, 
+            'msg'     => 'No tienes permisos para eliminar un usuario.'
           )
         );
       }
@@ -76,14 +86,24 @@
 
     function edit() {
       if ($this->isAdmin()) {
-        if (isset($_POST['id']) && !empty($_POST['id']) && isset($_POST['email']) && !empty($_POST['email'])  && isset($_POST['password']) && !empty($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type']) && !empty($_POST['type'])) {
-          echo $this->userManagement->editUser();
+        if (isset($_POST['id']) && !empty($_POST['id']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type']) && !empty($_POST['type'])) {
+          if (!empty($_POST['email'])  && !empty($_POST['password'])) {
+            echo $this->userManagement->editUser();
+          }
+          else {
+            echo json_encode(
+              array(
+                'success' => 0, 
+                'msg'     => 'No puedes dejar vacíos los campos: correo y contraseña.'
+              )
+            );
+          }
         }
         else {
           echo json_encode(
             array(
-                'success' => 0, 
-                'msg'     => 'No se ha podido editar el usuario.'
+              'success' => 0, 
+              'msg'     => 'No se ha podido editar el usuario.'
             )
           );
         }
@@ -91,8 +111,8 @@
       else {
         echo json_encode(
           array(
-              'success' => 0, 
-              'msg'     => 'No tienes permisos para editar un usuario.'
+            'success' => 0, 
+            'msg'     => 'No tienes permisos para editar un usuario.'
           )
         );
       }
@@ -125,15 +145,25 @@
     }
 
     function login() {
-      if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])){
-        if ($this->userManagement->isUser()) {
-          echo json_encode(array('success' => 1));
+      if (isset($_POST['email']) && isset($_POST['password'])){
+        if (!empty($_POST['email']) && !empty($_POST['password'])) {
+          if ($this->userManagement->isUser()) {
+            echo json_encode(array('success' => 1));
+          }
+          else {
+            echo json_encode(
+              array(
+                'success' => 0, 
+                'msg'     => 'El correo o la contraseña no coinciden.'
+              )
+            );
+          }
         }
         else {
           echo json_encode(
             array(
-                'success' => 0, 
-                'msg'     => 'El correo o la contraseña no coinciden.'
+              'success' => 0, 
+              'msg'     => 'Se debe introducir el correo y la contraseña.'
             )
           );
         }
@@ -152,14 +182,24 @@
     }
 
     function register() {
-      if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password']) && isset($_POST['type']) && !empty($_POST['type'])) {
-        echo $this->userManagement->registerUser();
+      if (isset($_POST['email']) && isset($_POST['password'])) {
+        if (!empty($_POST['email']) && !empty($_POST['password'])) {
+          echo $this->userManagement->registerUser();
+        }
+        else {
+          echo json_encode(
+            array(
+              'success' => 0, 
+              'msg'     => 'Se debe introducir el correo y la contraseña.'
+            )
+          );
+        }
       }
       else {
         echo json_encode(
           array(
-              'success' => 0, 
-              'msg'     => 'No se ha podido registrar el usuario.'
+            'success' => 0, 
+            'msg'     => 'No se ha podido registrar el usuario.'
           )
         );
       }

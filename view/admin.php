@@ -85,12 +85,12 @@
                 <div class="modal-body">
                     <div>
                         <form id="edit-form">
-                            Correo
+                            Correo <span class="color-pasific">(*)</span>
                             <br>
                             <input id="edit-form-email" type="text" name="email">
                             <br>
                             <br>
-                            Contraseña
+                            Contraseña <span class="color-pasific">(*)</span>
                             <br>
                             <input id="edit-form-password" type="text" name="password">
                             <br>
@@ -115,7 +115,7 @@
                             <input id="edit-form-dni" type="text" name="dni">
                             <br>
                             <br>
-                            Tipo
+                            Tipo <span class="color-pasific">(*)</span>
                             <br>
                             <select id="edit-form-type" name="type">
                                 <option id="type-student-edit" value="student">Alumno</option>
@@ -168,12 +168,12 @@
                 <div class="modal-body">
                     <div>
                         <form id="create-form">
-                            Correo
+                            Correo <span class="color-pasific">(*)</span>
                             <br>
                             <input id="create-form-email" type="text" name="email">
                             <br>
                             <br>
-                            Contraseña
+                            Contraseña <span class="color-pasific">(*)</span>
                             <br>
                             <input id="create-form-password" type="text" name="password">
                             <br>
@@ -198,7 +198,7 @@
                             <input id="create-form-dni" type="text" name="dni">
                             <br>
                             <br>
-                            Tipo
+                            Tipo <span class="color-pasific">(*)</span>
                             <br>
                             <select id="create-form-type" name="type">
                                 <option id="type-student-create" value="student">Alumno</option>

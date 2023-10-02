@@ -13,7 +13,7 @@
         }
 
         function createUser() {
-            if (!$this->isRepeated($_POST['email'])) {
+            if (!$this->isRepeated(null, $_POST['email'])) {
                 if ($this->db->createUser()) {
                     $this->updateUsers();
                     $user = $this->getUser($_POST['email']);
@@ -84,7 +84,7 @@
 
         function editUser() {
             if ($this->isRegistered($_POST['id'])) {
-                if (!$this->isRepeated($_POST['email'])) {
+                if (!$this->isRepeated($_POST['id'], $_POST['email'])) {
                     if ($this->db->editUser()) {
                         $result = json_encode(
                             array(
@@ -144,11 +144,18 @@
             return $result;
         }
 
-        private function isRepeated($email) {
+        private function isRepeated($id, $email) {
             $result = false;
             for ($i=0; $i<count($this->users) && !$result; $i++) {
                 if ($this->users[$i]->getEmail() == $email) {
-                    $result = true;
+                    if ($id != null) {
+                        if ($this->users[$i]->getId() != $id) {
+                            $result = true;
+                        }
+                    }
+                    else {
+                        $result = true;
+                    }
                 }
             }
             return $result;
@@ -166,9 +173,9 @@
         }
 
         function registerUser() {
-            if (!$this->isRepeated($_POST['email'])) {
+            if (!$this->isRepeated(null, $_POST['email'])) {
                 if ($this->db->registerUser()) {
-                    $_SESSION["type"] = $_POST['type'];
+                    $_SESSION["type"] = 'student';
                     $result = json_encode(
                         array(
                             'success' => 1
