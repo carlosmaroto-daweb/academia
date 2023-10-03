@@ -160,7 +160,7 @@ $(document).ready(function() {
                             };
                             let row = `
                                 <td>${new_email}</td>
-                                <td>${new_password}</td>
+                                <td>${new_password.substring(0, 10)}...</td>
                                 <td>${new_name}</td>
                                 <td>${new_last_name}</td>
                                 <td>${new_phone_number}</td>
@@ -295,7 +295,7 @@ $(document).ready(function() {
                         let row = 
                             `<tr id='${id_row}'>
                                 <td>${new_email}</td>
-                                <td>${new_password}</td>
+                                <td>${new_password.substring(0, 10)}...</td>
                                 <td>${new_name}</td>
                                 <td>${new_last_name}</td>
                                 <td>${new_phone_number}</td>
