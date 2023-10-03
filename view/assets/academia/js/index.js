@@ -62,6 +62,8 @@ $(document).ready(function() {
     });
 
     $("#user-edit").on('show.bs.modal', function(event) {
+        let button = '<button id="btn-edit" class="btn btn-primary">Guardar cambios</button>';
+        $('#edit-modal-footer').append(button);
         let option = $(event.relatedTarget);
         let id_row       = option.data('id_row');
         let id           = option.data('id');
@@ -140,7 +142,6 @@ $(document).ready(function() {
                         'type':         new_type
                     },
                     success: function(response) {
-                        //console.log("SE HA MANDADO UNA EDICIÓN");
                         let jsonData = JSON.parse(response);
                         new_password = jsonData.password;
                         if (jsonData.success == "1") {
@@ -193,9 +194,12 @@ $(document).ready(function() {
     $('#user-edit').on('hidden.bs.modal', function() {
         $(".alert").remove();
         $('#edit-form').trigger("reset");
+        $('#btn-edit').remove();
     });
 
     $("#user-delete").on('show.bs.modal', function(event) {
+        let button = '<button id="btn-delete" class="btn btn-primary">Aceptar</button>';
+        $('#delete-modal-footer').append(button);
         let option = $(event.relatedTarget);
         let id_row = option.data('id_row');
         let id = option.data('id');
@@ -205,7 +209,6 @@ $(document).ready(function() {
                 type: "GET",
                 url: 'index.php?controller=userController&action=delete&ajax=true&id=' + id,
                 success: function(response) {
-                    //console.log("SE HA MANDADO UNA ELIMINACIÓN");
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
                         $('#' + id_row).remove();
@@ -228,9 +231,12 @@ $(document).ready(function() {
 
     $('#user-delete').on('hidden.bs.modal', function() {
         $(".alert").remove();
+        $('#btn-delete').remove();
     });
 
     $("#user-create").on('show.bs.modal', function() {
+        let button = '<button id="btn-create" class="btn btn-primary">Crear usuario</button>';
+        $('#create-modal-footer').append(button);
         $('#btn-create').on('click', function(event) {
             event.preventDefault();
             let email        = $('#create-form-email').val();
@@ -266,7 +272,6 @@ $(document).ready(function() {
                     'type':         type
                 },
                 success: function(response) {
-                    //console.log("SE HA MANDADO UNA CREACIÓN");
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
                         let id               = jsonData.user.id;
@@ -327,5 +332,6 @@ $(document).ready(function() {
     $('#user-create').on('hidden.bs.modal', function() {
         $(".alert").remove();
         $('#create-form').trigger("reset");
+        $('#btn-create').remove();
     });
 });

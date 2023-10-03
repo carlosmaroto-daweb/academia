@@ -128,8 +128,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button id="btn-edit" class="btn btn-primary">Guardar cambios</button>
+                <div id="edit-modal-footer" class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 </div>
                 </div>
@@ -149,8 +148,7 @@
                             <p>¿Seguro que quieres eliminar este usuario?</p>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button id="btn-delete" class="btn btn-primary">Aceptar</button>
+                    <div id="delete-modal-footer" class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
@@ -211,8 +209,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button id="btn-create" class="btn btn-primary">Crear usuario</button>
+                <div id="create-modal-footer" class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 </div>
                 </div>
