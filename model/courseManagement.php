@@ -11,6 +11,7 @@
 
     class CourseManagement {
         
+        // Atributos
         private $db;
         private $asignature;
         private $users;

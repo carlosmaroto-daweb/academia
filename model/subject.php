@@ -1,6 +1,7 @@
 <?php
     class Subject {
 
+        // Atributos
         private $id;
         private $name;
         private $studies;

@@ -1,6 +1,7 @@
 <?php
     class User {
 
+        // Atributos
         private $id;
         private $email;
         private $password;

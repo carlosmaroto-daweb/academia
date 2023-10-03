@@ -3,8 +3,14 @@
   // esta clase va a gestionar las operaciones sobre los usuarios de la bd.
   require_once 'model/userManagement.php';
 
+  /* 
+   *
+   * 
+   * 
+  */
   class userController {
 
+    // Atributos
     private $view;
     private $userManagement;
 

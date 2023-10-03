@@ -5,6 +5,7 @@
 
   class courseController {
 
+    // Atributos
     private $view;
     private $courseManagement;
 

@@ -10,6 +10,7 @@
 
     class UserManagement {
         
+        // Atributos
         private $db;
         private $users;
 

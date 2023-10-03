@@ -4,6 +4,7 @@
 
   class Db {
 
+    // Atributos
     private $host;
     private $db;
     private $user;
