@@ -38,7 +38,7 @@
      * 
      * @return Array de todos los usuarios de la BD. 
     */
-    private function admin() {
+    function admin() {
       $result = null;
       if ($this->isAdmin()) {
         $this->view = 'admin';

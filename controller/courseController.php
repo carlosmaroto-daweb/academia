@@ -17,6 +17,10 @@
       return $this->view;
     }
 
+    function home() {
+      $this->view = 'home';
+    }
+
     function index() {
       $this->view = 'courses';
     }

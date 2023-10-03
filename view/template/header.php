@@ -121,7 +121,7 @@
                                         echo "<li><a href='index.php?controller=courseController&action=secretary'>";
                                             echo "<button class='button-3d button-sm button-circle button-orange'>Secretaría <i class='fa fa-unlock'></i></button>";
                                         echo "</a></li>";
-                                        echo "<li><a href='index.php?controller=userController&action=home'>";
+                                        echo "<li><a href='index.php?controller=userController&action=admin'>";
                                             echo "<button class='button-3d button-sm button-circle button-orange'>Administración <i class='fa  fa-unlock'></i></button>";
                                         echo "</a></li>";
                                     }
@@ -131,7 +131,7 @@
                                         echo "</a></li>";
                                     }
                                     else {
-                                        echo "<li><a href='index.php?controller=userController&action=home'>";
+                                        echo "<li><a href='index.php?controller=courseController&action=home'>";
                                             echo "<button class='button-3d button-sm button-circle button-orange'>Mi área <i class='fa  fa-unlock'></i></button>";
                                         echo "</a></li>";
                                     }
