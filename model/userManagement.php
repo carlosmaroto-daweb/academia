@@ -59,7 +59,7 @@
                 $_POST['password'] = password_hash($_POST['password'], constant('PASSWORD_HASH'), ['cost' => constant('PASSWORD_COST')]);
                 if ($this->db->createUser()) {
                     $this->updateUsers();
-                    $user = $this->getUser($_POST['email']);
+                    $user = $this->getUserByEmail($_POST['email']);
                     $result = json_encode(
                         array(
                             'success' => 1, 
@@ -158,7 +158,7 @@
         function editUser() {
             if ($this->isRegistered($_POST['id'])) {
                 if (!$this->isRepeated($_POST['id'], $_POST['email'])) {
-                    $user = $this->getUser($_POST['email']);
+                    $user = $this->getUserById($_POST['id']);
                     if ($_POST['password'] != $user->getPassword()) {
                         $_POST['password'] = password_hash($_POST['password'], constant('PASSWORD_HASH'), ['cost' => constant('PASSWORD_COST')]);
                     }
@@ -205,10 +205,26 @@
          * @param  String email del usuario a consultar.
          * @return Devuelve el usuario dado su email o null si no se encuentra.
         */
-        private function getUser($email) {
+        private function getUserByEmail($email) {
             $result = null;
             for ($i=0; $i<count($this->users) && !$result; $i++) {
                 if ($this->users[$i]->getEmail() == $email) {
+                    $result = $this->users[$i];
+                }
+            }
+            return $result;
+        }
+
+        /*
+         * Método que devuelve el usuario dado por su id.
+         * 
+         * @param  String id del usuario a consultar.
+         * @return Devuelve el usuario dado su id o null si no se encuentra.
+        */
+        private function getUserById($id) {
+            $result = null;
+            for ($i=0; $i<count($this->users) && !$result; $i++) {
+                if ($this->users[$i]->getId() == $id) {
                     $result = $this->users[$i];
                 }
             }
@@ -267,17 +283,43 @@
             return $result;
         }
 
+        /*
+         * Método que consulta si el email coincide con algún usuario de los
+         * guardados, en caso de que así sea se compara la contraseña
+         * encriptada guardada y la introducida por el usuario. Si todo 
+         * funciona correctamente y se cumplen las condiciones se inicia
+         * sesión del usuario según su tipo y se devuelve true.
+         * 
+         * Previamente se ha comprobado que estén los parámetros email y
+         * password y que sean válidos en el controlador.
+         * 
+         * @return Devuelve true si el email y la contraseña coincide
+         *         con algún usuario registrado.
+        */
         function isUser() {
             $result = false;
-            for ($i=0; $i<count($this->users) && !$result; $i++) {
-                if ($this->users[$i]->getEmail() == $_POST['email'] && password_verify($_POST['password'], $this->users[$i]->getPassword())) {
-                    $_SESSION["type"] = $this->users[$i]->getType();
-                    $result = true;
-                }
+            $user = $this->getUserByEmail($_POST['email']);
+            if ($user != null && $user->getEmail() == $_POST['email'] && password_verify($_POST['password'], $user->getPassword())) {
+                $_SESSION["type"] = $user->getType();
+                $result = true;
             }
             return $result;
         }
 
+        /*
+         * Método que consulta si el email no se repite con alguno de los 
+         * usuarios de los guardados, en caso de que así sea se encripta 
+         * la contraseña y se llama a la base de datos para registrar el 
+         * nuevo usuario de tipo estudiante. Si todo funciona correctamente
+         * y se cumplen las condiciones se inicia sesión del usuario de tipo
+         * estudiante y se devuelve que ha tenido éxito, en caso contrario 
+         * se muestra un mensaje del error correspondiente.
+         * 
+         * Previamente se ha comprobado que estén los parámetros email y
+         * password y que sean válidos en el controlador.
+         * 
+         * @return JSON con parámetros success y en caso de error msg.
+        */
         function registerUser() {
             if (!$this->isRepeated(null, $_POST['email'])) {
                 $_POST['password'] = password_hash($_POST['password'], constant('PASSWORD_HASH'), ['cost' => constant('PASSWORD_COST')]);
@@ -309,6 +351,10 @@
             return $result;
         }
 
+        /*
+         * Método que guarda en el array users los datos de los usuarios
+         * registados en la base de datos.
+        */
         private function updateUsers() {
             $this->users = [];
             $query = $this->db->getUsers();
