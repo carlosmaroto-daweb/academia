@@ -2,6 +2,13 @@
   // Incluimos el archivo config.php para utilizar las constantes definidas en él.
   require_once 'config/config.php';
 
+  /* 
+   * Esta clase ejecuta sentencias sql mediante una conexión a la base
+   * de datos mediante los datos pasados por GET y POST.
+   * 
+   * @author: Carlos Maroto
+   * @version: v1.0.0 Carlos Maroto
+  */
   class Db {
 
     // Atributos
