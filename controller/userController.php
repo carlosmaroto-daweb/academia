@@ -223,8 +223,10 @@
 
     /*
      * En caso de que este método sea llamado por un administrador llama al
-     * método admin de la clase, en caso de que sea un estudiante le devolverá
-     * la vista home y en caso de que no esté logeado llama al método login.
+     * método admin de la clase, en caso de que sea alguien de secretaría
+     * mostrará la vista secretary, en caso de que sea un alumno o un profesor
+     * mostrará la vista home y en caso de que no esté logeado llama al método
+     * login.
      * 
      * @return Devuelve la lista de todos los usuarios si es admin.
     */
@@ -233,7 +235,12 @@
       if ($this->isAdmin()) {
         $result = $this->admin();
       }
-      else if ($this->isStudent()) {
+      elseif ($this->isSecretary()) {
+        // $result = llamada a courseController para obtener los datos a mostrar en la vista
+        $this->view = 'secretary';
+      }
+      else if ($this->isStudent() || $this->isTeacher()) {
+        // $result = llamada a courseController para obtener los datos a mostrar en la vista
         $this->view = 'home';
       }
       else if (!isset($_SESSION["type"])) {
@@ -259,12 +266,30 @@
     }
 
     /*
+     * Método que comprueba si el usuario se ha logeado y si es de tipo secretaría.
+     * 
+     * @return Devuelve true si el usuario se ha logeado y si es de tipo secretaría, en caso contrario false.
+    */
+    private function isSecretary() {
+      return isset($_SESSION["type"]) && $_SESSION["type"] == 'secretary';
+    }
+
+    /*
      * Método que comprueba si el usuario se ha logeado y si es de tipo estudiante.
      * 
      * @return Devuelve true si el usuario se ha logeado y si es de tipo estudiante, en caso contrario false.
     */
     private function isStudent() {
       return isset($_SESSION["type"]) && $_SESSION["type"] == 'student';
+    }
+
+    /*
+     * Método que comprueba si el usuario se ha logeado y si es de tipo profesor.
+     * 
+     * @return Devuelve true si el usuario se ha logeado y si es de tipo profesor, en caso contrario false.
+    */
+    private function isTeacher() {
+      return isset($_SESSION["type"]) && $_SESSION["type"] == 'teacher';
     }
 
     /*
