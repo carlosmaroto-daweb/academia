@@ -25,7 +25,7 @@
                                     foreach ($dataToView as $row):
                                         echo "<tr id='row{$count}'>";
                                             echo "<td>{$row->getEmail()}</td>";
-                                            echo "<td>{$row->getPassword()}</td>";
+                                            echo "<td>" . substr($row->getPassword(), 0, 10) . "...</td>";
                                             echo "<td>{$row->getName()}</td>";
                                             echo "<td>{$row->getLastName()}</td>";
                                             echo "<td>{$row->getPhoneNumber()}</td>";
