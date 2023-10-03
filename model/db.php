@@ -1,4 +1,5 @@
 <?php
+    // Incluimos el archivo config.php para utilizar las constantes definidas en él
   require_once 'config/config.php';
 
   class Db {

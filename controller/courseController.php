@@ -1,4 +1,6 @@
 <?php
+  // Incluimos el archivo courseManagement.php para instanciar la clase como objeto,
+  // esta clase va a gestionar las operaciones sobre los cursos.
   require_once 'model/courseManagement.php';
 
   class courseController {
