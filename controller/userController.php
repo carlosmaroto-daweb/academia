@@ -38,7 +38,7 @@
      * 
      * @return Array de todos los usuarios de la BD. 
     */
-    function admin() {
+    private function admin() {
       $result = null;
       if ($this->isAdmin()) {
         $this->view = 'admin';
@@ -62,7 +62,7 @@
     */
     function create() {
       if ($this->isAdmin()) {
-        if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type']) && $this->isType($_POST['type'])) {
+        if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type']) && $this->validType($_POST['type'])) {
           if (!empty($_POST['email']) && !empty($_POST['password'])) {
             if ($this->validEmail($_POST['email'])) {
               if ($this->validPassword($_POST['password'])) {
@@ -159,7 +159,7 @@
     */
     function edit() {
       if ($this->isAdmin()) {
-        if (isset($_POST['id']) && !empty($_POST['id']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type']) && $this->isType($_POST['type'])) {
+        if (isset($_POST['id']) && !empty($_POST['id']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type']) && $this->validType($_POST['type'])) {
           if (!empty($_POST['email'])  && !empty($_POST['password'])) {
             if ($this->validEmail($_POST['email'])) {
               if ($this->validPassword($_POST['password'])) {
@@ -254,7 +254,7 @@
      * 
      * @return Devuelve true si el usuario se ha logeado y si es de tipo administrador, en caso contrario false.
     */
-    function isAdmin() {
+    private function isAdmin() {
       return isset($_SESSION["type"]) && $_SESSION["type"] == 'admin';
     }
 
@@ -263,18 +263,8 @@
      * 
      * @return Devuelve true si el usuario se ha logeado y si es de tipo estudiante, en caso contrario false.
     */
-    function isStudent() {
+    private function isStudent() {
       return isset($_SESSION["type"]) && $_SESSION["type"] == 'student';
-    }
-
-    /*
-     * Método que comprueba si el tipo pasado es uno de los tipos permitidos.
-     * 
-     * @param  String a comprobar si es un tipo permitido.
-     * @return Devuelve true si el tipo está dentro de los permitidos.
-    */
-    function isType($type) {
-      return in_array($type, $this->types);
     }
 
     /*
@@ -407,7 +397,7 @@
      * @param  String a comprobar si es un email válido.
      * @return Delvuelve true si cumple el formato válido para email.
     */
-    function validEmail($email) {
+    private function validEmail($email) {
       return preg_match('/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/', $email);
     }
 
@@ -420,8 +410,18 @@
      * @param  String a comprobar si es una contraseña válida.
      * @return Delvuelve true si cumple el formato válido para la contraseña.
     */
-    function validPassword($password) {
+    private function validPassword($password) {
       return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&.])([A-Za-z\d$@$!%*?&.]|[^ ]){8,60}$/', $password);
+    }
+
+    /*
+     * Método que comprueba si el tipo pasado es uno de los tipos permitidos.
+     * 
+     * @param  String a comprobar si es un tipo permitido.
+     * @return Devuelve true si el tipo está dentro de los permitidos.
+    */
+    private function validType($type) {
+      return in_array($type, $this->types);
     }
   }
 ?>

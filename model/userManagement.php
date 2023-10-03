@@ -8,17 +8,52 @@
     // esta clase define los campos que van a tener los usuarios.
     require_once 'model/user.php';
 
+    /* 
+    * Esta clase hace de intermediaria entre el controlador userController con
+    * funcionalidades de gestión de usuarios, y modelos como el de la base de 
+    * datos db y el modelo que define los campos de los usuarios user.
+    * De forma que termina de ejecutar las funcionalidades implementadas en el
+    * controlador userController como crear, editar y eliminar usuarios, además
+    * de iniciar sesión y resgistrar a los usuarios, haciendo comprobaciones con
+    * la lista de usuarios actuales de la base de datos y posteriormente 
+    * llamar a los métodos de la base de datos para terminar el proceso y 
+    * devolver el resultado.
+    * 
+    * @author: Carlos Maroto
+    * @version: v1.0.0 Carlos Maroto
+    */
     class UserManagement {
         
         // Atributos
         private $db;
         private $users;
 
+        /*
+        * Creamos una instancia de Db al inicio para poder utilizarla más 
+        * adelante, a su vez el constructor de esta clase crea una conexión
+        * con la base de datos. Además actualiza la lista de usuarios, por
+        * lo que siempre estamos trabajando con los nuevos datos.
+        */
         function __construct() {
             $this->db = new Db();
             $this->updateUsers();
         }
 
+        /*
+         * Método que comprueba que el email introducido no lo tiene ningún
+         * usuario en la base de datos, encripta la contraseña y llama a la
+         * base de datos para crear el usuario. Si todo funciona correctamente
+         * y se cumple las condiciones se actualiza la lista de usuarios para
+         * extraer el que hemos creado previamente y se devuelve con el resultado,
+         * en caso contrario se muestra un mensaje del error correspondiente.
+         * 
+         * Previamente se ha comprobado que estén los parámetros email, password,
+         * name, last_name, phone_number, dni y type en el controlador y que sean
+         * válidos.
+         * 
+         * @return JSON con parámetros success, en caso de error msg y en caso 
+         *         de éxito user con todos los parámetros del usuario creado.
+        */
         function createUser() {
             if (!$this->isRepeated(null, $_POST['email'])) {
                 $_POST['password'] = password_hash($_POST['password'], constant('PASSWORD_HASH'), ['cost' => constant('PASSWORD_COST')]);
@@ -61,6 +96,18 @@
             return $result;
         }
 
+        /*
+         * Método que comprueba que el id introducido corresponde al id de un 
+         * usuario de la base de datos y llama a la base de datos para eliminar
+         * el usuario. Si todo funciona correctamente y se cumple las 
+         * condiciones se devuelve que ha tenido éxito, en caso contrario se 
+         * muestra un mensaje del error correspondiente.
+         * 
+         * Previamente se ha comprobado que esté el parámetro id y que sea 
+         * válido en el controlador.
+         * 
+         * @return JSON con parámetros success y en caso de error msg.
+        */
         function deleteUser() {
             if ($this->isRegistered($_GET['id'])) {
                 if ($this->db->deleteUser()) {
@@ -90,6 +137,24 @@
             return $result;
         }
 
+        /*
+         * Método que comprueba que el id introducido corresponde al id de un 
+         * usuario de la base de datos, que el email introducido no lo tiene 
+         * ningún usuario en la base de datos a parte de él mismo, entonces
+         * comprueba si la contraseña guardada es diferente a la nueva para 
+         * codificar la nueva y llama a la base de datos para editar el usuario.
+         * Si todo funciona correctamente y se cumple las condiciones se 
+         * devuelve que ha sido un éxito junto con la nueva contraseña 
+         * codificada, en caso contrario se muestra un mensaje del error 
+         * correspondiente.
+         * 
+         * Previamente se ha comprobado que estén los parámetros id, email, 
+         * password, name, last_name, phone_number, dni y type en el controlador
+         * y que sean válidos.
+         * 
+         * @return JSON con parámetros success, en caso de error msg y en caso 
+         *         de éxito password con la contraseña encriptada.
+        */
         function editUser() {
             if ($this->isRegistered($_POST['id'])) {
                 if (!$this->isRepeated($_POST['id'], $_POST['email'])) {
@@ -134,6 +199,12 @@
             return $result;
         }
 
+        /*
+         * Método que devuelve el usuario dado por su email.
+         * 
+         * @param  String email del usuario a consultar.
+         * @return Devuelve el usuario dado su email o null si no se encuentra.
+        */
         private function getUser($email) {
             $result = null;
             for ($i=0; $i<count($this->users) && !$result; $i++) {
@@ -144,10 +215,22 @@
             return $result;
         }
 
+        /*
+        * Método de consulta que devuelve el array privado users que contiene
+        * la lista de todos los usuarios actuales de la base de datos.
+        * 
+        * @return Lista de los usuarios de la base de datos.
+        */
         function getUsers() {
             return $this->users;
         }
 
+        /*
+         * Método que devuelve true si el id lo tiene algún usuario guardado.
+         * 
+         * @param  String id del usuario a consultar.
+         * @return Devuelve el true si el id lo tiene algún usuario guardado.
+        */
         private function isRegistered($id) {
             $result = false;
             for ($i=0; $i<count($this->users) && !$result; $i++) {
@@ -158,6 +241,15 @@
             return $result;
         }
 
+        /*
+         * Método que devuelve true si el email lo tiene algún usuario, 
+         * excluyendo el usuario que tenga el mismo id.
+         * 
+         * @param  String id del usuario a consultar.
+         * @param  String email del usuario a consultar.
+         * @return Devuelve el true si el id lo tiene algún usuario guardado
+         *         excluyendo el usuario que tenga el mismo id.
+        */
         private function isRepeated($id, $email) {
             $result = false;
             for ($i=0; $i<count($this->users) && !$result; $i++) {
