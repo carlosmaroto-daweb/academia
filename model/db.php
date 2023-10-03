@@ -11,12 +11,15 @@
     private $pass;
     private $conection;
 
+    /*
+     * Inicializamos los atributos a los valores de las constantes del archivo 
+     * config y establecemos la conexión con la base de datos.
+    */
     function __construct() {
       $this->host = constant('DB_HOST');
       $this->db   = constant('DB');
       $this->user = constant('DB_USER');
       $this->pass = constant('DB_PASS');
-      
       try {
         $this->conection = new PDO('mysql:host='.$this->host.'; dbname='.$this->db, $this->user, $this->pass);
       } catch (PDOException $e) {
@@ -25,6 +28,17 @@
       }
     }
 
+    /*
+      * Método que asigna todos los valores pasados por el POST a un array
+      * asociativo para ejecutar una sentencia sql con la base de datos. En
+      * este caso la sentencia inserta un registro nuevo a la base de datos.
+      * 
+      * Previamente se ha comprobado que estén los parámetros email, password,
+      * name, last_name, phone_number, dni y type en el controlador y que sean
+      * válidos.
+      * 
+      * @return Devuelve true si ha tenido exito la sentencia sql.
+    */
     function createUser() {
       $data = [
         'email'        => $_POST['email'],
@@ -40,6 +54,15 @@
       return $stmt->execute($data);
     }
 
+    /*
+      * Método que asigna todos los valores pasados por el GET a un array
+      * asociativo para ejecutar una sentencia sql con la base de datos. En
+      * este caso la sentencia elimina el registro que coincide con el id.
+      * 
+      * Previamente se ha comprobado que esté el parámetro id y que sea válido.
+      * 
+      * @return Devuelve true si ha tenido exito la sentencia sql.
+    */
     function deleteUser() {
       $data = [
         'id' => $_GET['id']
@@ -49,6 +72,18 @@
       return $stmt->execute($data);
     }
 
+    /*
+      * Método que asigna todos los valores pasados por el POST a un array
+      * asociativo para ejecutar una sentencia sql con la base de datos. En
+      * este caso la sentencia actualiza el registro que coincide con el id 
+      * de la base de datos.
+      * 
+      * Previamente se ha comprobado que estén los parámetros id, email,
+      * password, name, last_name, phone_number, dni y type en el controlador
+      * y que sean válidos.
+      * 
+      * @return Devuelve true si ha tenido exito la sentencia sql.
+    */
     function editUser() {
       $data = [
         'email'        => $_POST['email'],
@@ -65,6 +100,12 @@
       return $stmt->execute($data);
     }
 
+    /*
+      * Método que ejecuta una sentencia sql para obtener todos los usuarios
+      * de la base de datos y los devuelve.
+      * 
+      * @return Devuelve una query con todos los usuarios de la base de datos.
+    */
     function getUsers() {
       $sql = "select * from user";
       $stmt = $this->conection->prepare($sql);
@@ -72,6 +113,16 @@
       return $stmt->fetchAll();
     }
 
+    /*
+      * Método que asigna todos los valores pasados por el POST a un array
+      * asociativo para ejecutar una sentencia sql con la base de datos. En
+      * este caso la sentencia inserta un registro nuevo a la base de datos.
+      * 
+      * Previamente se ha comprobado que estén y sean válidos los parámetros
+      * email y password en el controlador.
+      * 
+      * @return Devuelve true si ha tenido exito la sentencia sql.
+    */
     function registerUser() {
       $data = [
         'email'        => $_POST['email'],
