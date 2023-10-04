@@ -1,4 +1,18 @@
 $(document).ready(function() {
+    $('#summernote').summernote({
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['bold', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']],
+            // [groupName, [list of button]]
+        ]
+    });
     $("#btn-login").on('click', function(e) {
         e.preventDefault();
         let email    = $('#login-email').val();

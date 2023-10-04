@@ -29,6 +29,10 @@
       $this->view = 'secretary';
     }
 
+    function createSubject() {
+      $this->view = 'createSubject';
+    }
+
     function subject() {
       $this->view = 'subject';
     }

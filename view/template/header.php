@@ -66,6 +66,8 @@
         <link rel="stylesheet" href="view/assets/css/icon/font-awesome.css">
         <link rel="stylesheet" href="view/assets/css/icon/et-line-font.css">
 
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
         <link rel="stylesheet" href="view/assets/academia/css/style.css">
         
         <!-- Load JS

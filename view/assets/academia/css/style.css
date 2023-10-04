@@ -30,3 +30,7 @@
 #subject-create-form .button i, .button-3d i, .button-o i {
     margin-left: 0px;
 }
+
+.panel-default .panel-heading {
+    background-color: #f5f5f5;
+}
