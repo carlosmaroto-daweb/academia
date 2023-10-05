@@ -367,4 +367,13 @@ $(document).ready(function() {
         fontNamesIgnoreCheck: ['Open Sans', 'Pacifico', 'Montserrat', 'Source Sans Pro', 'Quicksand'],
         height: 300,
     });
+
+    $('#create-module').on('click', function(event) {
+        event.preventDefault();
+        let name        = $('#module-create-name').val();
+        let studies;
+        studies += $('.name-studies').val;
+        studies += $('.location-studies').val;
+        studies += $(".type-studies option:selected");
+    });
 });

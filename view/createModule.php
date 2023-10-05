@@ -10,9 +10,9 @@
         <br>
         <div id="module-create-studies">
             <div class="row-studies">
-                <input placeholder="Nombre" type="text" name="password">
-                <input placeholder="Ubicación"  type="text" name="password">
-                <select>
+                <input class="name-studies" placeholder="Nombre" type="text" name="name">
+                <input class="location-studies"  placeholder="Ubicación"  type="text" name="location">
+                <select class="type-studies">
                     <option value="oppositions">Oposiciones</option>
                     <option value="university">Univerdidad</option>
                     <option value="institute">Instituto</option>
@@ -25,7 +25,7 @@
         <br>
         Foto de cabecera: <span class="color-pasific">(*)</span>
         <br>
-        <input type="file" id="profile_pic" name="profile_pic" accept=".jpg, .jpeg, .png" />
+        <input type="file" id="header_module" name="profile_pic" accept=".jpg, .jpeg, .png" />
         <br>
         <br>
         Contenido previsualización: <span class="color-pasific">(*)</span>
@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <h3 class="color-light text-capitalize font-open-sans">
-                        <a class="button-3d button-md button-rounded button-success" data-toggle='modal' data-target='#user-create'>Añadir nuevo módulo</a>
+                        <a id="create-module" class="button-3d button-md button-rounded button-success">Añadir nuevo módulo</a>
                     </h3>
                 </div>
             </div>
