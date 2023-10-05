@@ -1,16 +1,4 @@
 $(document).ready(function() {
-    $('#summernote').summernote({
-        toolbar: [
-            ['view', ['undo', 'redo', 'codeview', 'help']],
-            ['style', ['style']],
-            ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear', 'fontsize', 'fontname', 'color']],
-            ['para', ['ul', 'ol', 'paragraph', 'height']],
-            ['insert', ['table', 'hr', 'link', 'picture', 'video']],
-        ],
-        fontNames: ['Open Sans', 'Pacifico', 'Montserrat', 'Source Sans Pro'],
-        fontNamesIgnoreCheck: ['Open Sans', 'Pacifico', 'Montserrat', 'Source Sans Pro'],
-        height: 300,
-    });
     $("#btn-login").on('click', function(e) {
         e.preventDefault();
         let email    = $('#login-email').val();
@@ -345,5 +333,38 @@ $(document).ready(function() {
         $(".alert").remove();
         $('#create-form').trigger("reset");
         $('#btn-create').remove();
+    });
+    
+    $('#add-module-create-studies').on('click', function() {
+        $row = `
+            <div class="row-studies">
+                <input placeholder="Nombre" type="text" name="password">
+                <input placeholder="Ubicación"  type="text" name="password">
+                <select>
+                    <option value="oppositions">Oposiciones</option>
+                    <option value="university">Univerdidad</option>
+                    <option value="institute">Instituto</option>
+                </select>
+                <a class="delete-module-create-studies button-3d button-xs button-circle button-danger"><i class='fa fa-close'></i></a>
+            </div>
+        `;
+        $('#module-create-studies').append($row);
+    });
+    
+    $('.delete-module-create-studies').on('click', function() {
+        $(this).parent().remove();
+    });
+
+    $('#summernote').summernote({
+        toolbar: [
+            ['view', ['undo', 'redo', 'codeview', 'help']],
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear', 'fontsize', 'fontname', 'color']],
+            ['para', ['ul', 'ol', 'paragraph', 'height']],
+            ['insert', ['table', 'hr', 'link', 'picture', 'video']],
+        ],
+        fontNames: ['Open Sans', 'Pacifico', 'Montserrat', 'Source Sans Pro', 'Quicksand'],
+        fontNamesIgnoreCheck: ['Open Sans', 'Pacifico', 'Montserrat', 'Source Sans Pro', 'Quicksand'],
+        height: 300,
     });
 });
