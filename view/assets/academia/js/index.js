@@ -1,17 +1,15 @@
 $(document).ready(function() {
     $('#summernote').summernote({
         toolbar: [
-            ['style', ['bold', 'italic', 'underline', 'clear']],
-            ['font', ['bold', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],
-            ['fontsize', ['fontsize']],
-            ['fontname', ['fontname']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['table', ['table']],
-            ['insert', ['link', 'picture', 'video']],
-            ['view', ['fullscreen', 'codeview', 'help']],
-            // [groupName, [list of button]]
-        ]
+            ['view', ['undo', 'redo', 'codeview', 'help']],
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear', 'fontsize', 'fontname', 'color']],
+            ['para', ['ul', 'ol', 'paragraph', 'height']],
+            ['insert', ['table', 'hr', 'link', 'picture', 'video']],
+        ],
+        fontNames: ['Open Sans', 'Pacifico', 'Montserrat', 'Source Sans Pro'],
+        fontNamesIgnoreCheck: ['Open Sans', 'Pacifico', 'Montserrat', 'Source Sans Pro'],
+        height: 300,
     });
     $("#btn-login").on('click', function(e) {
         e.preventDefault();

@@ -21,6 +21,6 @@
         <a class="button-3d button-xs button-circle button-success"><i class='fa fa-plus'></i></a>
         <br>
         <br>
-        <div id="summernote"><p>Hello Summernote</p></div>
+        <div id="summernote"></div>
     </form>
 </div>
