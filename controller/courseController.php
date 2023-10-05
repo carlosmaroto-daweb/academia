@@ -7,10 +7,10 @@
 
     // Atributos
     private $view;
-    private $courseManagement;
+    private $courses;
 
     function __construct() {
-      $this->courseManagement = new CourseManagement();
+      
     }
     
     function getView() {
@@ -29,12 +29,12 @@
       $this->view = 'secretary';
     }
 
-    function createSubject() {
-      $this->view = 'createSubject';
+    function createModule() {
+      $this->view = 'createModule';
     }
 
-    function subject() {
-      $this->view = 'subject';
+    function module() {
+      $this->view = 'module';
     }
   }
 ?>

@@ -236,12 +236,12 @@
         $result = $this->admin();
       }
       elseif ($this->isSecretary()) {
-        // $result = llamada a courseController para obtener los datos a mostrar en la vista
         $this->view = 'secretary';
+        // return llamada a courseController para obtener los datos a mostrar en la vista
       }
       else if ($this->isStudent() || $this->isTeacher()) {
-        // $result = llamada a courseController para obtener los datos a mostrar en la vista
         $this->view = 'home';
+        // return llamada a courseController para obtener los datos a mostrar en la vista
       }
       else if (!isset($_SESSION["type"])) {
         $this->login();
