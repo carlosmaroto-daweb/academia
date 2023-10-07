@@ -9,6 +9,11 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
+                                    <th>Nombre</th>
+                                    <th>Estudios</th>
+                                    <th>Cabecera</th>
+                                    <th>Previsualización</th>
+                                    <th>Contenido</th>
                                     <th>Módulos</th>
                                     <th>Precios</th>
                                     <th>Fecha Inicio</th>
