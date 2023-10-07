@@ -25,12 +25,12 @@
         <br>
         Foto de cabecera: <span class="color-pasific">(*)</span>
         <br>
-        <input type="file" id="header_module" name="profile_pic" accept=".jpg, .jpeg, .png" />
+        <input type="file" id="header_image" name="header_image" accept=".jpg, .jpeg, .png" />
         <br>
         <br>
         Contenido previsualización: <span class="color-pasific">(*)</span>
         <br>
-        <textarea id="w3review" name="w3review" rows="5" cols="50"></textarea>
+        <textarea id="preview" name="preview" rows="5" cols="50"></textarea>
         <br>
         <br>
         Contenido:

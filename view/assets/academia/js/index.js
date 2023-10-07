@@ -374,10 +374,28 @@ $(document).ready(function() {
 
     $('#create-module').on('click', function(event) {
         event.preventDefault();
-        let name        = $('#module-create-name').val();
-        let studies;
-        studies += $('.name-studies').val;
-        studies += $('.location-studies').val;
-        studies += $(".type-studies option:selected");
+        let name         = $('#module-create-name').val();
+        let name_studies = "";
+        $(".name-studies").each(function(){
+            name_studies += $(this).val() + ";;";
+        });
+        let location_studies = "";
+        $(".location-studies").each(function(){
+            location_studies += $(this).val() + ";;";
+        });
+        let type_studies = "";
+        $(".type-studies option:selected").each(function(){
+            type_studies += $(this).val() + ";;";
+        });
+        let header_image = $('#header_image').val();
+        let preview      = $('#preview').val();
+        let content      = $('#summernote').summernote('code')
+        //console.log("name: " + name);
+        //console.log("name_studies: " + name_studies);
+        //console.log("location_studies: " + location_studies);
+        //console.log("type_studies: " + type_studies);
+        //console.log("header_image: " + header_image);
+        //console.log("preview: " + preview);
+        //console.log("content: " + content);
     });
 });
