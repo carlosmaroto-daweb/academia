@@ -11,7 +11,6 @@ $(document).ready(function() {
                 'password': password
             },
             success: function(response) {
-                //console.log("SE HA MANDADO UN INICIO DE SESIÓN");
                 let jsonData = JSON.parse(response);
                 if (jsonData.success == "1") {
                     location.reload();
@@ -42,7 +41,6 @@ $(document).ready(function() {
                 'password': password
             },
             success: function(response) {
-                //console.log("SE HA MANDADO UN REGISTRO DE SESIÓN");
                 let jsonData = JSON.parse(response);
                 if (jsonData.success == "1") {
                     location.reload();
