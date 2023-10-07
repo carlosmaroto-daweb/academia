@@ -12,24 +12,27 @@
         private $id;
         private $name;
         private $studies;
-        private $lessons;
-        private $data;
+        private $header_image;
+        private $preview;
+        private $content;
 
         /*
          * Constructor que inicializa todos los atributos a los pasados como argumento.
          * 
-         * @param id            Int id del módulo
-         * @param name          String nombre del módulo
-         * @param studies       JSON estudios del módulo
-         * @param lessons       JSON temas del módulo
-         * @param data          JSON datos del módulo
+         * @param id             Int id del módulo
+         * @param name           String nombre del módulo
+         * @param studies        JSON estudios del módulo
+         * @param header_image   String imagen de cabecera del módulo
+         * @param preview        String contenido de previsualización del módulo
+         * @param content        String contenido del módulo
         */
-        function __construct($id, $name, $studies, $lessons, $data) {
-            $this->id      = $id;
-            $this->name    = $name;
-            $this->studies = $studies;
-            $this->lessons = $lessons;
-            $this->data    = $data;
+        function __construct($id, $name, $studies, $header_image, $preview, $content) {
+            $this->id           = $id;
+            $this->name         = $name;
+            $this->studies      = $studies;
+            $this->header_image = $header_image;
+            $this->preview      = $preview;
+            $this->content      = $content;
         }
 
         /*
@@ -60,21 +63,30 @@
         }
 
         /*
-        * Método de consulta del atributo lessons.
+        * Método de consulta del atributo header_image.
         * 
-        * @return Devuelve las temas del módulo
+        * @return Devuelve la imagen de cabecera del módulo
         */
-        function getLessons() {
-            return $this->lessons;
+        function getHeaderImage() {
+            return $this->header_image;
         }
 
         /*
-        * Método de consulta del atributo data.
+        * Método de consulta del atributo preview.
         * 
-        * @return Devuelve los datos del módulo
+        * @return Devuelve el contenido de previsualización del módulo
         */
-        function getData() {
-            return $this->data;
+        function getPreview() {
+            return $this->preview;
+        }
+
+        /*
+        * Método de consulta del atributo content.
+        * 
+        * @return Devuelve el contenido del módulo
+        */
+        function getContent() {
+            return $this->content;
         }
     }
 ?>
