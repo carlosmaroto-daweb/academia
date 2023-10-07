@@ -33,7 +33,7 @@
         <textarea id="preview" name="preview" rows="5" cols="50"></textarea>
         <br>
         <br>
-        Contenido:
+        Contenido: <span class="color-pasific">(*)</span>
         <br>
         <div id="summernote"></div>
     </form>

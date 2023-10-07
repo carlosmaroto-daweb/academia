@@ -397,5 +397,35 @@ $(document).ready(function() {
         //console.log("header_image: " + header_image);
         //console.log("preview: " + preview);
         //console.log("content: " + content);
+        
+        $.ajax({
+            type: "POST",
+            url: 'index.php?controller=courseController&action=createModule',
+            data: {
+                'name':             name,
+                'name_studies':     name_studies,
+                'location_studies': location_studies,
+                'type_studies':     type_studies,
+                'header_image':     header_image,
+                'preview':          preview,
+                'content':          content
+            },
+            success: function(response) {
+                let jsonData = JSON.parse(response);
+                if (jsonData.success == "1") {
+                    
+                }
+                else {
+                    $(".alert").remove();
+                    let msg = `
+                        <div class="alert alert-danger alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>¡Error!</strong> ${jsonData.msg}
+                        </div>
+                    `;
+                    $("#module-create-form").append(msg);
+                }
+            }
+        });
     });
 });
