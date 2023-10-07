@@ -52,6 +52,8 @@
                                 <tr>
                                     <th>Nombre</th>
                                     <th>Estudios</th>
+                                    <th>Cabecera</th>
+                                    <th>Previsualización</th>
                                     <th>Contenido</th>
                                 </tr>
                             </thead>
