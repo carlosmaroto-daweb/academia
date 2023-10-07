@@ -334,19 +334,25 @@ $(document).ready(function() {
     });
     
     $('#add-module-create-studies').on('click', function() {
-        $row = `
-            <div class="row-studies">
-                <input placeholder="Nombre" type="text" name="password">
-                <input placeholder="Ubicación"  type="text" name="password">
-                <select>
-                    <option value="oppositions">Oposiciones</option>
-                    <option value="university">Univerdidad</option>
-                    <option value="institute">Instituto</option>
-                </select>
-                <a class="delete-module-create-studies button-3d button-xs button-circle button-danger"><i class='fa fa-close'></i></a>
-            </div>
+        let div = document.createElement("div");
+        div.setAttribute("class", "row-studies");
+        div.innerHTML = `
+            <input class="name-studies" placeholder="Nombre" type="text" name="name">
+            <input class="location-studies"  placeholder="Ubicación"  type="text" name="location">
+            <select class="type-studies">
+                <option value="oppositions">Oposiciones</option>
+                <option value="university">Univerdidad</option>
+                <option value="institute">Instituto</option>
+            </select>
         `;
-        $('#module-create-studies').append($row);
+        let link = document.createElement("a");
+        link.setAttribute("class", "delete-module-create-studies button-3d button-xs button-circle button-danger");
+        link.innerHTML = `<i class='fa fa-close'></i>`;
+        link.onclick = function() {
+            $(this).parent().remove();
+        }
+        div.appendChild(link);
+        $('#module-create-studies').append(div);
     });
     
     $('.delete-module-create-studies').on('click', function() {
