@@ -393,6 +393,29 @@ $(document).ready(function() {
         });
     });
 
+    $('#add-course-create-modules').on('click', function() {
+        let row_modules = document.createElement("div");
+        row_modules.setAttribute("class", "row-modules");
+        let select = document.createElement("select");
+        select.setAttribute("class", "modules");
+        select.innerHTML = document.getElementById("select-modules").innerHTML;
+        row_modules.appendChild(select);
+        let input = document.createElement("input");
+        input.setAttribute("class", "price-modules");
+        input.setAttribute("placeholder", "Precio");
+        input.setAttribute("type", "text");
+        input.setAttribute("name", "name");
+        row_modules.appendChild(input);
+        let link = document.createElement("a");
+        link.setAttribute("class", "delete-course-create-modules button-3d button-xs button-circle button-danger");
+        link.innerHTML = `<i class='fa fa-close'></i>`;
+        link.onclick = function() {
+            $(this).parent().remove();
+        }
+        row_modules.appendChild(link);
+        $('#course-create-modules').append(row_modules);
+    });
+    
     /*
     $('#create-module').on('click', function(event) {
         event.preventDefault();
@@ -449,31 +472,5 @@ $(document).ready(function() {
                 }
             }
         });
-    });*/
-    /*
-    $('#add-course-create-studies').on('click', function() {
-        let div = document.createElement("div");
-        div.setAttribute("class", "row-studies");
-        div.innerHTML = `
-            <input class="name-studies" placeholder="Nombre" type="text" name="name">
-            <input class="location-studies"  placeholder="Ubicación"  type="text" name="location">
-            <select class="type-studies">
-                <option value="oppositions">Oposiciones</option>
-                <option value="university">Univerdidad</option>
-                <option value="institute">Instituto</option>
-            </select>
-        `;
-        let link = document.createElement("a");
-        link.setAttribute("class", "delete-course-create-studies button-3d button-xs button-circle button-danger");
-        link.innerHTML = `<i class='fa fa-close'></i>`;
-        link.onclick = function() {
-            $(this).parent().remove();
-        }
-        div.appendChild(link);
-        $('#course-create-studies').append(div);
-    });
-    
-    $('.delete-course-create-studies').on('click', function() {
-        $(this).parent().remove();
     });*/
 });
