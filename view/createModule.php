@@ -6,23 +6,6 @@
         <input id="module-create-name" type="text" name="email">
         <br>
         <br>
-        Estudios: <span class="color-pasific">(*)</span>
-        <br>
-        <div id="module-create-studies">
-            <div class="row-studies">
-                <input class="name-studies" placeholder="Nombre" type="text" name="name">
-                <input class="location-studies"  placeholder="Ubicación"  type="text" name="location">
-                <select class="type-studies">
-                    <option value="oppositions">Oposiciones</option>
-                    <option value="university">Univerdidad</option>
-                    <option value="institute">Instituto</option>
-                </select>
-                <a class="delete-module-create-studies button-3d button-xs button-circle button-danger"><i class='fa fa-close'></i></a>
-            </div>
-        </div>
-        <a id="add-module-create-studies" class="button-3d button-xs button-circle button-success"><i class='fa fa-plus'></i></a>
-        <br>
-        <br>
         Foto de cabecera: <span class="color-pasific">(*)</span>
         <br>
         <input type="file" id="header_image" name="header_image" accept=".jpg, .jpeg, .png" />
@@ -30,12 +13,12 @@
         <br>
         Contenido previsualización: <span class="color-pasific">(*)</span>
         <br>
-        <textarea id="preview" name="preview" rows="5" cols="50"></textarea>
+        <div id="preview"></div>
         <br>
         <br>
         Contenido: <span class="color-pasific">(*)</span>
         <br>
-        <div id="summernote"></div>
+        <div id="content"></div>
     </form>
         <div class="container mb100">
             <div class="row">

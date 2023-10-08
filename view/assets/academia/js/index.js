@@ -332,34 +332,21 @@ $(document).ready(function() {
         $('#create-form').trigger("reset");
         $('#btn-create').remove();
     });
-    
-    $('#add-module-create-studies').on('click', function() {
-        let div = document.createElement("div");
-        div.setAttribute("class", "row-studies");
-        div.innerHTML = `
-            <input class="name-studies" placeholder="Nombre" type="text" name="name">
-            <input class="location-studies"  placeholder="Ubicación"  type="text" name="location">
-            <select class="type-studies">
-                <option value="oppositions">Oposiciones</option>
-                <option value="university">Univerdidad</option>
-                <option value="institute">Instituto</option>
-            </select>
-        `;
-        let link = document.createElement("a");
-        link.setAttribute("class", "delete-module-create-studies button-3d button-xs button-circle button-danger");
-        link.innerHTML = `<i class='fa fa-close'></i>`;
-        link.onclick = function() {
-            $(this).parent().remove();
-        }
-        div.appendChild(link);
-        $('#module-create-studies').append(div);
-    });
-    
-    $('.delete-module-create-studies').on('click', function() {
-        $(this).parent().remove();
+
+    $('#preview').summernote({
+        toolbar: [
+            ['view', ['undo', 'redo', 'codeview', 'help']],
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear', 'fontsize', 'fontname', 'color']],
+            ['para', ['ul', 'ol', 'paragraph', 'height']],
+            ['insert', ['table', 'hr', 'link']],
+        ],
+        fontNames: ['Open Sans', 'Pacifico', 'Montserrat', 'Source Sans Pro', 'Quicksand'],
+        fontNamesIgnoreCheck: ['Open Sans', 'Pacifico', 'Montserrat', 'Source Sans Pro', 'Quicksand'],
+        height: 150,
     });
 
-    $('#summernote').summernote({
+    $('#content').summernote({
         toolbar: [
             ['view', ['undo', 'redo', 'codeview', 'help']],
             ['style', ['style']],
@@ -389,7 +376,7 @@ $(document).ready(function() {
         });
         let header_image = $('#header_image').val();
         let preview      = $('#preview').val();
-        let content      = $('#summernote').summernote('code')
+        let content      = $('#content').summernote('code')
         //console.log("name: " + name);
         //console.log("name_studies: " + name_studies);
         //console.log("location_studies: " + location_studies);
@@ -428,4 +415,30 @@ $(document).ready(function() {
             }
         });
     });
+    /*
+    $('#add-course-create-studies').on('click', function() {
+        let div = document.createElement("div");
+        div.setAttribute("class", "row-studies");
+        div.innerHTML = `
+            <input class="name-studies" placeholder="Nombre" type="text" name="name">
+            <input class="location-studies"  placeholder="Ubicación"  type="text" name="location">
+            <select class="type-studies">
+                <option value="oppositions">Oposiciones</option>
+                <option value="university">Univerdidad</option>
+                <option value="institute">Instituto</option>
+            </select>
+        `;
+        let link = document.createElement("a");
+        link.setAttribute("class", "delete-course-create-studies button-3d button-xs button-circle button-danger");
+        link.innerHTML = `<i class='fa fa-close'></i>`;
+        link.onclick = function() {
+            $(this).parent().remove();
+        }
+        div.appendChild(link);
+        $('#course-create-studies').append(div);
+    });
+    
+    $('.delete-course-create-studies').on('click', function() {
+        $(this).parent().remove();
+    });*/
 });
