@@ -19,5 +19,13 @@
         function __construct() {
             $this->db = new Db();
         }
+
+        function createModule() {
+            $result = false;
+            if ($this->db->createModule()) {
+                $result = true;
+            }
+            return $result;
+        }
     }
 ?>

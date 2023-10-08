@@ -35,6 +35,18 @@
       }
     }
 
+    function createModule() {
+      $data = [
+        'name'        => $_POST['name'],
+        'header_image' => $_POST['header_image'],
+        'preview'      => $_POST['preview'],
+        'content'      => $_POST['content']
+      ];
+      $sql = "insert into module (name, header_image, preview, content) values (:name, :header_image, :preview, :content)";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
     /*
       * Método que asigna todos los valores pasados por el POST a un array
       * asociativo para ejecutar una sentencia sql con la base de datos. En

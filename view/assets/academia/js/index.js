@@ -362,6 +362,41 @@ $(document).ready(function() {
     $('#create-module').on('click', function(event) {
         event.preventDefault();
         let name         = $('#module-create-name').val();
+        let header_image = $('#header_image').val();
+        let preview      = $('#preview').summernote('code')
+        let content      = $('#content').summernote('code')
+        $.ajax({
+            type: "POST",
+            url: 'index.php?controller=courseController&action=editModule&ajax=true',
+            data: {
+                'name':         name,
+                'header_image': header_image,
+                'preview':      preview,
+                'content':      content
+            },
+            success: function(response) {
+                let jsonData = JSON.parse(response);
+                if (jsonData.success == "1") {
+                    location.replace('index.php?controller=courseController&action=secretary');
+                }
+                else {
+                    $(".alert").remove();
+                    let msg = `
+                        <div class="alert alert-danger alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>¡Error!</strong> ${jsonData.msg}
+                        </div>
+                    `;
+                    $("#module-create-form").append(msg);
+                }
+            }
+        });
+    });
+
+    /*
+    $('#create-module').on('click', function(event) {
+        event.preventDefault();
+        let name         = $('#module-create-name').val();
         let name_studies = "";
         $(".name-studies").each(function(){
             name_studies += $(this).val() + ";;";
@@ -387,7 +422,7 @@ $(document).ready(function() {
         
         $.ajax({
             type: "POST",
-            url: 'index.php?controller=courseController&action=editModule',
+            url: 'index.php?controller=courseController&action=editModule&ajax=true',
             data: {
                 'name':             name,
                 'name_studies':     name_studies,
@@ -414,7 +449,7 @@ $(document).ready(function() {
                 }
             }
         });
-    });
+    });*/
     /*
     $('#add-course-create-studies').on('click', function() {
         let div = document.createElement("div");
