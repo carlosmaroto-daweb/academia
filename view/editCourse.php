@@ -55,8 +55,11 @@
             echo "<input type='date' id='start' name='trip-start' value='{$year}-{$mon}-{$day}' />";
             echo "<br>";
             echo "<br>";
-            echo "Módulos: <span class='color-pasific'>(*)</span> (en caso de precio único sólo rellenar el primer campo de precio)";
+            echo "Módulos: <span class='color-pasific'>(*)</span> (en caso de precio 0 el acceso es gratuito solo a los registrados)";
             echo "<br>";
+            echo "<div class='row-modules'>";
+                echo "<input class='price-modules' placeholder='Pago único' type='text' name='name'>";
+            echo "</div>";
             echo "<div id='course-create-modules'>";
                 echo "<div class='row-modules'>";
                     echo "<select id='select-modules' class='modules'>";
