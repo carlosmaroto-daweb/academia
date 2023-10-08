@@ -20,6 +20,7 @@
                                     <th>Precios</th>
                                     <th>Alumnos</th>
                                     <th>Profesores</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody id="course-table">
@@ -56,10 +57,11 @@
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
-                                    <th>Estudios</th>
                                     <th>Cabecera</th>
                                     <th>Previsualización</th>
                                     <th>Contenido</th>
+                                    <th>Cursos asignados</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody id="module-table">
