@@ -29,11 +29,11 @@
       $this->view = 'secretary';
     }
 
-    function createCourse() {
-      $this->view = 'createCourse';
+    function editCourse() {
+      $this->view = 'editCourse';
     }
 
-    function createModule() {
+    function editModule() {
       if (isset($_POST['name']) && isset($_POST['name_studies']) && isset($_POST['location_studies']) && isset($_POST['type_studies']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['content'])){
         if (!empty($_POST['name']) && !empty($_POST['name_studies']) && !empty($_POST['location_studies']) && !empty($_POST['type_studies']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['content'])) {
           /*if ($this->validEmail($_POST['email'])) {
@@ -78,7 +78,7 @@
         }
       }
       else {
-        $this->view = 'createModule';
+        $this->view = 'editModule';
       }
     }
 

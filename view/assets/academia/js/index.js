@@ -387,7 +387,7 @@ $(document).ready(function() {
         
         $.ajax({
             type: "POST",
-            url: 'index.php?controller=courseController&action=createModule',
+            url: 'index.php?controller=courseController&action=editModule',
             data: {
                 'name':             name,
                 'name_studies':     name_studies,

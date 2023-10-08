@@ -37,7 +37,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <h3 class="color-light text-capitalize font-open-sans">
-                                <a class="button-3d button-md button-rounded button-success" href="index.php?controller=courseController&action=createCourse">Añadir nuevo curso</a>
+                                <a class="button-3d button-md button-rounded button-success" href="index.php?controller=courseController&action=editCourse">Añadir nuevo curso</a>
                             </h3>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <h3 class="color-light text-capitalize font-open-sans">
-                                <a class="button-3d button-md button-rounded button-success" href="index.php?controller=courseController&action=createModule">Añadir nuevo módulo</a>
+                                <a class="button-3d button-md button-rounded button-success" href="index.php?controller=courseController&action=editModule">Añadir nuevo módulo</a>
                             </h3>
                         </div>
                     </div>
