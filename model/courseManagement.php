@@ -30,8 +30,9 @@
         }
 
         function duplicateModule() {
-            $_POST['name']         = null;
-            $_POST['header_image'] = null;
+            $module = getModuleById();
+            $_POST['name']         = $module.getName();
+            $_POST['header_image'] = $module.getHe;
             $_POST['preview']      = null;
             $_POST['content']      = null;
             if ($this->db->createModule()) {
@@ -42,6 +43,16 @@
                 );
             }
             return $result;
+        }
+
+        function getModuleById() {
+            $module = null;
+            foreach ($this->modules as $module) {
+                if () {
+                    
+                }
+            }
+            return $this->modules;
         }
 
         function getModules() {
