@@ -29,6 +29,21 @@
             return $result;
         }
 
+        function duplicateModule() {
+            $_POST['name']         = null;
+            $_POST['header_image'] = null;
+            $_POST['preview']      = null;
+            $_POST['content']      = null;
+            if ($this->db->createModule()) {
+                $result = json_encode(
+                    array(
+                        'success' => 1
+                    )
+                );
+            }
+            return $result;
+        }
+
         function getModules() {
             return $this->modules;
         }

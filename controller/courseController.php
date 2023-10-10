@@ -59,6 +59,25 @@
       $this->view = 'editCourse';
     }
 
+    function duplicateModule() {
+      if (isset($_GET['id'])) {
+        if (!empty($_GET['id'])) {
+          echo $this->courseManagement->duplicateModule();
+        }
+        else {
+          echo json_encode(
+            array(
+              'success' => 0, 
+              'msg'     => 'Se deben de rellenar todos los campos.'
+            )
+          );
+        }
+      }
+      else {
+        $this->view = 'editModule';
+      }
+    }
+
     function editModule() {
       if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['content'])){
         if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['content'])) {
