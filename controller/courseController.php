@@ -8,6 +8,7 @@
     // Atributos
     private $view;
     private $courses;
+    private $courseManagement;
 
     function __construct() {
       $this->courseManagement = new CourseManagement();
@@ -36,27 +37,14 @@
     function editModule() {
       if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['content'])){
         if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['content'])) {
-          if (file_exists($_POST['header_image'])) {
-            $contenidoBinario = file_get_contents($_POST['header_image']);
-            $imagenComoBase64 = base64_encode($contenidoBinario);
-            $_POST['header_image'] = $imagenComoBase64;
-            if ($this->courseManagement->createModule()) {
-              echo json_encode(array('success' => 1));
-            }
-            else {
-              echo json_encode(
-                array(
-                  'success' => 0, 
-                  'msg'     => 'No se ha podido crear el módulo.'
-                )
-              );
-            }
+          if ($this->courseManagement->createModule()) {
+            echo json_encode(array('success' => 1));
           }
           else {
             echo json_encode(
               array(
                 'success' => 0, 
-                'msg'     => 'La imagen de cabecera no existe.'
+                'msg'     => 'No se ha podido crear el módulo.'
               )
             );
           }

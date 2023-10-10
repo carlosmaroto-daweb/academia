@@ -345,9 +345,10 @@ $(document).ready(function() {
 
     const header_image = document.querySelector('#header_image');
     const header_image_preview = document.querySelector('#header_image_preview');
+    var base64URL = null;
     if (header_image) {
         header_image.addEventListener('input', async (event) => {
-            const base64URL = await encodeFileAsBase64URL(header_image.files[0]);
+            base64URL = await encodeFileAsBase64URL(header_image.files[0]);
             header_image_preview.setAttribute('src', base64URL);
         });
     }
@@ -381,7 +382,7 @@ $(document).ready(function() {
     $('#create-module').on('click', function(event) {
         event.preventDefault();
         let name         = $('#module-create-name').val();
-        let header_image = $('#header_image').val();
+        let header_image = base64URL;
         let preview      = $('#preview').summernote('code')
         let content      = $('#content').summernote('code')
         $.ajax({

@@ -37,7 +37,7 @@
 
     function createModule() {
       $data = [
-        'name'        => $_POST['name'],
+        'name'         => $_POST['name'],
         'header_image' => $_POST['header_image'],
         'preview'      => $_POST['preview'],
         'content'      => $_POST['content']
