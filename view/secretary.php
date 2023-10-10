@@ -66,7 +66,21 @@
                             </thead>
                             <tbody id="module-table">
                                 <?php
-                                    //
+                                    $count = 0; 
+                                    foreach ($dataToView as $row):
+                                        echo "<tr id='row{$count}'>";
+                                            echo "<td>{$row->getName()}</td>";
+                                            echo "<td><img id='header_image_preview' src='{$row->getHeaderImage()}'></td>";
+                                            echo "<td>{$row->getPreview()}</td>";
+                                            echo "<td>{$row->getContent()}</td>";
+                                            echo "<td> </td>";
+                                            echo "<td>";
+                                                echo "<a class='button-o button-sm button-rounded button-blue hover-fade' data-id='{$row->getId()}' data-name='{$row->getName()}' data-header-image='{$row->getHeaderImage()}' data-preview='{$row->getPreview()}' data-content='{$row->getContent()}'>Modificar</a>&nbsp;";
+                                                echo "<a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#module-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
+                                            echo "</td>";
+                                        echo "</tr>";
+                                        $count++; 
+                                    endforeach;
                                 ?>
                             </tbody>
                         </table>
@@ -85,3 +99,23 @@
                 </div>
             </div>
         </section>
+        <div class="modal fade" id="module-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="exampleModalLongTitle">Eliminar módulo</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="delete-form">
+                            <p>¿Seguro que quieres eliminar este módulo?</p>
+                        </div>
+                    </div>
+                    <div id="delete-modal-footer" class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>

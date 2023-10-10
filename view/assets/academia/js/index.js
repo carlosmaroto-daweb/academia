@@ -333,6 +333,43 @@ $(document).ready(function() {
         $('#btn-create').remove();
     });
 
+    $("#module-delete").on('show.bs.modal', function(event) {
+        let button = '<button id="btn-delete" class="btn btn-primary">Aceptar</button>';
+        $('#delete-modal-footer').append(button);
+        let option = $(event.relatedTarget);
+        let id_row = option.data('id_row');
+        let id = option.data('id');
+        $('#btn-delete').on('click', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: 'index.php?controller=courseController&action=deleteModule&ajax=true&id=' + id,
+                success: function(response) {
+                    let jsonData = JSON.parse(response);
+                    if (jsonData.success == "1") {
+                        $('#' + id_row).remove();
+                        $("#module-delete").modal('hide');
+                    }
+                    else {
+                        $(".alert").remove();
+                        let msg = `
+                            <div class="alert alert-danger alert-dismissible fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>¡Error!</strong> ${jsonData.msg}
+                            </div>
+                        `;
+                        $("#delete-form").append(msg);
+                    }
+                }
+            });
+        });
+    });
+
+    $('#module-delete').on('hidden.bs.modal', function() {
+        $(".alert").remove();
+        $('#btn-delete').remove();
+    });
+
     async function encodeFileAsBase64URL(file) {
         return new Promise((resolve) => {
             const reader = new FileReader();

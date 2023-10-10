@@ -73,6 +73,15 @@
       return $stmt->execute($data);
     }
 
+    function deleteModule() {
+      $data = [
+        'id' => $_GET['id']
+      ];
+      $sql = "delete from module where id=:id";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
     /*
       * Método que asigna todos los valores pasados por el GET a un array
       * asociativo para ejecutar una sentencia sql con la base de datos. En
@@ -117,6 +126,13 @@
       $sql = "update user set email=:email, password=:password, name=:name, last_name=:last_name, phone_number=:phone_number, dni=:dni, type=:type where id=:id";
       $stmt = $this->conection->prepare($sql);
       return $stmt->execute($data);
+    }
+
+    function getModules() {
+      $sql = "select * from module";
+      $stmt = $this->conection->prepare($sql);
+      $stmt->execute();
+      return $stmt->fetchAll();
     }
 
     /*

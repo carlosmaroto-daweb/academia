@@ -13,6 +13,30 @@
     function __construct() {
       $this->courseManagement = new CourseManagement();
     }
+
+    function deleteModule() {
+      //if ($this->isAdmin()) {
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+          echo $this->courseManagement->deleteModule();
+        }
+        else {
+          echo json_encode(
+            array(
+              'success' => 0, 
+              'msg'     => 'No se ha podido eliminar el módulo.'
+            )
+          );
+        }
+      /*}
+      else {
+        echo json_encode(
+          array(
+            'success' => 0, 
+            'msg'     => 'No tienes permisos para eliminar un módulo.'
+          )
+        );
+      }*/
+    }
     
     function getView() {
       return $this->view;
@@ -28,6 +52,7 @@
 
     function secretary() {
       $this->view = 'secretary';
+      return $this->courseManagement->getModules();
     }
 
     function editCourse() {
