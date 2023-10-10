@@ -333,6 +333,25 @@ $(document).ready(function() {
         $('#btn-create').remove();
     });
 
+    async function encodeFileAsBase64URL(file) {
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.addEventListener('loadend', () => {
+                resolve(reader.result);
+            });
+            reader.readAsDataURL(file);
+        });
+    };
+
+    const header_image = document.querySelector('#header_image');
+    const header_image_preview = document.querySelector('#header_image_preview');
+    if (header_image) {
+        header_image.addEventListener('input', async (event) => {
+            const base64URL = await encodeFileAsBase64URL(header_image.files[0]);
+            header_image_preview.setAttribute('src', base64URL);
+        });
+    }
+
     $('#preview').summernote({
         toolbar: [
             ['view', ['undo', 'redo', 'codeview', 'help']],

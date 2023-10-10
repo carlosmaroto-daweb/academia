@@ -9,6 +9,7 @@
         Foto de cabecera: <span class="color-pasific">(*)</span>
         <br>
         <input type="file" id="header_image" name="header_image" accept=".jpg, .jpeg, .png" />
+        <img id="header_image_preview">
         <br>
         <br>
         Contenido previsualización: <span class="color-pasific">(*)</span>

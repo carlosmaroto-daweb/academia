@@ -62,6 +62,12 @@
     color: #ff4530;
 }
 
+#header_image_preview {
+    max-width: 150px;
+    max-height: 150px;
+    margin-top: 10px;
+}
+
 .row-modules {
     margin: 3px 0px;
 }
