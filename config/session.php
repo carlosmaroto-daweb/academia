@@ -1,11 +1,23 @@
 <?php
+    // Iniciamos la sesión, en caso de que esté iniciada la mantenemos activa.
+    session_start();
+    
+    /*
+    * Método que comprueba si el usuario se ha logeado.
+    * 
+    * @return Devuelve true si el usuario se ha logeado, en caso contrario false.
+    */
+    function hasLoggedIn() {
+        return isset($_SESSION["type"]);
+    }
+
     /*
      * Método que comprueba si el usuario se ha logeado y si es de tipo administrador.
      * 
      * @return Devuelve true si el usuario se ha logeado y si es de tipo administrador, en caso contrario false.
     */
     function isAdmin() {
-        return isset($_SESSION["type"]) && $_SESSION["type"] == 'admin';
+        return hasLoggedIn() && $_SESSION["type"] == 'admin';
     }
 
     /*
@@ -14,7 +26,7 @@
     * @return Devuelve true si el usuario se ha logeado y si es de tipo secretaría, en caso contrario false.
     */
     function isSecretary() {
-        return isset($_SESSION["type"]) && $_SESSION["type"] == 'secretary';
+        return hasLoggedIn() && $_SESSION["type"] == 'secretary';
     }
 
     /*
@@ -23,7 +35,7 @@
     * @return Devuelve true si el usuario se ha logeado y si es de tipo estudiante, en caso contrario false.
     */
     function isStudent() {
-        return isset($_SESSION["type"]) && $_SESSION["type"] == 'student';
+        return hasLoggedIn() && $_SESSION["type"] == 'student';
     }
 
     /*
@@ -32,6 +44,6 @@
     * @return Devuelve true si el usuario se ha logeado y si es de tipo profesor, en caso contrario false.
     */
     function isTeacher() {
-        return isset($_SESSION["type"]) && $_SESSION["type"] == 'teacher';
+        return hasLoggedIn() && $_SESSION["type"] == 'teacher';
     }
 ?>

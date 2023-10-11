@@ -251,7 +251,7 @@
         $result = $courseController->home();
         $this->view = $courseController->getView();
       }
-      else if (!isset($_SESSION["type"])) {
+      else if (!hasLoggedIn()) {
         $this->login();
       }
       return $result;
@@ -328,7 +328,7 @@
      * y redirige al usuario la vista de inicio.
     */
     function logout() {
-      if (isset($_SESSION["type"])) {
+      if (hasLoggedIn()) {
         $_SESSION["type"] = null;
         session_destroy();
       }

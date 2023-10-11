@@ -2,11 +2,9 @@
     // Incluimos el archivo config.php para utilizar las constantes definidas en él.
     require_once 'config/config.php';
 
-    // Incluimos el archivo functions.php para utilizar las funciones definidas en él.
-    require_once 'functions.php';
-
-    // Iniciamos la sesión, en caso de que esté iniciada la mantenemos activa.
-    session_start();
+    // Incluimos el archivo session.php para iniciar o mantener la sesión, además de
+    // incluir las funciones de control de sesión definidas en el fichero.
+    require_once 'config/session.php';
 
     // Comprobamos si en la llamada se han mandado por argumento el controlador
     // y la acción, en caso de que no, se utilizan los preestablecidos en el 
