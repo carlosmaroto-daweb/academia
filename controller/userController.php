@@ -3,6 +3,10 @@
   // esta clase va a gestionar las operaciones sobre los usuarios de la bd.
   require_once 'model/userManagement.php';
 
+  // Incluimos el archivo courseController.php para instanciar la clase como objeto,
+  // esta clase va a devolver los datos relativos a la vista home del usuario.
+  require_once 'controller/courseController.php';
+
   /* 
    * Esta clase gestiona las funcionalidades que tienen relación con los 
    * usuarios, tales como crear, editar y eliminar usuarios si el usuario que
@@ -236,12 +240,14 @@
         $result = $this->admin();
       }
       elseif ($this->isSecretary()) {
-        $this->view = 'secretary';
-        // return llamada a courseController para obtener los datos a mostrar en la vista
+        $courseController = new courseController();
+        $result = $courseController->secretary();
+        $this->view = $courseController->getView();
       }
       else if ($this->isStudent() || $this->isTeacher()) {
-        $this->view = 'home';
-        // return llamada a courseController para obtener los datos a mostrar en la vista
+        $courseController = new courseController();
+        $result = $courseController->home();
+        $this->view = $courseController->getView();
       }
       else if (!isset($_SESSION["type"])) {
         $this->login();
