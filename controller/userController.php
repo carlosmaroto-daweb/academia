@@ -228,9 +228,11 @@
     /*
      * En caso de que este método sea llamado por un administrador llama al
      * método admin de la clase, en caso de que sea alguien de secretaría
-     * mostrará la vista secretary, en caso de que sea un alumno o un profesor
-     * mostrará la vista home y en caso de que no esté logeado llama al método
-     * login.
+     * llama al método secretary del controlador courseController devolviendo
+     * su salida y mostrando como vista la correspondiente, en caso de que sea
+     * un alumno o un profesor llama al método home del controlador 
+     * courseController devolviendo su salida y mostrando como vista la 
+     * correspondiente, en caso de que no esté logeado llama al método login.
      * 
      * @return Devuelve la lista de todos los usuarios si es admin.
     */
