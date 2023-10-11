@@ -15,7 +15,7 @@
     }
 
     function deleteModule() {
-      //if ($this->isAdmin()) {
+      if ($this->isSecretary() || $this->isAdmin()) {
         if (isset($_GET['id']) && !empty($_GET['id'])) {
           echo $this->courseManagement->deleteModule();
         }
@@ -27,7 +27,7 @@
             )
           );
         }
-      /*}
+      }
       else {
         echo json_encode(
           array(
@@ -35,7 +35,7 @@
             'msg'     => 'No tienes permisos para eliminar un módulo.'
           )
         );
-      }*/
+      }
     }
     
     function getView() {
@@ -51,8 +51,10 @@
     }
 
     function secretary() {
-      $this->view = 'secretary';
-      return $this->courseManagement->getModules();
+      if ($this->isSecretary() || $this->isAdmin()) {
+        $this->view = 'secretary';
+        return $this->courseManagement->getModules();
+      }
     }
 
     function editCourse() {
@@ -60,39 +62,16 @@
     }
 
     function duplicateModule() {
-      if (isset($_GET['id'])) {
-        if (!empty($_GET['id'])) {
-          echo $this->courseManagement->duplicateModule();
-        }
-        else {
-          echo json_encode(
-            array(
-              'success' => 0, 
-              'msg'     => 'Se deben de rellenar todos los campos.'
-            )
-          );
-        }
-      }
-      else {
-        $this->view = 'editModule';
-      }
-    }
-
-    function editModule() {
-      if (isset($_GET['id'])) {
-        $this->view = 'editModule';
-        return $this->courseManagement->getModuleById($_GET['id']);
-      }
-      else if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['content'])){
-        if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['content'])) {
-          if ($this->courseManagement->createModule()) {
-            echo json_encode(array('success' => 1));
+      if ($this->isSecretary() || $this->isAdmin()) {
+        if (isset($_GET['id'])) {
+          if (!empty($_GET['id'])) {
+            echo $this->courseManagement->duplicateModule();
           }
           else {
             echo json_encode(
               array(
                 'success' => 0, 
-                'msg'     => 'No se ha podido crear el módulo.'
+                'msg'     => 'Se deben de rellenar todos los campos.'
               )
             );
           }
@@ -101,18 +80,84 @@
           echo json_encode(
             array(
               'success' => 0, 
-              'msg'     => 'Se deben de rellenar todos los campos.'
+              'msg'     => 'No se ha podido duplicar el módulo.'
             )
           );
         }
       }
       else {
-        $this->view = 'editModule';
+        echo json_encode(
+          array(
+            'success' => 0, 
+            'msg'     => 'No tienes permisos para duplicar módulo.'
+          )
+        );
+      }
+    }
+
+    function editModule() {
+      if ($this->isSecretary() || $this->isAdmin()) {
+        if (isset($_GET['id'])) {
+          $this->view = 'editModule';
+          return $this->courseManagement->getModuleById($_GET['id']);
+        }
+        else if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['content'])){
+          if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['content'])) {
+            if ($this->courseManagement->createModule()) {
+              echo json_encode(array('success' => 1));
+            }
+            else {
+              echo json_encode(
+                array(
+                  'success' => 0, 
+                  'msg'     => 'No se ha podido crear el módulo.'
+                )
+              );
+            }
+          }
+          else {
+            echo json_encode(
+              array(
+                'success' => 0, 
+                'msg'     => 'Se deben de rellenar todos los campos.'
+              )
+            );
+          }
+        }
+        else {
+          $this->view = 'editModule';
+        }
+      }
+      else {
+        echo json_encode(
+          array(
+            'success' => 0, 
+            'msg'     => 'No tienes permisos para editar el módulo.'
+          )
+        );
       }
     }
 
     function module() {
       $this->view = 'module';
+    }
+
+    /*
+    * Método que comprueba si el usuario se ha logeado y si es de tipo administrador.
+    * 
+    * @return Devuelve true si el usuario se ha logeado y si es de tipo administrador, en caso contrario false.
+    */
+    private function isAdmin() {
+        return isset($_SESSION["type"]) && $_SESSION["type"] == 'admin';
+    }
+
+    /*
+    * Método que comprueba si el usuario se ha logeado y si es de tipo secretaría.
+    * 
+    * @return Devuelve true si el usuario se ha logeado y si es de tipo secretaría, en caso contrario false.
+    */
+    private function isSecretary() {
+        return isset($_SESSION["type"]) && $_SESSION["type"] == 'secretary';
     }
   }
 ?>
