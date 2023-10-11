@@ -2,6 +2,7 @@
   // Incluimos el archivo moduleManagement.php para instanciar la clase como objeto,
   // esta clase va a gestionar las operaciones sobre los módulos.
   require_once 'model/moduleManagement.php';
+  
   // Incluimos el archivo courseManagement.php para instanciar la clase como objeto,
   // esta clase va a gestionar las operaciones sobre los cursos.
   require_once 'model/courseManagement.php';
