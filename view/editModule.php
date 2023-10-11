@@ -34,7 +34,7 @@
             echo "<div class='row'>";
                 echo "<div class='col-md-12 text-center'>";
                     echo "<h3 class='color-light text-capitalize font-open-sans'>";
-                        echo "<a  href='index.php?controller=courseController&action=secretary' class='button-3d button-md button-rounded button-danger'>Cancelar</a>";
+                        echo "<a  href='index.php?controller=courseController&action=secretary' class='button-3d button-md button-rounded button-danger'>Cancelar</a>&nbsp;";
                         echo "<a id='create-module' class='button-3d button-md button-rounded button-success'>Guardar</a>";
                     echo "</h3>";
                 echo "</div>";
