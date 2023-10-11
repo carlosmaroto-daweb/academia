@@ -1,23 +1,23 @@
 <?php
-  // Incluimos el archivo courseManagement.php para instanciar la clase como objeto,
+  // Incluimos el archivo moduleManagement.php para instanciar la clase como objeto,
   // esta clase va a gestionar las operaciones sobre los cursos.
-  require_once 'model/courseManagement.php';
+  require_once 'model/moduleManagement.php';
 
-  class courseController {
+  class secretaryController {
 
     // Atributos
     private $view;
     private $courses;
-    private $courseManagement;
+    private $moduleManagement;
 
     function __construct() {
-      $this->courseManagement = new CourseManagement();
+      $this->moduleManagement = new ModuleManagement();
     }
 
     function deleteModule() {
       if ($this->isSecretary() || $this->isAdmin()) {
         if (isset($_GET['id']) && !empty($_GET['id'])) {
-          echo $this->courseManagement->deleteModule();
+          echo $this->moduleManagement->deleteModule();
         }
         else {
           echo json_encode(
@@ -53,7 +53,7 @@
     function secretary() {
       if ($this->isSecretary() || $this->isAdmin()) {
         $this->view = 'secretary';
-        return $this->courseManagement->getModules();
+        return $this->moduleManagement->getModules();
       }
     }
 
@@ -65,7 +65,7 @@
       if ($this->isSecretary() || $this->isAdmin()) {
         if (isset($_GET['id'])) {
           if (!empty($_GET['id'])) {
-            echo $this->courseManagement->duplicateModule();
+            echo $this->moduleManagement->duplicateModule();
           }
           else {
             echo json_encode(
@@ -99,11 +99,11 @@
       if ($this->isSecretary() || $this->isAdmin()) {
         if (isset($_GET['id'])) {
           $this->view = 'editModule';
-          return $this->courseManagement->getModuleById($_GET['id']);
+          return $this->moduleManagement->getModuleById($_GET['id']);
         }
         else if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['content'])){
           if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['content'])) {
-            if ($this->courseManagement->createModule()) {
+            if ($this->moduleManagement->createModule()) {
               echo json_encode(array('success' => 1));
             }
             else {

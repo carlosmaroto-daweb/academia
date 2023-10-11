@@ -96,7 +96,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <h3 class="color-light text-capitalize font-open-sans">
-                        <a  href="index.php?controller=courseController&action=secretary" class="button-3d button-md button-rounded button-danger">Cancelar</a>
+                        <a  href="index.php?controller=secretaryController&action=secretary" class="button-3d button-md button-rounded button-danger">Cancelar</a>
                         <a id="create-course" class="button-3d button-md button-rounded button-success">Guardar</a>
                     </h3>
                 </div>

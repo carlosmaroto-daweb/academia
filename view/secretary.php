@@ -37,7 +37,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <h3 class="color-light text-capitalize font-open-sans">
-                                <a class="button-3d button-md button-rounded button-success" href="index.php?controller=courseController&action=editCourse">Añadir nuevo curso</a>
+                                <a class="button-3d button-md button-rounded button-success" href="index.php?controller=secretaryController&action=editCourse">Añadir nuevo curso</a>
                             </h3>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                                             echo "<td>{$row->getContent()}</td>";
                                             echo "<td> </td>";
                                             echo "<td>";
-                                                echo "<a href='index.php?controller=courseController&action=editModule&id={$row->getId()}' class='button-o button-sm button-rounded button-blue hover-fade' data-id='{$row->getId()}' data-name='{$row->getName()}' data-header_image='{$row->getHeaderImage()}' data-preview='{$row->getPreview()}' data-content='{$row->getContent()}'>Editar</a>&nbsp;";
+                                                echo "<a href='index.php?controller=secretaryController&action=editModule&id={$row->getId()}' class='button-o button-sm button-rounded button-blue hover-fade' data-id='{$row->getId()}' data-name='{$row->getName()}' data-header_image='{$row->getHeaderImage()}' data-preview='{$row->getPreview()}' data-content='{$row->getContent()}'>Editar</a>&nbsp;";
                                                 echo "<a class='button-o button-sm button-rounded button-purple hover-fade' data-toggle='modal' data-target='#module-duplicate' data-id='{$row->getId()}'>Duplicar</a>&nbsp;";
                                                 echo "<a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#module-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
                                             echo "</td>";
@@ -93,7 +93,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <h3 class="color-light text-capitalize font-open-sans">
-                                <a class="button-3d button-md button-rounded button-success" href="index.php?controller=courseController&action=editModule">Añadir nuevo módulo</a>
+                                <a class="button-3d button-md button-rounded button-success" href="index.php?controller=secretaryController&action=editModule">Añadir nuevo módulo</a>
                             </h3>
                         </div>
                     </div>
