@@ -126,8 +126,7 @@
       * de la base de datos.
       * 
       * Previamente se ha comprobado que estén los parámetros id, name,
-      * header_image, preview y content en el controlador
-      * y que sean válidos.
+      * header_image, preview y content en el controlador y que sean válidos.
       * 
       * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
