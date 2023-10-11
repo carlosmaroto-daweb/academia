@@ -1,7 +1,9 @@
 <?php
   // Incluimos el archivo moduleManagement.php para instanciar la clase como objeto,
-  // esta clase va a gestionar las operaciones sobre los cursos.
+  // esta clase va a gestionar las operaciones sobre los módulos.
   require_once 'model/moduleManagement.php';
+  // Incluimos el archivo courseManagement.php para instanciar la clase como objeto,
+  // esta clase va a gestionar las operaciones sobre los cursos.
   require_once 'model/courseManagement.php';
 
   class courseController {
@@ -39,29 +41,6 @@
         );
       }
     }
-    
-    function getView() {
-      return $this->view;
-    }
-
-    function home() {
-      $this->view = 'home';
-    }
-
-    function index() {
-      $this->view = 'courses';
-    }
-
-    function secretary() {
-      if ($this->isSecretary() || $this->isAdmin()) {
-        $this->view = 'secretary';
-        return $this->moduleManagement->getModules();
-      }
-    }
-
-    function editCourse() {
-      $this->view = 'editCourse';
-    }
 
     function duplicateModule() {
       if ($this->isSecretary() || $this->isAdmin()) {
@@ -95,6 +74,10 @@
           )
         );
       }
+    }
+
+    function editCourse() {
+      $this->view = 'editCourse';
     }
 
     function editModule() {
@@ -139,9 +122,17 @@
         );
       }
     }
+    
+    function getView() {
+      return $this->view;
+    }
 
-    function module() {
-      $this->view = 'module';
+    function home() {
+      $this->view = 'home';
+    }
+
+    function index() {
+      $this->view = 'courses';
     }
 
     /*
@@ -160,6 +151,17 @@
     */
     private function isSecretary() {
         return isset($_SESSION["type"]) && $_SESSION["type"] == 'secretary';
+    }
+
+    function module() {
+      $this->view = 'module';
+    }
+
+    function secretary() {
+      if ($this->isSecretary() || $this->isAdmin()) {
+        $this->view = 'secretary';
+        return $this->moduleManagement->getModules();
+      }
     }
   }
 ?>
