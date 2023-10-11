@@ -100,7 +100,7 @@
             return $result;
         }
 
-        function getModuleByName($name) {
+        private function getModuleByName($name) {
             $result = null;
             for ($i=0; $i<count($this->modules) && !$result; $i++) {
                 if ($this->modules[$i]->getName() == $name) {
