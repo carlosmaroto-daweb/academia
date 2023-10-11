@@ -351,7 +351,7 @@ $(document).ready(function() {
             success: function(response) {
                 let jsonData = JSON.parse(response);
                 if (jsonData.success == "1") {
-                    // crear modal en html y agregar módulo a la lista
+                    
                 }
             }
         });
@@ -370,6 +370,26 @@ $(document).ready(function() {
                 success: function(response) {
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
+                        let id           = jsonData.module.id;
+                        let id_row       = 'row' + $('#module-table').children('tr').length;
+                        let name         = jsonData.module.name;
+                        let header_image = jsonData.module.header_image;
+                        let preview      = jsonData.module.preview;
+                        let content      = jsonData.module.content;
+                        let row = 
+                            `<tr id='${id_row}'>
+                                <td>${name}</td>
+                                echo "<td><img id='header_image_preview' src='${header_image}'></td>";
+                                <td>${preview}</td>
+                                <td>${content}</td>
+                                <td> </td>
+                                <td>
+                                    <a class='module-edit button-o button-sm button-rounded button-blue hover-fade' data-id='${id}' data-name='${name}' data-header_image='${header_image}' data-preview='${preview}' data-content='${content}'>Editar</a>&nbsp;
+                                    <a class='button-o button-sm button-rounded button-purple hover-fade' data-toggle='modal' data-target='#module-duplicate' data-id='${id}'>Duplicar</a>&nbsp;
+                                    <a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#module-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
+                                </td>
+                            </tr>`;
+                        $('#module-table').append(row);
                         $("#module-duplicate").modal('hide');
                     }
                     else {

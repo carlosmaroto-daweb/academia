@@ -30,29 +30,48 @@
         }
 
         function duplicateModule() {
-            $module = getModuleById();
-            $_POST['name']         = $module.getName();
-            $_POST['header_image'] = $module.getHe;
-            $_POST['preview']      = null;
-            $_POST['content']      = null;
+            $module = $this->getModuleById($_GET['id']);
+            $_POST['name']         = $module->getName() . " Copia";
+            $_POST['header_image'] = $module->getHeaderImage();
+            $_POST['preview']      = $module->getPreview();
+            $_POST['content']      = $module->getContent();
             if ($this->db->createModule()) {
+                $this->updateModules();
+                $module = $this->getModuleByName($_POST['name']);
                 $result = json_encode(
                     array(
-                        'success' => 1
+                        'success' => 1, 
+                        'module'    => array(
+                            'id'           => $module->getId(),
+                            'name'         => $module->getName(),
+                            'header_image' => $module->getHeaderImage(),
+                            'preview'      => $module->getPreview(),
+                            'content'      => $module->getContent()
+                        )
                     )
                 );
             }
             return $result;
         }
 
-        function getModuleById() {
-            $module = null;
-            foreach ($this->modules as $module) {
-                if () {
-                    
+        function getModuleById($id) {
+            $result = null;
+            for ($i=0; $i<count($this->modules) && !$result; $i++) {
+                if ($this->modules[$i]->getId() == $id) {
+                    $result = $this->modules[$i];
                 }
             }
-            return $this->modules;
+            return $result;
+        }
+
+        function getModuleByName($name) {
+            $result = null;
+            for ($i=0; $i<count($this->modules) && !$result; $i++) {
+                if ($this->modules[$i]->getName() == $name) {
+                    $result = $this->modules[$i];
+                }
+            }
+            return $result;
         }
 
         function getModules() {
