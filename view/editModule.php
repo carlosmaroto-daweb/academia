@@ -1,5 +1,6 @@
 <?php
     if ($dataToView) {
+        $id           = $dataToView->getId();
         $name         = $dataToView->getName();
         $header_image = $dataToView->getHeaderImage();
         $preview      = $dataToView->getPreview();
@@ -8,6 +9,7 @@
     echo "<div class='container pt70'>";
         echo "<h4 class='text-center mt100 mb10'>Creación del Módulo</h4>";
         echo "<form id='module-create-form'>";
+            echo "<input id='module-create-id' type='hidden' value='{$id}'>";
             echo "Nombre: <span class='color-pasific'>(*)</span>";
             echo "<br>";
             echo "<input id='module-create-name' type='text' name='email' value='{$name}'>";

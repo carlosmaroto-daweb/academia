@@ -474,6 +474,7 @@ $(document).ready(function() {
 
     $('#create-module').on('click', function(event) {
         event.preventDefault();
+        let id           = $('#module-create-id').val();
         let name         = $('#module-create-name').val();
         let header_image = base64URL;
         let preview      = $('#preview').summernote('code')
@@ -482,6 +483,7 @@ $(document).ready(function() {
             type: "POST",
             url: 'index.php?controller=courseController&action=editModule&ajax=true',
             data: {
+                'id':           id,
                 'name':         name,
                 'header_image': header_image,
                 'preview':      preview,

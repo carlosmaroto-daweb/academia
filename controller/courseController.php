@@ -86,6 +86,31 @@
           $this->view = 'editModule';
           return $this->moduleManagement->getModuleById($_GET['id']);
         }
+        else if (isset($_POST['id']) && !empty($_POST['id'])) {
+          if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['content'])){
+            if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['content'])) {
+              if ($this->moduleManagement->editModule()) {
+                echo json_encode(array('success' => 1));
+              }
+              else {
+                echo json_encode(
+                  array(
+                    'success' => 0, 
+                    'msg'     => 'No se ha podido crear el módulo.'
+                  )
+                );
+              }
+            }
+            else {
+              echo json_encode(
+                array(
+                  'success' => 0, 
+                  'msg'     => 'Se deben de rellenar todos los campos.'
+                )
+              );
+            }
+          }
+        }
         else if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['content'])){
           if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['content'])) {
             if ($this->moduleManagement->createModule()) {
