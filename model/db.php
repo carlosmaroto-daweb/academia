@@ -35,6 +35,16 @@
       }
     }
 
+    /*
+      * Método que asigna todos los valores pasados por el POST a un array
+      * asociativo para ejecutar una sentencia sql con la base de datos. En
+      * este caso la sentencia inserta un registro nuevo a la base de datos.
+      * 
+      * Previamente se ha comprobado que estén los parámetros name,
+      * header_image, preview y content en el controlador y que sean válidos.
+      * 
+      * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
     function createModule() {
       $data = [
         'name'         => $_POST['name'],
@@ -56,7 +66,7 @@
       * name, last_name, phone_number, dni y type en el controlador y que sean
       * válidos.
       * 
-      * @return Devuelve true si ha tenido exito la sentencia sql.
+      * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function createUser() {
       $data = [
@@ -73,6 +83,15 @@
       return $stmt->execute($data);
     }
 
+    /*
+      * Método que asigna todos los valores pasados por el GET a un array
+      * asociativo para ejecutar una sentencia sql con la base de datos. En
+      * este caso la sentencia elimina el registro que coincide con el id.
+      * 
+      * Previamente se ha comprobado que esté el parámetro id y que sea válido.
+      * 
+      * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
     function deleteModule() {
       $data = [
         'id' => $_GET['id']
@@ -89,7 +108,7 @@
       * 
       * Previamente se ha comprobado que esté el parámetro id y que sea válido.
       * 
-      * @return Devuelve true si ha tenido exito la sentencia sql.
+      * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function deleteUser() {
       $data = [
@@ -106,11 +125,36 @@
       * este caso la sentencia actualiza el registro que coincide con el id 
       * de la base de datos.
       * 
+      * Previamente se ha comprobado que estén los parámetros id, name,
+      * header_image, preview y content en el controlador
+      * y que sean válidos.
+      * 
+      * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
+    function editModule() {
+      $data = [
+        'name'         => $_POST['name'],
+        'header_image' => $_POST['header_image'],
+        'preview'      => $_POST['preview'],
+        'content'      => $_POST['content'],
+        'id'           => $_POST['id']
+      ];
+      $sql = "update module set name=:name, header_image=:header_image, preview=:preview, content=:content where id=:id";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
+    /*
+      * Método que asigna todos los valores pasados por el POST a un array
+      * asociativo para ejecutar una sentencia sql con la base de datos. En
+      * este caso la sentencia actualiza el registro que coincide con el id 
+      * de la base de datos.
+      * 
       * Previamente se ha comprobado que estén los parámetros id, email,
       * password, name, last_name, phone_number, dni y type en el controlador
       * y que sean válidos.
       * 
-      * @return Devuelve true si ha tenido exito la sentencia sql.
+      * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function editUser() {
       $data = [
@@ -128,6 +172,12 @@
       return $stmt->execute($data);
     }
 
+    /*
+      * Método que ejecuta una sentencia sql para obtener todos los módulos
+      * de la base de datos y los devuelve.
+      * 
+      * @return Devuelve una query con todos los módulos de la base de datos.
+    */
     function getModules() {
       $sql = "select * from module";
       $stmt = $this->conection->prepare($sql);
@@ -156,7 +206,7 @@
       * Previamente se ha comprobado que estén y sean válidos los parámetros
       * email y password en el controlador.
       * 
-      * @return Devuelve true si ha tenido exito la sentencia sql.
+      * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function registerUser() {
       $data = [
