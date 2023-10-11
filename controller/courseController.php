@@ -19,7 +19,7 @@
     }
 
     function deleteModule() {
-      if ($this->isSecretary() || $this->isAdmin()) {
+      if (isSecretary() || isAdmin()) {
         if (isset($_GET['id']) && !empty($_GET['id'])) {
           echo $this->moduleManagement->deleteModule();
         }
@@ -43,7 +43,7 @@
     }
 
     function duplicateModule() {
-      if ($this->isSecretary() || $this->isAdmin()) {
+      if (isSecretary() || isAdmin()) {
         if (isset($_GET['id'])) {
           if (!empty($_GET['id'])) {
             echo $this->moduleManagement->duplicateModule();
@@ -77,11 +77,13 @@
     }
 
     function editCourse() {
-      $this->view = 'editCourse';
+      if (isSecretary() || isAdmin()) {
+        $this->view = 'editCourse';
+      }
     }
 
     function editModule() {
-      if ($this->isSecretary() || $this->isAdmin()) {
+      if (isSecretary() || isAdmin()) {
         if (isset($_GET['id'])) {
           $this->view = 'editModule';
           return $this->moduleManagement->getModuleById($_GET['id']);
@@ -153,29 +155,13 @@
     }
 
     function home() {
-      $this->view = 'home';
+      if (isStudent() || isTeacher()) {
+        $this->view = 'home';
+      }
     }
 
     function index() {
       $this->view = 'courses';
-    }
-
-    /*
-    * Método que comprueba si el usuario se ha logeado y si es de tipo administrador.
-    * 
-    * @return Devuelve true si el usuario se ha logeado y si es de tipo administrador, en caso contrario false.
-    */
-    private function isAdmin() {
-        return isset($_SESSION["type"]) && $_SESSION["type"] == 'admin';
-    }
-
-    /*
-    * Método que comprueba si el usuario se ha logeado y si es de tipo secretaría.
-    * 
-    * @return Devuelve true si el usuario se ha logeado y si es de tipo secretaría, en caso contrario false.
-    */
-    private function isSecretary() {
-        return isset($_SESSION["type"]) && $_SESSION["type"] == 'secretary';
     }
 
     function module() {
@@ -183,7 +169,7 @@
     }
 
     function secretary() {
-      if ($this->isSecretary() || $this->isAdmin()) {
+      if (isSecretary() || isAdmin()) {
         $this->view = 'secretary';
         return $this->moduleManagement->getModules();
       }

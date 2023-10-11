@@ -2,6 +2,9 @@
     // Incluimos el archivo config.php para utilizar las constantes definidas en él.
     require_once 'config/config.php';
 
+    // Incluimos el archivo functions.php para utilizar las funciones definidas en él.
+    require_once 'functions.php';
+
     // Iniciamos la sesión, en caso de que esté iniciada la mantenemos activa.
     session_start();
 
