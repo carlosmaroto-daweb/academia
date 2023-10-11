@@ -79,7 +79,11 @@
     }
 
     function editModule() {
-      if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['content'])){
+      if (isset($_GET['id'])) {
+        $this->view = 'editModule';
+        return $this->courseManagement->getModuleById($_GET['id']);
+      }
+      else if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['content'])){
         if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['content'])) {
           if ($this->courseManagement->createModule()) {
             echo json_encode(array('success' => 1));

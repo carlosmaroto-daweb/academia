@@ -333,30 +333,6 @@ $(document).ready(function() {
         $('#btn-create').remove();
     });
 
-    $('.module-edit').on('click', function(e) {
-        e.preventDefault();
-        let name         = $(this).attr("data-name");
-        let header_image = $(this).attr("data-header_image");
-        let preview      = $(this).attr("data-preview");
-        let content      = $(this).attr("data-content");
-        $.ajax({
-            type: "POST",
-            url: 'index.php?controller=courseController&action=editModule',
-            data: {
-                'name':         name,
-                'header_image': header_image,
-                'preview':      preview,
-                'content':      content
-            },
-            success: function(response) {
-                let jsonData = JSON.parse(response);
-                if (jsonData.success == "1") {
-                    
-                }
-            }
-        });
-    });
-
     $('#module-duplicate').on('show.bs.modal', function(event) {
         let button = '<button id="btn-duplicate" class="btn btn-primary">Aceptar</button>';
         $('#duplicate-modal-footer').append(button);
@@ -384,7 +360,7 @@ $(document).ready(function() {
                                 <td>${content}</td>
                                 <td> </td>
                                 <td>
-                                    <a class='module-edit button-o button-sm button-rounded button-blue hover-fade' data-id='${id}' data-name='${name}' data-header_image='${header_image}' data-preview='${preview}' data-content='${content}'>Editar</a>&nbsp;
+                                    <a href='index.php?controller=courseController&action=editModule&id=${id}' class='button-o button-sm button-rounded button-blue hover-fade' data-id='${id}' data-name='${name}' data-header_image='${header_image}' data-preview='${preview}' data-content='${content}'>Editar</a>&nbsp;
                                     <a class='button-o button-sm button-rounded button-purple hover-fade' data-toggle='modal' data-target='#module-duplicate' data-id='${id}'>Duplicar</a>&nbsp;
                                     <a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#module-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
                                 </td>
