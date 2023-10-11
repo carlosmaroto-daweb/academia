@@ -439,6 +439,7 @@ $(document).ready(function() {
     const header_image_preview = document.querySelector('#header_image_preview');
     var base64URL = null;
     if (header_image) {
+        base64URL = header_image_preview.getAttribute('src');
         header_image.addEventListener('input', async (event) => {
             base64URL = await encodeFileAsBase64URL(header_image.files[0]);
             header_image_preview.setAttribute('src', base64URL);
