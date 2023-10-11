@@ -2,16 +2,18 @@
   // Incluimos el archivo moduleManagement.php para instanciar la clase como objeto,
   // esta clase va a gestionar las operaciones sobre los cursos.
   require_once 'model/moduleManagement.php';
+  require_once 'model/courseManagement.php';
 
-  class secretaryController {
+  class courseController {
 
     // Atributos
     private $view;
-    private $courses;
     private $moduleManagement;
+    private $courseManagement;
 
     function __construct() {
       $this->moduleManagement = new ModuleManagement();
+      $this->courseManagement = new CourseManagement();
     }
 
     function deleteModule() {

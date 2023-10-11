@@ -342,7 +342,7 @@ $(document).ready(function() {
             e.preventDefault();
             $.ajax({
                 type: "GET",
-                url: 'index.php?controller=secretaryController&action=duplicateModule&ajax=true&id=' + id,
+                url: 'index.php?controller=courseController&action=duplicateModule&ajax=true&id=' + id,
                 success: function(response) {
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
@@ -360,7 +360,7 @@ $(document).ready(function() {
                                 <td>${content}</td>
                                 <td> </td>
                                 <td>
-                                    <a href='index.php?controller=secretaryController&action=editModule&id=${id}' class='button-o button-sm button-rounded button-blue hover-fade' data-id='${id}' data-name='${name}' data-header_image='${header_image}' data-preview='${preview}' data-content='${content}'>Editar</a>&nbsp;
+                                    <a href='index.php?controller=courseController&action=editModule&id=${id}' class='button-o button-sm button-rounded button-blue hover-fade' data-id='${id}' data-name='${name}' data-header_image='${header_image}' data-preview='${preview}' data-content='${content}'>Editar</a>&nbsp;
                                     <a class='button-o button-sm button-rounded button-purple hover-fade' data-toggle='modal' data-target='#module-duplicate' data-id='${id}'>Duplicar</a>&nbsp;
                                     <a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#module-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
                                 </td>
@@ -398,7 +398,7 @@ $(document).ready(function() {
             e.preventDefault();
             $.ajax({
                 type: "GET",
-                url: 'index.php?controller=secretaryController&action=deleteModule&ajax=true&id=' + id,
+                url: 'index.php?controller=courseController&action=deleteModule&ajax=true&id=' + id,
                 success: function(response) {
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
@@ -480,7 +480,7 @@ $(document).ready(function() {
         let content      = $('#content').summernote('code')
         $.ajax({
             type: "POST",
-            url: 'index.php?controller=secretaryController&action=editModule&ajax=true',
+            url: 'index.php?controller=courseController&action=editModule&ajax=true',
             data: {
                 'name':         name,
                 'header_image': header_image,
@@ -490,7 +490,7 @@ $(document).ready(function() {
             success: function(response) {
                 let jsonData = JSON.parse(response);
                 if (jsonData.success == "1") {
-                    location.replace('index.php?controller=secretaryController&action=secretary');
+                    location.replace('index.php?controller=courseController&action=secretary');
                 }
                 else {
                     $(".alert").remove();
@@ -558,7 +558,7 @@ $(document).ready(function() {
         
         $.ajax({
             type: "POST",
-            url: 'index.php?controller=secretaryController&action=editModule&ajax=true',
+            url: 'index.php?controller=courseController&action=editModule&ajax=true',
             data: {
                 'name':             name,
                 'name_studies':     name_studies,

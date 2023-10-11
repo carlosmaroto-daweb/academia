@@ -111,7 +111,7 @@
                     <div class="navbar-collapse collapse navbar-main-collapse">
                         <ul class="nav navbar-nav">
                             <li><a href="index.php" class="color-light">Inicio</a></li>
-                            <li><a href="index.php?controller=secretaryController&action=index" class="color-light">Cursos</a></li>
+                            <li><a href="index.php?controller=courseController&action=index" class="color-light">Cursos</a></li>
                             <?php
                                 if (!isset($_SESSION["type"])) {
                                     echo "<li><a href='index.php?controller=userController&action=home'>";
@@ -120,7 +120,7 @@
                                 }
                                 else {
                                     if ($_SESSION["type"] == "admin") {
-                                        echo "<li><a href='index.php?controller=secretaryController&action=secretary'>";
+                                        echo "<li><a href='index.php?controller=courseController&action=secretary'>";
                                             echo "<button class='button-3d button-sm button-circle button-orange'>Secretaría <i class='fa fa-unlock'></i></button>";
                                         echo "</a></li>";
                                         echo "<li><a href='index.php?controller=userController&action=admin'>";
@@ -128,12 +128,12 @@
                                         echo "</a></li>";
                                     }
                                     else if ($_SESSION["type"] == "secretary") {
-                                        echo "<li><a href='index.php?controller=secretaryController&action=secretary'>";
+                                        echo "<li><a href='index.php?controller=courseController&action=secretary'>";
                                             echo "<button class='button-3d button-sm button-circle button-orange'>Secretaría <i class='fa fa-unlock'></i></button>";
                                         echo "</a></li>";
                                     }
                                     else {
-                                        echo "<li><a href='index.php?controller=secretaryController&action=home'>";
+                                        echo "<li><a href='index.php?controller=courseController&action=home'>";
                                             echo "<button class='button-3d button-sm button-circle button-orange'>Mi área <i class='fa  fa-unlock'></i></button>";
                                         echo "</a></li>";
                                     }
