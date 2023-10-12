@@ -67,8 +67,20 @@
             return $result;
         }
 
+        /*
+         * Método que comprueba que el id introducido corresponde al id de un 
+         * módulo de la base de datos y llama a la base de datos para eliminar
+         * el módulo. Si todo funciona correctamente y se cumple las 
+         * condiciones se devuelve que ha tenido éxito, en caso contrario se 
+         * muestra un mensaje del error correspondiente.
+         * 
+         * Previamente se ha comprobado que esté el parámetro id y que sea 
+         * válido en el controlador.
+         * 
+         * @return JSON con parámetros success y en caso de error msg.
+        */
         function deleteModule() {
-            //if ($this->isRegistered($_GET['id'])) {
+            if ($this->getModuleById($_GET['id'])) {
                 if ($this->db->deleteModule()) {
                     $result = json_encode(
                         array(
@@ -84,37 +96,47 @@
                         )
                     );
                 }
-            /*}
+            }
             else {
                 $result = json_encode(
                     array(
                         'success' => 0, 
-                        'msg'     => 'El usuario no se encuentra registrado.'
+                        'msg'     => 'El módulo no se encuentra en la base de datos.'
                     )
                 );
-            }*/
+            }
             return $result;
         }
 
         function duplicateModule() {
             $module = $this->getModuleById($_GET['id']);
-            $_POST['name']         = $module->getName() . " Copia";
-            $_POST['header_image'] = $module->getHeaderImage();
-            $_POST['preview']      = $module->getPreview();
-            $_POST['content']      = $module->getContent();
-            if ($this->db->createModule()) {
-                $this->updateModules();
-                $module = $this->getModuleByName($_POST['name']);
+            if ($module) {
+                $_POST['name']         = $module->getName() . " Copia";
+                $_POST['header_image'] = $module->getHeaderImage();
+                $_POST['preview']      = $module->getPreview();
+                $_POST['content']      = $module->getContent();
+                if ($this->db->createModule()) {
+                    $this->updateModules();
+                    $module = $this->getModuleByName($_POST['name']);
+                    $result = json_encode(
+                        array(
+                            'success' => 1, 
+                            'module'    => array(
+                                'id'           => $module->getId(),
+                                'name'         => $module->getName(),
+                                'header_image' => $module->getHeaderImage(),
+                                'preview'      => $module->getPreview(),
+                                'content'      => $module->getContent()
+                            )
+                        )
+                    );
+                }
+            }
+            else {
                 $result = json_encode(
                     array(
-                        'success' => 1, 
-                        'module'    => array(
-                            'id'           => $module->getId(),
-                            'name'         => $module->getName(),
-                            'header_image' => $module->getHeaderImage(),
-                            'preview'      => $module->getPreview(),
-                            'content'      => $module->getContent()
-                        )
+                        'success' => 0, 
+                        'msg'     => 'El módulo no se encuentra en la base de datos.'
                     )
                 );
             }
