@@ -151,6 +151,18 @@
             return $result;
         }
 
+        /*
+         * Método que comprueba que el id introducido corresponde al id de un 
+         * módulo de la base de datos y llama a la base de datos para editar el
+         * módulo. Si todo funciona correctamente y se cumple las condiciones 
+         * se devuelve que ha sido un éxito, en caso contrario se muestra un 
+         * mensaje del error correspondiente.
+         * 
+         * Previamente se ha comprobado que estén los parámetros id, name, 
+         * header_image, preview y content en el controlador y que sean válidos.
+         * 
+         * @return JSON con parámetros success y en caso de error msg.
+        */
         function editModule() {
             if ($this->getModuleById($_POST['id'])) {
                 if ($this->db->editModule()) {
