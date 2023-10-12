@@ -6,10 +6,6 @@
     // Incluimos el archivo module.php para instanciar la clase como objeto,
     // esta clase define los campos que van a tener los módulos.
     require_once 'model/module.php';
-    
-    // Incluimos el archivo user.php para instanciar la clase como objeto,
-    // esta clase define los campos que van a tener los usuarios.
-    require_once 'model/user.php';
 
     class ModuleManagement {
         
