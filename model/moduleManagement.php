@@ -131,6 +131,14 @@
                         )
                     );
                 }
+                else {
+                    $result = json_encode(
+                        array(
+                            'success' => 0, 
+                            'msg'     => 'No se ha podido duplicar el módulo de la base de datos.'
+                        )
+                    );
+                }
             }
             else {
                 $result = json_encode(
