@@ -23,9 +23,19 @@
         }
 
         function createModule() {
-            $result = false;
             if ($this->db->createModule()) {
-                $result = true;
+                $result = json_encode(
+                    array(
+                        'success' => 1
+                    )
+                );
+            }
+            else {
+                $result = json_encode(
+                    array(
+                        'success' => 0
+                    )
+                );
             }
             return $result;
         }
@@ -85,9 +95,19 @@
         }
 
         function editModule() {
-            $result = false;
             if ($this->db->editModule()) {
-                $result = true;
+                $result = json_encode(
+                    array(
+                        'success' => 1
+                    )
+                );
+            }
+            else {
+                $result = json_encode(
+                    array(
+                        'success' => 0
+                    )
+                );
             }
             return $result;
         }

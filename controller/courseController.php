@@ -49,18 +49,8 @@
 
     function duplicateModule() {
       if (isSecretary() || isAdmin()) {
-        if (isset($_GET['id'])) {
-          if (!empty($_GET['id'])) {
-            echo $this->moduleManagement->duplicateModule();
-          }
-          else {
-            echo json_encode(
-              array(
-                'success' => 0, 
-                'msg'     => 'Se deben de rellenar todos los campos.'
-              )
-            );
-          }
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+          echo $this->moduleManagement->duplicateModule();
         }
         else {
           echo json_encode(
@@ -101,17 +91,7 @@
         else if (isset($_POST['id']) && !empty($_POST['id'])) {
           if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['content'])){
             if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['content'])) {
-              if ($this->moduleManagement->editModule()) {
-                echo json_encode(array('success' => 1));
-              }
-              else {
-                echo json_encode(
-                  array(
-                    'success' => 0, 
-                    'msg'     => 'No se ha podido crear el módulo.'
-                  )
-                );
-              }
+              echo $this->moduleManagement->editModule();
             }
             else {
               echo json_encode(
@@ -122,20 +102,18 @@
               );
             }
           }
+          else {
+            echo json_encode(
+              array(
+                'success' => 0, 
+                'msg'     => 'No se ha podido crear el módulo.'
+              )
+            );
+          }
         }
         else if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['content'])){
           if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['content'])) {
-            if ($this->moduleManagement->createModule()) {
-              echo json_encode(array('success' => 1));
-            }
-            else {
-              echo json_encode(
-                array(
-                  'success' => 0, 
-                  'msg'     => 'No se ha podido crear el módulo.'
-                )
-              );
-            }
+            echo $this->moduleManagement->createModule();
           }
           else {
             echo json_encode(
