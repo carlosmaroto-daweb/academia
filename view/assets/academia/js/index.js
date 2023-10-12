@@ -472,10 +472,10 @@ $(document).ready(function() {
         height: 300,
     });
 
-    $('#create-module').on('click', function(event) {
+    $('#edit-module').on('click', function(event) {
         event.preventDefault();
-        let id           = $('#module-create-id').val();
-        let name         = $('#module-create-name').val();
+        let id           = $('#module-edit-id').val();
+        let name         = $('#module-edit-name').val();
         let header_image = base64URL;
         let preview      = $('#preview').summernote('code')
         let content      = $('#content').summernote('code')
@@ -502,7 +502,7 @@ $(document).ready(function() {
                             <strong>¡Error!</strong> ${jsonData.msg}
                         </div>
                     `;
-                    $("#module-create-form").append(msg);
+                    $("#module-edit-form").append(msg);
                 }
             }
         });
@@ -532,9 +532,9 @@ $(document).ready(function() {
     });
     
     /*
-    $('#create-module').on('click', function(event) {
+    $('#edit-module').on('click', function(event) {
         event.preventDefault();
-        let name         = $('#module-create-name').val();
+        let name         = $('#module-edit-name').val();
         let name_studies = "";
         $(".name-studies").each(function(){
             name_studies += $(this).val() + ";;";
@@ -583,7 +583,7 @@ $(document).ready(function() {
                             <strong>¡Error!</strong> ${jsonData.msg}
                         </div>
                     `;
-                    $("#module-create-form").append(msg);
+                    $("#module-edit-form").append(msg);
                 }
             }
         });
