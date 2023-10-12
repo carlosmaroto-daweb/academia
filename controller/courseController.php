@@ -84,7 +84,7 @@
 
     function editModule() {
       if (isSecretary() || isAdmin()) {
-        if (isset($_GET['id'])) {
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
           $this->view = 'editModule';
           return $this->moduleManagement->getModuleById($_GET['id']);
         }
