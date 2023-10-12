@@ -75,7 +75,7 @@
         echo json_encode(
           array(
             'success' => 0, 
-            'msg'     => 'No tienes permisos para duplicar módulo.'
+            'msg'     => 'No tienes permisos para duplicar un módulo.'
           )
         );
       }
