@@ -1,4 +1,9 @@
 <?php
+    $id           = "";
+    $name         = "";
+    $header_image = "";
+    $preview      = "";
+    $content      = "";
     if ($dataToView) {
         $id           = $dataToView->getId();
         $name         = $dataToView->getName();
