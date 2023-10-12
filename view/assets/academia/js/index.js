@@ -360,7 +360,7 @@ $(document).ready(function() {
                                 <td>${content}</td>
                                 <td> </td>
                                 <td>
-                                    <a href='index.php?controller=courseController&action=editModule&id=${id}' class='button-o button-sm button-rounded button-blue hover-fade' data-id='${id}' data-name='${name}' data-header_image='${header_image}' data-preview='${preview}' data-content='${content}'>Editar</a>&nbsp;
+                                    <a href='index.php?controller=courseController&action=editModule&id=${id}' class='button-o button-sm button-rounded button-blue hover-fade'>Editar</a>&nbsp;
                                     <a class='button-o button-sm button-rounded button-purple hover-fade' data-toggle='modal' data-target='#module-duplicate' data-id='${id}'>Duplicar</a>&nbsp;
                                     <a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#module-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
                                 </td>
