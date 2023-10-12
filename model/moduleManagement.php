@@ -37,6 +37,17 @@
             $this->updateModules();
         }
 
+        /*
+         * Método que llama a la base de datos para crear el módulo. Si todo 
+         * funciona correctamente se devuelve que ha tenido éxito, en caso 
+         * contrario se muestra un mensaje del error correspondiente.
+         * 
+         * Previamente se ha comprobado que estén los parámetros name, 
+         * header_image, preview y content en el controlador y que sean
+         * válidos.
+         * 
+         * @return JSON con parámetros success y en caso de error msg.
+        */
         function createModule() {
             if ($this->db->createModule()) {
                 $result = json_encode(
@@ -48,7 +59,8 @@
             else {
                 $result = json_encode(
                     array(
-                        'success' => 0
+                        'success' => 0, 
+                        'msg'     => 'No se ha podido crear el módulo en la base de datos.'
                     )
                 );
             }
