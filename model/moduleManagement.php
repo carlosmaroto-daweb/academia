@@ -108,6 +108,21 @@
             return $result;
         }
 
+        /*
+         * Método que comprueba que el id introducido corresponde al id de un 
+         * módulo de la base de datos, guarda en la varible POST los datos del
+         * módulo que se quiere duplicar y llama a la base de datos para crear
+         * el módulo. Si todo funciona correctamente y se cumplen las 
+         * condiciones se actualiza la lista de módulos para extraer el que 
+         * hemos creado previamente y se devuelve con el resultado, en caso 
+         * contrario se muestra un mensaje del error correspondiente.
+         * 
+         * Previamente se ha comprobado que esté el parámetro id y que sea 
+         * válido en el controlador.
+         * 
+         * @return JSON con parámetros success, en caso de error msg y en caso 
+         *         de éxito module con todos los parámetros del módulo creado.
+        */
         function duplicateModule() {
             $module = $this->getModuleById($_GET['id']);
             if ($module) {
