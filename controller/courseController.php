@@ -7,6 +7,10 @@
   // esta clase va a gestionar las operaciones sobre los cursos.
   require_once 'model/courseManagement.php';
 
+  // Incluimos el archivo userController.php para instanciar la clase como objeto,
+  // esta clase va a redirigir a los usuarios no logeados.
+  require_once 'controller/userController.php';
+
   class courseController {
 
     // Atributos
@@ -81,6 +85,11 @@
       if (isSecretary() || isAdmin()) {
         $this->view = 'editCourse';
       }
+      else {
+        $userController = new userController();
+        $result = $userController->login();
+        $this->view = $userController->getView();
+      }
     }
 
     function editModule() {
@@ -142,12 +151,9 @@
         }
       }
       else {
-        echo json_encode(
-          array(
-            'success' => 0, 
-            'msg'     => 'No tienes permisos para editar el módulo.'
-          )
-        );
+        $userController = new userController();
+        $result = $userController->login();
+        $this->view = $userController->getView();
       }
     }
     
@@ -158,6 +164,11 @@
     function home() {
       if (isStudent() || isTeacher()) {
         $this->view = 'home';
+      }
+      else {
+        $userController = new userController();
+        $result = $userController->login();
+        $this->view = $userController->getView();
       }
     }
 
@@ -173,6 +184,11 @@
       if (isSecretary() || isAdmin()) {
         $this->view = 'secretary';
         return $this->moduleManagement->getModules();
+      }
+      else {
+        $userController = new userController();
+        $result = $userController->login();
+        $this->view = $userController->getView();
       }
     }
   }

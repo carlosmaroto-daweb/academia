@@ -275,7 +275,7 @@
      * @return JSON con parámetros success y en caso de error msg.
     */
     function login() {
-      if (isset($_POST['email']) && isset($_POST['password'])){
+      if (isset($_POST['email']) && isset($_POST['password'])) {
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
           if ($this->validEmail($_POST['email'])) {
             if ($this->validPassword($_POST['password'])) {
