@@ -469,7 +469,7 @@ $(document).ready(function() {
         ],
         fontNames: ['Open Sans', 'Pacifico', 'Montserrat', 'Source Sans Pro', 'Quicksand'],
         fontNamesIgnoreCheck: ['Open Sans', 'Pacifico', 'Montserrat', 'Source Sans Pro', 'Quicksand'],
-        height: 300,
+        height: 500,
     });
 
     $('#edit-module').on('click', function(event) {
