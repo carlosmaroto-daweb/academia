@@ -66,6 +66,8 @@
         <link rel="stylesheet" href="view/assets/css/icon/font-awesome.css">
         <link rel="stylesheet" href="view/assets/css/icon/et-line-font.css">
 
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
         <link rel="stylesheet" href="view/assets/academia/css/style.css">
         
         <!-- Load JS
@@ -111,13 +113,13 @@
                             <li><a href="index.php" class="color-light">Inicio</a></li>
                             <li><a href="index.php?controller=courseController&action=index" class="color-light">Cursos</a></li>
                             <?php
-                                if (!isset($_SESSION["type"])) {
+                                if (!hasLoggedIn()) {
                                     echo "<li><a href='index.php?controller=userController&action=home'>";
                                         echo "<button class='button-3d button-sm button-circle button-orange'>Mi área <i class='fa fa-lock'></i></button>";
                                     echo "</a></li>";
                                 }
                                 else {
-                                    if ($_SESSION["type"] == "admin") {
+                                    if (isAdmin()) {
                                         echo "<li><a href='index.php?controller=courseController&action=secretary'>";
                                             echo "<button class='button-3d button-sm button-circle button-orange'>Secretaría <i class='fa fa-unlock'></i></button>";
                                         echo "</a></li>";
@@ -125,12 +127,12 @@
                                             echo "<button class='button-3d button-sm button-circle button-orange'>Administración <i class='fa  fa-unlock'></i></button>";
                                         echo "</a></li>";
                                     }
-                                    else if ($_SESSION["type"] == "secretary") {
+                                    else if (isSecretary()) {
                                         echo "<li><a href='index.php?controller=courseController&action=secretary'>";
                                             echo "<button class='button-3d button-sm button-circle button-orange'>Secretaría <i class='fa fa-unlock'></i></button>";
                                         echo "</a></li>";
                                     }
-                                    else {
+                                    else if (isStudent() || isTeacher()) {
                                         echo "<li><a href='index.php?controller=courseController&action=home'>";
                                             echo "<button class='button-3d button-sm button-circle button-orange'>Mi área <i class='fa  fa-unlock'></i></button>";
                                         echo "</a></li>";

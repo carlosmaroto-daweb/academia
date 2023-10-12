@@ -1,3 +1,38 @@
+@font-face {
+    font-family: "Quicksand";
+    src: url('../fonts/Quicksand/Quicksand-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Quicksand";
+    src: url('../fonts/Quicksand/Quicksand-SemiBold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Quicksand";
+    src: url('../fonts/Quicksand/Quicksand-Medium.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Quicksand";
+    src: url('../fonts/Quicksand/Quicksand-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Quicksand";
+    src: url('../fonts/Quicksand/Quicksand-Light.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 300;
+}
+
 #navbar {
     display: flex;
     justify-content: space-between;
@@ -25,4 +60,22 @@
 #showFormLogin:hover {
     cursor: pointer;
     color: #ff4530;
+}
+
+#module-create-form #header_image_preview {
+    max-width: 150px;
+    max-height: 150px;
+    margin-top: 10px;
+}
+
+.row-modules {
+    margin: 3px 0px;
+}
+
+#course-create-form .button i, .button-3d i, .button-o i {
+    margin-left: 0px;
+}
+
+.panel-default .panel-heading {
+    background-color: #f5f5f5;
 }
