@@ -3,10 +3,6 @@
   // esta clase va a gestionar las operaciones sobre los usuarios de la bd.
   require_once 'model/userManagement.php';
 
-  // Incluimos el archivo courseController.php para instanciar la clase como objeto,
-  // esta clase va a devolver los datos relativos a la vista home del usuario.
-  require_once 'controller/courseController.php';
-
   /* 
    * Esta clase gestiona las funcionalidades que tienen relación con los 
    * usuarios, tales como crear, editar y eliminar usuarios si el usuario que
@@ -44,7 +40,7 @@
     */
     function admin() {
       $result = null;
-      if (isAdmin()) {
+      if ($this->isAdmin()) {
         $this->view = 'admin';
         $result = $this->userManagement->getUsers();
       }
@@ -65,7 +61,7 @@
      *         de éxito user con todos los parámetros del usuario creado.
     */
     function create() {
-      if (isAdmin()) {
+      if ($this->isAdmin()) {
         if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type']) && $this->validType($_POST['type'])) {
           if (!empty($_POST['email']) && !empty($_POST['password'])) {
             if ($this->validEmail($_POST['email'])) {
@@ -127,7 +123,7 @@
      * @return JSON con parámetros success, en caso de error msg.
     */
     function delete() {
-      if (isAdmin()) {
+      if ($this->isAdmin()) {
         if (isset($_GET['id']) && !empty($_GET['id'])) {
           echo $this->userManagement->deleteUser();
         }
@@ -162,7 +158,7 @@
      *         de éxito password con la contraseña encriptada.
     */
     function edit() {
-      if (isAdmin()) {
+      if ($this->isAdmin()) {
         if (isset($_POST['id']) && !empty($_POST['id']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type']) && $this->validType($_POST['type'])) {
           if (!empty($_POST['email'])  && !empty($_POST['password'])) {
             if ($this->validEmail($_POST['email'])) {
@@ -228,30 +224,26 @@
     /*
      * En caso de que este método sea llamado por un administrador llama al
      * método admin de la clase, en caso de que sea alguien de secretaría
-     * llama al método secretary del controlador courseController devolviendo
-     * su salida y mostrando como vista la correspondiente, en caso de que sea
-     * un alumno o un profesor llama al método home del controlador 
-     * courseController devolviendo su salida y mostrando como vista la 
-     * correspondiente, en caso de que no esté logeado llama al método login.
+     * mostrará la vista secretary, en caso de que sea un alumno o un profesor
+     * mostrará la vista home y en caso de que no esté logeado llama al método
+     * login.
      * 
      * @return Devuelve la lista de todos los usuarios si es admin.
     */
     function home() {
       $result = null;
-      if (isAdmin()) {
+      if ($this->isAdmin()) {
         $result = $this->admin();
       }
-      elseif (isSecretary()) {
-        $courseController = new courseController();
-        $result = $courseController->secretary();
-        $this->view = $courseController->getView();
+      elseif ($this->isSecretary()) {
+        // $result = llamada a courseController para obtener los datos a mostrar en la vista
+        $this->view = 'secretary';
       }
-      else if (isStudent() || isTeacher()) {
-        $courseController = new courseController();
-        $result = $courseController->home();
-        $this->view = $courseController->getView();
+      else if ($this->isStudent() || $this->isTeacher()) {
+        // $result = llamada a courseController para obtener los datos a mostrar en la vista
+        $this->view = 'home';
       }
-      else if (!hasLoggedIn()) {
+      else if (!isset($_SESSION["type"])) {
         $this->login();
       }
       return $result;
@@ -262,6 +254,42 @@
     */
     function index() {
       $this->view = 'index';
+    }
+
+    /*
+     * Método que comprueba si el usuario se ha logeado y si es de tipo administrador.
+     * 
+     * @return Devuelve true si el usuario se ha logeado y si es de tipo administrador, en caso contrario false.
+    */
+    private function isAdmin() {
+      return isset($_SESSION["type"]) && $_SESSION["type"] == 'admin';
+    }
+
+    /*
+     * Método que comprueba si el usuario se ha logeado y si es de tipo secretaría.
+     * 
+     * @return Devuelve true si el usuario se ha logeado y si es de tipo secretaría, en caso contrario false.
+    */
+    private function isSecretary() {
+      return isset($_SESSION["type"]) && $_SESSION["type"] == 'secretary';
+    }
+
+    /*
+     * Método que comprueba si el usuario se ha logeado y si es de tipo estudiante.
+     * 
+     * @return Devuelve true si el usuario se ha logeado y si es de tipo estudiante, en caso contrario false.
+    */
+    private function isStudent() {
+      return isset($_SESSION["type"]) && $_SESSION["type"] == 'student';
+    }
+
+    /*
+     * Método que comprueba si el usuario se ha logeado y si es de tipo profesor.
+     * 
+     * @return Devuelve true si el usuario se ha logeado y si es de tipo profesor, en caso contrario false.
+    */
+    private function isTeacher() {
+      return isset($_SESSION["type"]) && $_SESSION["type"] == 'teacher';
     }
 
     /*
@@ -328,7 +356,7 @@
      * y redirige al usuario la vista de inicio.
     */
     function logout() {
-      if (hasLoggedIn()) {
+      if (isset($_SESSION["type"])) {
         $_SESSION["type"] = null;
         session_destroy();
       }

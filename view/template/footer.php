@@ -65,8 +65,6 @@
         <script src="view/assets/js/main/ion.rangeSlider.min.js"></script>
         <script src="view/assets/js/main/imagesloaded.pkgd.min.js"></script>
         <script src="view/assets/js/main/main.js"></script>
-
-        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     
         <!-- Custom Script
         =====================================-->
