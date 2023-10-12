@@ -120,7 +120,7 @@
                     $module = $this->getModuleByName($_POST['name']);
                     $result = json_encode(
                         array(
-                            'success' => 1, 
+                            'success'   => 1, 
                             'module'    => array(
                                 'id'           => $module->getId(),
                                 'name'         => $module->getName(),
@@ -152,17 +152,28 @@
         }
 
         function editModule() {
-            if ($this->db->editModule()) {
-                $result = json_encode(
-                    array(
-                        'success' => 1
-                    )
-                );
+            if ($this->getModuleById($_POST['id'])) {
+                if ($this->db->editModule()) {
+                    $result = json_encode(
+                        array(
+                            'success' => 1
+                        )
+                    );
+                }
+                else {
+                    $result = json_encode(
+                        array(
+                            'success' => 0,
+                            'msg'     => 'No se ha podido editar el módulo de la base de datos.'
+                        )
+                    );
+                }
             }
             else {
                 $result = json_encode(
                     array(
-                        'success' => 0
+                        'success' => 0, 
+                        'msg'     => 'El módulo no se encuentra en la base de datos.'
                     )
                 );
             }
