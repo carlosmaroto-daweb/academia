@@ -62,6 +62,10 @@
     color: #ff4530;
 }
 
+.table-secretary {
+    padding: 0 100px;
+}
+
 #module-table #header_image_preview {
     max-width: 150px;
 }

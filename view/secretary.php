@@ -4,7 +4,7 @@
             <!-- Table Style 2 -->
             <div class="container-fluid pt70">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 table-secretary">
                         <h4 class="text-center mb30">Gestión Cursos</h4>
                         <table class="table table-striped">
                             <thead>
@@ -51,7 +51,7 @@
             <!-- Table Style 2 -->
             <div class="container-fluid pt70">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 table-secretary">
                         <h4 class="text-center mb30">Gestión Módulos</h4>
                         <table class="table table-striped">
                             <thead>
