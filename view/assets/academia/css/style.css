@@ -64,7 +64,14 @@
 
 #module-table #header_image_preview {
     max-width: 150px;
-    max-height: 150px;
+}
+
+#module-table #canvas_preview canvas {
+    max-width: 300px;
+}
+
+#module-table #canvas_content canvas {
+    max-width: 300px;
 }
 
 #module-edit-form #header_image_preview {

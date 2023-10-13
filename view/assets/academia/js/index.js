@@ -333,6 +333,24 @@ $(document).ready(function() {
         $('#btn-create').remove();
     });
 
+    const canvas_preview = document.querySelector('#canvas_preview');
+    if (canvas_preview) {
+        html2canvas(canvas_preview).then(function(canvas) {
+            canvas.setAttribute('style', 'width: 100%; height: 100%');
+            canvas_preview.innerHTML = "";
+            canvas_preview.appendChild(canvas);
+        });
+    }
+
+    const canvas_content = document.querySelector('#canvas_content');
+    if (canvas_content) {
+        html2canvas(canvas_content).then(function(canvas) {
+            canvas.setAttribute('style', 'width: 100%; height: 100%');
+            canvas_content.innerHTML = "";
+            canvas_content.appendChild(canvas);
+        });
+    }
+    
     $('#module-duplicate').on('show.bs.modal', function(event) {
         let button = '<button id="btn-duplicate" class="btn btn-primary">Aceptar</button>';
         $('#duplicate-modal-footer').append(button);

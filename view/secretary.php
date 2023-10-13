@@ -71,8 +71,8 @@
                                         echo "<tr id='row{$count}'>";
                                             echo "<td>{$row->getName()}</td>";
                                             echo "<td><img id='header_image_preview' src='{$row->getHeaderImage()}'></td>";
-                                            echo "<td>{$row->getPreview()}</td>";
-                                            echo "<td>{$row->getContent()}</td>";
+                                            echo "<td><div id='canvas_preview'>{$row->getPreview()}</div></td>";
+                                            echo "<td><div id='canvas_content'>{$row->getContent()}</div></td>";
                                             echo "<td> </td>";
                                             echo "<td>";
                                                 echo "<a href='index.php?controller=courseController&action=editModule&id={$row->getId()}' class='button-o button-sm button-rounded button-blue hover-fade'>Editar</a>&nbsp;";
