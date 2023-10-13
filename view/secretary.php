@@ -2,7 +2,7 @@
         ===================================== -->
         <section class="pt100 pb70" id="shortcodeTable">
             <!-- Table Style 2 -->
-            <div class="container pt70">
+            <div class="container-fluid pt70">
                 <div class="row">
                     <div class="col-md-12">
                         <h4 class="text-center mb30">Gestión Cursos</h4>
@@ -49,7 +49,7 @@
         ===================================== -->
         <section class="pb70" id="shortcodeTable">
             <!-- Table Style 2 -->
-            <div class="container pt70">
+            <div class="container-fluid pt70">
                 <div class="row">
                     <div class="col-md-12">
                         <h4 class="text-center mb30">Gestión Módulos</h4>
