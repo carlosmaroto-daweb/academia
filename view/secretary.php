@@ -91,7 +91,7 @@
                                 <tr>
                                     <th>Nombre</th>
                                     <th>Estudios</th>
-                                    <th>Cabecera</th>
+                                    <th>Foto de cabecera</th>
                                     <th>Previsualización</th>
                                     <th>Contenido</th>
                                     <th>Módulos asignados</th>
@@ -132,7 +132,7 @@
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
-                                    <th>Cabecera</th>
+                                    <th>Foto de cabecera</th>
                                     <th>Previsualización</th>
                                     <th>Contenido</th>
                                     <th>Lecciones asignadas</th>
