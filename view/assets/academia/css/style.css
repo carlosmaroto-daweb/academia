@@ -78,6 +78,33 @@
     max-width: 300px;
 }
 
+.panel-default .panel-heading {
+    background-color: #f5f5f5;
+}
+
+#lesson-edit-form .row-files-complete {
+    margin: 3px 0px;
+}
+
+#lesson-edit-form .row-files {
+    height: 31px;
+    display: flex;
+    align-items: center;
+}
+
+#lesson-edit-form .row-files input {
+    margin-right: 10px;
+}
+
+#lesson-edit-form .file-type-preview video {
+    width: 500px;
+}
+
+#lesson-edit-form .file-type-preview embed {
+    width: 500px;
+    height: 750px;
+}
+
 #module-edit-form #header_image_preview {
     max-width: 150px;
     max-height: 150px;
@@ -90,8 +117,4 @@
 
 #course-create-form .button i, .button-3d i, .button-o i {
     margin-left: 0px;
-}
-
-.panel-default .panel-heading {
-    background-color: #f5f5f5;
 }

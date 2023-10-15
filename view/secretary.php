@@ -206,7 +206,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <h3 class="color-light text-capitalize font-open-sans">
-                                <a class="button-3d button-md button-rounded button-success" href="">Añadir nueva lección</a>
+                                <a class="button-3d button-md button-rounded button-success" href="index.php?controller=courseController&action=editLesson">Añadir nueva lección</a>
                             </h3>
                         </div>
                     </div>

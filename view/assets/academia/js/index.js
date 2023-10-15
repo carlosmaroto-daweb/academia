@@ -333,7 +333,7 @@ $(document).ready(function() {
         $('#btn-create').remove();
     });
 
-    const canvas_preview = document.querySelector('#canvas_preview');
+    const canvas_preview = document.getElementById('canvas_preview');
     if (canvas_preview) {
         html2canvas(canvas_preview).then(function(canvas) {
             canvas.setAttribute('style', 'width: 100%; height: 100%');
@@ -342,7 +342,7 @@ $(document).ready(function() {
         });
     }
 
-    const canvas_content = document.querySelector('#canvas_content');
+    const canvas_content = document.getElementById('canvas_content');
     if (canvas_content) {
         html2canvas(canvas_content).then(function(canvas) {
             canvas.setAttribute('style', 'width: 100%; height: 100%');
@@ -453,9 +453,88 @@ $(document).ready(function() {
         });
     };
 
-    const header_image = document.querySelector('#header_image');
-    const header_image_preview = document.querySelector('#header_image_preview');
     var base64URL = null;
+
+    const files = document.getElementsByClassName('file');
+    if (files) {
+        for (let i=0; i<files.length; i++) {
+            let file = files[i];
+            file.addEventListener('input', async (event) => {
+                base64URL = await encodeFileAsBase64URL(file.files[0]);
+                if (base64URL.includes("video")) {
+                    let video = document.createElement("video");
+                    video.setAttribute('src', base64URL);
+                    video.setAttribute('controls', '');
+                    video.setAttribute('disablePictureInPicture', '');
+                    video.setAttribute('controlsList', 'nodownload noplaybackrate');
+                    let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
+                    file_type_preview.innerHTML = "";
+                    file_type_preview.appendChild(video);
+                }
+                else if (base64URL.includes("pdf")) {
+                    let embed = document.createElement("embed");
+                    embed.setAttribute('src', base64URL);
+                    embed.setAttribute('type', 'application/pdf');
+                    let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
+                    file_type_preview.innerHTML = "";
+                    file_type_preview.appendChild(embed);
+                }
+            });
+        }
+    }
+
+    $('#add-lesson-edit-files').on('click', function() {
+        let row_files_complete = document.createElement("div");
+        row_files_complete.setAttribute("class", "row-files-complete");
+        let row_files = document.createElement("div");
+        row_files.setAttribute("class", "row-files");
+        let title = document.createElement("input");
+        title.setAttribute("placeholder", "Título");
+        title.setAttribute("type", "text");
+        title.setAttribute("name", "title");
+        row_files.appendChild(title);
+        let file = document.createElement("input");
+        file.setAttribute("type", "file");
+        file.setAttribute("name", "file");
+        file.setAttribute("class", "file");
+        file.addEventListener('input', async (event) => {
+            base64URL = await encodeFileAsBase64URL(file.files[0]);
+            if (base64URL.includes("video")) {
+                let video = document.createElement("video");
+                video.setAttribute('src', base64URL);
+                video.setAttribute('controls', '');
+                video.setAttribute('disablePictureInPicture', '');
+                video.setAttribute('controlsList', 'nodownload noplaybackrate');
+                let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
+                file_type_preview.innerHTML = "";
+                file_type_preview.appendChild(video);
+            }
+            else if (base64URL.includes("pdf")) {
+                let embed = document.createElement("embed");
+                embed.setAttribute('src', base64URL);
+                embed.setAttribute('type', 'application/pdf');
+                let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
+                file_type_preview.innerHTML = "";
+                file_type_preview.appendChild(embed);
+            }
+        });
+        row_files.appendChild(file);
+        let button = document.createElement("div");
+        button.setAttribute("class", "delete-lesson-edit-files button-3d button-xs button-circle button-danger");
+        button.innerHTML = `<i class='fa fa-close'></i>`;
+        button.onclick = function() {
+            $(this).closest(".row-files-complete").remove();
+        }
+        row_files.appendChild(button);
+        row_files_complete.appendChild(row_files);
+        let file_type_preview = document.createElement("div");
+        file_type_preview.setAttribute("class", "file-type-preview");
+        row_files_complete.appendChild(file_type_preview);
+        $('#lesson-edit-files').append(row_files_complete);
+    });
+
+    const header_image         = document.getElementById('header_image');
+    const header_image_preview = document.getElementById('header_image_preview');
     if (header_image) {
         base64URL = header_image_preview.getAttribute('src');
         header_image.addEventListener('input', async (event) => {

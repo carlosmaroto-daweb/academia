@@ -82,6 +82,10 @@
       }
     }
 
+    function editLesson() {
+      $this->view = 'editLesson';
+    }
+
     function editModule() {
       if (isSecretary() || isAdmin()) {
         if (isset($_GET['id']) && !empty($_GET['id'])) {
