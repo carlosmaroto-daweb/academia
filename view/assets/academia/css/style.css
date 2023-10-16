@@ -66,15 +66,15 @@
     padding: 0 100px;
 }
 
-#module-table #header_image_preview {
+#module-table .header_image_preview {
     max-width: 150px;
 }
 
-#module-table #canvas_preview canvas {
+#module-table .canvas_preview canvas {
     max-width: 300px;
 }
 
-#module-table #canvas_content canvas {
+#module-table .canvas_content canvas {
     max-width: 300px;
 }
 

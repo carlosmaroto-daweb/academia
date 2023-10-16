@@ -333,22 +333,26 @@ $(document).ready(function() {
         $('#btn-create').remove();
     });
 
-    const canvas_preview = document.getElementById('canvas_preview');
+    const canvas_preview = document.getElementsByClassName('canvas_preview');
     if (canvas_preview) {
-        html2canvas(canvas_preview).then(function(canvas) {
-            canvas.setAttribute('style', 'width: 100%; height: 100%');
-            canvas_preview.innerHTML = "";
-            canvas_preview.appendChild(canvas);
-        });
+        for (let i=0; i<canvas_preview.length; i++) {
+            html2canvas(canvas_preview[i]).then(function(canvas) {
+                canvas.setAttribute('style', 'width: 100%; height: 100%');
+                canvas_preview[i].innerHTML = "";
+                canvas_preview[i].appendChild(canvas);
+            });
+        }
     }
 
-    const canvas_content = document.getElementById('canvas_content');
+    const canvas_content = document.getElementsByClassName('canvas_content');
     if (canvas_content) {
-        html2canvas(canvas_content).then(function(canvas) {
-            canvas.setAttribute('style', 'width: 100%; height: 100%');
-            canvas_content.innerHTML = "";
-            canvas_content.appendChild(canvas);
-        });
+        for (let i=0; i<canvas_content.length; i++) {
+            html2canvas(canvas_content[i]).then(function(canvas) {
+                canvas.setAttribute('style', 'width: 100%; height: 100%');
+                canvas_content[i].innerHTML = "";
+                canvas_content[i].appendChild(canvas);
+            });
+        }
     }
     
     $('#module-duplicate').on('show.bs.modal', function(event) {
@@ -373,7 +377,7 @@ $(document).ready(function() {
                         let row = 
                             `<tr id='${id_row}'>
                                 <td>${name}</td>
-                                echo "<td><img id='header_image_preview' src='${header_image}'></td>";
+                                echo "<td><img class='header_image_preview' src='${header_image}'></td>";
                                 <td>${preview}</td>
                                 <td>${content}</td>
                                 <td> </td>
