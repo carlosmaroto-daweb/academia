@@ -1,11 +1,15 @@
 <?php
-  // Incluimos el archivo moduleManagement.php para instanciar la clase como objeto,
-  // esta clase va a gestionar las operaciones sobre los módulos.
-  require_once 'model/moduleManagement.php';
-  
   // Incluimos el archivo courseManagement.php para instanciar la clase como objeto,
   // esta clase va a gestionar las operaciones sobre los cursos.
   require_once 'model/courseManagement.php';
+
+  // Incluimos el archivo moduleManagement.php para instanciar la clase como objeto,
+  // esta clase va a gestionar las operaciones sobre los módulos.
+  require_once 'model/moduleManagement.php';
+
+  // Incluimos el archivo lessonManagement.php para instanciar la clase como objeto,
+  // esta clase va a gestionar las operaciones sobre las lecciones.
+  require_once 'model/lessonManagement.php';
 
   // Incluimos el archivo userController.php para instanciar la clase como objeto,
   // esta clase va a redirigir a los usuarios no logeados.
@@ -15,12 +19,14 @@
 
     // Atributos
     private $view;
-    private $moduleManagement;
     private $courseManagement;
+    private $moduleManagement;
+    private $lessonManagement;
 
     function __construct() {
-      $this->moduleManagement = new ModuleManagement();
       $this->courseManagement = new CourseManagement();
+      $this->moduleManagement = new ModuleManagement();
+      $this->lessonManagement = new LessonManagement();
     }
 
     function deleteModule() {
@@ -84,7 +90,49 @@
 
     function editLesson() {
       if (isSecretary() || isAdmin()) {
-        $this->view = 'editLesson';
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+          $this->view = 'editLesson';
+          return $this->lessonManagement->getLessonById($_GET['id']);
+        }
+        else if (isset($_POST['id']) && !empty($_POST['id'])) {
+          if (isset($_POST['name']) && isset($_POST['files'])){
+            if (!empty($_POST['name']) && !empty($_POST['files'])) {
+              echo $this->lessonManagement->editLesson();
+            }
+            else {
+              echo json_encode(
+                array(
+                  'success' => 0, 
+                  'msg'     => 'Se deben de rellenar todos los campos.'
+                )
+              );
+            }
+          }
+          else {
+            echo json_encode(
+              array(
+                'success' => 0, 
+                'msg'     => 'No se ha podido crear la lección.'
+              )
+            );
+          }
+        }
+        else if (isset($_POST['name']) && isset($_POST['files'])){
+          if (!empty($_POST['name']) && !empty($_POST['files'])) {
+            echo $this->lessonManagement->createLesson();
+          }
+          else {
+            echo json_encode(
+              array(
+                'success' => 0, 
+                'msg'     => 'Se deben de rellenar todos los campos.'
+              )
+            );
+          }
+        }
+        else {
+          $this->view = 'editLesson';
+        }
       }
       else {
         $userController = new userController();
