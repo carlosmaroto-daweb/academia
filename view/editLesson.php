@@ -16,7 +16,7 @@
             echo "<input id='lesson-edit-name' type='text' name='name' value='{$name}'>";
             echo "<br>";
             echo "<br>";
-            echo "Contenido: <span class='color-pasific'>(*)</span>";
+            echo "Archivos: <span class='color-pasific'>(*)</span>";
             echo "<br>";
             echo "<div id='lesson-edit-files'>";
                 echo "<div class='row-files-complete'>";

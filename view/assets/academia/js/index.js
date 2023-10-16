@@ -537,6 +537,60 @@ $(document).ready(function() {
         $('#lesson-edit-files').append(row_files_complete);
     });
 
+    $('#edit-lessons').on('click', function(event) {
+        event.preventDefault();
+        let id    = $('#lesson-edit-id').val();
+        let name  = $('#lesson-edit-name').val();
+        let files = "";
+        let row_files_complete = document.getElementsByClassName('row-files-complete');
+        let title = "";
+        let video = null;
+        let pdf = null;
+        let file = "";
+        for (let i=0; i<row_files_complete.length; i++) {
+            title = row_files_complete[i].querySelector("input[name='title']").value;
+            if (title == "") {
+                title = name + "(" + i + ")";
+            }
+            video = row_files_complete[i].querySelector("video");
+            pdf = row_files_complete[i].querySelector("embed");
+            if (video || pdf) {
+                if (video) {
+                    file = video.getAttribute("src");
+                }
+                else if (pdf) {
+                    file = pdf.getAttribute("src");
+                }
+                files += title + ";;" + file + ";;";
+            }
+        }
+        $.ajax({
+            type: "POST",
+            url: 'index.php?controller=courseController&action=editLesson&ajax=true',
+            data: {
+                'id':    id,
+                'name':  name,
+                'files': files
+            },
+            success: function(response) {
+                let jsonData = JSON.parse(response);
+                if (jsonData.success == "1") {
+                    location.replace('index.php?controller=courseController&action=secretary');
+                }
+                else {
+                    $(".alert").remove();
+                    let msg = `
+                        <div class="alert alert-danger alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>¡Error!</strong> ${jsonData.msg}
+                        </div>
+                    `;
+                    $("#module-edit-form").append(msg);
+                }
+            }
+        });
+    });
+
     const header_image         = document.getElementById('header_image');
     const header_image_preview = document.getElementById('header_image_preview');
     if (header_image) {
