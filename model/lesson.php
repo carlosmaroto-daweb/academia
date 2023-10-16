@@ -14,7 +14,8 @@
         private $files;
 
         /*
-         * Constructor que inicializa todos los atributos a los pasados como argumento.
+         * Constructor que inicializa todos los atributos a los pasados como 
+         * argumento.
          * 
          * @param id     Int id de la lección
          * @param name   String nombre de la lección
@@ -45,7 +46,7 @@
         }
 
         /*
-        * Método de consulta del atributo header_image.
+        * Método de consulta del atributo files.
         * 
         * @return Devuelve los archivos de la lección
         */
