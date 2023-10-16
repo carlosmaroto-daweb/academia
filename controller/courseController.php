@@ -77,13 +77,20 @@
       }
       else {
         $userController = new userController();
-        $result = $userController->login();
+        $userController->login();
         $this->view = $userController->getView();
       }
     }
 
     function editLesson() {
-      $this->view = 'editLesson';
+      if (isSecretary() || isAdmin()) {
+        $this->view = 'editLesson';
+      }
+      else {
+        $userController = new userController();
+        $userController->login();
+        $this->view = $userController->getView();
+      }
     }
 
     function editModule() {
@@ -134,7 +141,7 @@
       }
       else {
         $userController = new userController();
-        $result = $userController->login();
+        $userController->login();
         $this->view = $userController->getView();
       }
     }
@@ -149,7 +156,7 @@
       }
       else {
         $userController = new userController();
-        $result = $userController->login();
+        $userController->login();
         $this->view = $userController->getView();
       }
     }
@@ -169,7 +176,7 @@
       }
       else {
         $userController = new userController();
-        $result = $userController->login();
+        $userController->login();
         $this->view = $userController->getView();
       }
     }
