@@ -45,6 +45,26 @@
       * 
       * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
+    function createLesson() {
+      $data = [
+        'name'  => $_POST['name'],
+        'files' => $_POST['files']
+      ];
+      $sql = "insert into lesson (name, files) values (:name, :files)";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
+    /*
+      * Método que asigna todos los valores pasados por el POST a un array
+      * asociativo para ejecutar una sentencia sql con la base de datos. En
+      * este caso la sentencia inserta un registro nuevo a la base de datos.
+      * 
+      * Previamente se ha comprobado que estén los parámetros name,
+      * header_image, preview y content en el controlador y que sean válidos.
+      * 
+      * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
     function createModule() {
       $data = [
         'name'         => $_POST['name'],
@@ -92,6 +112,24 @@
       * 
       * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
+    function deleteLesson() {
+      $data = [
+        'id' => $_GET['id']
+      ];
+      $sql = "delete from lesson where id=:id";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
+    /*
+      * Método que asigna todos los valores pasados por el GET a un array
+      * asociativo para ejecutar una sentencia sql con la base de datos. En
+      * este caso la sentencia elimina el registro que coincide con el id.
+      * 
+      * Previamente se ha comprobado que esté el parámetro id y que sea válido.
+      * 
+      * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
     function deleteModule() {
       $data = [
         'id' => $_GET['id']
@@ -115,6 +153,28 @@
         'id' => $_GET['id']
       ];
       $sql = "delete from user where id=:id";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
+    /*
+      * Método que asigna todos los valores pasados por el POST a un array
+      * asociativo para ejecutar una sentencia sql con la base de datos. En
+      * este caso la sentencia actualiza el registro que coincide con el id 
+      * de la base de datos.
+      * 
+      * Previamente se ha comprobado que estén los parámetros id, name,
+      * header_image, preview y content en el controlador y que sean válidos.
+      * 
+      * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
+    function editLesson() {
+      $data = [
+        'name'  => $_POST['name'],
+        'files' => $_POST['header_image'],
+        'id'    => $_POST['id']
+      ];
+      $sql = "update lesson set name=:name, files=:files where id=:id";
       $stmt = $this->conection->prepare($sql);
       return $stmt->execute($data);
     }
@@ -169,6 +229,19 @@
       $sql = "update user set email=:email, password=:password, name=:name, last_name=:last_name, phone_number=:phone_number, dni=:dni, type=:type where id=:id";
       $stmt = $this->conection->prepare($sql);
       return $stmt->execute($data);
+    }
+
+    /*
+      * Método que ejecuta una sentencia sql para obtener todos los módulos
+      * de la base de datos y los devuelve.
+      * 
+      * @return Devuelve una query con todos los módulos de la base de datos.
+    */
+    function getLessons() {
+      $sql = "select * from lesson";
+      $stmt = $this->conection->prepare($sql);
+      $stmt->execute();
+      return $stmt->fetchAll();
     }
 
     /*

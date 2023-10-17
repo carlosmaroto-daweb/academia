@@ -585,7 +585,7 @@ $(document).ready(function() {
                             <strong>¡Error!</strong> ${jsonData.msg}
                         </div>
                     `;
-                    $("#module-edit-form").append(msg);
+                    $("#lesson-edit-form").append(msg);
                 }
             }
         });
