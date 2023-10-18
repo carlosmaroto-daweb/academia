@@ -547,10 +547,11 @@ $(document).ready(function() {
         let video = null;
         let pdf = null;
         let file = "";
+        let count = 1;
         for (let i=0; i<row_files_complete.length; i++) {
             title = row_files_complete[i].querySelector("input[name='title']").value;
             if (title == "") {
-                title = name + "(" + i + ")";
+                title = name + "(" + count + ")";
             }
             video = row_files_complete[i].querySelector("video");
             pdf = row_files_complete[i].querySelector("embed");
@@ -562,6 +563,7 @@ $(document).ready(function() {
                     file = pdf.getAttribute("src");
                 }
                 files += title + ";;" + file + ";;";
+                count++;
             }
         }
         $.ajax({
