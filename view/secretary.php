@@ -1,3 +1,7 @@
+<?php
+    $modules = $dataToView["modules"];
+    $lessons = $dataToView["lessons"];
+?>
         <!-- Table Tuition
         ===================================== -->
         <section class="pt100 pb70" id="shortcodeTable">
@@ -142,7 +146,7 @@
                             <tbody id="module-table">
                                 <?php
                                     $count = 0; 
-                                    foreach ($dataToView as $row):
+                                    foreach ($modules as $row):
                                         echo "<tr id='row{$count}'>";
                                             echo "<td>{$row->getName()}</td>";
                                             echo "<td><img class='header_image_preview' src='{$row->getHeaderImage()}'></td>";
@@ -188,13 +192,26 @@
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
-                                    <th>Contenido</th>
+                                    <th>Archivos</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody id="lesson-table">
                                 <?php
-                                    //
+                                    $count = 0; 
+                                    foreach ($lessons as $row):
+                                        echo "<tr id='row{$count}'>";
+                                            echo "<td>{$row->getName()}</td>";
+                                            echo "<td>'{$row->getFiles()}'</td>";
+                                            echo "<td> </td>";
+                                            echo "<td>";
+                                                echo "<a href='index.php?controller=courseController&action=editModule&id={$row->getId()}' class='button-o button-sm button-rounded button-blue hover-fade'>Editar</a>&nbsp;";
+                                                echo "<a class='button-o button-sm button-rounded button-purple hover-fade' data-toggle='modal' data-target='#module-duplicate' data-id='{$row->getId()}'>Duplicar</a>&nbsp;";
+                                                echo "<a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#module-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
+                                            echo "</td>";
+                                        echo "</tr>";
+                                        $count++; 
+                                    endforeach;
                                 ?>
                             </tbody>
                         </table>

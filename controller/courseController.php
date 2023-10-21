@@ -219,8 +219,12 @@
 
     function secretary() {
       if (isSecretary() || isAdmin()) {
+        $result = [
+          "modules" => $this->moduleManagement->getModules(),
+          "lessons" => $this->lessonManagement->getLessons(),
+        ];
         $this->view = 'secretary';
-        return $this->moduleManagement->getModules();
+        return $result;
       }
       else {
         $userController = new userController();
