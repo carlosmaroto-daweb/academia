@@ -108,11 +108,11 @@
         }
 
         /*
-         * Método que comprueba que el id introducido corresponde al id de un a
+         * Método que comprueba que el id introducido corresponde al id de una
          * lección de la base de datos, guarda en la varible POST los datos de la
          * lección que se quiere duplicar y llama a la base de datos para crear
          * la lección. Si todo funciona correctamente y se cumplen las 
-         * condiciones se actualiza la lista de lecciones para extraer el que 
+         * condiciones se actualiza la lista de lecciones para extraer la que 
          * hemos creado previamente y se devuelve con el resultado, en caso 
          * contrario se muestra un mensaje del error correspondiente.
          * 
@@ -120,7 +120,7 @@
          * válido en el controlador.
          * 
          * @return JSON con parámetros success, en caso de error msg y en caso 
-         *         de éxito module con todos los parámetros de la lección creado.
+         *         de éxito lesson con todos los parámetros de la lección creada.
         */
         function duplicateLesson() {
             $lesson = $this->getLessonById($_GET['id']);
