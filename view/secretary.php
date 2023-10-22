@@ -4,7 +4,7 @@
 ?>
         <!-- Table Tuition
         ===================================== -->
-        <section class="pt100 pb70" id="shortcodeTable">
+        <section class="pt100 pb70">
             <!-- Table Style 2 -->
             <div class="container-fluid pt70">
                 <div class="row">
@@ -43,7 +43,7 @@
 
         <!-- Table Course
         ===================================== -->
-        <section class="pt100 pb70" id="shortcodeTable">
+        <section class="pt100 pb70">
             <!-- Table Style 2 -->
             <div class="container-fluid pt70">
                 <div class="row">
@@ -84,7 +84,7 @@
 
         <!-- Table Subject
         ===================================== -->
-        <section class="pt100 pb70" id="shortcodeTable">
+        <section class="pt100 pb70">
             <!-- Table Style 2 -->
             <div class="container-fluid pt70">
                 <div class="row">
@@ -126,7 +126,7 @@
 
         <!-- Table Module
         ===================================== -->
-        <section class="pb70" id="shortcodeTable">
+        <section class="pb70">
             <!-- Table Style 2 -->
             <div class="container-fluid pt70">
                 <div class="row">
@@ -182,7 +182,7 @@
 
         <!-- Table Lesson
         ===================================== -->
-        <section class="pb70" id="shortcodeTable">
+        <section class="pb70">
             <!-- Table Style 2 -->
             <div class="container-fluid pt70">
                 <div class="row">
