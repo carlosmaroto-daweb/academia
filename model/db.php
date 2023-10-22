@@ -164,14 +164,14 @@
       * de la base de datos.
       * 
       * Previamente se ha comprobado que estén los parámetros id, name,
-      * header_image, preview y content en el controlador y que sean válidos.
+      * y files en el controlador y que sean válidos.
       * 
       * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function editLesson() {
       $data = [
         'name'  => $_POST['name'],
-        'files' => $_POST['header_image'],
+        'files' => $_POST['files'],
         'id'    => $_POST['id']
       ];
       $sql = "update lesson set name=:name, files=:files where id=:id";
@@ -232,10 +232,10 @@
     }
 
     /*
-      * Método que ejecuta una sentencia sql para obtener todos los módulos
-      * de la base de datos y los devuelve.
+      * Método que ejecuta una sentencia sql para obtener todas las lecciones
+      * de la base de datos y las devuelve.
       * 
-      * @return Devuelve una query con todos los módulos de la base de datos.
+      * @return Devuelve una query con todas las lecciones de la base de datos.
     */
     function getLessons() {
       $sql = "select * from lesson";
