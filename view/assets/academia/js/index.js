@@ -357,7 +357,7 @@ $(document).ready(function() {
     
     $('#module-duplicate').on('show.bs.modal', function(event) {
         let button = '<button id="btn-duplicate" class="btn btn-primary">Aceptar</button>';
-        $('#duplicate-modal-footer').append(button);
+        $('#module-duplicate-footer').append(button);
         let option = $(event.relatedTarget);
         let id = option.data('id');
         $('#btn-duplicate').on('click', function(e) {
@@ -411,7 +411,7 @@ $(document).ready(function() {
                                 <strong>¡Error!</strong> ${jsonData.msg}
                             </div>
                         `;
-                        $("#duplicate-form").append(msg);
+                        $("#module-duplicate-form").append(msg);
                     }
                 }
             });
@@ -425,7 +425,7 @@ $(document).ready(function() {
 
     $("#module-delete").on('show.bs.modal', function(event) {
         let button = '<button id="btn-delete" class="btn btn-primary">Aceptar</button>';
-        $('#delete-modal-footer').append(button);
+        $('#module-delete-footer').append(button);
         let option = $(event.relatedTarget);
         let id_row = option.data('id_row');
         let id = option.data('id');
@@ -448,7 +448,7 @@ $(document).ready(function() {
                                 <strong>¡Error!</strong> ${jsonData.msg}
                             </div>
                         `;
-                        $("#delete-form").append(msg);
+                        $("#module-delete-form").append(msg);
                     }
                 }
             });

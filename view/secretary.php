@@ -237,17 +237,17 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2 class="modal-title" id="exampleModalLongTitle">Duplicar módulo</h2>
+                        <h2 class="modal-title">Duplicar módulo</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div id="duplicate-form">
+                        <div id="module-duplicate-form">
                             <p>¿Seguro que quieres duplicar este módulo?</p>
                         </div>
                     </div>
-                    <div id="duplicate-modal-footer" class="modal-footer">
+                    <div id="module-duplicate-footer" class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
@@ -257,17 +257,17 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2 class="modal-title" id="exampleModalLongTitle">Eliminar módulo</h2>
+                        <h2 class="modal-title">Eliminar módulo</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div id="delete-form">
+                        <div id="module-delete-form">
                             <p>¿Seguro que quieres eliminar este módulo?</p>
                         </div>
                     </div>
-                    <div id="delete-modal-footer" class="modal-footer">
+                    <div id="module-delete-footer" class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
@@ -277,17 +277,17 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2 class="modal-title" id="exampleModalLongTitle">Duplicar lección</h2>
+                        <h2 class="modal-title">Duplicar lección</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div id="duplicate-form">
+                        <div id="lesson-duplicate-form">
                             <p>¿Seguro que quieres duplicar esta lección?</p>
                         </div>
                     </div>
-                    <div id="duplicate-modal-footer" class="modal-footer">
+                    <div id="lesson-duplicate-footer" class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
@@ -297,17 +297,17 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2 class="modal-title" id="exampleModalLongTitle">Eliminar lección</h2>
+                        <h2 class="modal-title">Eliminar lección</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div id="delete-form">
+                        <div id="lesson-delete-form">
                             <p>¿Seguro que quieres eliminar esta lección?</p>
                         </div>
                     </div>
-                    <div id="delete-modal-footer" class="modal-footer">
+                    <div id="lesson-delete-footer" class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
