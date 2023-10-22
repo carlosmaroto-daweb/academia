@@ -40,8 +40,8 @@
       * asociativo para ejecutar una sentencia sql con la base de datos. En
       * este caso la sentencia inserta un registro nuevo a la base de datos.
       * 
-      * Previamente se ha comprobado que estén los parámetros name,
-      * header_image, preview y content en el controlador y que sean válidos.
+      * Previamente se ha comprobado que estén los parámetros name y files 
+      * en el controlador y que sean válidos.
       * 
       * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
