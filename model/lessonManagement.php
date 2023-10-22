@@ -203,10 +203,10 @@
         }
 
         /*
-         * Método que devuelve la lección dado por su id.
+         * Método que devuelve la lección dada por su id.
          * 
-         * @param  String id de la lección a consultar.
-         * @return Devuelve la lección dado su id o null si no se encuentra.
+         * @param  int id de la lección a consultar.
+         * @return Devuelve la lección dada su id o null si no se encuentra.
         */
         function getLessonById($id) {
             $result = null;
@@ -221,7 +221,7 @@
         /*
          * Método que devuelve la lección dado por su nombre.
          * 
-         * @param  int nombre de la lección a consultar.
+         * @param  String nombre de la lección a consultar.
          * @return Devuelve la lección dado su nombre o null si no se encuentra.
         */
         private function getLessonByName($name) {
@@ -236,7 +236,7 @@
 
         /*
         * Método de consulta que devuelve el array privado lessons que contiene
-        * la lista de todos las lecciones actuales de la base de datos.
+        * la lista de todas las lecciones actuales de la base de datos.
         * 
         * @return Lista de las lecciones de la base de datos.
         */
@@ -246,7 +246,7 @@
 
         /*
          * Método que guarda en el array lessons los datos de las lecciones
-         * registados en la base de datos.
+         * registadas en la base de datos.
         */
         private function updateLessons() {
             $this->lessons = [];
