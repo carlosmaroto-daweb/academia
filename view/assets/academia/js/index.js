@@ -355,6 +355,94 @@ $(document).ready(function() {
         }
     }
     
+    $('#lesson-duplicate').on('show.bs.modal', function(event) {
+        let button = '<button id="btn-duplicate" class="btn btn-primary">Aceptar</button>';
+        $('#lesson-duplicate-footer').append(button);
+        let option = $(event.relatedTarget);
+        let id = option.data('id');
+        $('#btn-duplicate').on('click', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: 'index.php?controller=courseController&action=duplicateLesson&ajax=true&id=' + id,
+                success: function(response) {
+                    let jsonData = JSON.parse(response);
+                    if (jsonData.success == "1") {
+                        let id     = jsonData.lesson.id;
+                        let id_row = 'row' + $('#lesson-table').children('tr').length;
+                        let name   = jsonData.lesson.name;
+                        let files  = jsonData.lesson.files;
+                        let row = 
+                            `<tr id='${id_row}'>
+                                <td>${name}</td>
+                                <td>${files}</td>
+                                <td> </td>
+                                <td>
+                                    <a href='index.php?controller=courseController&action=editLesson&id=${id}' class='button-o button-sm button-rounded button-blue hover-fade'>Editar</a>&nbsp;
+                                    <a class='button-o button-sm button-rounded button-purple hover-fade' data-toggle='modal' data-target='#lesson-duplicate' data-id='${id}'>Duplicar</a>&nbsp;
+                                    <a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#lesson-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
+                                </td>
+                            </tr>`;
+                        $('#lesson-table').append(row);
+                        $("#lesson-duplicate").modal('hide');
+                    }
+                    else {
+                        $(".alert").remove();
+                        let msg = `
+                            <div class="alert alert-danger alert-dismissible fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>¡Error!</strong> ${jsonData.msg}
+                            </div>
+                        `;
+                        $("#lesson-duplicate-form").append(msg);
+                    }
+                }
+            });
+        });
+    });
+
+    $('#lesson-duplicate').on('hidden.bs.modal', function() {
+        $(".alert").remove();
+        $('#btn-duplicate').remove();
+    });
+
+    $("#lesson-delete").on('show.bs.modal', function(event) {
+        let button = '<button id="btn-delete" class="btn btn-primary">Aceptar</button>';
+        $('#lesson-delete-footer').append(button);
+        let option = $(event.relatedTarget);
+        let id_row = option.data('id_row');
+        let id = option.data('id');
+        $('#btn-delete').on('click', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: 'index.php?controller=courseController&action=deleteLesson&ajax=true&id=' + id,
+                success: function(response) {
+                    let jsonData = JSON.parse(response);
+                    if (jsonData.success == "1") {
+                        $('#' + id_row).remove();
+                        $("#lesson-delete").modal('hide');
+                    }
+                    else {
+                        $(".alert").remove();
+                        let msg = `
+                            <div class="alert alert-danger alert-dismissible fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>¡Error!</strong> ${jsonData.msg}
+                            </div>
+                        `;
+                        $("#lesson-delete-form").append(msg);
+                    }
+                }
+            });
+        });
+    });
+
+    $('#lesson-delete').on('hidden.bs.modal', function() {
+        $(".alert").remove();
+        $('#btn-delete').remove();
+    });
+    
     $('#module-duplicate').on('show.bs.modal', function(event) {
         let button = '<button id="btn-duplicate" class="btn btn-primary">Aceptar</button>';
         $('#module-duplicate-footer').append(button);
@@ -377,7 +465,7 @@ $(document).ready(function() {
                         let row = 
                             `<tr id='${id_row}'>
                                 <td>${name}</td>
-                                echo "<td><img class='header_image_preview' src='${header_image}'></td>";
+                                <td><img class='header_image_preview' src='${header_image}'></td>
                                 <td><div class='canvas_preview'>${preview}</div></td>
                                 <td><div class='canvas_content'>${content}</div></td>
                                 <td> </td>
