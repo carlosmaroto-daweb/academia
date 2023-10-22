@@ -233,7 +233,9 @@
      * courseController devolviendo su salida y mostrando como vista la 
      * correspondiente, en caso de que no esté logeado llama al método login.
      * 
-     * @return Devuelve la lista de todos los usuarios si es admin.
+     * @return Devuelve la lista de todos los usuarios si es admin, de todos
+     *         los cursos, asignaturas etc si es secretario y de los cursos a 
+     *         los que está asociado si es profesor o alumno.
     */
     function home() {
       $result = null;
