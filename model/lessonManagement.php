@@ -169,7 +169,7 @@
          * mensaje del error correspondiente.
          * 
          * Previamente se ha comprobado que estén los parámetros id, name, 
-         * header_image, preview y content en el controlador y que sean válidos.
+         * y files en el controlador y que sean válidos.
          * 
          * @return JSON con parámetros success y en caso de error msg.
         */
@@ -221,7 +221,7 @@
         /*
          * Método que devuelve la lección dado por su nombre.
          * 
-         * @param  String nombre de la lección a consultar.
+         * @param  int nombre de la lección a consultar.
          * @return Devuelve la lección dado su nombre o null si no se encuentra.
         */
         private function getLessonByName($name) {

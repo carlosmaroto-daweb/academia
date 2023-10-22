@@ -220,7 +220,7 @@
         /*
          * Método que devuelve el usuario dado por su id.
          * 
-         * @param  String id del usuario a consultar.
+         * @param  int id del usuario a consultar.
          * @return Devuelve el usuario dado su id o null si no se encuentra.
         */
         private function getUserById($id) {
@@ -246,7 +246,7 @@
         /*
          * Método que devuelve true si el id lo tiene algún usuario guardado.
          * 
-         * @param  String id del usuario a consultar.
+         * @param  int id del usuario a consultar.
          * @return Devuelve el true si el id lo tiene algún usuario guardado.
         */
         private function isRegistered($id) {
@@ -263,7 +263,7 @@
          * Método que devuelve true si el email lo tiene algún usuario, 
          * excluyendo el usuario que tenga el mismo id.
          * 
-         * @param  String id del usuario a consultar.
+         * @param  int id del usuario a consultar.
          * @param  String email del usuario a consultar.
          * @return Devuelve el true si el id lo tiene algún usuario guardado
          *         excluyendo el usuario que tenga el mismo id.

@@ -210,7 +210,7 @@
         /*
          * Método que devuelve el módulo dado por su id.
          * 
-         * @param  String id del módulo a consultar.
+         * @param  int id del módulo a consultar.
          * @return Devuelve el módulo dado su id o null si no se encuentra.
         */
         function getModuleById($id) {
