@@ -378,8 +378,8 @@ $(document).ready(function() {
                             `<tr id='${id_row}'>
                                 <td>${name}</td>
                                 echo "<td><img class='header_image_preview' src='${header_image}'></td>";
-                                <td>${preview}</td>
-                                <td>${content}</td>
+                                <td><div class='canvas_preview'>${preview}</div></td>
+                                <td><div class='canvas_content'>${content}</div></td>
                                 <td> </td>
                                 <td>
                                     <a href='index.php?controller=courseController&action=editModule&id=${id}' class='button-o button-sm button-rounded button-blue hover-fade'>Editar</a>&nbsp;
@@ -388,6 +388,19 @@ $(document).ready(function() {
                                 </td>
                             </tr>`;
                         $('#module-table').append(row);
+                        let new_row = document.getElementById(id_row);
+                        let canvas_preview = new_row.querySelector(".canvas_preview");
+                        html2canvas(canvas_preview).then(function(canvas) {
+                            canvas.setAttribute('style', 'width: 100%; height: 100%');
+                            canvas_preview.innerHTML = "";
+                            canvas_preview.appendChild(canvas);
+                        });
+                        let canvas_content = new_row.querySelector(".canvas_content");
+                        html2canvas(canvas_content).then(function(canvas) {
+                            canvas.setAttribute('style', 'width: 100%; height: 100%');
+                            canvas_content.innerHTML = "";
+                            canvas_content.appendChild(canvas);
+                        });
                         $("#module-duplicate").modal('hide');
                     }
                     else {

@@ -205,12 +205,12 @@
                                             echo "<td>'{$row->getFiles()}'</td>";
                                             echo "<td> </td>";
                                             echo "<td>";
-                                                echo "<a href='index.php?controller=courseController&action=editModule&id={$row->getId()}' class='button-o button-sm button-rounded button-blue hover-fade'>Editar</a>&nbsp;";
-                                                echo "<a class='button-o button-sm button-rounded button-purple hover-fade' data-toggle='modal' data-target='#module-duplicate' data-id='{$row->getId()}'>Duplicar</a>&nbsp;";
-                                                echo "<a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#module-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
+                                                echo "<a href='index.php?controller=courseController&action=editLesson&id={$row->getId()}' class='button-o button-sm button-rounded button-blue hover-fade'>Editar</a>&nbsp;";
+                                                echo "<a class='button-o button-sm button-rounded button-purple hover-fade' data-toggle='modal' data-target='#lesson-duplicate' data-id='{$row->getId()}'>Duplicar</a>&nbsp;";
+                                                echo "<a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#lesson-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
                                             echo "</td>";
                                         echo "</tr>";
-                                        $count++; 
+                                        $count++;
                                     endforeach;
                                 ?>
                             </tbody>
@@ -265,6 +265,46 @@
                     <div class="modal-body">
                         <div id="delete-form">
                             <p>¿Seguro que quieres eliminar este módulo?</p>
+                        </div>
+                    </div>
+                    <div id="delete-modal-footer" class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="lesson-duplicate" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="exampleModalLongTitle">Duplicar lección</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="duplicate-form">
+                            <p>¿Seguro que quieres duplicar esta lección?</p>
+                        </div>
+                    </div>
+                    <div id="duplicate-modal-footer" class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="lesson-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="exampleModalLongTitle">Eliminar lección</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="delete-form">
+                            <p>¿Seguro que quieres eliminar esta lección?</p>
                         </div>
                     </div>
                     <div id="delete-modal-footer" class="modal-footer">
