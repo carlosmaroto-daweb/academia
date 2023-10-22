@@ -10,7 +10,7 @@
     /* 
     * Esta clase hace de intermediaria entre el controlador courseController
     * con funcionalidades de gestión de lecciones, y modelos como el de la base 
-    * de datos db y el modelo que define los campos de los lecciones module.
+    * de datos db y el modelo que define los campos de las lecciones lesson.
     * De forma que termina de ejecutar las funcionalidades implementadas en el
     * controlador courseController como crear, duplicar, editar y eliminar
     * lecciones, haciendo comprobaciones con la lista de lecciones actuales de la
@@ -29,7 +29,7 @@
         /*
         * Creamos una instancia de Db al inicio para poder utilizarla más 
         * adelante, a su vez el constructor de esta clase crea una conexión
-        * con la base de datos. Además actualiza la lista de lección, por
+        * con la base de datos. Además actualiza la lista de lecciones, por
         * lo que siempre estamos trabajando con los nuevos datos.
         */
         function __construct() {
@@ -38,13 +38,12 @@
         }
 
         /*
-         * Método que llama a la base de datos para crear el lección. Si todo 
+         * Método que llama a la base de datos para crear la lección. Si todo 
          * funciona correctamente se devuelve que ha tenido éxito, en caso 
          * contrario se muestra un mensaje del error correspondiente.
          * 
-         * Previamente se ha comprobado que estén los parámetros name, 
-         * header_image, preview y content en el controlador y que sean
-         * válidos.
+         * Previamente se ha comprobado que estén los parámetros name 
+         * y files en el controlador y que sean válidos.
          * 
          * @return JSON con parámetros success y en caso de error msg.
         */
@@ -79,7 +78,7 @@
          * 
          * @return JSON con parámetros success y en caso de error msg.
         */
-        function deleteLessone() {
+        function deleteLesson() {
             if ($this->getLessonById($_GET['id'])) {
                 if ($this->db->deleteLesson()) {
                     $result = json_encode(
