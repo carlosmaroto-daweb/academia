@@ -12,8 +12,7 @@
    * usuarios, tales como crear, editar y eliminar usuarios si el usuario que
    * realiza la acción es administrador, registrarse, iniciar o cerrar sesión
    * en la página cualquier usuario, definir rutas como inicio, home, admin y 
-   * login para cambiar la vista del usuario, y métodos para verificar datos
-   * o para verificar los permisos del usuario.
+   * login para cambiar la vista del usuario, y métodos para verificar datos.
    * 
    * @author: Carlos Maroto
    * @version: v1.0.0 Carlos Maroto
