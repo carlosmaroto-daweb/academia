@@ -1,6 +1,6 @@
 <?php
     // Constantes de la base de datos
-    define("DB_HOST", "localhost");
+    define("DB_HOST", "db");
     define("DB", "academia");
     define("DB_USER", "u-Area14");
     define("DB_PASS", "u-Area14");
