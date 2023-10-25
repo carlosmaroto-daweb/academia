@@ -16,7 +16,23 @@ CREATE TABLE `user` (
   `dni` VARCHAR(255),
   `type` ENUM ('student', 'teacher', 'secretary', 'admin') DEFAULT 'student',
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `lesson` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255),
+  `files` LONGBLOB,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `module` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255),
+  `header_image` LONGBLOB,
+  `preview` LONGBLOB,
+  `content` LONGBLOB,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
