@@ -10,15 +10,15 @@ CREATE TABLE `user` (
   `phone_number` VARCHAR(255),
   `dni` VARCHAR(255),
   `type` ENUM ('student', 'teacher', 'secretary', 'admin') DEFAULT 'student',
-  PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `lesson` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255),
   `files` LONGBLOB,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `module` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -26,5 +26,5 @@ CREATE TABLE `module` (
   `header_image` LONGBLOB,
   `preview` LONGBLOB,
   `content` LONGBLOB,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
