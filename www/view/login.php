@@ -9,7 +9,26 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         
-        <?php require_once "view/include/header.php"?>
+        <!-- CSS
+        ===================================== -->
+        <?php require_once "view/include/style.php"?>
+    </head>
+    <body  id="topPage" data-spy="scroll" data-target=".navbar" data-offset="100">
+        
+        <!-- Page Loader
+        ===================================== -->
+		<div id="pageloader" class="bg-grad-animation-1">
+			<div class="loader-item">
+                <img src="view/assets/img/other/oval.svg" alt="page loader">
+            </div>
+		</div>
+        <a href="view/shortcode-tables.html#page-top" class="go-to-top">
+            <i class="fa fa-long-arrow-up"></i>
+        </a>
+        
+        <!-- Nav
+        ===================================== -->
+        <?php require_once "view/include/nav.php"?>
         
         <div class="mt100 mb100">
             <div id="formLogin" class="inner cover text-center animated mb35" data-animation="fadeIn" data-animation-delay="100">
@@ -48,7 +67,13 @@
                 <br>
             </div>
         </div>
+
+        <!-- Footer
+        ===================================== -->
+        <?php require_once 'view/include/footer.php';?>
         
-<?php
-    require_once 'view/include/footer.php';
-?>
+        <!-- JS
+        ===================================== -->
+        <?php require_once "view/include/script.php"?>
+    </body>
+</html>
