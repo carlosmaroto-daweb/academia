@@ -41,8 +41,6 @@
     // y sustituyendo el cuerpo principal por la variable view del
     // controlador que estamos llamado.
     if (!isset($_GET["ajax"]) || $_GET["ajax"] != "true") {
-        require_once 'view/include/header.php';
         require_once 'view/'.$controller->getView().'.php';
-        require_once 'view/include/footer.php';
     }
 ?>
