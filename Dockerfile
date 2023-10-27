@@ -16,3 +16,7 @@ RUN docker-php-ext-install zip
 RUN docker-php-ext-install gd
 
 RUN a2enmod rewrite
+
+RUN echo 'memory_limit = 2G' >> /usr/local/etc/php/php.ini
+RUN echo 'upload_max_filesize = 2G' >> /usr/local/etc/php/php.ini
+RUN echo 'post_max_size = 2G' >> /usr/local/etc/php/php.ini

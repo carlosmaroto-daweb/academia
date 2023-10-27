@@ -117,9 +117,45 @@
             );
           }
         }
-        else if (isset($_POST['name']) && isset($_POST['files'])){
-          if (!empty($_POST['name']) && !empty($_POST['files'])) {
-            echo $this->lessonManagement->createLesson();
+        else if (isset($_POST['name']) && isset($_POST['count_archives'])){
+          if (!empty($_POST['name']) && $_POST['count_archives']>0) {
+            $valid = true;
+            $title = '';
+            $result = '';
+            for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) { 
+              if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
+                $title = $_POST['title-'.$i];
+                if (isset($_FILES[$title]) && !empty($_FILES[$title])) {
+                  // Guardar el archivo $_FILES[$title] y obtener el path del archivo
+                  $path = '';
+                  $result += $title . ';;' . $path . ';;';
+                }
+                else {
+                  $valid = false;
+                }
+              }
+              else {
+                $valid = false;
+              }
+            }
+            if ($valid) {
+              $_POST['files'] = $result;
+              //echo $this->lessonManagement->createLesson();
+              echo json_encode(
+                array(
+                  'success' => 0, 
+                  'msg'     => 'Se han mandado los parámetros correctamente.'
+                )
+              );
+            }
+            else {
+              echo json_encode(
+                array(
+                  'success' => 0, 
+                  'msg'     => 'No se ha podido crear la lección.'
+                )
+              );
+            }
           }
           else {
             echo json_encode(

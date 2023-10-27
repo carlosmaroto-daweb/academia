@@ -642,12 +642,13 @@ $(document).ready(function() {
         event.preventDefault();
         let id    = $('#lesson-edit-id').val();
         let name  = $('#lesson-edit-name').val();
-        let files = "";
         let row_files_complete = document.getElementsByClassName('row-files-complete');
+        let titles = [];
+        let archives = [];
         let title = "";
+        let archive = null;
         let video = null;
         let pdf = null;
-        let file = "";
         let count = 1;
         for (let i=0; i<row_files_complete.length; i++) {
             title = row_files_complete[i].querySelector("input[name='title']").value;
@@ -657,24 +658,28 @@ $(document).ready(function() {
             video = row_files_complete[i].querySelector("video");
             pdf = row_files_complete[i].querySelector("embed");
             if (video || pdf) {
-                if (video) {
-                    file = video.getAttribute("src");
-                }
-                else if (pdf) {
-                    file = pdf.getAttribute("src");
-                }
-                files += title + ";;" + file + ";;";
+                titles.push(title);
+                archive = row_files_complete[i].querySelector("input[name='file']").files[0];
+                archives.push(archive);
                 count++;
             }
         }
+        let formData = new FormData();
+        formData.append('id', id);
+        formData.append('name', name);
+        formData.append('count_archives', titles.length);
+        for (let i=0; i<titles.length; i++) {
+            formData.append('title-'+i, titles[i]);
+            formData.append(titles[i], archives[i]);
+        }
+        console.log(titles);
+        console.log(archives);
         $.ajax({
             type: "POST",
             url: 'index.php?controller=courseController&action=editLesson&ajax=true',
-            data: {
-                'id':    id,
-                'name':  name,
-                'files': files
-            },
+            data: formData,
+            contentType: false,
+            processData: false,
             success: function(response) {
                 let jsonData = JSON.parse(response);
                 if (jsonData.success == "1") {
