@@ -12,4 +12,7 @@
     // Constantes del encriptamiento
     define("PASSWORD_HASH", PASSWORD_DEFAULT);
     define("PASSWORD_COST", 14);
+
+    // Constantes de la ruta de los archivos video y pdf
+    define("DEFAULT_UPDATE", "view/assets/academia/files");
 ?>

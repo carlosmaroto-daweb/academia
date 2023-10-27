@@ -15,6 +15,9 @@
   // esta clase va a redirigir a los usuarios no logeados.
   require_once 'controller/userController.php';
 
+  // Incluimos el archivo config.php para utilizar las constantes definidas en él.
+  require_once 'config/config.php';
+
   class courseController {
 
     // Atributos
@@ -126,32 +129,20 @@
               if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
                 $title = $_POST['title-'.$i];
                 if (isset($_FILES[$title]) && !empty($_FILES[$title])) {
-                  
-                  $file = $_FILES[$title]["name"]; //Nombre de nuestro archivo
-                  $url_temp = $_FILES[$title]["tmp_name"]; //Ruta temporal a donde se carga el archivo 
-
-                  //dirname(__FILE__) nos otorga la ruta absoluta hasta el archivo en ejecución
-                  $url_insert = "view/assets/academia/files"; //Carpeta donde subiremos nuestros archivos
-
-                  //Ruta donde se guardara el archivo, usamos str_replace para reemplazar los "\" por "/"
-                  $url_target = str_replace('\\', '/', $url_insert) . '/' . $file;
-
-                  //Si la carpeta no existe, la creamos
+                  $array = explode('.', $_FILES[$title]["name"]);
+                  $ext = end($array);
+                  $url_temp = $_FILES[$title]["tmp_name"];
+                  $url_insert = constant('DEFAULT_UPDATE');
+                  $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
                   if (!file_exists($url_insert)) {
                     mkdir($url_insert, 0777, true);
                   };
-
-                  //movemos el archivo de la carpeta temporal a la carpeta objetivo y verificamos si fue exitoso
                   if (move_uploaded_file($url_temp, $url_target)) {
-                    echo "El archivo " . htmlspecialchars(basename($file)) . " ha sido cargado con éxito.";
-                  } else {
-                    echo "Ha habido un error al cargar tu archivo.";
+                    $result .= $title . ';;' . $url_target . ';;';
                   }
-
-
-                  // Guardar el archivo $_FILES[$title] y obtener el path del archivo
-                  $path = '';
-                  $result += $title . ';;' . $path . ';;';
+                  else {
+                    $valid = false;
+                  }
                 }
                 else {
                   $valid = false;
@@ -163,13 +154,7 @@
             }
             if ($valid) {
               $_POST['files'] = $result;
-              //echo $this->lessonManagement->createLesson();
-              echo json_encode(
-                array(
-                  'success' => 0, 
-                  'msg'     => 'Se han mandado los parámetros correctamente.'
-                )
-              );
+              echo $this->lessonManagement->createLesson();
             }
             else {
               echo json_encode(
