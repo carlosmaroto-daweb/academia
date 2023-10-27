@@ -672,8 +672,6 @@ $(document).ready(function() {
             formData.append('title-'+i, titles[i]);
             formData.append(titles[i], archives[i]);
         }
-        console.log(titles);
-        console.log(archives);
         $.ajax({
             type: "POST",
             url: 'index.php?controller=courseController&action=editLesson&ajax=true',
