@@ -343,17 +343,6 @@ $(document).ready(function() {
             });
         }
     }
-
-    const canvas_content = document.getElementsByClassName('canvas_content');
-    if (canvas_content) {
-        for (let i=0; i<canvas_content.length; i++) {
-            html2canvas(canvas_content[i]).then(function(canvas) {
-                canvas.setAttribute('style', 'width: 100%; height: 100%');
-                canvas_content[i].innerHTML = "";
-                canvas_content[i].appendChild(canvas);
-            });
-        }
-    }
     
     $('#lesson-duplicate').on('show.bs.modal', function(event) {
         let button = '<button id="btn-duplicate" class="btn btn-primary">Aceptar</button>';
@@ -467,7 +456,7 @@ $(document).ready(function() {
                                 <td>${name}</td>
                                 <td><img class='header_image_preview' src='${header_image}'></td>
                                 <td><div class='canvas_preview'>${preview}</div></td>
-                                <td><div class='canvas_content'>${content}</div></td>
+                                <td><div class='canvas_preview'>${content}</div></td>
                                 <td> </td>
                                 <td>
                                     <a href='index.php?controller=courseController&action=editModule&id=${id}' class='button-o button-sm button-rounded button-blue hover-fade'>Editar</a>&nbsp;
@@ -482,12 +471,6 @@ $(document).ready(function() {
                             canvas.setAttribute('style', 'width: 100%; height: 100%');
                             canvas_preview.innerHTML = "";
                             canvas_preview.appendChild(canvas);
-                        });
-                        let canvas_content = new_row.querySelector(".canvas_content");
-                        html2canvas(canvas_content).then(function(canvas) {
-                            canvas.setAttribute('style', 'width: 100%; height: 100%');
-                            canvas_content.innerHTML = "";
-                            canvas_content.appendChild(canvas);
                         });
                         $("#module-duplicate").modal('hide');
                     }
