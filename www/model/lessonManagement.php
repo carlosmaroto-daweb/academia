@@ -218,7 +218,8 @@
          * @return JSON con parámetros success y en caso de error msg.
         */
         function editLesson() {
-            if ($this->getLessonById($_POST['id'])) {
+            $lesson = $this->getLessonById($_POST['id']);
+            if ($lesson) {
                 $valid = true;
                 $title = '';
                 $result = '';
