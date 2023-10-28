@@ -100,6 +100,12 @@
                 }
             }
             else {
+                if ($files != '') {
+                    $arrays = explode(';;', $files);
+                    for ($i=1; $i<count($arrays); $i+=2) { 
+                        unlink($arrays[$i]);
+                    }
+                }
                 $result = json_encode(
                     array(
                     'success' => 0, 
@@ -269,6 +275,12 @@
                     }
                 }
                 else {
+                    if ($files != '') {
+                        $arrays = explode(';;', $files);
+                        for ($i=1; $i<count($arrays); $i+=2) { 
+                            unlink($arrays[$i]);
+                        }
+                    }
                     $result = json_encode(
                         array(
                         'success' => 0, 
