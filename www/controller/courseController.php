@@ -15,9 +15,6 @@
   // esta clase va a redirigir a los usuarios no logeados.
   require_once 'controller/userController.php';
 
-  // Incluimos el archivo config.php para utilizar las constantes definidas en él.
-  require_once 'config/config.php';
-
   class courseController {
 
     // Atributos
@@ -148,48 +145,7 @@
         else if (isset($_POST['id']) && !empty($_POST['id'])) {
           if (isset($_POST['name']) && isset($_POST['count_archives'])){
             if (!empty($_POST['name']) && $_POST['count_archives']>0) {
-              $valid = true;
-              $title = '';
-              $result = '';
-              for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) { 
-                if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
-                  $title = $_POST['title-'.$i];
-                  if (isset($_FILES[$title]) && !empty($_FILES[$title])) {
-                    $array = explode('.', $_FILES[$title]["name"]);
-                    $ext = end($array);
-                    $url_temp = $_FILES[$title]["tmp_name"];
-                    $url_insert = constant('DEFAULT_UPDATE');
-                    $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
-                    if (!file_exists($url_insert)) {
-                      mkdir($url_insert, 0777, true);
-                    };
-                    if (move_uploaded_file($url_temp, $url_target)) {
-                      $result .= $title . ';;' . $url_target . ';;';
-                    }
-                    else {
-                      $valid = false;
-                    }
-                  }
-                  else {
-                    $valid = false;
-                  }
-                }
-                else {
-                  $valid = false;
-                }
-              }
-              if ($valid) {
-                $_POST['files'] = $result;
-                echo $this->lessonManagement->createLesson();
-              }
-              else {
-                echo json_encode(
-                  array(
-                    'success' => 0, 
-                    'msg'     => 'No se ha podido editar la lección.'
-                  )
-                );
-              }
+              echo $this->lessonManagement->editLesson();
             }
             else {
               echo json_encode(
@@ -211,48 +167,7 @@
         }
         else if (isset($_POST['name']) && isset($_POST['count_archives'])){
           if (!empty($_POST['name']) && $_POST['count_archives']>0) {
-            $valid = true;
-            $title = '';
-            $result = '';
-            for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) { 
-              if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
-                $title = $_POST['title-'.$i];
-                if (isset($_FILES[$title]) && !empty($_FILES[$title])) {
-                  $array = explode('.', $_FILES[$title]["name"]);
-                  $ext = end($array);
-                  $url_temp = $_FILES[$title]["tmp_name"];
-                  $url_insert = constant('DEFAULT_UPDATE');
-                  $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
-                  if (!file_exists($url_insert)) {
-                    mkdir($url_insert, 0777, true);
-                  };
-                  if (move_uploaded_file($url_temp, $url_target)) {
-                    $result .= $title . ';;' . $url_target . ';;';
-                  }
-                  else {
-                    $valid = false;
-                  }
-                }
-                else {
-                  $valid = false;
-                }
-              }
-              else {
-                $valid = false;
-              }
-            }
-            if ($valid) {
-              $_POST['files'] = $result;
-              echo $this->lessonManagement->createLesson();
-            }
-            else {
-              echo json_encode(
-                array(
-                  'success' => 0, 
-                  'msg'     => 'No se ha podido crear la lección.'
-                )
-              );
-            }
+            echo $this->lessonManagement->createLesson();
           }
           else {
             echo json_encode(

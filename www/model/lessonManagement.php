@@ -7,6 +7,9 @@
     // esta clase define los campos que van a tener las lecciones.
     require_once 'model/lesson.php';
 
+    // Incluimos el archivo config.php para utilizar las constantes definidas en él.
+    require_once 'config/config.php';
+
     /* 
     * Esta clase hace de intermediaria entre el controlador courseController
     * con funcionalidades de gestión de lecciones, y modelos como el de la base 
@@ -48,18 +51,59 @@
          * @return JSON con parámetros success y en caso de error msg.
         */
         function createLesson() {
-            if ($this->db->createLesson()) {
-                $result = json_encode(
-                    array(
-                        'success' => 1
-                    )
-                );
+            $valid = true;
+            $title = '';
+            $result = '';
+            for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) { 
+                if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
+                    $title = $_POST['title-'.$i];
+                    if (isset($_FILES[$title]) && !empty($_FILES[$title])) {
+                        $array = explode('.', $_FILES[$title]["name"]);
+                        $ext = end($array);
+                        $url_temp = $_FILES[$title]["tmp_name"];
+                        $url_insert = constant('DEFAULT_UPDATE');
+                        $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
+                        if (!file_exists($url_insert)) {
+                            mkdir($url_insert, 0777, true);
+                        }
+                        if (move_uploaded_file($url_temp, $url_target)) {
+                            $result .= $title . ';;' . $url_target . ';;';
+                        }
+                        else {
+                            $valid = false;
+                        }
+                    }
+                    else {
+                        $valid = false;
+                    }
+                }
+                else {
+                    $valid = false;
+                }
+            }
+            if ($valid) {
+                $_POST['files'] = $result;
+                if ($this->db->createLesson()) {
+                    $result = json_encode(
+                        array(
+                            'success' => 1
+                        )
+                    );
+                }
+                else {
+                    $result = json_encode(
+                        array(
+                            'success' => 0, 
+                            'msg'     => 'No se ha podido crear la lección en la base de datos.'
+                        )
+                    );
+                }
             }
             else {
                 $result = json_encode(
                     array(
-                        'success' => 0, 
-                        'msg'     => 'No se ha podido crear la lección en la base de datos.'
+                    'success' => 0, 
+                    'msg'     => 'No se ha podido crear la lección.'
                     )
                 );
             }
@@ -175,18 +219,59 @@
         */
         function editLesson() {
             if ($this->getLessonById($_POST['id'])) {
-                if ($this->db->editLesson()) {
-                    $result = json_encode(
-                        array(
-                            'success' => 1
-                        )
-                    );
+                $valid = true;
+                $title = '';
+                $result = '';
+                for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) { 
+                    if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
+                        $title = $_POST['title-'.$i];
+                        if (isset($_FILES[$title]) && !empty($_FILES[$title])) {
+                            $array = explode('.', $_FILES[$title]["name"]);
+                            $ext = end($array);
+                            $url_temp = $_FILES[$title]["tmp_name"];
+                            $url_insert = constant('DEFAULT_UPDATE');
+                            $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
+                            if (!file_exists($url_insert)) {
+                                mkdir($url_insert, 0777, true);
+                            }
+                            if (move_uploaded_file($url_temp, $url_target)) {
+                                $result .= $title . ';;' . $url_target . ';;';
+                            }
+                            else {
+                                $valid = false;
+                            }
+                        }
+                        else {
+                            $valid = false;
+                        }
+                    }
+                    else {
+                        $valid = false;
+                    }
+                }
+                if ($valid) {
+                    $_POST['files'] = $result;
+                    if ($this->db->editLesson()) {
+                        $result = json_encode(
+                            array(
+                                'success' => 1
+                            )
+                        );
+                    }
+                    else {
+                        $result = json_encode(
+                            array(
+                                'success' => 0,
+                                'msg'     => 'No se ha podido editar la lección de la base de datos.'
+                            )
+                        );
+                    }
                 }
                 else {
                     $result = json_encode(
                         array(
-                            'success' => 0,
-                            'msg'     => 'No se ha podido editar la lección de la base de datos.'
+                        'success' => 0, 
+                        'msg'     => 'No se ha podido editar la lección.'
                         )
                     );
                 }
@@ -194,8 +279,8 @@
             else {
                 $result = json_encode(
                     array(
-                        'success' => 0, 
-                        'msg'     => 'La lección no se encuentra en la base de datos.'
+                    'success' => 0, 
+                    'msg'     => 'No se ha podido editar la lección.'
                     )
                 );
             }
