@@ -32,6 +32,30 @@
       $this->lessonManagement = new LessonManagement();
     }
 
+    function deleteLesson() {
+      if (isSecretary() || isAdmin()) {
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+          echo $this->lessonManagement->deleteLesson();
+        }
+        else {
+          echo json_encode(
+            array(
+              'success' => 0, 
+              'msg'     => 'No se ha podido eliminar la lección.'
+            )
+          );
+        }
+      }
+      else {
+        echo json_encode(
+          array(
+            'success' => 0, 
+            'msg'     => 'No tienes permisos para eliminar una lección.'
+          )
+        );
+      }
+    }
+
     function deleteModule() {
       if (isSecretary() || isAdmin()) {
         if (isset($_GET['id']) && !empty($_GET['id'])) {
@@ -51,6 +75,30 @@
           array(
             'success' => 0, 
             'msg'     => 'No tienes permisos para eliminar un módulo.'
+          )
+        );
+      }
+    }
+
+    function duplicateLesson() {
+      if (isSecretary() || isAdmin()) {
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+          echo $this->lessonManagement->duplicateLesson();
+        }
+        else {
+          echo json_encode(
+            array(
+              'success' => 0, 
+              'msg'     => 'No se ha podido duplicar la lección.'
+            )
+          );
+        }
+      }
+      else {
+        echo json_encode(
+          array(
+            'success' => 0, 
+            'msg'     => 'No tienes permisos para duplicar una lección.'
           )
         );
       }
