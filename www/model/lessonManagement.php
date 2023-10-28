@@ -53,7 +53,7 @@
         function createLesson() {
             $valid = true;
             $title = '';
-            $result = '';
+            $files = '';
             for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) { 
                 if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
                     $title = $_POST['title-'.$i];
@@ -67,7 +67,7 @@
                             mkdir($url_insert, 0777, true);
                         }
                         if (move_uploaded_file($url_temp, $url_target)) {
-                            $result .= $title . ';;' . $url_target . ';;';
+                            $files .= $title . ';;' . $url_target . ';;';
                         }
                         else {
                             $valid = false;
@@ -82,7 +82,7 @@
                 }
             }
             if ($valid) {
-                $_POST['files'] = $result;
+                $_POST['files'] = $files;
                 if ($this->db->createLesson()) {
                     $result = json_encode(
                         array(
@@ -222,7 +222,7 @@
             if ($lesson) {
                 $valid = true;
                 $title = '';
-                $result = '';
+                $files = '';
                 for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) { 
                     if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
                         $title = $_POST['title-'.$i];
@@ -236,7 +236,7 @@
                                 mkdir($url_insert, 0777, true);
                             }
                             if (move_uploaded_file($url_temp, $url_target)) {
-                                $result .= $title . ';;' . $url_target . ';;';
+                                $files .= $title . ';;' . $url_target . ';;';
                             }
                             else {
                                 $valid = false;
@@ -251,7 +251,7 @@
                     }
                 }
                 if ($valid) {
-                    $_POST['files'] = $result;
+                    $_POST['files'] = $files;
                     if ($this->db->editLesson()) {
                         $result = json_encode(
                             array(
