@@ -41,12 +41,16 @@
         }
 
         /*
-         * Método que llama a la base de datos para crear la lección. Si todo 
-         * funciona correctamente se devuelve que ha tenido éxito, en caso 
-         * contrario se muestra un mensaje del error correspondiente.
+         * Método que guarda los archivos que se pasan por parámetro y se
+         * guarda el título y la ruta al archivo en una variable para
+         * guardarla en la base de datos, posteriormente llama a la base 
+         * de datos para crear la lección. Si todo funciona correctamente 
+         * se devuelve que ha tenido éxito, en caso contrario se muestra 
+         * un mensaje del error correspondiente.
          * 
          * Previamente se ha comprobado que estén los parámetros name 
-         * y files en el controlador y que sean válidos.
+         * y los parámetros referentes a los archivos en el controlador 
+         * y que sean válidos.
          * 
          * @return JSON con parámetros success y en caso de error msg.
         */
@@ -78,10 +82,7 @@
                 );
             }
             else {
-                $arrays = explode(';;', $files);
-                for ($i=1; $i<count($arrays); $i+=2) { 
-                    unlink($arrays[$i]);
-                }
+                deleteArchives($files);
                 $result = json_encode(
                     array(
                         'success' => 0, 
@@ -90,6 +91,13 @@
                 );
             }
             return $result;
+        }
+
+        private function deleteArchives($files) {
+            $arrays = explode(';;', $files);
+            for ($i=1; $i<count($arrays); $i+=2) { 
+                unlink($arrays[$i]);
+            }
         }
 
         /*
@@ -108,13 +116,8 @@
             $lesson = $this->getLessonById($_GET['id']);
             if ($lesson) {
                 $files  = $lesson->getFiles();
-                $url_insert = constant('DEFAULT_UPDATE');
-                $arrays = explode(';;', $files);
-                for ($i=1; $i<count($arrays); $i+=2) {
-                    $archive = $arrays[$i];
-                    unlink($archive);
-                }
                 if ($this->db->deleteLesson()) {
+                    deleteArchives($files);
                     $result = json_encode(
                         array(
                             'success' => 1
@@ -192,6 +195,7 @@
                     );
                 }
                 else {
+                    deleteArchives($files);
                     $result = json_encode(
                         array(
                             'success' => 0, 
@@ -229,61 +233,36 @@
                 $valid = true;
                 $title = '';
                 $files = '';
-                for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) { 
-                    if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
-                        $title = str_replace(" ", "_", $_POST['title-'.$i]);
-                        if (isset($_FILES[$title]) && !empty($_FILES[$title])) {
-                            $array = explode('.', $_FILES[$title]["name"]);
-                            $ext = end($array);
-                            $url_temp = $_FILES[$title]["tmp_name"];
-                            $url_insert = constant('DEFAULT_UPDATE');
-                            $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
-                            if (!file_exists($url_insert)) {
-                                mkdir($url_insert, 0777, true);
-                            }
-                            move_uploaded_file($url_temp, $url_target);
-                            if ($files != '') {
-                                $files .= ';;';
-                            }
-                            $files .= $title . ';;' . $url_target;
-                        }
-                        else {
-                            $valid = false;
-                        }
+                for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) {
+                    $title = str_replace(" ", "_", $_POST['title-'.$i]);
+                    $array = explode('.', $_FILES[$title]["name"]);
+                    $ext = end($array);
+                    $url_temp = $_FILES[$title]["tmp_name"];
+                    $url_insert = constant('DEFAULT_UPDATE');
+                    $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
+                    if (!file_exists($url_insert)) {
+                        mkdir($url_insert, 0777, true);
                     }
-                    else {
-                        $valid = false;
-                    }
-                }
-                if ($valid) {
-                    $_POST['files'] = $files;
-                    if ($this->db->editLesson()) {
-                        $result = json_encode(
-                            array(
-                                'success' => 1
-                            )
-                        );
-                    }
-                    else {
-                        $result = json_encode(
-                            array(
-                                'success' => 0,
-                                'msg'     => 'No se ha podido editar la lección de la base de datos.'
-                            )
-                        );
-                    }
-                }
-                else {
+                    move_uploaded_file($url_temp, $url_target);
                     if ($files != '') {
-                        $arrays = explode(';;', $files);
-                        for ($i=1; $i<count($arrays); $i+=2) { 
-                            unlink($arrays[$i]);
-                        }
+                        $files .= ';;';
                     }
+                    $files .= $title . ';;' . $url_target;
+                }
+                $_POST['files'] = $files;
+                if ($this->db->editLesson()) {
                     $result = json_encode(
                         array(
-                        'success' => 0, 
-                        'msg'     => 'No se ha podido editar la lección.'
+                            'success' => 1
+                        )
+                    );
+                }
+                else {
+                    deleteArchives($files);
+                    $result = json_encode(
+                        array(
+                            'success' => 0,
+                            'msg'     => 'No se ha podido editar la lección de la base de datos.'
                         )
                     );
                 }
