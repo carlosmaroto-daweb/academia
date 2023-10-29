@@ -93,6 +93,11 @@
             return $result;
         }
 
+        /*
+         * Método que elimina los archivos almacenados en la ruta.
+         * 
+         * @param  String nombres y rutas de los archivos
+        */
         private function deleteArchives($files) {
             $arrays = explode(';;', $files);
             for ($i=1; $i<count($arrays); $i+=2) { 
@@ -104,8 +109,9 @@
          * Método que comprueba que el id introducido corresponde al id de una 
          * lección de la base de datos y llama a la base de datos para eliminar
          * la lección. Si todo funciona correctamente y se cumple las 
-         * condiciones se devuelve que ha tenido éxito, en caso contrario se 
-         * muestra un mensaje del error correspondiente.
+         * condiciones se eliminan los archivos almacenadoos y se devuelve que
+         * ha tenido éxito, en caso contrario se muestra un mensaje del error 
+         * correspondiente.
          * 
          * Previamente se ha comprobado que esté el parámetro id y que sea 
          * válido en el controlador.
@@ -146,12 +152,13 @@
 
         /*
          * Método que comprueba que el id introducido corresponde al id de una
-         * lección de la base de datos, guarda en la varible POST los datos de la
-         * lección que se quiere duplicar y llama a la base de datos para crear
-         * la lección. Si todo funciona correctamente y se cumplen las 
-         * condiciones se actualiza la lista de lecciones para extraer la que 
-         * hemos creado previamente y se devuelve con el resultado, en caso 
-         * contrario se muestra un mensaje del error correspondiente.
+         * lección de la base de datos, hace una copia de los archivos del 
+         * original, guarda en la varible POST los datos de la lección que se 
+         * quiere duplicar y llama a la base de datos para crear la lección. 
+         * Si todo funciona correctamente y se cumplen las condiciones se 
+         * actualiza la lista de lecciones para extraer la que hemos creado 
+         * previamente y se devuelve con el resultado, en caso contrario se 
+         * muestra un mensaje del error correspondiente.
          * 
          * Previamente se ha comprobado que esté el parámetro id y que sea 
          * válido en el controlador.
@@ -168,8 +175,8 @@
                 $arrays = explode(';;', $_POST['files']);
                 $files = '';
                 for ($i=0; $i<count($arrays); $i+=2) {
-                    $archive = $arrays[$i+1];
                     $title = $arrays[$i];
+                    $archive = $arrays[$i+1];
                     $array = explode('.', $arrays[$i+1]);
                     $ext = end($array);
                     $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
