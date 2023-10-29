@@ -44,6 +44,9 @@
         * Método que guarda los archivos pasados por parámetro y guarda en
         * la variable files los nombres de los archivos y las rutas de los
         * archivos creados.
+        * 
+        * @return String nombres de los archivos y las rutas de los
+        *                archivos creados
         */
         private function createArchives() {
             $title = '';
