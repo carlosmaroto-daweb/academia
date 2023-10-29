@@ -40,6 +40,11 @@
             $this->updateLessons();
         }
 
+        /*
+        * Método que guarda los archivos pasados por parámetro y guarda en
+        * la variable files los nombres de los archivos y las rutas de los
+        * archivos creados.
+        */
         private function createArchives() {
             $title = '';
             $files = '';
@@ -77,25 +82,7 @@
          * @return JSON con parámetros success y en caso de error msg.
         */
         function createLesson() {
-            $title = '';
-            $files = '';
-            for ($i=0; $i<$_POST['count_archives']; $i++) { 
-                $title = str_replace(" ", "_", $_POST['title-'.$i]);
-                $array = explode('.', $_FILES[$title]["name"]);
-                $ext = end($array);
-                $url_temp = $_FILES[$title]["tmp_name"];
-                $url_insert = constant('DEFAULT_UPDATE');
-                $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
-                if (!file_exists($url_insert)) {
-                    mkdir($url_insert, 0777, true);
-                }
-                move_uploaded_file($url_temp, $url_target);
-                if ($files != '') {
-                    $files .= ';;';
-                }
-                $files .= $title . ';;' . $url_target;
-            }
-            $_POST['files'] = $files;
+            createArchives();
             if ($this->db->createLesson()) {
                 $result = json_encode(
                     array(
@@ -173,6 +160,29 @@
         }
 
         /*
+        * Método que crea una copia de los archivos originales y guarda en la
+        * variable files los nombres y las rutas de los archivos creados.
+        */
+        private function duplicateArchive($original) {
+            $url_insert = constant('DEFAULT_UPDATE');
+            $arrays = explode(';;', $original);
+            $files = '';
+            for ($i=0; $i<count($arrays); $i+=2) {
+                $title = $arrays[$i];
+                $archive = $arrays[$i+1];
+                $array = explode('.', $arrays[$i+1]);
+                $ext = end($array);
+                $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
+                copy($archive, $url_target);
+                if ($files != '') {
+                    $files .= ';;';
+                }
+                $files .= $title . ';;' . $url_target;
+            }
+            $_POST['files']  = $files;
+        }
+
+        /*
          * Método que comprueba que el id introducido corresponde al id de una
          * lección de la base de datos, hace una copia de los archivos del 
          * original, guarda en la varible POST los datos de la lección que se 
@@ -191,24 +201,8 @@
         function duplicateLesson() {
             $lesson = $this->getLessonById($_GET['id']);
             if ($lesson) {
-                $_POST['name']   = $lesson->getName() . " Copia";
-                $_POST['files']  = $lesson->getFiles();
-                $url_insert = constant('DEFAULT_UPDATE');
-                $arrays = explode(';;', $_POST['files']);
-                $files = '';
-                for ($i=0; $i<count($arrays); $i+=2) {
-                    $title = $arrays[$i];
-                    $archive = $arrays[$i+1];
-                    $array = explode('.', $arrays[$i+1]);
-                    $ext = end($array);
-                    $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
-                    copy($archive, $url_target);
-                    if ($files != '') {
-                        $files .= ';;';
-                    }
-                    $files .= $title . ';;' . $url_target;
-                }
-                $_POST['files']  = $files;
+                $_POST['name'] = $lesson->getName() . " Copia";
+                duplicateArchive($lesson->getFiles());
                 if ($this->db->createLesson()) {
                     $this->updateLessons();
                     $lesson = $this->getLessonByName($_POST['name']);
@@ -259,26 +253,9 @@
         function editLesson() {
             $lesson = $this->getLessonById($_POST['id']);
             if ($lesson) {
-                $title = '';
-                $files = '';
-                for ($i=0; $i<$_POST['count_archives']; $i++) {
-                    $title = str_replace(" ", "_", $_POST['title-'.$i]);
-                    $array = explode('.', $_FILES[$title]["name"]);
-                    $ext = end($array);
-                    $url_temp = $_FILES[$title]["tmp_name"];
-                    $url_insert = constant('DEFAULT_UPDATE');
-                    $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
-                    if (!file_exists($url_insert)) {
-                        mkdir($url_insert, 0777, true);
-                    }
-                    move_uploaded_file($url_temp, $url_target);
-                    if ($files != '') {
-                        $files .= ';;';
-                    }
-                    $files .= $title . ';;' . $url_target;
-                }
-                $_POST['files'] = $files;
+                createArchives();
                 if ($this->db->editLesson()) {
+                    deleteArchives($lesson->getFiles());
                     $result = json_encode(
                         array(
                             'success' => 1
