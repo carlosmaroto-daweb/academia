@@ -40,6 +40,28 @@
             $this->updateLessons();
         }
 
+        private function createArchives() {
+            $title = '';
+            $files = '';
+            for ($i=0; $i<$_POST['count_archives']; $i++) { 
+                $title = str_replace(" ", "_", $_POST['title-'.$i]);
+                $array = explode('.', $_FILES[$title]["name"]);
+                $ext = end($array);
+                $url_temp = $_FILES[$title]["tmp_name"];
+                $url_insert = constant('DEFAULT_UPDATE');
+                $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
+                if (!file_exists($url_insert)) {
+                    mkdir($url_insert, 0777, true);
+                }
+                move_uploaded_file($url_temp, $url_target);
+                if ($files != '') {
+                    $files .= ';;';
+                }
+                $files .= $title . ';;' . $url_target;
+            }
+            $_POST['files'] = $files;
+        }
+
         /*
          * Método que guarda los archivos que se pasan por parámetro y se
          * guarda el título y la ruta al archivo en una variable para
