@@ -85,7 +85,7 @@
          * @return JSON con parámetros success y en caso de error msg.
         */
         function createLesson() {
-            $files = createArchives();
+            $files = $this->createArchives();
             $_POST['files'] = $files;
             if ($this->db->createLesson()) {
                 $result = json_encode(
@@ -95,7 +95,7 @@
                 );
             }
             else {
-                deleteArchives($files);
+                $this->deleteArchives($files);
                 $result = json_encode(
                     array(
                         'success' => 0, 
@@ -136,7 +136,7 @@
             if ($lesson) {
                 $files  = $lesson->getFiles();
                 if ($this->db->deleteLesson()) {
-                    deleteArchives($files);
+                    $this->deleteArchives($files);
                     $result = json_encode(
                         array(
                             'success' => 1
@@ -222,7 +222,7 @@
                     );
                 }
                 else {
-                    deleteArchives($files);
+                    $this->deleteArchives($files);
                     $result = json_encode(
                         array(
                             'success' => 0, 
@@ -257,10 +257,10 @@
         function editLesson() {
             $lesson = $this->getLessonById($_POST['id']);
             if ($lesson) {
-                $files = createArchives();
+                $files = $this->createArchives();
                 $_POST['files'] = $files;
                 if ($this->db->editLesson()) {
-                    deleteArchives($lesson->getFiles());
+                    $this->deleteArchives($lesson->getFiles());
                     $result = json_encode(
                         array(
                             'success' => 1
@@ -268,7 +268,7 @@
                     );
                 }
                 else {
-                    deleteArchives($files);
+                    $this->deleteArchives($files);
                     $result = json_encode(
                         array(
                             'success' => 0,
