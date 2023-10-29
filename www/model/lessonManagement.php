@@ -56,7 +56,7 @@
             $files = '';
             for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) { 
                 if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
-                    $title = $_POST['title-'.$i];
+                    $title = str_replace(" ", "_", $_POST['title-'.$i]);
                     if (isset($_FILES[$title]) && !empty($_FILES[$title])) {
                         $array = explode('.', $_FILES[$title]["name"]);
                         $ext = end($array);
@@ -66,12 +66,11 @@
                         if (!file_exists($url_insert)) {
                             mkdir($url_insert, 0777, true);
                         }
-                        if (move_uploaded_file($url_temp, $url_target)) {
-                            $files .= $title . ';;' . $url_target . ';;';
+                        move_uploaded_file($url_temp, $url_target);
+                        if ($files != '') {
+                            $files .= ';;';
                         }
-                        else {
-                            $valid = false;
-                        }
+                        $files .= $title . ';;' . $url_target;
                     }
                     else {
                         $valid = false;
@@ -129,7 +128,15 @@
          * @return JSON con parámetros success y en caso de error msg.
         */
         function deleteLesson() {
-            if ($this->getLessonById($_GET['id'])) {
+            $lesson = $this->getLessonById($_GET['id']);
+            if ($lesson) {
+                $files  = $lesson->getFiles();
+                $url_insert = constant('DEFAULT_UPDATE');
+                $arrays = explode(';;', $files);
+                for ($i=1; $i<count($arrays); $i+=2) {
+                    $archive = $arrays[$i];
+                    unlink($archive);
+                }
                 if ($this->db->deleteLesson()) {
                     $result = json_encode(
                         array(
@@ -177,6 +184,22 @@
             if ($lesson) {
                 $_POST['name']   = $lesson->getName() . " Copia";
                 $_POST['files']  = $lesson->getFiles();
+                $url_insert = constant('DEFAULT_UPDATE');
+                $arrays = explode(';;', $_POST['files']);
+                $files = '';
+                for ($i=0; $i<count($arrays); $i+=2) {
+                    $archive = $arrays[$i+1];
+                    $title = $arrays[$i];
+                    $array = explode('.', $arrays[$i+1]);
+                    $ext = end($array);
+                    $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
+                    copy($archive, $url_target);
+                    if ($files != '') {
+                        $files .= ';;';
+                    }
+                    $files .= $title . ';;' . $url_target;
+                }
+                $_POST['files']  = $files;
                 if ($this->db->createLesson()) {
                     $this->updateLessons();
                     $lesson = $this->getLessonByName($_POST['name']);
@@ -231,7 +254,7 @@
                 $files = '';
                 for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) { 
                     if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
-                        $title = $_POST['title-'.$i];
+                        $title = str_replace(" ", "_", $_POST['title-'.$i]);
                         if (isset($_FILES[$title]) && !empty($_FILES[$title])) {
                             $array = explode('.', $_FILES[$title]["name"]);
                             $ext = end($array);
@@ -241,12 +264,11 @@
                             if (!file_exists($url_insert)) {
                                 mkdir($url_insert, 0777, true);
                             }
-                            if (move_uploaded_file($url_temp, $url_target)) {
-                                $files .= $title . ';;' . $url_target . ';;';
+                            move_uploaded_file($url_temp, $url_target);
+                            if ($files != '') {
+                                $files .= ';;';
                             }
-                            else {
-                                $valid = false;
-                            }
+                            $files .= $title . ';;' . $url_target;
                         }
                         else {
                             $valid = false;

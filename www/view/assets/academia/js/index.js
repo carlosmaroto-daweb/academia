@@ -548,9 +548,19 @@ $(document).ready(function() {
         for (let i=0; i<files.length; i++) {
             let file = files[i];
             file.addEventListener('input', async (event) => {
+                $(".alert").remove();
                 if (file.files[0]) {
                     base64URL = await encodeFileAsBase64URL(file.files[0]);
-                    if (base64URL.includes("video")) {
+                    if (base64URL == '') {
+                        let msg = `
+                            <div class="alert alert-danger alert-dismissible fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>¡Error!</strong> Fallo al cargar el archivo.
+                            </div>
+                        `;
+                        $("#lesson-edit-form").append(msg);
+                    }
+                    else if (base64URL.includes("video")) {
                         let video = document.createElement("video");
                         video.setAttribute('src', base64URL);
                         video.setAttribute('controls', '');
@@ -567,6 +577,15 @@ $(document).ready(function() {
                         let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
                         file_type_preview.innerHTML = "";
                         file_type_preview.appendChild(embed);
+                    }
+                    else {
+                        let msg = `
+                            <div class="alert alert-danger alert-dismissible fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>¡Error!</strong> El archivo debe de ser de tipo vídeo o pdf
+                            </div>
+                        `;
+                        $("#lesson-edit-form").append(msg);
                     }
                 }
             });
@@ -588,9 +607,19 @@ $(document).ready(function() {
         file.setAttribute("name", "file");
         file.setAttribute("class", "file");
         file.addEventListener('input', async (event) => {
+            $(".alert").remove();
             if (file.files[0]) {
                 base64URL = await encodeFileAsBase64URL(file.files[0]);
-                if (base64URL.includes("video")) {
+                if (base64URL == '') {
+                    let msg = `
+                        <div class="alert alert-danger alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>¡Error!</strong> Fallo al cargar el archivo.
+                        </div>
+                    `;
+                    $("#lesson-edit-form").append(msg);
+                }
+                else if (base64URL.includes("video")) {
                     let video = document.createElement("video");
                     video.setAttribute('src', base64URL);
                     video.setAttribute('controls', '');
@@ -607,6 +636,15 @@ $(document).ready(function() {
                     let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
                     file_type_preview.innerHTML = "";
                     file_type_preview.appendChild(embed);
+                }
+                else {
+                    let msg = `
+                        <div class="alert alert-danger alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>¡Error!</strong> El archivo debe de ser de tipo vídeo o pdf
+                        </div>
+                    `;
+                    $("#lesson-edit-form").append(msg);
                 }
             }
         });
