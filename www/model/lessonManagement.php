@@ -64,7 +64,7 @@
                 }
                 $files .= $title . ';;' . $url_target;
             }
-            $_POST['files'] = $files;
+            return $files;
         }
 
         /*
@@ -82,7 +82,8 @@
          * @return JSON con parámetros success y en caso de error msg.
         */
         function createLesson() {
-            createArchives();
+            $files = createArchives();
+            $_POST['files'] = $files;
             if ($this->db->createLesson()) {
                 $result = json_encode(
                     array(
@@ -253,7 +254,8 @@
         function editLesson() {
             $lesson = $this->getLessonById($_POST['id']);
             if ($lesson) {
-                createArchives();
+                $files = createArchives();
+                $_POST['files'] = $files;
                 if ($this->db->editLesson()) {
                     deleteArchives($lesson->getFiles());
                     $result = json_encode(
