@@ -51,64 +51,41 @@
          * @return JSON con parámetros success y en caso de error msg.
         */
         function createLesson() {
-            $valid = true;
             $title = '';
             $files = '';
-            for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) { 
-                if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
-                    $title = str_replace(" ", "_", $_POST['title-'.$i]);
-                    if (isset($_FILES[$title]) && !empty($_FILES[$title])) {
-                        $array = explode('.', $_FILES[$title]["name"]);
-                        $ext = end($array);
-                        $url_temp = $_FILES[$title]["tmp_name"];
-                        $url_insert = constant('DEFAULT_UPDATE');
-                        $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
-                        if (!file_exists($url_insert)) {
-                            mkdir($url_insert, 0777, true);
-                        }
-                        move_uploaded_file($url_temp, $url_target);
-                        if ($files != '') {
-                            $files .= ';;';
-                        }
-                        $files .= $title . ';;' . $url_target;
-                    }
-                    else {
-                        $valid = false;
-                    }
+            for ($i=0; $i<$_POST['count_archives']; $i++) { 
+                $title = str_replace(" ", "_", $_POST['title-'.$i]);
+                $array = explode('.', $_FILES[$title]["name"]);
+                $ext = end($array);
+                $url_temp = $_FILES[$title]["tmp_name"];
+                $url_insert = constant('DEFAULT_UPDATE');
+                $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
+                if (!file_exists($url_insert)) {
+                    mkdir($url_insert, 0777, true);
                 }
-                else {
-                    $valid = false;
+                move_uploaded_file($url_temp, $url_target);
+                if ($files != '') {
+                    $files .= ';;';
                 }
+                $files .= $title . ';;' . $url_target;
             }
-            if ($valid) {
-                $_POST['files'] = $files;
-                if ($this->db->createLesson()) {
-                    $result = json_encode(
-                        array(
-                            'success' => 1
-                        )
-                    );
-                }
-                else {
-                    $result = json_encode(
-                        array(
-                            'success' => 0, 
-                            'msg'     => 'No se ha podido crear la lección en la base de datos.'
-                        )
-                    );
-                }
+            $_POST['files'] = $files;
+            if ($this->db->createLesson()) {
+                $result = json_encode(
+                    array(
+                        'success' => 1
+                    )
+                );
             }
             else {
-                if ($files != '') {
-                    $arrays = explode(';;', $files);
-                    for ($i=1; $i<count($arrays); $i+=2) { 
-                        unlink($arrays[$i]);
-                    }
+                $arrays = explode(';;', $files);
+                for ($i=1; $i<count($arrays); $i+=2) { 
+                    unlink($arrays[$i]);
                 }
                 $result = json_encode(
                     array(
-                    'success' => 0, 
-                    'msg'     => 'No se ha podido crear la lección.'
+                        'success' => 0, 
+                        'msg'     => 'No se ha podido crear la lección en la base de datos.'
                     )
                 );
             }
