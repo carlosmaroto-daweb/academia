@@ -237,10 +237,9 @@
         function editLesson() {
             $lesson = $this->getLessonById($_POST['id']);
             if ($lesson) {
-                $valid = true;
                 $title = '';
                 $files = '';
-                for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) {
+                for ($i=0; $i<$_POST['count_archives']; $i++) {
                     $title = str_replace(" ", "_", $_POST['title-'.$i]);
                     $array = explode('.', $_FILES[$title]["name"]);
                     $ext = end($array);
