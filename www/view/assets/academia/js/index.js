@@ -541,52 +541,56 @@ $(document).ready(function() {
         });
     };
 
+    async function showFileInput(file) {
+        base64URL = await encodeFileAsBase64URL(file.files[0]);
+        if (base64URL == '') {
+            let msg = `
+                <div class="alert alert-danger alert-dismissible fade in">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>¡Error!</strong> Fallo al cargar el archivo.
+                </div>
+            `;
+            $("#lesson-edit-form").append(msg);
+        }
+        else if (base64URL.includes("video")) {
+            let video = document.createElement("video");
+            video.setAttribute('src', base64URL);
+            video.setAttribute('controls', '');
+            video.setAttribute('disablePictureInPicture', '');
+            video.setAttribute('controlsList', 'nodownload noplaybackrate');
+            let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
+            file_type_preview.innerHTML = "";
+            file_type_preview.appendChild(video);
+        }
+        else if (base64URL.includes("pdf")) {
+            let embed = document.createElement("embed");
+            embed.setAttribute('src', base64URL);
+            embed.setAttribute('type', 'application/pdf');
+            let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
+            file_type_preview.innerHTML = "";
+            file_type_preview.appendChild(embed);
+        }
+        else {
+            let msg = `
+                <div class="alert alert-danger alert-dismissible fade in">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>¡Error!</strong> El archivo debe de ser de tipo vídeo o pdf
+                </div>
+            `;
+            $("#lesson-edit-form").append(msg);
+        }
+    }
+
     var base64URL = null;
 
     const files = document.getElementsByClassName('file');
     if (files) {
         for (let i=0; i<files.length; i++) {
             let file = files[i];
-            file.addEventListener('input', async (event) => {
+            file.addEventListener('input', (e) => {
                 $(".alert").remove();
                 if (file.files[0]) {
-                    base64URL = await encodeFileAsBase64URL(file.files[0]);
-                    if (base64URL == '') {
-                        let msg = `
-                            <div class="alert alert-danger alert-dismissible fade in">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>¡Error!</strong> Fallo al cargar el archivo.
-                            </div>
-                        `;
-                        $("#lesson-edit-form").append(msg);
-                    }
-                    else if (base64URL.includes("video")) {
-                        let video = document.createElement("video");
-                        video.setAttribute('src', base64URL);
-                        video.setAttribute('controls', '');
-                        video.setAttribute('disablePictureInPicture', '');
-                        video.setAttribute('controlsList', 'nodownload noplaybackrate');
-                        let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
-                        file_type_preview.innerHTML = "";
-                        file_type_preview.appendChild(video);
-                    }
-                    else if (base64URL.includes("pdf")) {
-                        let embed = document.createElement("embed");
-                        embed.setAttribute('src', base64URL);
-                        embed.setAttribute('type', 'application/pdf');
-                        let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
-                        file_type_preview.innerHTML = "";
-                        file_type_preview.appendChild(embed);
-                    }
-                    else {
-                        let msg = `
-                            <div class="alert alert-danger alert-dismissible fade in">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>¡Error!</strong> El archivo debe de ser de tipo vídeo o pdf
-                            </div>
-                        `;
-                        $("#lesson-edit-form").append(msg);
-                    }
+                    showFileInput(file);
                 }
             });
         }
@@ -606,46 +610,10 @@ $(document).ready(function() {
         file.setAttribute("type", "file");
         file.setAttribute("name", "file");
         file.setAttribute("class", "file");
-        file.addEventListener('input', async (event) => {
+        file.addEventListener('input', (e) => {
             $(".alert").remove();
             if (file.files[0]) {
-                base64URL = await encodeFileAsBase64URL(file.files[0]);
-                if (base64URL == '') {
-                    let msg = `
-                        <div class="alert alert-danger alert-dismissible fade in">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>¡Error!</strong> Fallo al cargar el archivo.
-                        </div>
-                    `;
-                    $("#lesson-edit-form").append(msg);
-                }
-                else if (base64URL.includes("video")) {
-                    let video = document.createElement("video");
-                    video.setAttribute('src', base64URL);
-                    video.setAttribute('controls', '');
-                    video.setAttribute('disablePictureInPicture', '');
-                    video.setAttribute('controlsList', 'nodownload noplaybackrate');
-                    let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
-                    file_type_preview.innerHTML = "";
-                    file_type_preview.appendChild(video);
-                }
-                else if (base64URL.includes("pdf")) {
-                    let embed = document.createElement("embed");
-                    embed.setAttribute('src', base64URL);
-                    embed.setAttribute('type', 'application/pdf');
-                    let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
-                    file_type_preview.innerHTML = "";
-                    file_type_preview.appendChild(embed);
-                }
-                else {
-                    let msg = `
-                        <div class="alert alert-danger alert-dismissible fade in">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>¡Error!</strong> El archivo debe de ser de tipo vídeo o pdf
-                        </div>
-                    `;
-                    $("#lesson-edit-form").append(msg);
-                }
+                showFileInput(file);
             }
         });
         row_files.appendChild(file);
