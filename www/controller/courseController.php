@@ -259,7 +259,7 @@
             echo json_encode(
               array(
                 'success' => 0, 
-                'msg'     => 'No se ha podido crear el módulo.'
+                'msg'     => 'No se ha podido editar el módulo.'
               )
             );
           }
