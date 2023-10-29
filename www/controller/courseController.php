@@ -150,7 +150,7 @@
               for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) { 
                   if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
                       $title = str_replace(" ", "_", $_POST['title-'.$i]);
-                      if (!isset($_FILES[$title]) || empty($_FILES[$title])) {
+                      if (!isset($_FILES[$title]) || empty($_FILES[$title]) || !is_uploaded_file($_FILES[$title]["tmp_name"])) {
                         $valid = false;
                       }
                   }
@@ -195,7 +195,7 @@
             for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) { 
                 if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
                     $title = str_replace(" ", "_", $_POST['title-'.$i]);
-                    if (!isset($_FILES[$title]) || empty($_FILES[$title])) {
+                    if (!isset($_FILES[$title]) || empty($_FILES[$title]) || !is_uploaded_file($_FILES[$title]["tmp_name"])) {
                       $valid = false;
                     }
                 }
