@@ -1,36 +1,28 @@
-<!-- JQuery Core
-=====================================-->
-<script src="view/assets/js/core/jquery.min.js"></script>
-<script src="view/assets/js/core/bootstrap-3.3.7.min.js"></script>
-
-<!-- JQuery Main
-=====================================-->
-<script src="view/assets/academia/js/index.js"></script>
-<script src="view/assets/js/main/jquery.appear.js"></script>
-<script src="view/assets/js/main/isotope.pkgd.min.js"></script>
-<script src="view/assets/js/main/parallax.min.js"></script>
-<script src="view/assets/js/main/jquery.countTo.js"></script>
-<script src="view/assets/js/main/owl.carousel.min.js"></script>
-<script src="view/assets/js/main/jquery.sticky.js"></script>
-<script src="view/assets/js/main/ion.rangeSlider.min.js"></script>
-<script src="view/assets/js/main/imagesloaded.pkgd.min.js"></script>
-<script src="view/assets/js/main/main.js"></script>
+<!-- JS -->
+<script src="view/assets/js/jquery.min.js"></script>
+<script src="view/assets/js/jquery.easing.1.3.js"></script>
+<script src="view/assets/js/bootstrap.bundle.min.js"></script>
+<script src="view/assets/js/SmoothScroll.js"></script>
+<script src="view/assets/js/jquery.scrollTo.min.js"></script>
+<script src="view/assets/js/jquery.localScroll.min.js"></script>
+<script src="view/assets/js/jquery.viewport.mini.js"></script>
+<script src="view/assets/js/jquery.parallax-1.1.3.js"></script>
+<script src="view/assets/js/jquery.fitvids.js"></script>
+<script src="view/assets/js/owl.carousel.min.js"></script>
+<script src="view/assets/js/isotope.pkgd.min.js"></script>
+<script src="view/assets/js/imagesloaded.pkgd.min.js"></script>
+<script src="view/assets/js/jquery.magnific-popup.min.js"></script>
+<script src="view/assets/js/masonry.pkgd.min.js"></script>
+<script src="view/assets/js/jquery.lazyload.min.js"></script>
+<script src="view/assets/js/wow.min.js"></script>
+<script src="view/assets/js/morphext.js"></script>
+<script src="view/assets/js/typed.min.js"></script>
+<script src="view/assets/js/all.js"></script>
+<script src="view/assets/js/contact-form.js"></script>
+<script src="view/assets/js/jquery.ajaxchimp.min.js"></script>
+<script src="view/assets/js/objectFitPolyfill.min.js"></script>
+<script src="view/assets/js/splitting.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script src="view/assets/academia/js/html2canvas.js" type="text/javascript"></script> 
-
-<!-- Custom Script
-=====================================-->
-<script>
-    $(function(){
-        "use strict";
-        $("#showFormRegister").on('click',function(){
-            $("#formLogin").addClass("hidden");
-            $("#formRegister").removeClass("hidden");
-        });
-        $("#showFormLogin").on('click',function(){
-            $("#formLogin").removeClass("hidden");
-            $("#formRegister").addClass("hidden");
-        })
-    })
-</script>
+<script src="view/assets/academia/js/index.js" type="text/javascript"></script> 

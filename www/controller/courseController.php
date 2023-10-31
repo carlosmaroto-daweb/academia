@@ -293,7 +293,7 @@
     }
 
     function home() {
-      if (isStudent() || isTeacher()) {
+      if (hasLoggedIn()) {
         $this->view = 'home';
       }
       else {

@@ -1,1788 +1,1402 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
-        <title>Academia</title>        
-        <meta name="description" content="">
-        <meta name="keywords" content="">
+        <title>Academia Cartabón</title>
         <meta charset="utf-8">
-        <meta name="author" content="Harry Boo">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
         <!-- CSS
         ===================================== -->
         <?php require_once "view/include/style.php"?>
     </head>
-    <body  id="topPage" data-spy="scroll" data-target=".navbar" data-offset="100">
+    <body class="appear-animate">
         
-        <!-- Page Loader
-        ===================================== -->
-		<div id="pageloader" class="bg-grad-animation-1">
-			<div class="loader-item">
-                <img src="view/assets/img/other/oval.svg" alt="page loader">
-            </div>
-		</div>
-        <a href="view/shortcode-tables.html#page-top" class="go-to-top">
-            <i class="fa fa-long-arrow-up"></i>
-        </a>
+        <!-- Page Loader -->        
+        <div class="page-loader">
+            <div class="loader">Loading...</div>
+        </div>
+        <!-- End Page Loader -->
         
-        <!-- Nav
-        ===================================== -->
-        <?php require_once "view/include/nav.php"?>
+        <!-- Page Wrap -->
+        <div class="page" id="top">
         
-        <!-- Intro Area
-        ===================================== -->        
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-                <div class="carousel-inner">
-                    <div class="item carousel-img carousel-img4 active">
-                        <div class="carousel-caption">
-                            <h1 class="font-pacifico text-capitalize text-left color-black alpha6 mt-50">We <i class="fa fa-wordpress"></i>Wordpress<br>Developer.</h1>
-                            <p class="mt25 text-left color-light">The most powerfull website engine so far.<br>
-                                <a href="mp-index-carousel-2.html#" class="button button-pasific hover-ripple-out button-md mt30">Start Project</a>
+            <!-- Nav
+            ===================================== -->
+            <?php require_once "view/include/nav.php"?>
+        
+            <main id="main">    
+            
+                <!-- Fullwidth Slider -->
+                <div class="home-section fullwidth-slider bg-dark light-content" id="home">
+                    
+                    <!-- Slide Item -->
+                    <section class="home-section bg-scroll bg-dark-alfa-50 light-content" data-background="view/assets/images/full-width-images/section-bg-14.jpg">
+                        <div class="container min-height-100vh d-flex align-items-center pt-100 pb-100">
+                            
+                            <!-- Hero Content -->
+                            <div class="home-content">
+                                <h1 class="hs-line-4 mb-30 mb-xs-20 wow fadeInUpShort" data-wow-delay=".1s">Awards Winning Creative Studio</h1>
+                                <h2 class="hs-line-7 mb-60 mb-xs-40 wow fadeInUpShort" data-wow-delay=".2s">We turn ideas into reality</h2>
+                                <div class="local-scroll mb-20 wow fadeInUpShort" data-wow-delay=".3s">
+                                    <a href="#about" class="btn btn-mod btn-w btn-medium btn-round mx-md-1">Learn More</a>
+                                    <a href="pages-contact-1.html" class="btn btn-mod btn-w btn-medium btn-round mx-md-1">Start Project</a>
+                                </div>
+                            </div>
+                            <!-- End Hero Content -->
+                            
+                        </div>
+                    </section>
+                    <!-- End Slide Item -->
+                    
+                    <!-- Slide Item -->
+                    <section class="home-section bg-scroll bg-dark-alfa-50 light-content" data-background="view/assets/images/full-width-images/section-bg-11.jpg">
+                        <div class="container min-height-100vh d-flex align-items-center pt-100 pb-100">
+                            
+                            <!-- Hero Content -->
+                            <div class="home-content">
+                                <h1 class="hs-line-4 mb-30 mb-xs-20">Get the new experience with</h1>
+                                <h2 class="hs-line-7 mb-60 mb-xs-40">Creative Design Agency</h2>
+                                <div class="local-scroll mb-20">
+                                    <a href="#about" class="btn btn-mod btn-w btn-medium btn-round mx-md-1">See More</a>
+                                    <a href="https://www.youtube.com/watch?v=jTea_8Fk5Ns" class="btn btn-mod btn-w btn-medium btn-round mx-md-1 lightbox mfp-iframe">Play Reel</a>
+                                </div>
+                            </div>
+                            <!-- End Hero Content -->
+                            
+                        </div>
+                    </section>
+                    <!-- End Slide Item -->
+                    
+                    <!-- Slide Item -->
+                    <section class="home-section bg-scroll bg-dark-alfa-50 light-content" data-background="view/assets/images/full-width-images/section-bg-13.jpg">
+                        <div class="container min-height-100vh d-flex align-items-center pt-100 pb-100">
+                            
+                            <!-- Hero Content -->
+                            <div class="home-content">
+                                <h1 class="hs-line-4 mb-30 mb-xs-20">Create Your Dream</h1>
+                                <h2 class="hs-line-7 mb-60 mb-xs-40">With Amazing Design</h2>
+                                <div class="local-scroll mb-20">
+                                    <a href="pages-pricing-1.html" class="btn btn-mod btn-w btn-medium btn-round mx-md-1">Get Pricing</a>
+                                </div>
+                            </div>
+                            <!-- End Hero Content -->
+                            
+                        </div>
+                    </section>
+                    <!-- End Slide Item -->
+                
+                </div>
+                <!-- End Fullwidth Slider -->
+
+
+                <!-- About Section -->
+                <section class="page-section" id="about">
+                    <div class="container relative">
+                        
+                        <div class="mb-120 mb-sm-50 mb-xs-20">
+                            <div class="row section-text">
+                            
+                                <div class="col-md-12 col-lg-4 mb-md-50 mb-xs-30">
+                                    <div class="lead-alt wow linesAnimIn" data-splitting="lines">
+                                        Our mission is to make design simple and useful.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-4 mb-sm-50 mb-xs-30 wow linesAnimIn" data-splitting="lines">
+                                    Lorem ipsum dolor sit amet conseur adipisci inerene maximus ligula sempe metuse pelente mattis. Maecenas volutpat, diam eni sagittise quame porta quam. Sed id dolor consectetur fermentum volutpat accumsan purus. 
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-4 mb-sm-50 mb-xs-30 wow linesAnimIn" data-splitting="lines">
+                                    Etiam sit amet fringilla lacus susantebe sit ullamcorper pulvinar neque porttitor. Integere lectus. Praesent sede nisi eleifend fermum orci amet, iaculis libero. Donec vel ultricies purus. Name dictum sem ipsumebe euliquam.
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                         <!-- Counters -->
+                        <div class="count-wrapper">
+                            <div class="row">
+                                
+                                <!-- Counter Item -->
+                                <div class="col-md-6 col-lg-3 mb-md-30">
+                                    <div class="count-item">
+                                        <div class="count-bg wow scalexIn"></div>
+                                        <div class="relative wow fadeIn" data-wow-delay="1s">
+                                            <div class="count-number">
+                                                320
+                                            </div>
+                                            <div class="count-descr">
+                                                <i class="fa fa-briefcase"></i>
+                                                <span class="count-title">Projects Done</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Counter Item -->
+                                
+                                <!-- Counter Item -->
+                                <div class="col-md-6 col-lg-3 mb-md-30">
+                                    <div class="count-item">
+                                        <div class="count-bg wow scalexIn"></div>
+                                        <div class="relative wow fadeIn" data-wow-delay="1.1s">
+                                            <div class="count-number">
+                                                150
+                                            </div>
+                                            <div class="count-descr">
+                                                <i class="fa fa-heart"></i>
+                                                <span class="count-title">Happy Clients</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Counter Item -->
+                                
+                                <!-- Counter Item -->
+                                <div class="col-md-6 col-lg-3 mb-md-30">
+                                    <div class="count-item">
+                                        <div class="count-bg wow scalexIn"></div>
+                                        <div class="relative wow fadeIn" data-wow-delay="1.2s">
+                                            <div class="count-number">
+                                                933
+                                            </div>
+                                            <div class="count-descr">
+                                                <i class="fa fa-coffee"></i>
+                                                <span class="count-title">Coffee Cups</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Counter Item -->
+                                
+                                <!-- Counter Item -->
+                                <div class="col-md-6 col-lg-3 mb-md-30">
+                                    <div class="count-item">
+                                        <div class="count-bg wow scalexIn"></div>
+                                        <div class="relative wow fadeIn" data-wow-delay="1.3s">
+                                            <div class="count-number">
+                                                975
+                                            </div>
+                                            <div class="count-descr">
+                                                <i class="fa fa-lightbulb"></i>
+                                                <span class="count-title">Great Ideas</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Counter Item -->
+                                
+                            </div>
+                        </div>
+                        <!-- End Counters -->
+                                            
+                    </div>
+                </section>
+                <!-- End About Section -->
+                
+                <!-- Divider -->
+                <hr class="mt-0 mb-0" />
+                <!-- End Divider -->
+                
+                
+                <!-- Services Section -->
+                <section class="page-section" id="services">
+                    <div class="container relative">
+                        
+                        <div class="text-center mb-80 mb-sm-50">
+                            <h2 class="section-title">Our Services</h2>
+                            <p class="section-title-descr">
+                                We provide the best digital solutions.
                             </p>
                         </div>
-                    </div>
-                    <div class="item carousel-img carousel-img5">
-                        <div class="container">
-                            <div class="carousel-caption text-left animated" data-animation="bounceInLeft" data-animation-delay="100">
-                                <h1 class="text-left font-pacifico text-capitalize color-light mt-50">The One Stop<br>Website Service</h1>
-                                <p class="color-light text-left mt20 ml10">Wordpress. Joomla. eCommerce. HTML. Etc.<br>
-                                    <a href="mp-index-carousel-2.html#" class="button button-pasific hover-ripple-out button-md mt30">Start Project</a>
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item carousel-img carousel-img6">
-                        <div class="container">
-                            <div class="carousel-caption animated" data-animation="bounceInUp" data-animation-delay="100">
-                                <h1 class="font-pacifico text-capitalize color-light mt-110 alpha7">First step <span class="text-lowercase">to be</span> success.<br>
-                                    <a href="mp-index-carousel-2.html#" class="color-light mt30 alpha9">Signup now.</a>
-                                </h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <a class="left carousel-control" href="mp-index-carousel-2.html#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-            <a class="right carousel-control" href="mp-index-carousel-2.html#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-            
-            <div class="svg-container-bottom">
-                <svg id="topsvgLine" xmlns="http://www.w3.org/2000/svg" version="1.1" 
-                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 350" preserveAspectRatio="xMinYMax">
-                    
-                    <polygon points="-150,300 7,190 250,90 550,140 800,50 1200,150 1400,80 1700,150 2200,20 2800,120 3500,10 4250,200 4700,18 5200,300" 
-                             fill="url(#BglinierGradientHeaderTop)" stroke="none">
-                    </polygon>
-                    
-                    <polyline points="-150,300 7,190 250,90 550,140 800,50 1200,150 1400,80 1700,150 2200,20 2800,120 3500,10 4250,200 4700,18 5200,300" 
-                              fill="none" stroke="#fc5b4d" stroke-width="2">
-                    </polyline>  
-                    
-                    <ellipse id="topsvg_1" rx="6" ry="6" cx="-150" cy="220" fill="#ffffff" stroke="#ff4530" stroke-width="2"></ellipse>
-                    <ellipse id="topsvg_2" rx="6" ry="6" cx="7" cy="190" fill="#ffffff" stroke="#ff4530" stroke-width="2"></ellipse>
-                    <ellipse id="topsvg_3" rx="6" ry="6" cx="250" cy="90" fill="#ffffff" stroke="#ff4530" stroke-width="2"></ellipse>
-                    <ellipse id="topsvg_4" rx="6" ry="6" cx="550" cy="140" fill="#ffffff" stroke="#ff4530" stroke-width="2"></ellipse>
-                    <ellipse id="topsvg_5" rx="10" ry="10" cx="800" cy="50" fill="#ffffff" stroke="#ff4530" stroke-width="2"></ellipse>
-                    <ellipse id="topsvg_6" rx="10" ry="10" cx="1200" cy="150" fill="#ffffff" stroke="#ff4530" stroke-width="2"></ellipse>
-                    <ellipse id="topsvg_7" rx="10" ry="10" cx="1400" cy="80" fill="#ffffff" stroke="#ff4530" stroke-width="2"></ellipse>
-                    <ellipse id="topsvg_8" rx="6" ry="6" cx="1700" cy="150" fill="#ffffff" stroke="#ff4530" stroke-width="2"></ellipse>
-                    <ellipse id="topsvg_9" rx="6" ry="6" cx="2200" cy="20" fill="#ffffff" stroke="#ff4530" stroke-width="2"></ellipse>
-                    <ellipse id="topsvg_10" rx="6" ry="6" cx="2800" cy="120" fill="#ffffff" stroke="#ff4530" stroke-width="2"></ellipse>
-                    <ellipse id="topsvg_11" rx="6" ry="6" cx="3500" cy="10" fill="#ffffff" stroke="#ff4530" stroke-width="2"></ellipse>
-                    <ellipse id="topsvg_12" rx="6" ry="6" cx="4250" cy="200" fill="#ffffff" stroke="#ff4530" stroke-width="2"></ellipse>
-                    <ellipse id="topsvg_13" rx="6" ry="6" cx="4700" cy="18" fill="#ffffff" stroke="#ff4530" stroke-width="2"></ellipse>
-                    <ellipse id="topsvg_14" rx="6" ry="6" cx="5200" cy="145" fill="#ffffff" stroke="#ff4530" stroke-width="2"></ellipse>
-                    
-                    <defs>
-                      <lineargradient id="BglinierGradientHeaderTop" x1="0" y1="0" x2="0" y2="1">
-                          <stop id="BglinierGradientHeaderTopStop_1" stop-opacity="0.75" stop-color="#ffffff" offset="0"></stop>
-                          <stop id="BglinierGradientHeaderTopStop_2" stop-opacity="1" stop-color="#ffffff" offset="1"></stop>
-                      </lineargradient>
-                    </defs>
-                    
-                </svg>
-            </div>
-            
-        </div>
-
-        
-        <!-- Welcome Area
-        ===================================== -->
-        <div id="welcome" class="pt75">
-            <div class="container">
-                <div class="row">
-                    
-                    <!-- title start -->
-                    <div class="col-md-12 text-center">
-                        <h1 class="font-size-normal">
-                            <small>Welcome to Pasific</small>
-                            We Are Smart Creative Agency
-                            <small class="heading heading-solid center-block"></small>
-                        </h1>
-                    </div>
-                    <!-- title end -->
-                    
-                    <!-- title description start -->
-                    <div class="col-md-8 col-md-offset-2 text-center">
-                        <p>
-                            <span class="lead"><strong>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam 
-                            eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta.</strong></span><br><br>
-
-                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
-                            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-                        </p>
-                    </div>
-                    <!-- title description end -->
-                </div>
-                
-                <div class="row mt50">
-                    
-                    <!-- item one start -->
-                    <div class="col-md-3 col-sm-6 col-xs-6 animated" data-animation="fadeInLeft" data-animation-delay="100">
-                        <div class="content-box content-box-center">                        
-                            <span class="icon-layers color-pasific"></span>
-                                <h5>Clean Code</h5>
-                            <p>Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor.</p>
-                      
-                        </div>
-                    </div>
-                    <!-- item one end -->
-                    
-                    <!-- item two start -->
-                    <div class="col-md-3 col-sm-6 col-xs-6 animated" data-animation="fadeInLeft" data-animation-delay="200">
-                        <div class="content-box content-box-center">                        
-                            <span class="icon-mobile color-pasific"></span>
-                                <h5>Mobile Optimzed</h5>
-                            <p>Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor.</p>
-                      
-                        </div>
-                    </div>
-                    <!-- item two end -->
-                    
-                    <!-- item three start -->
-                    <div class="col-md-3 col-sm-6 col-xs-6 animated" data-animation="fadeInRight" data-animation-delay="300">
-                        <div class="content-box content-box-center">                        
-                            <span class="icon-camera color-pasific"></span>
-                                <h5>Photographer</h5>
-                            <p>Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor.</p>
-                      
-                        </div>
-                    </div>
-                    <!-- item three end -->
-                    
-                    <!-- item four start -->
-                    <div class="col-md-3 col-sm-6 col-xs-6 animated" data-animation="fadeInRight" data-animation-delay="400">
-                        <div class="content-box content-box-center">                        
-                            <span class="icon-briefcase color-pasific"></span>
-                                <h5>Awesome Portfolio</h5>
-                            <p>Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor.</p>
-                      
-                        </div>
-                    </div>
-                    <!-- item four start -->                    
-                    
-                </div>                
-            </div>
-        </div>
-        
-        
-        <!-- Portfolio Area
-        ===================================== -->
-        <div id="portfolioGrid">
-            <div class="pt50">&nbsp;</div>
-            <div class="container-fluid bg-gray pt30">
-                
-                <div class="row">
-                    <div class="col-md-12">
                         
-                        <!-- filters start -->
-                        <ul class="filters text-center  mt25 mb50">
-                            <li><a class="active" data-filter="*">All Projects</a></li>                          
-                            <li><a data-filter=".html">HTMl</a></li>
-                            <li><a data-filter=".wordpress">Wordpress</a></li>
-                            <li><a data-filter=".woocommerce">WooCommerce</a></li>
-                            <li><a data-filter=".joomla">Joomla</a></li>
-                            <li><a data-filter=".magento">Magento</a></li>
-                            <li><a data-filter=".shopify">Shopify</a></li>
+                        <!-- Services Grid -->
+                        <div class="row services-grid">
+                            
+                            <!-- Services Item -->
+                            <div class="col-sm-6 col-md-4 col-lg-4">
+                                <div class="services-item text-center wow fadeIn" data-wow-delay="0" data-wow-duration="1.5s">
+                                    <div class="services-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                            <path d="M13.5 20c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm-10.551 4c-.598 0-2.429-1.754-2.747-4.304-.424-3.414 2.124-5.593 4.413-5.87.587-1.895 2.475-4.684 6.434-4.77.758-1.982 3.409-4.507 6.84-3.186 1.647.634 3.101 2.101 3.705 3.737.231.624-.71.965-.937.347-.51-1.378-1.737-2.615-3.127-3.151-2.577-.99-4.695.731-5.422 2.298 1.107.12 2.092.455 2.755.889.909.594 1.473 1.558 1.508 2.577.031.889-.33 1.687-.991 2.187-.654.496-1.492.643-2.298.404-.966-.286-1.748-1.076-2.143-2.169-.287-.793-.384-1.847-.178-2.921-3.064.185-4.537 2.306-5.075 3.742 1.18.102 2.211.574 2.831 1.012.959.676 1.497 1.6 1.513 2.599.015.859-.363 1.664-1.011 2.155-.608.46-1.535.599-2.363.348-.961-.289-1.7-1.041-2.079-2.118-.255-.723-.375-1.776-.204-2.919-1.631.361-3.512 1.995-3.178 4.685.18 1.448 1.008 2.888 2.015 3.502.43.261.242.926-.261.926zm10.551-1c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1zm8.011-6.801l2.489.459-1.744 1.833.333 2.509-2.283-1.092-2.283 1.092.333-2.509-1.744-1.833 2.489-.459 1.205-2.225 1.205 2.225zm-1.759.897l-1.143.21.801.843-.153 1.152 1.049-.501 1.049.501-.153-1.152.801-.843-1.143-.21-.554-1.022-.554 1.022zm-14.345-2.3c-.202 1.024-.128 1.993.113 2.678.347.984.966 1.355 1.424 1.492.604.183 1.175.036 1.472-.187.388-.294.624-.808.614-1.34-.011-.673-.398-1.313-1.09-1.801-.545-.385-1.479-.803-2.533-.842zm6.373-4.716c-.226 1.018-.11 1.99.099 2.569.287.79.828 1.356 1.486 1.55.501.148 1.014.06 1.411-.242.398-.301.615-.795.596-1.355-.025-.705-.409-1.353-1.056-1.775-.511-.334-1.448-.657-2.536-.747zm-5.812-7.369l3.032.558-2.124 2.234.405 3.057-2.781-1.331-2.781 1.331.405-3.057-2.124-2.234 3.032-.558 1.468-2.711 1.468 2.711zm-2.285.897l-1.686.31 1.182 1.243-.226 1.7 1.547-.74 1.547.74-.226-1.7 1.182-1.243-1.686-.31-.817-1.508-.817 1.508zm17.817-3.608c-1.38 0-2.5 1.12-2.5 2.5s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5-1.12-2.5-2.5-2.5zm0 4c-.828 0-1.5-.672-1.5-1.5s.672-1.5 1.5-1.5 1.5.672 1.5 1.5-.672 1.5-1.5 1.5z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="services-title">Branding</h3>
+                                    <div class="services-descr">
+                                        Lorem ipsum dolor sit amet, rembe adipiscing elite. Inwege maximus ligula semper metusere pellentesque mattis. Maecenas volutpat, diam enime volutpa.
+                                    </div>
+                                    <div class="services-more">
+                                        <a href="#" class="text-link">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Services Item -->
+                            
+                            <!-- Services Item -->
+                            <div class="col-sm-6 col-md-4 col-lg-4">
+                                <div class="services-item text-center wow fadeIn" data-wow-delay=".1s" data-wow-duration="1.5s">
+                                    <div class="services-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                            <path d="M5 22h4v-3h-9v-18h24v18h-10v3h4v1h-13v-1zm5-3v3h3v-3h-3zm13-17h-22v16h22v-16z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="services-title">Web Design</h3>
+                                    <div class="services-descr">
+                                        Proin fringilla augue at maximus vestibulum. Nam pulvitaere neque et porttitor. Praesent sed nisi eleifend lorem fermentum ac ante lorem ipsum sit amet.
+                                    </div>
+                                    <div class="services-more">
+                                        <a href="#" class="text-link">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Services Item -->
+                            
+                            <!-- Services Item -->
+                            <div class="col-sm-6 col-md-4 col-lg-4">
+                                <div class="services-item text-center wow fadeIn" data-wow-delay=".2s" data-wow-duration="1.5s">
+                                    <div class="services-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                            <path d="M24 23h-20c-2.208 0-4-1.792-4-4v-15.694c.313-1.071 1.285-2.306 3-2.306 1.855 0 2.769 1.342 2.995 2.312l.005 1.688h18v18zm-1-17h-17v13s-.665-1-2-1c-1.104 0-2 .896-2 2s.896 2 2 2h19v-16zm-18-2.68c-.427-.971-1.327-1.325-2-1.32-.661.005-1.568.3-2 1.32v16.178c.394-1.993 2.245-2.881 4-2.401v-13.777zm15 15.68h-12v-10h12v10zm-8-9h-3v8h10v-4h-2v3h-1v-3h-3v3h-1v-7zm7 0h-6v3h6v-3z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="services-title">Product Design</h3>
+                                    <div class="services-descr">
+                                        Ember adipiscing elite curabitur iaculis accumsan augu nec finibus mauris pretium eu. Duis placerat ex gravida nibh tristique ultricies eros lorem blandit.
+                                    </div>
+                                    <div class="services-more">
+                                        <a href="#" class="text-link">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Services Item -->
+                            
+                            <!-- Services Item -->
+                            <div class="col-sm-6 col-md-4 col-lg-4">
+                                <div class="services-item text-center wow fadeIn" data-wow-delay=".0s" data-wow-duration="1.5s">
+                                    <div class="services-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                            <path d="M9.484 15.696l-.711-.696-2.552 2.607-1.539-1.452-.698.709 2.25 2.136 3.25-3.304zm0-5l-.711-.696-2.552 2.607-1.539-1.452-.698.709 2.25 2.136 3.25-3.304zm0-5l-.711-.696-2.552 2.607-1.539-1.452-.698.709 2.25 2.136 3.25-3.304zm10.516 11.304h-8v1h8v-1zm0-5h-8v1h8v-1zm0-5h-8v1h8v-1zm4-5h-24v20h24v-20zm-1 19h-22v-18h22v18z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="services-title">Research</h3>
+                                    <div class="services-descr">
+                                        Maecenas volutpat, diam enime volutpa. Cras luctus interdum sodales. Quisque quis odio dui. Sedes amet neque malesuada, lobortis commodo magna tese.
+                                    </div>
+                                    <div class="services-more">
+                                        <a href="#" class="text-link">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Services Item -->
+                            
+                            <!-- Services Item -->
+                            <div class="col-sm-6 col-md-4 col-lg-4">
+                                <div class="services-item text-center wow fadeIn" data-wow-delay=".1s" data-wow-duration="1.5s">
+                                    <div class="services-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                            <path d="M15 7h4v5h5v6h-5v5h-19v-21h15v5zm-5 11h-9v4h9v-4zm8 0h-7v4h7v-4zm-11-5h-6v4h6v-4zm9 0h-8v4h8v-4zm7 0h-6v4h6v-4zm-12-5v4h7v-4h-7zm-1 0h-9v4h9v-4zm-3-5h-6v4h6v-4zm7 0h-6v4h6v-4z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="services-title">Development</h3>
+                                    <div class="services-descr">
+                                        Fusce aliquet quam eget neque ultrices elementm. Nullarec posuere felis id arcu blandit sagittis sit amet lorem nectus ultricies ullamcorper vulputate.
+                                    </div>
+                                    <div class="services-more">
+                                        <a href="#" class="text-link">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Services Item -->
+                            
+                            <!-- Services Item -->
+                            <div class="col-sm-6 col-md-4 col-lg-4">
+                                <div class="services-item text-center wow fadeIn" data-wow-delay=".2s" data-wow-duration="1.5s">
+                                    <div class="services-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                            <path d="M14.889 23.652c-.923.227-1.888.348-2.881.348-6.627 0-12.008-5.377-12.008-12s5.381-12 12.008-12c6.628 0 12.009 5.377 12.009 12 0 1.027-.13 2.023-.373 2.975l-.965-.34c.21-.847.321-1.732.321-2.643 0-6.066-4.929-10.992-11-10.992s-11 4.926-11 10.992c0 6.067 4.929 10.993 11 10.993.887 0 1.751-.106 2.577-.304l.312.971zm-2.889-13.652c-1.104 0-2 .896-2 2s.896 2 2 2c.28 0 .546-.057.788-.162l3.06 9.525 2.174-3.622 4.116 4.259 1.879-1.828-4.087-4.216 3.671-1.926-9.694-3.426c.06-.19.093-.393.093-.604 0-1.104-.896-2-2-2zm1.768 3.615l7.333 2.597-2.823 1.481 4.324 4.461-.445.431-4.324-4.473-1.716 2.86-2.349-7.357zm.049 6.692c-.583.126-1.188.193-1.809.193-4.691 0-8.5-3.809-8.5-8.5s3.809-8.5 8.5-8.5c4.692 0 8.5 3.809 8.5 8.5 0 .619-.066 1.222-.192 1.803l-.959-.337c.094-.474.143-.964.143-1.466 0-4.139-3.361-7.5-7.5-7.5-4.139 0-7.5 3.361-7.5 7.5 0 4.139 3.361 7.5 7.5 7.5.517 0 1.022-.052 1.51-.152l.307.959zm-1.076-3.36c-.239.035-.484.053-.733.053-2.759 0-5-2.24-5-5s2.241-5 5-5c2.76 0 5 2.24 5 5 0 .212-.013.421-.039.626l-.979-.345.01-.281c0-2.208-1.792-4-4-4s-4 1.792-4 4 1.792 4 4 4l.43-.023.311.97zm-.741-5.947c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="services-title">Production</h3>
+                                    <div class="services-descr">
+                                        Verge maximus ligula semper metusere pellentesque mattis. Integer non dapibus diam, eleifend. Praesent sed nisi eleifend, fermentum orci sit lorem amet.
+                                    </div>
+                                    <div class="services-more">
+                                        <a href="#" class="text-link">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Services Item -->
+                            
+                        </div>
+                        <!-- End Services Grid -->
+                        
+                    </div>
+                </section>
+                <!-- End Services Section -->
+                
+                
+                <!-- Call Action Section -->
+                <section class="page-section pt-0 pb-0 banner-section bg-dark light-content">
+                    <div class="container relative">
+                        
+                        <div class="row">
+                            
+                            <div class="col-lg-6 relative">
+                                <div class="banner-image-1">
+                                    <img src="view/assets/images/promo-1.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" data-wow-offset="292" />
+                                </div>
+                                <div class="banner-image-2">
+                                    <img src="view/assets/images/promo-2.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" data-wow-offset="70" />
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-5 offset-lg-1">                                
+                                <div class="mt-140 mt-lg-80 mt-md-60 mt-xs-30 mb-140 mb-lg-80">
+                                    <div class="banner-content wow fadeInUpShort" data-wow-duration="1.2s">
+                                        <h3 class="banner-heading">Looking for exclusive digital services?</h3>
+                                        <div class="banner-decription">
+                                            Proin fringilla augue at maximus vestibulum. Nam pulvinar vitae porttitor. Integer non dapibus diam, ac eleifend lectus.
+                                        </div>
+                                        <div class="local-scroll">
+                                            <a href="pages-services-1.html" class="btn btn-mod btn-w btn-large btn-round">View Services</a>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </section>
+                <!-- End Call Action Section -->
+                
+                
+                <!-- Portfolio Section -->
+                <section class="page-section pb-0" id="portfolio">
+                    <div class="full-wrapper relative">
+                        
+                        <div class="text-center mb-80 mb-sm-50">
+                            <h2 class="section-title">Our Works</h2>
+                            <p class="section-title-descr">
+                                Look at selection of our projects
+                            </p>
+                        </div>
+                        
+                        <!-- Works Filter -->                    
+                        <div class="works-filter text-center">
+                            <a href="#" class="filter active" role="button" aria-pressed="true" data-filter="*">All works</a>
+                            <a href="#branding" class="filter" role="button" aria-pressed="false" data-filter=".branding">Branding</a>
+                            <a href="#design" class="filter" role="button" aria-pressed="false" data-filter=".design">Design</a>
+                            <a href="#photography" class="filter" role="button" aria-pressed="false" data-filter=".photography">Photography</a>
+                        </div>                    
+                        <!-- End Works Filter -->
+                        
+                        <!-- Works Grid -->
+                        <ul class="works-grid work-grid-3 work-grid-gut clearfix hover-white hide-titles" id="work-grid">
+                            
+                            <!-- Work Item (Lightbox) -->
+                            <li class="work-item mix photography">
+                                <a href="view/assets/images/portfolio/full-project-1.jpg" class="work-lightbox-link mfp-image">
+                                    <div class="work-img">
+                                        <div class="work-img-bg wow-p scalexIn"></div>
+                                        <img src="view/assets/images/portfolio/projects-1.jpg" alt="Work Description" class="wow-p fadeIn" data-wow-delay="1s" />
+                                    </div>
+                                    <div class="work-intro">
+                                        <h3 class="work-title">Green Leaf</h3>
+                                        <div class="work-descr">
+                                            Lightbox 
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- End Work Item -->
+                            
+                            <!-- Work Item (External Page) -->
+                            <li class="work-item mix branding design">
+                                <a href="portfolio-single-1.html" class="work-ext-link">
+                                    <div class="work-img">
+                                        <div class="work-img-bg wow-p scalexIn"></div>
+                                        <img src="view/assets/images/portfolio/projects-2.jpg" alt="Work Description" class="wow-p fadeIn" data-wow-delay="1s" />
+                                    </div>
+                                    <div class="work-intro">
+                                        <h3 class="work-title">Photo Lighting</h3>
+                                        <div class="work-descr">
+                                            External Page
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- End Work Item -->
+                            
+                            <!-- Work Item (External Page) -->
+                            <li class="work-item mix branding">
+                                <a href="portfolio-single-1.html" class="work-ext-link">
+                                    <div class="work-img">
+                                        <div class="work-img-bg wow-p scalexIn"></div>
+                                        <img src="view/assets/images/portfolio/projects-3.jpg" alt="Work Description" class="wow-p fadeIn" data-wow-delay="1s" />
+                                    </div>
+                                    <div class="work-intro">
+                                        <h3 class="work-title">Green Branch</h3>
+                                        <div class="work-descr">
+                                            External Page
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- End Work Item -->
+                            
+                            <!-- Work Item (External Page) -->
+                            <li class="work-item mix design photography">
+                                <a href="portfolio-single-1.html" class="work-ext-link">
+                                    <div class="work-img">
+                                        <div class="work-img-bg wow-p scalexIn"></div>
+                                        <img src="view/assets/images/portfolio/projects-4.jpg" alt="Work Description" class="wow-p fadeIn" data-wow-delay="1s" />
+                                    </div>
+                                    <div class="work-intro">
+                                        <h3 class="work-title">White Chair</h3>
+                                        <div class="work-descr">
+                                            External Page
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- End Work Item -->
+                            
+                            <!-- Work Item (External Page) -->
+                            <li class="work-item mix design">
+                                <a href="portfolio-single-1.html" class="work-ext-link">
+                                    <div class="work-img">
+                                        <div class="work-img-bg wow-p scalexIn"></div>
+                                        <img src="view/assets/images/portfolio/projects-5.jpg" alt="Work Description" class="wow-p fadeIn" data-wow-delay="1s" />
+                                    </div>
+                                    <div class="work-intro">
+                                        <h3 class="work-title">White Table</h3>
+                                        <div class="work-descr">
+                                            External Page
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- End Work Item -->
+                            
+                            <!-- Work Item (Lightbox) -->
+                            <li class="work-item mix design branding">
+                                <a href="view/assets/images/portfolio/full-project-6.jpg" class="work-lightbox-link mfp-image">
+                                    <div class="work-img">
+                                        <div class="work-img-bg wow-p scalexIn"></div>
+                                        <img src="view/assets/images/portfolio/projects-6.jpg" alt="Work Description" class="wow-p fadeIn" data-wow-delay="1s" />
+                                    </div>
+                                    <div class="work-intro">
+                                        <h3 class="work-title">The Book</h3>
+                                        <div class="work-descr">
+                                            Lightbox
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- End Work Item -->
+                            
                         </ul>
-                        <!-- filters end -->
+                        <!-- End Works Grid -->
                         
-                        <div class="portfolio center-block">
-                            
-                            <!-- portfolio item one start -->
-                            <div class="portfolio-item col-lg-3 col-md-4 col-sm-6 col-xs-12 wordpress woocommerce" data-category="">
-                                <a href="view/assets/img/portfolio/preview/1.jpg" class="magnific-popup">
-                                    <span class="glyphicon glyphicon-search hover-bounce-out"></span>
-                                </a>
-                                <img src="view/assets/img/portfolio/thumbs/img-550x350-1.jpg" alt="portfolio woocommerce" class="img-responsive">     
+                        <!-- Call Action Section -->
+                        <section class="small-section bg-gray">
+                            <div class="container relative">
+                                <div class="row wow fadeInUpShort">
+                                    <div class="col-lg-5 offset-lg-2">
+                                        <h3 class="call-action-1-heading">Want to see more works?</h3>
+                                        <div class="call-action-1-decription mb-0 pb-md-20">
+                                            Proin fringilla augue at maximus vestibulum nam pulvinar vitae integer non dapibus diam, ac eleifend lectus.
+                                        </div>                                        
+                                    </div>
+                                    <div class="col-lg-3 pt-10 text-lg-end">
+                                        <div class="local-scroll">
+                                            <a href="portfolio-wide-gutter-3col.html" class="btn btn-mod btn-large btn-round">View Portfolio</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- portfolio item one end -->
-                            
-                            <!-- portfolio item two start -->
-                            <div class="portfolio-item col-lg-3 col-md-4 col-sm-6 col-xs-12 joomla html">
-                                <a href="view/assets/img/portfolio/preview/2.jpg" class="magnific-popup">
-                                    <span class="glyphicon glyphicon-search hover-bounce-out"></span>
-                                </a>
-                                <img src="view/assets/img/portfolio/thumbs/img-550x350-3.jpg" alt="portfolio woocommerce" class="img-responsive">
-                            </div>
-                            <!-- portfolio item two end -->
-                            
-                            <!-- portfolio item three start -->
-                            <div class="portfolio-item col-lg-3 col-md-4 col-sm-6 col-xs-12 wordpress joomla">
-                                <a href="view/assets/img/portfolio/preview/img-370x165-1.jpg" class="magnific-popup">
-                                    <span class="glyphicon glyphicon-search hover-bounce-out"></span>
-                                </a>
-                                <img src="view/assets/img/portfolio/thumbs/img-550x350-2.jpg" alt="portfolio woocommerce" class="img-responsive">
-                            </div>
-                            <!-- portfolio item three end -->
-                            
-                            <!-- portfolio item four start -->
-                            <div class="portfolio-item col-lg-3 col-md-4 col-sm-6 col-xs-12 html wordpress">
-                                <a href="view/assets/img/portfolio/preview/3.jpg" class="magnific-popup">
-                                    <span class="glyphicon glyphicon-search hover-bounce-out"></span>
-                                </a>
-                                <img src="view/assets/img/portfolio/thumbs/img-550x350-4.jpg" alt="portfolio woocommerce" class="img-responsive">
-                            </div>
-                            <!-- portfolio item four end -->
-                            
-                            <!-- portfolio item five start -->                            
-                            <div class="portfolio-item col-lg-3 col-md-4 col-sm-6 col-xs-12 html joomla wordpress">
-                                <a href="view/assets/img/portfolio/preview/4.jpg" class="magnific-popup">
-                                    <span class="glyphicon glyphicon-search hover-bounce-out"></span>
-                                </a>
-                                <img src="view/assets/img/portfolio/thumbs/img-550x350-6.jpg" alt="portfolio woocommerce" class="img-responsive">
-                            </div>                            
-                            <!-- portfolio item five end -->
-                            
-                            <!-- portfolio item six start -->
-                            <div class="portfolio-item col-lg-3 col-md-4 col-sm-6 col-xs-12 html shopify joomla">
-                                <a href="view/assets/img/portfolio/preview/5.jpg" class="magnific-popup">
-                                    <span class="glyphicon glyphicon-search hover-bounce-out"></span>
-                                </a>
-                                <img src="view/assets/img/portfolio/thumbs/img-550x350-5.jpg" alt="portfolio woocommerce" class="img-responsive">
-                            </div>
-                            <!-- portfolio item six end -->
-                            
-                            <!-- portfolio item seven start -->                            
-                            <div class="portfolio-item col-lg-3 col-md-4 col-sm-6 col-xs-12 wordpress magento woocommerce">
-                                <a href="view/assets/img/portfolio/preview/6.jpg" class="magnific-popup">
-                                    <span class="glyphicon glyphicon-search hover-bounce-out"></span>
-                                </a>
-                                <img src="view/assets/img/portfolio/thumbs/img-550x350-7.jpg" alt="portfolio woocommerce" class="img-responsive">                                
-                            </div>
-                            <!-- portfolio item seven end -->
-                            
-                            <!-- portfolio item eight start -->                            
-                            <div class="portfolio-item col-lg-3 col-md-4 col-sm-6 col-xs-12 joomla html">
-                                <a href="view/assets/img/portfolio/preview/7.jpg" class="magnific-popup">
-                                    <span class="glyphicon glyphicon-search hover-bounce-out"></span>
-                                </a>
-                                <img src="view/assets/img/portfolio/thumbs/img-550x350-8.jpg" alt="portfolio woocommerce" class="img-responsive">
-                            </div>
-                            <!-- portfolio item eight end -->
-       
-                        </div><!-- portfolio end -->
-                        
-                    </div><!-- col-md-12 end -->
-                </div><!-- row end -->
-            </div><!-- container end -->
-        </div><!-- section portfolio end -->
-        
-        
-        <!-- Service Area
-        ===================================== -->
-        <div id="service" class="pt75 pb25">
-            <div class="container">
-                
-                <!-- title and short description start -->
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h1 class="font-size-normal">
-                            <small>Modern Service</small>
-                            We Build Website &amp; App
-                            <small class="heading heading-solid center-block"></small>
-                        </h1>
-                    </div>
-
-                    <div class="col-md-8 col-md-offset-2 text-center">
-                        <p class="lead">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt voluptatem. 
-                        </p>
-                    </div>
-                </div>
-                <!-- title and short description end -->
-                
-                <!-- service one start -->
-                <div class="row mt75">
-                    <div class="col-md-6 animated" data-animation="fadeInLeft" data-animation-delay="100">
-                        <img src="view/assets/img/other/img-other-3.png" alt="website service" class="img-responsive">
-                    </div>
-                    <div class="col-md-5 animated" data-animation="fadeIn" data-animation-delay="100">
-                        
-                        <h3 class="font-size-normal">
-                            <small class="color-primary">Web Design &amp; Development</small>
-                            Wordpress. Joomla. Opencart. Etc.
-                        </h3>
-                        
-                        <p class="mt20">
-                            We design &amp; develope modern website and app for any type of business. Landing page, ecommerce, company profile, web application, mobile app,
-                            anything that you want to make great success.
-                        </p>
-                        <p>
-                            <i class="fa fa-wordpress fa-2x color-gray2 mr10"></i>
-                            <i class="fa fa-joomla fa-2x color-gray2 mr10"></i>
-                            <i class="fa fa-drupal fa-2x color-gray2 mr10"></i>
-                            <i class="fa fa-shopping-basket fa-2x color-gray2 mr10"></i>
-                        </p>
-                        <p>
-                            <a class="button-o button-sm button-primary hover-fade">Start Project</a>
-                        </p>
-                    </div>
-                </div>
-                <!-- service one end -->
-                
-                <!-- service two start -->
-                <div class="row mt100">
-                    <div class="col-md-6 col-md-push-6 animated" data-animation="fadeInRight" data-animation-delay="100">
-                        <img src="view/assets/img/other/img-other-4.png" alt="website service" class="img-responsive">
-                    </div>
-                    <div class="col-md-5 col-md-pull-5">
-                        
-                        <h3 class="font-size-normal">
-                            <small class="color-success">App Design &amp; Development</small>
-                            Android. iOS. Windows. Etc.
-                        </h3>
-                        
-                        <p class="mt20 animated" data-animation="fadeIn" data-animation-delay="100">
-                            We design &amp; develope modern website and app for any type of business. Landing page, ecommerce, company profile, web application, mobile app,
-                            anything that you want to make great success.
-                        </p>
-                        <p>
-                            <i class="fa fa-android fa-2x color-gray2 mr10"></i>
-                            <i class="fa fa-apple fa-2x color-gray2 mr10"></i>
-                            <i class="fa fa-windows fa-2x color-gray2 mr10"></i>
-                            <i class="fa fa-amazon fa-2x color-gray2 mr10"></i>
-                        </p>
-                        <p>
-                            <a class="button-o button-sm button-success hover-fade">Start Project</a>
-                        </p>
-                    </div>
-                </div>
-                <!-- service two end -->
-                
-                <!-- service three start -->
-                <div class="row mt75">
-                    <div class="col-md-6 animated" data-animation="fadeInLeft" data-animation-delay="100">
-                        <img src="view/assets/img/other/img-other-5.jpg" alt="website service" class="img-responsive">
-                    </div>
-                    <div class="col-md-5">
-                        
-                        <h3 class="font-size-normal">
-                            <small class="color-red">Graphic Design</small>
-                            Logo. Icon. Infographic. Etc.
-                        </h3>
-                        
-                        <p class="mt20 animated" data-animation="fadeIn" data-animation-delay="100">
-                            We design &amp; develope modern website and app for any type of business. Landing page, ecommerce, company profile, web application, mobile app,
-                            anything that you want to make great success.
-                        </p>
-                        <p>
-                            <i class="fa fa-file-image-o fa-2x color-gray2 mr10"></i>
-                            <i class="fa fa-object-ungroup fa-2x color-gray2 mr10"></i>
-                            <i class="fa fa-paper-plane-o fa-2x color-gray2 mr10"></i>
-                            <i class="fa fa-camera-retro fa-2x color-gray2 mr10"></i>
-                        </p>
-                        <p>
-                            <a class="button-o button-sm button-red hover-fade">Start Project</a>
-                        </p>
-                    </div>
-                </div>
-                <!-- service three end -->
-                
-            </div><!-- container end -->
-        </div><!-- section service end -->
-        
-        
-        <!-- Info Area
-        ===================================== -->
-        <div id="info-1" class="pt50 pb50 mt75 parallax-window" data-parallax="scroll" data-speed="0.5" data-image-src="view/assets/img/bg/img-bg-2.jpg">
-            <div class="container">
-                <div class="row pt75">
-                    <div class="col-md-12 text-center">
-                        <h1 class="color-light">
-                            <small class="color-light">The best way to be success</small>
-                            Are you ready to be success with us?
-                        </h1>
-                        <a class="button button-md button-pasific hover-ripple-out mt25">Start Project</a>
-                        <a class="button-o button-md button-green hover-fade mt25"><span class="color-light">Contact Us</span></a>
-                    </div>   
-                </div>
-            </div>
-        </div>
-        
-        
-        <!-- Team Area
-        ===================================== -->
-        <div id="team" class="pt75">
-            <div class="container">
-                
-                <!-- title and short description start -->
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h1 class="font-size-normal">
-                            <small>Amazing Team</small>
-                            We have a lot of Smart People
-                            <small class="heading heading-solid center-block"></small>
-                        </h1>
-                    </div>
-
-                    <div class="col-md-8 col-md-offset-2 text-center">
-                        <p class="lead">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt voluptatem. 
-                        </p>
-                    </div>
-                </div>
-                <!-- title and short description end -->
-                
-            </div>
-            
-            <div class="container-fluid">            
-                <div class="row">
-                    
-                    <!-- team member one start -->
-                    <div class="col-md-2 col-md-offset-1 col-sm-4 col-xs-6 mt30">                    
-                        <div class="team team-two">                            
-                            <img src="view/assets/img/team/img-team-1.jpg" alt="" class="img-responsive">
-                            <div class="team-social">
-                                <a href="mp-index-carousel-2.html#"><i class="fa fa-twitter"></i></a>
-                                <a href="mp-index-carousel-2.html#"><i class="fa fa-facebook"></i></a>
-                                <a href="mp-index-carousel-2.html#"><i class="fa fa-github"></i></a>
-                            </div>
-                            <h5>Michael Doe<small class="color-pasific">Co-Founder &amp; CEO</small></h5>                            
-                        </div>                    
-                    </div>
-                    <!-- team member one end -->
-                    
-                    <!-- team member two start -->
-                    <div class="col-md-2 col-sm-4 col-xs-6 mt30">
-                        <div class="team team-two">                            
-                            <img src="view/assets/img/team/img-team-2.jpg" alt="" class="img-responsive">
-                            <div class="team-social">
-                                <a href="mp-index-carousel-2.html#"><i class="fa fa-twitter"></i></a>
-                                <a href="mp-index-carousel-2.html#"><i class="fa fa-facebook"></i></a>
-                                <a href="mp-index-carousel-2.html#"><i class="fa fa-github"></i></a>
-                            </div>
-                            <h5>Michael Doe<small class="color-pasific">Co-Founder &amp; CEO</small></h5>                            
-                        </div>                    
-                    </div>
-                    <!-- team member two end -->
-                    
-                    <!-- team member three start -->                    
-                    <div class="col-md-2 col-sm-4 col-xs-6 mt30">
-                        <div class="team team-two">                            
-                            <img src="view/assets/img/team/img-team-3.jpg" alt="" class="img-responsive">
-                            <div class="team-social">
-                                <a href="mp-index-carousel-2.html#"><i class="fa fa-twitter"></i></a>
-                                <a href="mp-index-carousel-2.html#"><i class="fa fa-facebook"></i></a>
-                                <a href="mp-index-carousel-2.html#"><i class="fa fa-github"></i></a>
-                            </div>
-                            <h5>Michael Doe<small class="color-pasific">Co-Founder &amp; CEO</small></h5>                            
-                        </div>                    
-                    </div>
-                    <!-- team member three end -->
-                    
-                    <!-- team member four start -->                    
-                    <div class="col-md-2 col-sm-4 col-xs-6 mt30">
-                        <div class="team team-two">                            
-                            <img src="view/assets/img/team/img-team-4.jpg" alt="" class="img-responsive">
-                            <div class="team-social">
-                                <a href="mp-index-carousel-2.html#"><i class="fa fa-twitter"></i></a>
-                                <a href="mp-index-carousel-2.html#"><i class="fa fa-facebook"></i></a>
-                                <a href="mp-index-carousel-2.html#"><i class="fa fa-github"></i></a>
-                            </div>
-                            <h5>Michael Doe<small class="color-pasific">Co-Founder &amp; CEO</small></h5>                            
-                        </div>                    
-                    </div>
-                    <!-- team member four end -->
-                    
-                    <!-- team member five start -->                    
-                    <div class="col-md-2 col-sm-4 col-xs-6 mt30">
-                        <div class="team team-two">                            
-                            <img src="view/assets/img/team/img-team-5.jpg" alt="" class="img-responsive">
-                            <div class="team-social">
-                                <a href="mp-index-carousel-2.html#"><i class="fa fa-twitter"></i></a>
-                                <a href="mp-index-carousel-2.html#"><i class="fa fa-facebook"></i></a>
-                                <a href="mp-index-carousel-2.html#"><i class="fa fa-github"></i></a>
-                            </div>
-                            <h5>Michael Doe<small class="color-pasific">Co-Founder &amp; CEO</small></h5>                            
-                        </div>                    
-                    </div>
-                    <!-- team member five end -->
-                    
-                </div><!-- row end -->                
-            </div><!-- container end -->            
-        </div><!-- section team end -->
-        
-        
-        <!-- Skill Area
-        ===================================== -->
-        <div id="progressBar2">
-            <div class="container pt50 pb75">
-                <div class="row">
-                    
-                    <!-- left skill start -->
-                    <div class="col-sm-6 col-md-6">
-                        <h5 class="text-uppercase font-montserrat color-dark text-center mb25">Design Skills</h5>
-
-                        <!-- skill one start -->
-                        <h5 class="text-right">Adobe Photoshop</h5>
-                        <div class="progress progress-xs progress-circle right">
-                            <div class="progress-bar bg-primary" role="progressbar" data-transitiongoal="40"></div>
-                        </div>
-                        <!-- skill one end -->
-
-                        <!-- skill two start -->
-                        <h5 class="text-right">Adobe Illustrator</h5>
-                        <div class="progress progress-sm progress-circle right">
-                            <div class="progress-bar bg-success" role="progressbar" data-transitiongoal="60"></div>
-                        </div>
-                        <!-- skill two end -->
-
-                        <!-- skill three start -->
-                        <h5 class="text-right">Adobe InDesign</h5>
-                        <div class="progress progress-md progress-circle right">
-                            <div class="progress-bar bg-info" role="progressbar" data-transitiongoal="80"></div>
-                        </div>
-                        <!-- skill three end -->
-
-                        <!-- skill four start -->
-                        <h5 class="text-right">Sketch</h5>
-                        <div class="progress progress-lg progress-circle right">
-                            <div class="progress-bar bg-pasific" role="progressbar" data-transitiongoal="95"></div>
-                        </div>
-                        <!-- skill four end -->
-                    </div>
-                    <!-- left skill end -->
-                    
-                    <!-- right skill start -->
-                    <div class="col-sm-6 col-md-6">
-                        <h5 class="text-uppercase font-montserrat color-dark text-center mb25">CMS Programming Skills</h5>
-
-                        <!-- skill five start -->
-                        <h5>Wordpress</h5>
-                        <div class="progress progress-circle progress-xs">
-                            <div class="progress-bar bg-primary" role="progressbar" data-transitiongoal="40"></div>
-                        </div>
-                        <!-- skill five end -->
-
-                        <!-- skill six start -->
-                        <h5>WooCommerce</h5>
-                        <div class="progress progress-circle progress-sm">
-                            <div class="progress-bar bg-success" role="progressbar" data-transitiongoal="60"></div>
-                        </div>
-                        <!-- skill six end -->
-
-                        <!-- skill seven start -->
-                        <h5>Opencart</h5>
-                        <div class="progress progress-circle progress-md">
-                            <div class="progress-bar bg-info" role="progressbar" data-transitiongoal="80"></div>
-                        </div>
-                        <!-- skill seven end -->
-
-                        <!-- skill eight start -->
-                        <h5>Shopify</h5>
-                        <div class="progress progress-circle progress-lg">
-                            <div class="progress-bar bg-pasific" role="progressbar" data-transitiongoal="95"></div>
-                        </div>
-                        <!-- skill eight end -->
-                    </div>
-                    <!-- right skill end -->
-                    
-                </div><!-- row end -->
-            </div><!-- container end -->
-        </div><!-- section skill end -->
-        
-        
-        <!-- Fun Fact Area
-        ===================================== -->
-        <div id="fact" class="bg-grad-stellar pt100 pb100">
-            <div class="container">
-                
-                <!-- title and short description start -->
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2 text-center mb50">                        
-                        <h1 class="font-size-normal color-light">
-                            <small class="color-light">Your Business Partner</small>
-                            Better Solution for Better Business
-                        </h1>
+                        </section>
+                        <!-- End Call Action Section -->
                         
                     </div>
-                </div>
-                <!-- title and short description end -->
+                </section>
+                <!-- End Portfolio Section -->
                 
-                <div class="row">
-                    
-                    <!-- fun fact left start -->
-                    <div class="col-md-3">
+                
+                <!-- Process Section -->
+                <section class="page-section">
+                    <div class="container relative">
+                        
+                        <!-- Grid -->
                         <div class="row">
                             
-                            <!-- fun fact one start -->
-                            <div class="col-md-12 col-sm-6 col-xs-6">
-                                <div class="fact">                                    
-                                    <div class="fact-number timer" data-perc="387">
-                                        <span class="factor color-light"></span>
-                                    </div>                                    
-                                    <span class="fact-title color-light alpha7">Projects Completed</span>
+                            <!-- Text Item -->
+                            <div class="col-md-12 col-lg-3">
+                                <div class="align-left">
+                                    <h2 class="work-process-heading mt-0">Work Process</h2>
+                                    <p class="work-process-description">
+                                        Lorem ipsum dolor sit amet casume adipisin elit. In maximus ligula semper metus pellentesque mattis. Maecenas volutpat, diam enim.
+                                    </p>
                                 </div>
                             </div>
-                            <!-- fun fact one end -->
+                            <!-- End Text Item -->
                             
-                            <!-- fun fact two start -->
-                            <div class="col-md-12 col-sm-6 col-xs-6">
-                                <div class="fact">
-                                    <div class="fact-number timer" data-perc="578">
-                                        <span class="factor color-light"></span>
-                                    </div>
-                                    <span class="fact-title color-light alpha7">Happy Clients</span>
+                            <!-- Item -->
+                            <div class="col-md-4 col-lg-3">
+                                <div class="work-process-item text-center pt-20">
+                                    <div class="work-process-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                            <path d="M20 15c0 .552-.448 1-1 1s-1-.448-1-1 .448-1 1-1 1 .448 1 1m-3 0c0 .552-.448 1-1 1s-1-.448-1-1 .448-1 1-1 1 .448 1 1m-3 0c0 .552-.448 1-1 1s-1-.448-1-1 .448-1 1-1 1 .448 1 1m5.415 4.946c-1 .256-1.989.482-3.324.482-3.465 0-7.091-2.065-7.091-5.423 0-3.128 3.14-5.672 7-5.672 3.844 0 7 2.542 7 5.672 0 1.591-.646 2.527-1.481 3.527l.839 2.686-2.943-1.272zm-13.373-3.375l-4.389 1.896 1.256-4.012c-1.121-1.341-1.909-2.665-1.909-4.699 0-4.277 4.262-7.756 9.5-7.756 5.018 0 9.128 3.194 9.467 7.222-1.19-.566-2.551-.889-3.967-.889-4.199 0-8 2.797-8 6.672 0 .712.147 1.4.411 2.049-.953-.126-1.546-.272-2.369-.483m17.958-1.566c0-2.172-1.199-4.015-3.002-5.21l.002-.039c0-5.086-4.988-8.756-10.5-8.756-5.546 0-10.5 3.698-10.5 8.756 0 1.794.646 3.556 1.791 4.922l-1.744 5.572 6.078-2.625c.982.253 1.932.407 2.85.489 1.317 1.953 3.876 3.314 7.116 3.314 1.019 0 2.105-.135 3.242-.428l4.631 2-1.328-4.245c.871-1.042 1.364-2.384 1.364-3.75"/>
+                                        </svg>
+                                    </div><h3 class="work-process-title">1. Disscuss</h3>
                                 </div>
                             </div>
-                            <!-- fun fact two end -->
+                            <!-- End Item -->
                             
-                        </div>
+                            <!-- Item -->
+                            <div class="col-md-4 col-lg-3">
+                                <div class="work-process-item text-center pt-20">
+                                    <div class="work-process-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                            <path d="M6 3.447h-1v-1.447h19v16h-7.731l2.731 4h-1.311l-2.736-4h-1.953l-2.736 4h-1.264l2.732-4h-2.732v-1h8v-1h3v1h3v-14h-17v.447zm2.242 17.343c-.025.679-.576 1.21-1.256 1.21-.64 0-1.179-.497-1.254-1.156l-.406-4.034-.317 4.019c-.051.656-.604 1.171-1.257 1.171-.681 0-1.235-.531-1.262-1.21l-.262-6.456-.308.555c-.241.437-.8.638-1.265.459-.404-.156-.655-.538-.655-.951 0-.093.012-.188.039-.283l1.134-4.098c.17-.601.725-1.021 1.351-1.021h4.096c.511 0 1.012-.178 1.285-.33.723-.403 2.439-1.369 3.136-1.793.394-.243.949-.147 1.24.217.32.396.286.95-.074 1.297l-3.048 2.906c-.375.359-.595.849-.617 1.381-.061 1.397-.3 8.117-.3 8.117zm-5.718-10.795c-.18 0-.34.121-.389.294-.295 1.04-1.011 3.666-1.134 4.098l1.511-2.593c.172-.295.623-.18.636.158l.341 8.797c.01.278.5.287.523.002 0 0 .269-3.35.308-3.944.041-.599.449-1.017.992-1.017.547.002.968.415 1.029 1.004.036.349.327 3.419.385 3.938.043.378.505.326.517.022 0 0 .239-6.725.3-8.124.033-.791.362-1.523.925-2.061l3.045-2.904c-.661.492-2.393 1.468-3.121 1.873-.396.221-1.07.457-1.772.457h-4.096zm16.476 1.005h-5v-1h5v1zm2-2h-7v-1h7v1zm-15.727-4.994c-1.278 0-2.315 1.038-2.315 2.316 0 1.278 1.037 2.316 2.315 2.316s2.316-1.038 2.316-2.316c0-1.278-1.038-2.316-2.316-2.316zm0 1c.726 0 1.316.59 1.316 1.316 0 .726-.59 1.316-1.316 1.316-.725 0-1.315-.59-1.315-1.316 0-.726.59-1.316 1.315-1.316zm15.727 1.994h-7v-1h7v1z"/>
+                                        </svg>
+                                    </div><h3 class="work-process-title">2. Make</h3>
+                                </div>
+                            </div>
+                            <!-- End Item -->
+                            
+                            <!-- Item -->
+                            <div class="col-md-4 col-lg-3">
+                                <div class="work-process-item text-center pt-20">
+                                    <div class="work-process-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                            <path d="M15.551 14.703c.474 1.372 2.049 2.459 3.801 1.868l.021-.007c1.565-.544 2.391-2.242 1.854-3.807-.187-.546-.425-1.137-.695-1.757h-5.967c.299 1.366.625 2.647.986 3.703m2.264-9.232l-4.051 1.388c.183 1.037.379 2.103.59 3.141h5.726c-.655-1.404-1.445-2.94-2.265-4.529m.492-1.226c1.524 2.958 3.086 5.915 3.866 8.187.598 1.744-.045 3.895-2.028 4.874l1.211 3.529c.291.812 1.322.926 2.392.808l.252.735-4.728 1.622-.272-.788c.903-.479 1.688-1.215 1.41-2.054l-1.208-3.52c-2.162.439-3.994-.861-4.596-2.61-.791-2.304-1.405-5.566-1.976-8.837l5.677-1.946zm-8.872 6.755h-5.967c-.27.62-.508 1.211-.695 1.757-.536 1.565.289 3.263 1.854 3.807l.021.007c1.753.591 3.328-.496 3.801-1.868.362-1.056.688-2.337.986-3.703m-5.515-1h5.726c.211-1.038.407-2.104.591-3.141l-4.051-1.388c-.821 1.589-1.611 3.125-2.266 4.529m7.45-3.809c-.571 3.271-1.185 6.533-1.976 8.837-.602 1.749-2.434 3.049-4.596 2.61l-1.208 3.52c-.278.839.507 1.575 1.41 2.054l-.271.788-4.729-1.622.252-.735c1.07.118 2.102.004 2.392-.808l1.211-3.529c-1.983-.979-2.625-3.13-2.028-4.874.78-2.272 2.342-5.229 3.867-8.187l5.676 1.946zm7.13 7.811c.414 0 .75.336.75.75 0 .413-.336.75-.75.75s-.75-.337-.75-.75c0-.414.336-.75.75-.75m-14.5.248c0 .414.336.75.75.75s.75-.336.75-.75c0-.413-.336-.75-.75-.75s-.75.337-.75.75m3.25-2.25c.414 0 .75.337.75.75 0 .414-.336.75-.75.75s-.75-.336-.75-.75c0-.413.336-.75.75-.75m10.5-.499c.414 0 .75.336.75.751 0 .413-.336.75-.75.75s-.75-.337-.75-.75c0-.415.336-.751.75-.751m-5.249-7.977v-3.023c0-.277-.223-.5-.5-.5-.275 0-.499.223-.499.5v3.023c0 .276.224.5.499.5.277 0 .5-.224.5-.5m1.932.462l1.641-2.79c.142-.238.062-.545-.176-.685-.239-.139-.544-.062-.684.177l-1.643 2.79c-.14.238-.06.545.176.685.08.047.167.069.254.069.172 0 .339-.088.432-.246m-4.552.246c-.171 0-.337-.088-.432-.246l-1.642-2.79c-.14-.238-.061-.545.177-.685.237-.14.544-.061.685.177l1.643 2.79c.139.238.061.545-.178.685-.08.047-.166.069-.253.069"/>
+                                        </svg>
+                                    </div><h3 class="work-process-title">3. Product</h3>
+                                </div>
+                            </div>
+                            <!-- End Item -->
+                            
+                       </div>
+                       <!-- End Grid -->
+                        
                     </div>
-                    <!-- fun fact left end -->
-                    
-                    <!-- fun fact right start -->
-                    <div class="col-md-3 col-md-push-6">
+                </section>
+                <!-- End Process Section -->
+                                
+                
+                <!-- Divider -->
+                <hr class="mt-0 mb-0"/>
+                <!-- End Divider -->
+                
+                
+                <!-- Call Action Section -->
+                <section class="page-section">
+                    <div class="container relative">
                         <div class="row">
                             
-                            <!-- fun fact three start -->
-                            <div class="col-md-12 col-sm-6 col-xs-6">
-                                <div class="fact">
-                                    <div class="fact-number timer" data-perc="175">
-                                        <span class="factor color-light"></span>
-                                    </div>
-                                    <span class="fact-title color-light alpha7">Coffee Cups</span>
-                                </div>
-                            </div>
-                            <!-- fun fact three end -->
-                            
-                            <!-- fun fact four start -->
-                            <div class="col-md-12 col-sm-6 col-xs-6">
-                                <div class="fact">
-                                    <div class="fact-number timer" data-perc="350">
-                                        <span class="factor color-light"></span>
-                                    </div>
-                                    <span class="fact-title color-light alpha7">Cupcakes</span>
-                                </div>
-                            </div>
-                            <!-- fun fact four end -->
-                            
-                        </div>
-                    </div>
-                    <!-- fun fact right end -->
-                    
-                    <div class="col-md-6 col-md-pull-3">
-                        <img src="view/assets/img/other/map.png" alt="macbook" class="img-responsive">
-                    </div>
-                    
-                </div>
-                
-                <div class="row">
-                    <div class="col-sm-8 col-sm-push-2 text-center">
-                        <h4 class="pt25 color-light">Have an idea? We will do the rest!</h4>
-                        <p class="pb10 color-light alpha8">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                        <a href="mp-index-carousel-2.html#" class="button button-md button-gray hover-ripple-out"><span class="color-primary">Start Project</span></a>
-                    </div>
-                </div>
-                
-            </div><!-- container end -->
-        </div><!-- section fun fact end -->
-        
-        
-        <!-- Features Area
-        ===================================== -->
-        <div id="features" class="pt75 mb25">
-            <div class="container">
-                
-                <!-- title and short description start -->
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h1 class="font-size-normal">
-                            <small>Amazing Features</small>
-                            Best Template with Tons of Features
-                            <small class="heading heading-solid center-block"></small>
-                        </h1>
-                    </div>
-
-                    <div class="col-md-8 col-md-offset-2 text-center">
-                        <p class="lead">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt voluptatem. 
-                        </p>
-                    </div>
-                </div>
-                <!-- title and short description end -->
-                
-                <div class="row mt50">
-                    <!-- feature one start -->
-                    <div class="col-md-3 col-sm-6 col-xs-12 mb35">
-                        <div class="content-box content-box-center content-box-icon-o">
-                            <span class="icon-mobile color-primary border-primary"></span>
-                            <h5>Mobile Optimized</h5>               
-                            <p>Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor.</p>
-                        </div>
-                    </div>
-                    <!-- feature one end -->
-                    
-                    <!-- feature two start -->
-                    <div class="col-md-3 col-sm-6 col-xs-12 mb35">
-                        <div class="content-box content-box-center content-box-icon-o">
-                            <span class="icon-documents color-success border-success"></span>
-                            <h5>Online Documentation</h5>               
-                            <p>Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor.</p>
-                        </div>
-                    </div>
-                    <!-- feature two end -->
-                    
-                    <!-- feature three start -->
-                    <div class="col-md-3 col-sm-6 col-xs-12 mb35">
-                        <div class="content-box content-box-center content-box-icon-o">
-                            <span class="icon-basket color-cyan border-cyan"></span>
-                            <h5>Shop Ready</h5>               
-                            <p>Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor.</p>
-                        </div>
-                    </div>
-                    <!-- feature three end -->
-                    
-                    <!-- feature four start -->
-                    <div class="col-md-3 col-sm-6 col-xs-12 mb35">
-                        <div class="content-box content-box-center content-box-icon-o">
-                            <span class="icon-layers color-pasific border-pasific"></span>
-                            <h5>Clean Code</h5>               
-                            <p>Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor.</p>
-                        </div>
-                    </div>
-                    <!-- feature four end -->
-                    
-                    <!-- feature five start -->
-                    <div class="col-md-3 col-sm-6 col-xs-12 mb35">
-                        <div class="content-box content-box-center content-box-icon-o">
-                            <span class="icon-adjustments color-green border-green"></span>
-                            <h5>Easy to Customized</h5>               
-                            <p>Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor.</p>
-                        </div>
-                    </div>
-                    <!-- feature five end -->
-                    
-                    <!-- feature six start -->
-                    <div class="col-md-3 col-sm-6 col-xs-12 mb35">
-                        <div class="content-box content-box-center content-box-icon-o">
-                            <span class="icon-bike color-red border-red"></span>
-                            <h5>2000+ Icons Included</h5>               
-                            <p>Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor.</p>
-                        </div>
-                    </div>
-                    <!-- feature six end -->
-                    
-                    <!-- feature seven start -->
-                    <div class="col-md-3 col-sm-6 col-xs-12 mb35">
-                        <div class="content-box content-box-center content-box-icon-o">
-                            <span class="icon-video color-pink border-pink"></span>
-                            <h5>Video Background</h5>               
-                            <p>Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor.</p>
-                        </div>
-                    </div>
-                    <!-- feature seven end -->
-                    
-                    <!-- feature eight start -->
-                    <div class="col-md-3 col-sm-6 col-xs-12 mb35">
-                        <div class="content-box content-box-center content-box-icon-o">
-                            <span class="icon-tools color-warning border-warning"></span>
-                            <h5>Full Support</h5>               
-                            <p>Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor.</p>
-                        </div>
-                    </div>
-                    <!-- feature eight end -->
-                    
-                </div><!-- row end -->                
-            </div><!-- container end -->
-        </div><!-- section feature end -->
-        
-        
-        <!-- SVG Cart Area
-        ===================================== -->
-        <div class="svg-container2">
-            <!-- svg start -->
-            <svg id="svgLine" xmlns="http://www.w3.org/2000/svg" version="1.1" 
-                 width="100%" height="300" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 250" preserveAspectRatio="xMinYMax">
-
-                <polygon points="-150,300 200,90 550,140 800,60 1100,150 1400,100 1700,10 1900,50 2500,90 2500,300" 
-                         fill="url(#BglinierGradient)" stroke="none">
-                </polygon>
-
-                <polyline points="-150,244 200,90 550,140 800,60 1100,150 1400,100 1700,10 1900,50 2500,90 2500,500" 
-                          fill="none" stroke="#7668af" stroke-width="0">
-                </polyline>                        
-
-                <text x="170" y="20" fill="#8b949b" style="font-size: 120%; font-weight: 400;">Lines of Code</text>
-                <text x="170" y="60" fill="#5cb85c" style="font-size: 250%; font-weight: 300;">120K</text>
-
-                <text x="510" y="60" fill="#8b949b" style="font-size: 120%; font-weight: 400;">Shortcodes</text>
-                <text x="520" y="100" fill="#5f6467" style="font-size: 250%; font-weight: 300;">750</text>
-
-                <text x="760" y="0" fill="#8b949b" style="font-size: 120%; font-weight: 400;">Icons Included</text>
-                <text x="760" y="40" fill="#b2cc71" style="font-size: 250%; font-weight: 300;">2000+</text>
-
-                <text x="1060" y="70" fill="#8b949b" style="font-size: 120%; font-weight: 400;">Happy Clients</text>
-                <text x="1060" y="110" fill="#3c88c6" style="font-size: 250%; font-weight: 300;">950</text>
-
-                <text x="1350" y="30" fill="#8b949b" style="font-size: 120%; font-weight: 400;">Item Sales</text>
-                <text x="1350" y="70" fill="#1abc9c" style="font-size: 250%; font-weight: 300;">5,780</text>
-
-                <text x="1650" y="90" fill="#333333" style="font-size: 140%; font-weight: 300; font-family: 'Pacifico', cursive;">Counting..</text>
-
-                <ellipse id="svg_1" rx="15" ry="15" cx="200" cy="90" fill="#5cb85c" stroke="#ffffff" stroke-width="5"></ellipse>
-                <ellipse id="svg_2" rx="10" ry="10" cx="550" cy="140" fill="#5f6467" stroke="#ffffff" stroke-width="5"></ellipse>
-                <ellipse id="svg_3" rx="15" ry="15" cx="800" cy="60" fill="#b2cc71" stroke="#ffffff" stroke-width="5"></ellipse>
-                <ellipse id="svg_4" rx="15" ry="15" cx="1100" cy="150" fill="#3c88c6" stroke="#ffffff" stroke-width="5"></ellipse>
-                <ellipse id="svg_5" rx="10" ry="10" cx="1400" cy="100" fill="#1abc9c" stroke="#ffffff" stroke-width="5"></ellipse>
-                <ellipse id="svg_6" rx="10" ry="10" cx="1700" cy="10" fill="#a85ad4" stroke="#ffffff" stroke-width="5"></ellipse>
-                <ellipse id="svg_7" rx="9" ry="9" cx="1900" cy="50" fill="#ff8b34" stroke="#ffffff" stroke-width="5"></ellipse>
-                <ellipse id="svg_8" rx="6" ry="6" cx="2500" cy="90" fill="#fd40b3" stroke="#ffffff" stroke-width="5"></ellipse>
-                <ellipse id="svg_9" rx="6" ry="6" cx="2200" cy="90" fill="#fd3635" stroke="#ffffff" stroke-width="5"></ellipse>
-
-                <defs>
-                  <lineargradient id="BglinierGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop id="BgLinierGradientStop_1" stop-opacity="1" stop-color="#e8f3f5" offset="0"></stop>
-                      <stop id="BgLinierGradientStop_2" stop-opacity="1" stop-color="#e8f3f5" offset="1"></stop>
-                  </lineargradient>
-                </defs>
-            </svg>
-            <!-- svg end -->
-        </div><!-- svg container end -->
-        
-        
-        <!-- Achievement Area
-        ===================================== -->
-        <div class="pt50" style="background: url('view/assets/img/bg/bg-wood.jpg') 100% 100% repeat-x #e8f3f5;">
-            <div class="container">
-                
-                <!-- title and short description start -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2 class="font-source-sans-pro text-center mb50">                          
-                            <small class="heading heading-icon heading-icon-rounded bg-grad-stellar center-block">
-                                <i class="fa fa-trophy color-light"></i>
-                            </small>
-                            The Best Web &amp; App Developer 2016
-                            <small class="heading-desc text-lowercase color-dark">
-                                Every day, We makes thousands of customers happy.
-                            </small>
-                        </h2>
-                    </div>
-                </div>
-                <!-- title and short description end -->
-                
-                <div class="row mb50 text-center">
-                    <div class="col-sm-12">
-                        <i class="fa fa-android fa-3x mr20 color-green"></i>
-                        <i class="fa fa-apple fa-4x mr20 color-dark"></i>
-                        <i class="fa fa-amazon fa-4x mr20 color-red"></i>
-                        <i class="fa fa-windows fa-3x color-purple"></i>
-                    </div>
-                </div>
-                
-                <div class="col-md-12">
-                    <img src="view/assets/img/other/img-other-6.png" alt="device" class="img-responsive center-block">
-                </div>
-                
-            </div><!-- container end -->
-        </div><!-- section achievment end -->
-        
-        
-        <!-- Info Area
-        ===================================== -->
-        <div id="Info-1" class="bg-gray pt30 bb-solid-1">
-            <div class="container">
-                <div class="row">                
-                    <div class="col-md-8 col-md-offset-2 text-center pb35">
-                        <h4>We are here to help you reach success</h4>
-                        <a class="button button-md button-blue hover-ripple-out mr10">Purchase Now</a>
-                        <a class="button button-md button-pasific hover-ripple-out">Start Project</a>
-                    </div>                
-                </div>
-            </div>
-        </div>
-        
-        
-        <!-- General Content Area
-        ===================================== -->
-        <div id="general-content-1" class="pt100 pb100">
-            <div class="container">
-                <div class="row">
-                    
-                    <!-- left content start -->
-                    <div class="col-md-5">
-                        <div class="general-content">
-                            <h3 class="mb25">
-                                <small class="color-red">Mobile Optimized</small>
-                                Support for All Mobile Devices
-                            </h3>
-                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui 
-                                ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia 
-                                non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                            <a class="button button-md button-pasific hover-ripple-out">Purchase Now</a>
-                            
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <!-- left content end -->
-                    
-                    <!-- right content start -->
-                    <div class="col-md-5 col-md-push-1">
-                        <img src="view/assets/img/other/img-other-1.png" alt="browser iphone" class="img-responsive pull-right">
-                    </div>
-                    <!-- right content end -->
-                    
-                </div>
-            </div>
-        </div>
-        
-        
-        <!-- General Content Area
-        ===================================== -->
-        <div id="general-content-2" class="bg-gray pt100 pb100">
-            <div class="container">
-                <div class="row">
-                    
-                    <!-- left content start -->
-                    <div class="col-md-6">
-                        <img src="view/assets/img/other/img-other-2.png" alt="browser iphone" class="img-responsive center-block">
-                    </div>
-                    <!-- left content end -->
-                    
-                    <!-- right content start -->
-                    <div class="col-md-5 col-md-push-1">
-                        <div class="general-content">
-                            <h3 class="mb25">
-                                <small class="color-red">eCommerce</small>
-                                Online Store Ready
-                            </h3>
-                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui 
-                                ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia 
-                                non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                            <a class="button button-md button-pasific hover-ripple-out">Purchase Now</a>
-                            
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <!-- right content end -->                    
-                    
-                </div><!-- row end -->
-            </div><!-- container end -->
-        </div><!-- section general info end -->
-        
-        
-        <!-- Price Area
-        ===================================== -->
-        <div id="price" class="bg-grad-stellar pt75 pb30">
-            <div class="container pb50">
-
-                <!-- title start -->
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2 text-center mb50">                        
-                        <h1 class="font-size-normal color-light">
-                            <small class="color-light">Service Prices</small>
-                            Family Price for Premium Services
-                        </h1>
-
-                    </div>
-                </div>
-                <!-- title start -->
-
-                <div class="row">
-
-                    <!-- table price one start -->
-                    <div class="col-md-3 col-sm-6 col-xs-12 hover-float">
-                        <div class="price price-three">
-                            <div class="price-header">
-                                <span class="color-green"><sup>$</sup>49</span>
-                                <h4>Regular</h4>								
-                            </div>
-                            <div class="price-body">
-                                <ul>
-                                    <li>Two Web Designs</li>
-                                    <li>Unlimited Revision</li>
-                                    <li>Free One Year Domain</li>
-                                    <li>Free Six Months Hosting</li>
-                                    <li>Free Installation</li>
-                                    <li>Full Support</li>
-                                </ul>
-                            </div>
-                            <div class="price-footer">
-
-                                <a href="mp-index-carousel-2.html#" class="button button-sm button-rounded button-green hover-ripple-out">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- table price one end -->
-
-                    <!-- table price two start -->
-                    <div class="col-md-3 col-sm-6 col-xs-12 hover-float">
-                        <div class="price price-three">
-                            <div class="price-badge bg-grad-blood-mary">Recommended</div>
-                            <div class="price-header">
-                                <span class="color-success"><sup>$</sup>59</span>
-                                <h4>Extended</h4>								
-                            </div>
-                            <div class="price-body">
-                                <ul>
-                                    <li>Two Web Designs</li>
-                                    <li>Unlimited Revision</li>
-                                    <li>Free One Year Domain</li>
-                                    <li>Free Six Months Hosting</li>
-                                    <li>Free Installation</li>
-                                    <li>Full Support</li>
-                                </ul>
-                            </div>
-                            <div class="price-footer">
-
-                                <a href="mp-index-carousel-2.html#" class="button button-sm button-rounded button-success hover-ripple-out">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- table price two end -->
-
-                    <!-- table price three start -->
-                    <div class="col-md-3 col-sm-6 col-xs-12 hover-float">
-                        <div class="price price-three">
-                            <div class="price-header">
-                                <span class="color-cyan"><sup>$</sup>69</span>
-                                <h4>Developer</h4>								
-                            </div>
-                            <div class="price-body">
-                                <ul>
-                                    <li>Two Web Designs</li>
-                                    <li>Unlimited Revision</li>
-                                    <li>Free One Year Domain</li>
-                                    <li>Free Six Months Hosting</li>
-                                    <li>Free Installation</li>
-                                    <li>Full Support</li>
-                                </ul>
-                            </div>
-                            <div class="price-footer">
-
-                                <a href="mp-index-carousel-2.html#" class="button button-sm button-rounded button-cyan hover-ripple-out">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- table price three end -->
-
-                    <!-- table price four start -->
-                    <div class="col-md-3 col-sm-6 col-xs-12 hover-float">
-                        <div class="price price-three">
-                            <div class="price-badge bg-grad-stellar">Popular</div>
-                            <div class="price-header">
-                                <span class="color-blue"><sup>$</sup>79</span>
-                                <h4>Team</h4>								
-                            </div>
-                            <div class="price-body">
-                                <ul>
-                                    <li>Two Web Designs</li>
-                                    <li>Unlimited Revision</li>
-                                    <li>Free One Year Domain</li>
-                                    <li>Free Six Months Hosting</li>
-                                    <li>Free Installation</li>
-                                    <li>Full Support</li>
-                                </ul>
-                            </div>
-                            <div class="price-footer">
-
-                                <a href="mp-index-carousel-2.html#" class="button button-sm button-rounded button-blue hover-ripple-out">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- table price four end -->
-
-                </div><!-- row end -->
-
-                <div class="row text-center mt50">
-                    <h4 class="color-light">For custom price, please contact us at: <i class="fa fa-phone"></i> 1-234-567-890</h4>
-                </div>
-
-            </div><!-- container end -->
-        </div><!-- section price end -->
-           
-        
-        <!-- Shop Area
-        ===================================== -->
-        <div id="shop" class="pt70 pb50">
-            <div class="container">
-                
-                <!-- title start -->
-                <div class="row text-center mb25">
-                    <h1 class="font-size-normal">
-                        <small>eCommerce</small>
-                        Online Shop
-                        <small class="heading heading-solid center-block"></small>
-                    </h1>
-                </div>
-                <!-- title end -->
-                
-                <div class="row text-center">
-                    <div class="col-md-12">                    
-                        <div id="owlShop">
-                            
-                            <!-- shop item start -->
-                            <div class="shop-item-container-out">
-                                <div class="shop-item-container-in">
-                                    <div class="shop-label">-50%</div>
-                                    <img src="view/assets/img/shop/img-shop-1.png" alt="shop item" class="img-responsive center-block">
-                                    <h4 class="shop-item-title">Cool Man Jacket</h4>
-                                    <span class="shop-item-price">$90.00</span>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-wishlist" data-toggle="tooltip" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-6 col-xs-6">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-cart">
-                                            Add to cart
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="send-to-friend" data-toggle="tooltip" title="Send to friend">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- shop item end -->
-                            
-                            <!-- shop item start -->
-                            <div class="shop-item-container-out">
-                                <div class="shop-item-container-in">
-                                    <img src="view/assets/img/shop/img-shop-2.png" alt="shop item" class="img-responsive center-block">
-                                    <h4 class="shop-item-title">Casual Jacket</h4>
-                                    <span class="shop-item-price">$79.00</span>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-wishlist" data-toggle="tooltip" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-6 col-xs-6">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-cart">
-                                            Add to cart
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="send-to-friend" data-toggle="tooltip" title="Send to friend">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- shop item end -->
-                            
-                            <!-- shop item start -->
-                            <div class="shop-item-container-out">
-                                <div class="shop-item-container-in">
-                                    <div class="shop-label">Sale</div>
-                                    <img src="view/assets/img/shop/img-shop-3.png" alt="shop item" class="img-responsive center-block">
-                                    <h4 class="shop-item-title">Summer Jacket</h4>
-                                    <span class="shop-item-price">$85.00</span>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-wishlist" data-toggle="tooltip" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-6 col-xs-6">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-cart">
-                                            Add to cart
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="send-to-friend" data-toggle="tooltip" title="Send to friend">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- shop item end -->
-                            
-                            <!-- shop item start -->
-                            <div class="shop-item-container-out">
-                                <div class="shop-item-container-in">
-                                    <img src="view/assets/img/shop/img-shop-4.png" alt="shop item" class="img-responsive center-block">
-                                    <h4 class="shop-item-title">Man Jacket</h4>
-                                    <span class="shop-item-price">$57.00</span>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-wishlist" data-toggle="tooltip" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-6 col-xs-6">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-cart">
-                                            Add to cart
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="send-to-friend" data-toggle="tooltip" title="Send to friend">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- shop item end -->
-                            
-                            <!-- shop item start -->
-                            <div class="shop-item-container-out">
-                                <div class="shop-item-container-in">
-                                    <div class="shop-label">-50%</div>
-                                    <img src="view/assets/img/shop/img-shop-1.png" alt="shop item" class="img-responsive center-block">
-                                    <h4 class="shop-item-title">Cool Man Jacket</h4>
-                                    <span class="shop-item-price">$90.00</span>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-wishlist" data-toggle="tooltip" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-6 col-xs-6">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-cart">
-                                            Add to cart
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="send-to-friend" data-toggle="tooltip" title="Send to friend">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- shop item end -->
-                            
-                            <!-- shop item start -->
-                            <div class="shop-item-container-out">
-                                <div class="shop-item-container-in">
-                                    <div class="shop-label">-50%</div>
-                                    <img src="view/assets/img/shop/img-shop-2.png" alt="shop item" class="img-responsive center-block">
-                                    <h4 class="shop-item-title">Cool Man Jacket</h4>
-                                    <span class="shop-item-price">$90.00</span>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-wishlist" data-toggle="tooltip" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-6 col-xs-6">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-cart">
-                                            Add to cart
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="send-to-friend" data-toggle="tooltip" title="Send to friend">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- shop item end -->
-                            
-                            <!-- shop item start -->
-                            <div class="shop-item-container-out">
-                                <div class="shop-item-container-in">
-                                    <div class="shop-label">-50%</div>
-                                    <img src="view/assets/img/shop/img-shop-3.png" alt="shop item" class="img-responsive center-block">
-                                    <h4 class="shop-item-title">Cool Man Jacket</h4>
-                                    <span class="shop-item-price">$90.00</span>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-wishlist" data-toggle="tooltip" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-6 col-xs-6">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-cart">
-                                            Add to cart
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="send-to-friend" data-toggle="tooltip" title="Send to friend">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- shop item end -->
-                            
-                            <!-- shop item start -->
-                            <div class="shop-item-container-out">
-                                <div class="shop-item-container-in">
-                                    <div class="shop-label">-50%</div>
-                                    <img src="view/assets/img/shop/img-shop-4.png" alt="shop item" class="img-responsive center-block">
-                                    <h4 class="shop-item-title">Cool Man Jacket</h4>
-                                    <span class="shop-item-price">$90.00</span>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-wishlist" data-toggle="tooltip" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-6 col-xs-6">
-                                        <a href="mp-index-carousel-2.html#" class="add-to-cart">
-                                            Add to cart
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-3 col-xs-3">
-                                        <a href="mp-index-carousel-2.html#" class="send-to-friend" data-toggle="tooltip" title="Send to friend">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- shop item end -->
-
-                        </div><!-- #owlShop end -->
-                    </div><!-- col-md end -->
-                </div><!-- row end -->
-                
-                <div class="row mt25 mb50">
-                    <div class="col-md-2 col-md-offset-5 text-center">                    
-                        <i class="fa fa-angle-left shop-control-prev"></i>
-                        <i class="fa fa-angle-right shop-control-next"></i>                    
-                    </div>
-                </div>
-                
-            </div><!-- container end -->
-        </div><!-- section shop end -->
-        
-        
-        <!-- Blog Area
-        ===================================== -->
-        <div id="blogs" class="bg-gray pt75 pb75">
-            <div class="container">
-                
-                <!-- title start -->
-                <div class="row text-center mb25">
-                    <h1 class="font-size-normal">
-                        <small>Our Blog</small>
-                        We Have Freebies, News, Tutorial, etc.
-                        <small class="heading heading-solid center-block"></small>
-                    </h1>
-                </div>
-                <!-- title end -->
-                
-                <div class="row">
-                    
-                    <!-- blog post start -->
-                    <div class="col-md-4 col-sm-6 col-xs-12 mb50">
-                        <div class="blog-one">
-                            <div class="blog-one-header">
-                                <img src="view/assets/img/blog/img-blog-2.jpg" alt="image blog" class="img-responsive">
-                            </div>
-                            <div class="blog-one-attrib">                                
-                                <img src="view/assets/img/other/photo-1.jpg.png" alt="photo blog" class="blog-author-photo">
-                                <span class="blog-author-name">Harry Boo</span>
-                                <span class="blog-date">PEB. 14 2016</span>                                                           
-                            </div>
-                            <div class="blog-one-body">
-                                <h4 class="blog-title"><a href="mp-index-carousel-2.html#">Amazing Blog Post One</a></h4>
-                                <p class="">
-                                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.
-                                </p>
-                            </div>
-                            <div class="blog-one-footer">
-                                <a href="mp-index-carousel-2.html#">Read More</a>
-                                <i class="fa fa-heart"></i>59 Likes
-                                <i class="fa fa-comments"></i><a href="mp-index-carousel-2.html#">120 Comments</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- blog post end -->
-                    
-                    <!-- blog post start -->
-                    <div class="col-md-4 col-sm-6 col-xs-12 mb50">
-                        <div class="blog-one">
-                            <div class="blog-one-header">
-                                <img src="view/assets/img/blog/img-blog-4.jpg" alt="image blog" class="img-responsive">
-                            </div>
-                            <div class="blog-one-attrib">                                
-                                <img src="view/assets/img/other/photo-4.jpg" alt="photo blog" class="blog-author-photo">
-                                <span class="blog-author-name">Melanie Boo</span>
-                                <span class="blog-date">PEB. 14 2016</span>                                                           
-                            </div>
-                            <div class="blog-one-body">
-                                <h4 class="blog-title"><a href="mp-index-carousel-2.html#">Amazing Blog Post One</a></h4>
-                                <p class="">
-                                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.
-                                </p>
-                            </div>
-                            <div class="blog-one-footer">
-                                <a href="mp-index-carousel-2.html#">Read More</a>
-                                <i class="fa fa-heart"></i>59 Likes
-                                <i class="fa fa-comments"></i><a href="mp-index-carousel-2.html#">120 Comments</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- blog post end -->
-                    
-                    <!-- blog post start -->                    
-                    <div class="col-md-4 col-sm-6 col-xs-12 mb50">
-                        <div class="blog-one">
-                            <div class="blog-one-header">
-                                <img src="view/assets/img/blog/img-blog-3.jpg" alt="image blog" class="img-responsive">
-                            </div>
-                            <div class="blog-one-attrib">                                
-                                <img src="view/assets/img/other/photo-2.jpg" alt="photo blog" class="blog-author-photo">
-                                <span class="blog-author-name">Harry Boo</span>
-                                <span class="blog-date">PEB. 14 2016</span>                                                           
-                            </div>
-                            <div class="blog-one-body">
-                                <h4 class="blog-title"><a href="mp-index-carousel-2.html#">Amazing Blog Post One</a></h4>
-                                <p class="">
-                                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.
-                                </p>
-                            </div>
-                            <div class="blog-one-footer">
-                                <a href="mp-index-carousel-2.html#">Read More</a>
-                                <i class="fa fa-heart"></i>59 Likes
-                                <i class="fa fa-comments"></i><a href="mp-index-carousel-2.html#">120 Comments</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- blog post end -->                   
-                    
-                </div><!-- row end -->                
-            </div><!-- container end -->
-        </div><!-- section blog end -->
-        
-        
-        <!-- Newsletter Area
-        =====================================-->
-        <div id="newsletter" class="bg-dark2 pt50 pb50">
-            <div class="container">
-                <div class="row">                    
-                    <div class="col-md-2">
-                        <h4 class="color-light">
-                            Newsletter
-                        </h4>
-                    </div>
-                    
-                    <div class="col-md-10">
-                        <form name="newsletter">
-                            <div class="input-newsletter-container">
-                                <input type="text" name="email" class="input-newsletter" placeholder="enter your email address">
-                            </div>
-                            <a href="mp-index-carousel-2.html#" class="button button-sm button-pasific hover-ripple-out">Subscribe<i class="fa fa-envelope"></i></a>
-                        </form>
-                    </div>
-                </div><!-- row end -->
-            </div><!-- container end -->
-        </div><!-- section newsletter end -->
-        
-        
-        <!-- Testimonial Area
-        ===================================== -->
-        <div id="testimonial" class="pt75 pb75">
-            <div class="container">
-                
-                <!-- title start -->
-                <div class="row text-center mb25">
-                    <h1 class="font-size-normal">
-                        <small>Testimonials</small>
-                        What Our Clients Say About Us
-                        <small class="heading heading-solid center-block"></small>
-                    </h1>
-                </div>
-                <!-- title end -->
-                
-                <div class="row">
-                    
-                    <div class="col-sm-12">                        
-                        <div class="row">
-                            
-                            <div id="owlSectionThreeItem" class="owl-carousel">
+                            <!-- Images --> 
+                            <div class="col-lg-7 mb-md-60 mb-xs-30">                                                               
+                                <div class="call-action-2-images">
                                     
-                                <!-- Testimonial Item start -->
-                                <div class="testimonial testimonial-triangle-isosceles bottom-left">
-                                    <div class="testimonial-body">
-                                        <p>
-                                            Pasific template is the best template so far. So easy to customize and clean code. Recommended!
-                                        </p>
+                                    <div class="call-action-2-image-1">
+                                        <img src="view/assets/images/promo-3.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" data-wow-offset="255" />
                                     </div>
-                                    <div class="testimonial-footer">
-                                        <img src="view/assets/img/other/photo-1.jpg.png" alt="testimonial author" class="img-responsive img-circle">
-                                        <i class="fa fa-quote-left"></i>
-                                        Martin Smith <a href="mp-index-carousel-2.html#">envato.com   </a>
+                                    
+                                    <div class="call-action-2-image-2">
+                                        <img src="view/assets/images/promo-4.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" data-wow-offset="134" />
                                     </div>
+                                    
+                                    <div class="call-action-2-image-3">
+                                        <img src="view/assets/images/promo-5.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" data-wow-offset="0" />
+                                    </div>
+                                    
+                                </div>                                                                              
+                            </div>
+                            <!-- End Images -->
+                            
+                            <!-- Text -->
+                            <div class="col-lg-5 wow fadeInUpShort" data-wow-duration="1.2s" data-wow-offset="255">
+                                
+                                <h2 class="section-title mb-50 mb-sm-20">Why choose us?</h2>
+                                
+                                <dl class="call-action-2-text mb-60 mb-sm-30">
+                                    <dt>
+                                        01. We are strongly creative.
+                                    </dt>
+                                    <dd>
+                                        Lorem ipsum dolor sit amet, rembe adipiscing elite. Inwege maximus ligula semper metusere pellentesque mattis.
+                                    </dd>
+                                    <dt>
+                                        02. We are very responsible.
+                                    </dt>
+                                    <dd>
+                                        Fusce aliquet quam eget neque ultrices elementum. Nulla posuere felis id arcu blandit sagittis. Eleifender vestibulum purus risus.
+                                    </dd>
+                                    <dt>
+                                        03. We are super friendly.
+                                    </dt>
+                                    <dd>
+                                        Integer non dapibus diam, ac eleifend lectus. Praesent sed nisi eleifend, fermentum orci sit amet, iaculis libero interdum.
+                                    </dd>
+                                </dl>
+                                
+                                <div class="local-scroll">
+                                    <a href="pages-contact-1.html" class="btn btn-mod btn-large btn-round">Start Project</a>
                                 </div>
-                                <!-- Testimonial Item end -->
-
-                                <!-- Testimonial Item start -->
-                                <div class="testimonial testimonial-triangle-isosceles bottom-left">
-                                    <div class="testimonial-body">
-                                        <p>
-                                            Quisque mollis lacus augue, a hendrerit leo tristique vitae. Mauris non ipsum molestie sagittis elit ac vulputate odio.
-                                        </p>
-                                    </div>
-                                    <div class="testimonial-footer">
-                                        <img src="view/assets/img/other/photo-2.jpg" alt="testimonial author" class="img-responsive img-circle">
-                                        <i class="fa fa-quote-left"></i>
-                                        Steve Austin <a href="mp-index-carousel-2.html#">facebook.com   </a>
-                                    </div>
-                                </div>
-                                <!-- Testimonial Item end -->
-
-                                <!-- Testimonial Item start -->
-                                <div class="testimonial testimonial-triangle-isosceles bottom-left">
-                                    <div class="testimonial-body">
-                                        <p>
-                                            Fusce quam augue, gravida tincidunt dui nec, tempor iaculis justo. 
-                                        </p>
-                                    </div>
-                                    <div class="testimonial-footer">
-                                        <img src="view/assets/img/other/photo-4.jpg" alt="testimonial author" class="img-responsive img-circle">
-                                        <i class="fa fa-quote-left"></i>
-                                        Gisselse <a href="mp-index-carousel-2.html#">Smashingmagazine.com   </a>
-                                    </div>
-                                </div>
-                                <!-- Testimonial Item end -->
-
-                                <!-- Testimonial Item start -->
-                                <div class="testimonial testimonial-triangle-isosceles bottom-left">
-                                    <div class="testimonial-body">
-                                        <p>
-                                            Pasific template is the best template so far. So easy to customize and clean code. Recommended!
-                                        </p>
-                                    </div>
-                                    <div class="testimonial-footer">
-                                        <img src="view/assets/img/other/photo-1.jpg.png" alt="testimonial author" class="img-responsive img-circle">
-                                        <i class="fa fa-quote-left"></i>
-                                        Martin Smith <a href="mp-index-carousel-2.html#">Smashingmagazine.com   </a>
-                                    </div>
-                                </div>
-                                <!-- Testimonial Item end -->
-
-                                <!-- Testimonial Item start -->
-                                <div class="testimonial testimonial-triangle-isosceles bottom-left">
-                                    <div class="testimonial-body">
-                                        <p>
-                                            Quisque mollis lacus augue, a hendrerit leo tristique vitae. Mauris non ipsum molestie sagittis elit ac vulputate odio.
-                                        </p>
-                                    </div>
-                                    <div class="testimonial-footer">
-                                        <img src="view/assets/img/other/photo-2.jpg" alt="testimonial author" class="img-responsive img-circle">
-                                        <i class="fa fa-quote-left"></i>
-                                        Steve Austin <a href="mp-index-carousel-2.html#">envato.com   </a>
-                                    </div>
-                                </div>
-                                <!-- Testimonial Item end -->
-
-                                <!-- Testimonial Item start -->
-                                <div class="testimonial testimonial-triangle-isosceles bottom-left">
-                                    <div class="testimonial-body">
-                                        <p>
-                                            Fusce quam augue, gravida tincidunt dui nec, tempor iaculis justo. 
-                                        </p>
-                                    </div>
-                                    <div class="testimonial-footer">
-                                        <img src="view/assets/img/other/photo-4.jpg" alt="testimonial author" class="img-responsive img-circle">
-                                        <i class="fa fa-quote-left"></i>
-                                        Goselle <a href="mp-index-carousel-2.html#">themeforest.com   </a>
-                                    </div>
-                                </div>
-                                <!-- Testimonial Item end -->
-
-                            </div><!-- owlSectionThreeItem end -->
-                        </div><!-- row end -->
-                    </div><!-- col end -->
-                    
-                </div><!-- row end -->
-            </div><!-- container end -->
-        </div><!-- section testimonial end -->
-        
-          
-        <!-- Contact Us Area
-        =====================================-->
-        <div id="contact" class="pt100 pb100 bg-grad-stellar">
-            <div class="container">
-                <div class="row">
-                    
-                    <div class="col-md-6">
+                                
+                            </div>
+                            <!-- End Text -->
+                            
+                        </div>
+                    </div>
+                </section>
+                <!-- End Call Action Section -->
+                
+                
+                <!-- Divider -->
+                <hr class="mt-0 mb-0"/>
+                <!-- End Divider -->
+                
+                
+                <!-- Promo Section -->
+                <section class="page-section">
+                    <div class="container relative">
                         <div class="row">
                             
-                            <!-- title start -->
-                            <div class="col-md-12 mb50">
-                                <h1 class="font-size-normal color-light">
-                                    <small class="color-light">Contact Us</small>
-                                    Drop Us a Message
-                                </h1>               
-                                <h5 class="color-light">Please feel free to say anything to us. Our staff will reply any message<br>as soon as possible.</h5>                        
-                            </div>
-                            <!-- title end -->
-                            
-                            <!-- contact info start -->
-                            <div class="col-md-3 col-sm-3 col-xs-12">
-                                <span class="icon-map color-light el-icon2x"></span>
-                                <h5 class="color-light"><strong>Address</strong></h5>
-                                <p class="color-light">Address Business 123 London, UK.</p>
-                            </div>
-                            
-                            <div class="col-md-3 col-sm-3 col-xs-6">
-                                <span class="icon-megaphone color-light el-icon2x"></span>
-                                <h5 class="color-light"><strong>Phone</strong></h5>
-                                <p class="color-light">123-456-789</p>
-                            </div>
-                            
-                            <div class="col-md-3 col-sm-3 col-xs-6">
-                                <span class="icon-envelope color-light el-icon2x"></span>
-                                <h5 class="color-light"><strong>Email</strong></h5>
-                                <p class="color-light">email@domain.com</p>
-                            </div>
-                            <!-- contact info end -->
-                            
-                        </div><!-- row left end -->
-                    </div><!-- col left end -->
-                    
-                    <div class="col-md-6">
-                        <div class="contact contact-us-one">
-                            <div class="col-sm-12 col-xs-12 text-center mb20">
-                                <h4 class="pb25 bb-solid-1 text-uppercase">
-                                    Get in Touch
-                                    <small class="text-lowercase">Please complete the form and we will get back to you.</small>
-                                </h4>
-                            </div>
-                            <form name="contactform" id="contactForm" method="post" action="view/assets/php/send.php">
+                            <!-- Text -->
+                            <div class="col-lg-6 wow fadeInUpShort" data-wow-duration="1.2s" data-wow-offset="205">
                                 
-                                <!-- fullname start -->                            
-                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="senderName" id="senderName" class="input-md input-rounded form-control" placeholder="fullname" maxlength="100" required>
-                                </div>                                           
-                                <!-- fullname end -->
-                                
-                                <!-- email start -->                            
-                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <input type="email" name="senderEmail" id="senderEmail" class="input-md input-rounded form-control" placeholder="email address" maxlength="100" required>
-                                </div>                                        
-                                 <!-- email end -->
-                                
-                                <!-- website start -->                        
-                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <input type="url" name="senderWebsite" id="senderWebsite" class="input-md input-rounded form-control" placeholder="http://" maxlength="100">
-                                </div>                                             
-                                <!-- website end -->
-                                
-                                <!-- security start -->        
-                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="senderHuman" id="senderHuman" class="input-md input-rounded form-control" placeholder="" required>
-                                    <input type="hidden" name="checkHuman_a" id="checkHuman_a">
-                                    <input type="hidden" name="checkHuman_b" id="checkHuman_b">
-                                </div>                                      
-                                  <!-- security end -->
-                                
-                                <!-- textarea start -->
-                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                    <textarea class="form-control" name="message" id="message" rows="7" required></textarea>
+                                <div class="row">
+                                    <div class="col-lg-10">
+                                        <h2 class="section-title mb-60 mb-sm-30">Awesome Template With Clean Design</h2>
+                                    </div>
                                 </div>
-                                <!-- textarea end -->
                                 
-                                <!-- button start -->
-                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                    <button type="submit" name="sendMessage" id="sendMessage" class="button button-md button-block button-grad-stellar">Send Message</button>
+                                <!-- Features Grid -->
+                                <div class="row alt-features-grid">
+                                    
+                                    <!-- Features Item -->
+                                    <div class="col-lg-6">
+                                        <div class="alt-features-item">
+                                            <div class="alt-features-icon">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                    <path d="M21.62 20.196c1.055-.922 1.737-2.262 1.737-3.772 0-1.321-.521-2.515-1.357-3.412v-6.946l-11.001-6.066-11 6v12.131l11 5.869 5.468-2.917c.578.231 1.205.367 1.865.367.903 0 1.739-.258 2.471-.676l2.394 3.226.803-.596-2.38-3.208zm-11.121 2.404l-9.5-5.069v-10.447l9.5 4.946v10.57zm1-.001v-10.567l5.067-2.608.029.015.021-.04 4.384-2.256v5.039c-.774-.488-1.686-.782-2.668-.782-2.773 0-5.024 2.252-5.024 5.024 0 1.686.838 3.171 2.113 4.083l-3.922 2.092zm6.833-2.149c-2.219 0-4.024-1.808-4.024-4.026s1.805-4.025 4.024-4.025c2.22 0 4.025 1.807 4.025 4.025 0 2.218-1.805 4.026-4.025 4.026zm-.364-3.333l-1.306-1.147-.66.751 2.029 1.782 2.966-3.12-.725-.689-2.304 2.423zm-16.371-10.85l4.349-2.372 9.534 4.964-4.479 2.305-9.404-4.897zm9.4-5.127l9.404 5.186-3.832 1.972-9.565-4.98 3.993-2.178z"/>
+                                                </svg>
+                                            </div>
+                                            <h3 class="alt-features-title">Unique Design</h3>
+                                            <div class="alt-features-descr">
+                                                Fusce aliquet quam eget neque ultrices elementum felis id arcu blandit sagittis.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Features Item -->
+                                    
+                                    <!-- Features Item -->
+                                    <div class="col-lg-6">
+                                        <div class="alt-features-item">
+                                            <div class="alt-features-icon">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                    <path d="M12 0c-3.371 2.866-5.484 3-9 3v11.535c0 4.603 3.203 5.804 9 9.465 5.797-3.661 9-4.862 9-9.465v-11.535c-3.516 0-5.629-.134-9-3zm0 1.292c2.942 2.31 5.12 2.655 8 2.701v10.542c0 3.891-2.638 4.943-8 8.284-5.375-3.35-8-4.414-8-8.284v-10.542c2.88-.046 5.058-.391 8-2.701zm5 7.739l-5.992 6.623-3.672-3.931.701-.683 3.008 3.184 5.227-5.878.728.685z"/>
+                                                </svg>
+                                            </div>
+                                            <h3 class="alt-features-title">Quality Code</h3>
+                                            <div class="alt-features-descr">
+                                                Lorem ipsum dolor sit amet rembe adipiscing elite Inwege maximus ligula. 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Features Item -->
+                                    
+                                    <!-- Features Item -->
+                                    <div class="col-lg-6">
+                                        <div class="alt-features-item">
+                                            <div class="alt-features-icon">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                    <path d="M6.514 24.015h-3v-3.39c-2.08-.638-3.5-2.652-3.5-5.04 0-1.19.202-1.693 1.774-5.603.521-1.294 1.195-2.97 2.068-5.179.204-.518.67-.806 1.17-.802.482.004.941.284 1.146.802.718 1.817 1.302 3.274 1.777 4.454.26-.596.567-1.288.928-2.103.694-1.565 1.591-3.592 2.754-6.265.258-.592.881-.906 1.397-.888.572.015 1.126.329 1.369.888 1.163 2.673 2.06 4.7 2.754 6.265 2.094 4.727 2.363 5.334 2.363 6.764 0 2.927-2.078 5.422-5 6.082v4.015h-3v-4.015c-.943-.213-1.797-.617-2.523-1.165-.612.845-1.466 1.48-2.477 1.79v3.39zm14.493-6c1.652 0 2.993 1.341 2.993 2.993s-1.341 2.993-2.993 2.993-2.993-1.341-2.993-2.993 1.341-2.993 2.993-2.993zm.007.993c1.104 0 2 .896 2 2s-.896 2-2 2-2-.896-2-2 .896-2 2-2zm-7.5 3.993v-3.839c4.906-.786 5-4.751 5-5.244 0-1.218-.216-1.705-2.277-6.359-2.134-4.82-2.721-6.198-2.755-6.261-.079-.145-.193-.292-.455-.297-.238 0-.37.092-.481.297-.034.063-.621 1.441-2.755 6.261-2.061 4.654-2.277 5.141-2.277 6.359 0 .493.094 4.458 5 5.244v3.839h1zm-6.123-12.448l-.08-.198c-1.589-3.957-2.04-5.116-2.067-5.171-.072-.151-.15-.226-.226-.228-.109 0-.188.13-.235.228-.028.05-.316.818-2.066 5.171-1.542 3.833-1.703 4.233-1.703 5.23 0 1.988 1.076 3.728 3.5 4.25v3.166h1v-3.166c1.266-.273 2.159-.876 2.725-1.666-1.078-1.12-1.725-2.619-1.725-4.251 0-.979.126-1.572.877-3.365z"/>
+                                                </svg>
+                                            </div>
+                                            <h3 class="alt-features-title">Clean and Minimal</h3>
+                                            <div class="alt-features-descr">
+                                                Maecenas volutpat, diam enime volutpa cras luctus interdum sodales. 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Features Item -->
+                                    
+                                    <!-- Features Item -->
+                                    <div class="col-lg-6">
+                                        <div class="alt-features-item">
+                                            <div class="alt-features-icon">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                    <path d="M16 3.383l-.924-.383-7.297 17.617.924.383 7.297-17.617zm.287 3.617l6.153 4.825-6.173 5.175.678.737 7.055-5.912-7.048-5.578-.665.753zm-8.478 0l-6.249 4.825 6.003 5.175-.679.737-6.884-5.912 7.144-5.578.665.753z"/>
+                                                </svg>
+                                            </div>
+                                            <h3 class="alt-features-title">Easy Customization</h3>
+                                            <div class="alt-features-descr">
+                                                Praesent sed nisi eleifend lorem ember fermete acome ante lorem ipsum.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Features Item -->
+                                    
                                 </div>
-                                <!-- button end -->
+                                <!-- End Features Grid -->
                                 
-                                <div id="sendingMessage" class="statusMessage sending-message"><p>Sending your message. Please wait...</p></div>
-                                <div id="successMessage" class="statusMessage success-message"><p>Thanks for sending your message! We'll get back to you shortly.</p></div>
-                                <div id="failureMessage" class="statusMessage failure-message"><p>There was a problem sending your message. Please try again.</p></div>
-                                <div id="incompleteMessage" class="statusMessage"><p>Please complete all the fields in the form before sending.</p></div>
+                            </div>
+                            <!-- End Text -->
+                            
+                            <!-- Images --> 
+                            <div class="col-lg-6">                                                               
+                                <div class="call-action-3-images mt-xs-0 text-end">
+                                    
+                                    <div class="call-action-3-image-1">
+                                        <img src="view/assets/images/promo-6.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" data-wow-offset="205" />
+                                    </div>
+                                    
+                                    <div class="call-action-3-image-2-wrap d-flex align-items-center">
+                                        <div class="call-action-3-image-2">
+                                            <img src="view/assets/images/promo-7.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" />
+                                        </div>
+                                    </div>
+                                    
+                                </div>                                                                              
+                            </div>
+                            <!-- End Images -->
+                            
+                        </div>
+                    </div>
+                </section>
+                <!-- End Promo Section -->
+                
+                
+                <!-- Testimonials Section -->
+                <section class="page-section bg-dark bg-dark-alfa-70 bg-scroll light-content" data-background="view/assets/images/full-width-images/section-bg-2.jpg">
+                    <div class="container relative">
+                        
+                    <div class="row">
+                        <div class=" col-lg-8 offset-lg-2 wow fadeInUpShort">
+                            
+                            <div class="text-center mb-50 mb-sm-20">
+                                <h2 class="section-title">What People Say?</h2>
+                            </div>
+                            
+                            <div class="text-slider">
+                                
+                                <!-- Slide Item -->
+                                <div>
+                                    <blockquote class="testimonial">
+                                        <p>
+                                            Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit aenean congue, risus utaliquam dapibus lorem ipsum dolor. Thanks!
+                                        </p>
+                                        <footer class="testimonial-author mt-50 mt-sm-20">
+                                            — John Doe, doodle inc.
+                                        </footer>
+                                    </blockquote>
+                                </div>
+                                <!-- End Slide Item -->
+                                
+                                <!-- Slide Item -->
+                                <div>
+                                    <blockquote class="testimonial">
+                                        <p>
+                                            Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit aenean congue, risus utaliquam dapibus lorem ipsum dolor. Thanks!
+                                        </p>
+                                        <footer class="testimonial-author mt-50 mt-sm-20">
+                                            — John Doe, doodle inc.
+                                        </footer>
+                                    </blockquote>
+                                </div>
+                                <!-- End Slide Item -->
+                                
+                                <!-- Slide Item -->
+                                <div>
+                                    <blockquote class="testimonial">
+                                        <p>
+                                            Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit aenean congue, risus utaliquam dapibus lorem ipsum dolor. Thanks!
+                                        </p>
+                                        <footer class="testimonial-author mt-50 mt-sm-20">
+                                            — John Doe, doodle inc.
+                                        </footer>
+                                    </blockquote>
+                                </div>
+                                <!-- End Slide Item -->
+                                
+                            </div>                            
+                                                      
+                        </div>
+                    </div>
+                        
+                    </div>
+                </section>
+                <!-- End Testimonials Section -->
+                
+                
+                <!-- Features Section -->
+                <section class="page-section bg-gray-lighter">
+                    <div class="container relative">
+                        
+                        <div class="text-center mb-80 mb-sm-50">
+                            <h2 class="section-title">Features</h2>
+                            <p class="section-title-descr">
+                                What will you get if you choose us?
+                            </p>
+                        </div>
+                        
+                        <!-- Grid -->
+                        <div class="alt-service-grid">
+                            <div class="row">
+                                
+                                <!-- Item -->
+                                <div class="col-sm-6 col-md-6 col-lg-3">
+                                    <div class="alt-service-item wow fadeScaleIn" data-wow-delay="0" data-wow-duration="1s">
+                                        <div class="alt-service-icon">
+                                            <i class="fa fa-paper-plane"></i>
+                                        </div>
+                                        <h3 class="alt-services-title">Branding</h3>
+                                        <div class="alt-services-descr">Lorem ipsum dolor sit amet,  elit. Vitae gravida nibh maorbi dignissim nunc at risus convallis.</div>
+                                    </div>
+                                </div>
+                                <!-- End Item -->
+                                
+                                <!-- Item -->
+                                <div class="col-sm-6 col-md-6 col-lg-3">
+                                    <div class="alt-service-item wow fadeScaleIn" data-wow-delay=".1s" data-wow-duration="1s">
+                                        <div class="alt-service-icon">
+                                            <i class="fa fa-cogs"></i>
+                                        </div>
+                                        <h3 class="alt-services-title">Web Design</h3>
+                                        <div class="alt-services-descr">Vivamus neque orci, ultricies blandit ultrici vel, semper interdum elit, non placerat suscipit.</div>
+                                    </div>
+                                </div>
+                                <!-- End Item -->
+                                
+                                <!-- Item -->
+                                <div class="col-sm-6 col-md-6 col-lg-3">
+                                    <div class="alt-service-item wow fadeScaleIn" data-wow-delay=".2s" data-wow-duration="1s">
+                                        <div class="alt-service-icon">
+                                            <i class="fa fa-feather"></i>
+                                        </div>
+                                        <h3 class="alt-services-title">Logo Design</h3>
+                                        <div class="alt-services-descr">Lorem ipsum dolor sit amet,  elit. Vitae gravida nibh. Morbi nunc at risus convallis.</div> 
+                                    </div>
+                                </div>
+                                <!-- End Item -->
+                                
+                                <!-- Item -->
+                                <div class="col-sm-6 col-md-6 col-lg-3">
+                                    <div class="alt-service-item wow fadeScaleIn" data-wow-delay=".3s" data-wow-duration="1s">
+                                        <div class="alt-service-icon">
+                                            <i class="fa fa-life-ring"></i>
+                                        </div>
+                                        <h3 class="alt-services-title">Support</h3>
+                                        <div class="alt-services-descr">Semper interdum ultricies elit, non placerat nisi suscipit. Dignissim nunc at risus convallis.</div>
+                                    </div>
+                                </div>
+                                <!-- End Item -->
+                                
+                            </div>
+                        </div>
+                        <!-- End Grid -->
+                        
+                    </div>
+                </section>
+                <!-- End Features Section -->
+                
+                
+                <!-- Shop Section -->
+                <section class="page-section">
+                    <div class="container relative">
+                        
+                        <div class="text-center mb-80 mb-sm-50">
+                            <div class="row">
+                                <div class="col-sm-6 offset-sm-3">
+                                    <h2 class="section-title">Bestsellers</h2>
+                                    <p class="section-title-descr">
+                                        Our best selling products in this place.
+                                    </p>
+                                </div>
+                                <div class="col-sm-3 text-sm-end pt-30 pt-xs-0">
+                                    <a href="shop-columns-3col.html" class="section-more">Our Shop <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                        
+                            <!-- Shop Item -->
+                            <div class="col-sm-6 col-md-3 col-lg-3 mb-md-50">
+                                <div class="post-prev-img">
+                                    <a href="shop-single.html" tabindex="-1"><img src="view/assets/images/shop/shop-prev-1.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" /></a>
+                                    <div class="intro-label">
+                                        <span class="badge badge-danger bg-red">Sale</span>
+                                    </div>
+                                </div>
+                                <div class="post-prev-title text-center mb-10">
+                                    <a href="shop-single.html">Polo Applique Jersey</a>
+                                </div>
+                                <div class="post-prev-text text-center">
+                                    <del>
+                                        $150.00
+                                    </del>
+                                    &nbsp;<strong>$94.75</strong>
+                                </div>
+                                <div class="post-prev-more text-center">
+                                    <a href="#" class="btn btn-mod btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                </div>
+                            </div>
+                            <!-- End Shop Item -->
+                            
+                            <!-- Shop Item -->
+                            <div class="col-sm-6 col-md-3 col-lg-3 mb-md-50">
+                                <div class="post-prev-img">
+                                    <a href="shop-single.html" tabindex="-1"><img src="view/assets/images/shop/shop-prev-2.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" /></a>
+                                </div>
+                                <div class="post-prev-title text-center mb-10">
+                                    <a href="shop-single.html">Pique Polo Shirt</a>
+                                </div>
+                                <div class="post-prev-text text-center">
+                                    <strong>$28.99</strong>
+                                </div>
+                                <div class="post-prev-more text-center">
+                                    <a href="#" class="btn btn-mod btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                </div>
+                            </div>
+                            <!-- End Shop Item -->
+                            
+                            <!-- Shop Item -->
+                            <div class="col-sm-6 col-md-3 col-lg-3 mb-md-50">
+                                <div class="post-prev-img">
+                                    <a href="shop-single.html" tabindex="-1"><img src="view/assets/images/shop/shop-prev-3.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" /></a>
+                                </div>
+                                <div class="post-prev-title text-center mb-10">
+                                    <a href="shop-single.html">Longline Long Sleeve</a>
+                                </div>
+                                <div class="post-prev-text text-center">
+                                    <strong>$39.99</strong>
+                                </div>
+                                <div class="post-prev-more text-center">
+                                    <a href="#" class="btn btn-mod btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                </div>
+                            </div>
+                            <!-- End Shop Item -->
+                            
+                            <!-- Shop Item -->
+                            <div class="col-sm-6 col-md-3 col-lg-3 mb-md-50">
+                                <div class="post-prev-img">
+                                    <a href="shop-single.html" tabindex="-1"><img src="view/assets/images/shop/shop-prev-4.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" /></a>
+                                </div>
+                                <div class="post-prev-title text-center mb-10">
+                                    <a href="shop-single.html">Shirt Floral Sleeves</a>
+                                </div>
+                                <div class="post-prev-text text-center">
+                                    <strong>$85.99</strong>
+                                </div>
+                                <div class="post-prev-more text-center">
+                                    <a href="#" class="btn btn-mod btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                </div>
+                            </div>
+                            <!-- End Shop Item -->
+                        
+                        </div>
+                        
+                    </div>
+                </section>
+                <!-- End Shop Section -->
+                
+                
+                <!-- Section -->
+                <section class="page-section light-content bg-dark bg-dark-alfa-70" data-background="view/assets/images/full-width-images/section-bg-4.jpg">
+                    <div class="container relative">
+                        
+                        <div class="wow fadeInUpShort">                            
+                            <div class="item-carousel owl-carousel">
+                                
+                                <!-- Features Item -->
+                                <div class="features-item">
+                                    <div class="features-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M17.517 10.012c.151.23.087.541-.144.692l-2.2 1.444c-.085.056-.179.082-.274.082-.162 0-.322-.079-.418-.225-.152-.231-.087-.541.143-.692l2.201-1.445c.23-.151.541-.089.692.144m-6.242-2.595l1.111-2.385c.116-.252.414-.36.664-.243.25.117.36.413.242.664l-1.111 2.386c-.085.181-.265.288-.453.288l-.211-.047c-.25-.115-.359-.413-.242-.663m-2.624.613c1.377-2.652 1.484-5.104.318-7.286-.178-.333.066-.734.441-.734.177 0 .351.095.442.264 1.33 2.49 1.225 5.254-.314 8.217-.089.171-.263.269-.444.269-.078 0-.156-.018-.23-.056-.245-.127-.341-.429-.213-.674m15.349 5.526c0 .352-.351.588-.671.47-2.808-1.028-5.254-.821-7.271.611-.088.063-.189.093-.29.093-.155 0-.309-.073-.406-.21-.16-.224-.108-.537.117-.696 2.301-1.637 5.059-1.884 8.193-.737.203.074.328.266.328.469m-16.484-2.608l2.865 7.517-2.248.964-2.753-7.512.778-2.176 1.358 1.207zm3.785 7.124l-2.168-5.687 5.025 4.463-2.857 1.224zm-8.27.419l.989 2.699-2.307.989 1.318-3.688zm1.823-5.103l2.358 6.435-2.271.973-1.384-3.777 1.297-3.631zm-4.853 10.612l15.997-6.853-10.283-9.137-5.714 15.99zm20.46-15.629l.552-.694.281.841.831.309-.713.528-.038.886-.723-.516-.854.238.268-.846-.491-.739.887-.007zm-1.384.885l-.639 2.019 2.041-.568 1.724 1.23.089-2.115 1.704-1.258-1.985-.739-.672-2.008-1.315 1.658-2.118.017 1.171 1.764zm-2.167-4.194c.593-.044.924-.141 1.074-.315.176-.204.226-.647.165-1.433-.023-.276.183-.517.459-.539.277-.016.515.18.537.456.063.806.059 1.62-.402 2.156-.429.499-1.13.602-1.76.647-.702.052-.72.243-.774.878-.056.67-.152 1.744-1.84 1.933-1.017.115-1.433.33-1.377 1.956.008.275-.207.325-.484.325h-.016c-.269 0-.491-.022-.5-.291-.049-1.461.191-2.655 2.265-2.887.874-.099.9-.404.956-1.072.054-.635.145-1.7 1.697-1.814m5.264-3.048c.454 0 .823.37.823.824 0 .454-.369.823-.823.823-.454 0-.824-.369-.824-.823 0-.454.37-.824.824-.824m0 2.647c1.006 0 1.823-.817 1.823-1.823s-.817-1.823-1.823-1.823c-1.007 0-1.824.817-1.824 1.823s.817 1.823 1.824 1.823m-8.446-3.662c.552 0 1 .449 1 .999 0 .551-.448.999-1 .999s-1-.448-1-.999c0-.55.448-.999 1-.999m0 2.998c1.103 0 1.999-.896 1.999-1.999 0-1.103-.896-1.998-1.999-1.998-1.104 0-2 .895-2 1.998s.896 1.999 2 1.999"/></svg>
+                                    </div>
+                                    <div class="features-title">
+                                        We're creative
+                                    </div>
+                                    <div class="features-descr">
+                                        We find the best ideas for you
+                                    </div>
+                                </div>
+                                <!-- End Features Item -->
+                                
+                                <!-- Features Item -->
+                                <div class="features-item">
+                                    <div class="features-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M22 9.74l-2 1.02v7.24c-1.007 2.041-5.606 3-8.5 3-3.175 0-7.389-.994-8.5-3v-7.796l-3-1.896 12-5.308 11 6.231v8.769l1 3h-3l1-3v-8.26zm-18 1.095v6.873c.958 1.28 4.217 2.292 7.5 2.292 2.894 0 6.589-.959 7.5-2.269v-6.462l-7.923 4.039-7.077-4.473zm-1.881-2.371l9.011 5.694 9.759-4.974-8.944-5.066-9.826 4.346z"/></svg>
+                                    </div>
+                                    <div class="features-title">
+                                        We’re punctual
+                                    </div>
+                                    <div class="features-descr">
+                                        We always do your tasks on time
+                                    </div>
+                                </div>
+                                <!-- End Features Item -->
+                                
+                                <!-- Features Item -->
+                                <div class="features-item">
+                                    <div class="features-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.278 3.956c-.459 0-.883.211-1.103.552-.363.561-.218 1.315.352 1.832.383.346.888.546 1.385.546.581 0 1.093-.268 1.444-.755l3.208-4.373-.502-.366-2.928 3.966-.4-.557c-.39-.546-.908-.845-1.456-.845m.634 3.928c-.743 0-1.492-.293-2.056-.804-.578-.525-.883-1.211-.883-1.891 0-1.62 1.426-2.232 2.305-2.232.675 0 1.308.265 1.829.756l2.742-3.713 2.112 1.541-3.797 5.177c-.542.751-1.342 1.166-2.252 1.166m15.386-7.839l-1.2 2.215-2.476.455 1.735 1.825-.332 2.496 2.273-1.086 2.271 1.086-.331-2.496 1.735-1.825-2.476-.455-1.199-2.215zm0 2.098l.548 1.013 1.132.208-.793.834.152 1.142-1.039-.496-1.039.496.152-1.142-.794-.834 1.132-.208.549-1.013m-7.312 3.894c-2.48 0-4.494 2.014-4.494 4.494 0 2.482 2.014 4.494 4.494 4.494 2.481 0 4.495-2.012 4.495-4.494 0-2.48-2.014-4.494-4.495-4.494m0 .999c1.928 0 3.496 1.569 3.496 3.495 0 1.927-1.568 3.495-3.496 3.495-1.927 0-3.495-1.568-3.495-3.495 0-1.926 1.568-3.495 3.495-3.495m-4.983 15.965h9.974v-2.778c0-1.256.204-1.786.661-2.494l1.024-1.58c1.148-1.764 2.233-3.43 2.792-4.491.078-.148.03-.328-.112-.418-.168-.109-.403-.076-.536.07-.671.734-2.03 2.164-4.041 4.251l-.369.396c-.951 1.04-1.53 1.54-4.287 1.54h-.123c-2.859-.014-3.442-.515-4.391-1.554l-.356-.382c-1.999-2.074-3.359-3.504-4.042-4.251-.133-.146-.368-.177-.535-.07-.142.091-.189.271-.112.418.585 1.112 1.828 3.18 3.796 6.323.479.766.657 1.44.657 2.489v2.531zm10.973.999h-11.972v-3.53c0-.851-.132-1.363-.504-1.958-2.01-3.208-3.228-5.239-3.833-6.388-.321-.611-.126-1.352.455-1.725.565-.361 1.361-.258 1.812.236.668.731 2.059 2.195 4.024 4.233l.374.402c.786.86 1.111 1.216 3.659 1.228h.118c2.439 0 2.764-.355 3.55-1.215l.387-.415c2.005-2.08 3.358-3.504 4.024-4.232.452-.495 1.249-.598 1.811-.237.582.373.777 1.114.457 1.725-.582 1.101-1.677 2.786-2.839 4.57l-1.022 1.576c-.348.541-.501.889-.501 1.953v3.777z"/></svg>
+                                    </div>
+                                    <div class="features-title">
+                                        We have magic
+                                    </div>
+                                    <div class="features-descr">
+                                        You will be delighted
+                                    </div>
+                                </div>
+                                <!-- End Features Item -->
+                                
+                                <!-- Features Item -->
+                                <div class="features-item">
+                                    <div class="features-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M17.517 10.012c.151.23.087.541-.144.692l-2.2 1.444c-.085.056-.179.082-.274.082-.162 0-.322-.079-.418-.225-.152-.231-.087-.541.143-.692l2.201-1.445c.23-.151.541-.089.692.144m-6.242-2.595l1.111-2.385c.116-.252.414-.36.664-.243.25.117.36.413.242.664l-1.111 2.386c-.085.181-.265.288-.453.288l-.211-.047c-.25-.115-.359-.413-.242-.663m-2.624.613c1.377-2.652 1.484-5.104.318-7.286-.178-.333.066-.734.441-.734.177 0 .351.095.442.264 1.33 2.49 1.225 5.254-.314 8.217-.089.171-.263.269-.444.269-.078 0-.156-.018-.23-.056-.245-.127-.341-.429-.213-.674m15.349 5.526c0 .352-.351.588-.671.47-2.808-1.028-5.254-.821-7.271.611-.088.063-.189.093-.29.093-.155 0-.309-.073-.406-.21-.16-.224-.108-.537.117-.696 2.301-1.637 5.059-1.884 8.193-.737.203.074.328.266.328.469m-16.484-2.608l2.865 7.517-2.248.964-2.753-7.512.778-2.176 1.358 1.207zm3.785 7.124l-2.168-5.687 5.025 4.463-2.857 1.224zm-8.27.419l.989 2.699-2.307.989 1.318-3.688zm1.823-5.103l2.358 6.435-2.271.973-1.384-3.777 1.297-3.631zm-4.853 10.612l15.997-6.853-10.283-9.137-5.714 15.99zm20.46-15.629l.552-.694.281.841.831.309-.713.528-.038.886-.723-.516-.854.238.268-.846-.491-.739.887-.007zm-1.384.885l-.639 2.019 2.041-.568 1.724 1.23.089-2.115 1.704-1.258-1.985-.739-.672-2.008-1.315 1.658-2.118.017 1.171 1.764zm-2.167-4.194c.593-.044.924-.141 1.074-.315.176-.204.226-.647.165-1.433-.023-.276.183-.517.459-.539.277-.016.515.18.537.456.063.806.059 1.62-.402 2.156-.429.499-1.13.602-1.76.647-.702.052-.72.243-.774.878-.056.67-.152 1.744-1.84 1.933-1.017.115-1.433.33-1.377 1.956.008.275-.207.325-.484.325h-.016c-.269 0-.491-.022-.5-.291-.049-1.461.191-2.655 2.265-2.887.874-.099.9-.404.956-1.072.054-.635.145-1.7 1.697-1.814m5.264-3.048c.454 0 .823.37.823.824 0 .454-.369.823-.823.823-.454 0-.824-.369-.824-.823 0-.454.37-.824.824-.824m0 2.647c1.006 0 1.823-.817 1.823-1.823s-.817-1.823-1.823-1.823c-1.007 0-1.824.817-1.824 1.823s.817 1.823 1.824 1.823m-8.446-3.662c.552 0 1 .449 1 .999 0 .551-.448.999-1 .999s-1-.448-1-.999c0-.55.448-.999 1-.999m0 2.998c1.103 0 1.999-.896 1.999-1.999 0-1.103-.896-1.998-1.999-1.998-1.104 0-2 .895-2 1.998s.896 1.999 2 1.999"/></svg>
+                                    </div>
+                                    <div class="features-title">
+                                        We're creative
+                                    </div>
+                                    <div class="features-descr">
+                                        We find the best ideas for you
+                                    </div>
+                                </div>
+                                <!-- End Features Item -->
+                                
+                                <!-- Features Item -->
+                                <div class="features-item">
+                                    <div class="features-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M22 9.74l-2 1.02v7.24c-1.007 2.041-5.606 3-8.5 3-3.175 0-7.389-.994-8.5-3v-7.796l-3-1.896 12-5.308 11 6.231v8.769l1 3h-3l1-3v-8.26zm-18 1.095v6.873c.958 1.28 4.217 2.292 7.5 2.292 2.894 0 6.589-.959 7.5-2.269v-6.462l-7.923 4.039-7.077-4.473zm-1.881-2.371l9.011 5.694 9.759-4.974-8.944-5.066-9.826 4.346z"/></svg>
+                                    </div>
+                                    <div class="features-title">
+                                        We’re punctual
+                                    </div>
+                                    <div class="features-descr">
+                                        We always do your tasks on time
+                                    </div>
+                                </div>
+                                <!-- End Features Item -->
+                                
+                                <!-- Features Item -->
+                                <div class="features-item">
+                                    <div class="features-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.278 3.956c-.459 0-.883.211-1.103.552-.363.561-.218 1.315.352 1.832.383.346.888.546 1.385.546.581 0 1.093-.268 1.444-.755l3.208-4.373-.502-.366-2.928 3.966-.4-.557c-.39-.546-.908-.845-1.456-.845m.634 3.928c-.743 0-1.492-.293-2.056-.804-.578-.525-.883-1.211-.883-1.891 0-1.62 1.426-2.232 2.305-2.232.675 0 1.308.265 1.829.756l2.742-3.713 2.112 1.541-3.797 5.177c-.542.751-1.342 1.166-2.252 1.166m15.386-7.839l-1.2 2.215-2.476.455 1.735 1.825-.332 2.496 2.273-1.086 2.271 1.086-.331-2.496 1.735-1.825-2.476-.455-1.199-2.215zm0 2.098l.548 1.013 1.132.208-.793.834.152 1.142-1.039-.496-1.039.496.152-1.142-.794-.834 1.132-.208.549-1.013m-7.312 3.894c-2.48 0-4.494 2.014-4.494 4.494 0 2.482 2.014 4.494 4.494 4.494 2.481 0 4.495-2.012 4.495-4.494 0-2.48-2.014-4.494-4.495-4.494m0 .999c1.928 0 3.496 1.569 3.496 3.495 0 1.927-1.568 3.495-3.496 3.495-1.927 0-3.495-1.568-3.495-3.495 0-1.926 1.568-3.495 3.495-3.495m-4.983 15.965h9.974v-2.778c0-1.256.204-1.786.661-2.494l1.024-1.58c1.148-1.764 2.233-3.43 2.792-4.491.078-.148.03-.328-.112-.418-.168-.109-.403-.076-.536.07-.671.734-2.03 2.164-4.041 4.251l-.369.396c-.951 1.04-1.53 1.54-4.287 1.54h-.123c-2.859-.014-3.442-.515-4.391-1.554l-.356-.382c-1.999-2.074-3.359-3.504-4.042-4.251-.133-.146-.368-.177-.535-.07-.142.091-.189.271-.112.418.585 1.112 1.828 3.18 3.796 6.323.479.766.657 1.44.657 2.489v2.531zm10.973.999h-11.972v-3.53c0-.851-.132-1.363-.504-1.958-2.01-3.208-3.228-5.239-3.833-6.388-.321-.611-.126-1.352.455-1.725.565-.361 1.361-.258 1.812.236.668.731 2.059 2.195 4.024 4.233l.374.402c.786.86 1.111 1.216 3.659 1.228h.118c2.439 0 2.764-.355 3.55-1.215l.387-.415c2.005-2.08 3.358-3.504 4.024-4.232.452-.495 1.249-.598 1.811-.237.582.373.777 1.114.457 1.725-.582 1.101-1.677 2.786-2.839 4.57l-1.022 1.576c-.348.541-.501.889-.501 1.953v3.777z"/></svg>
+                                    </div>
+                                    <div class="features-title">
+                                        We have magic
+                                    </div>
+                                    <div class="features-descr">
+                                        You will be delighted
+                                    </div>
+                                </div>
+                                <!-- End Features Item -->
+                                
+                                <!-- Features Item -->
+                                <div class="features-item">
+                                    <div class="features-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M17.517 10.012c.151.23.087.541-.144.692l-2.2 1.444c-.085.056-.179.082-.274.082-.162 0-.322-.079-.418-.225-.152-.231-.087-.541.143-.692l2.201-1.445c.23-.151.541-.089.692.144m-6.242-2.595l1.111-2.385c.116-.252.414-.36.664-.243.25.117.36.413.242.664l-1.111 2.386c-.085.181-.265.288-.453.288l-.211-.047c-.25-.115-.359-.413-.242-.663m-2.624.613c1.377-2.652 1.484-5.104.318-7.286-.178-.333.066-.734.441-.734.177 0 .351.095.442.264 1.33 2.49 1.225 5.254-.314 8.217-.089.171-.263.269-.444.269-.078 0-.156-.018-.23-.056-.245-.127-.341-.429-.213-.674m15.349 5.526c0 .352-.351.588-.671.47-2.808-1.028-5.254-.821-7.271.611-.088.063-.189.093-.29.093-.155 0-.309-.073-.406-.21-.16-.224-.108-.537.117-.696 2.301-1.637 5.059-1.884 8.193-.737.203.074.328.266.328.469m-16.484-2.608l2.865 7.517-2.248.964-2.753-7.512.778-2.176 1.358 1.207zm3.785 7.124l-2.168-5.687 5.025 4.463-2.857 1.224zm-8.27.419l.989 2.699-2.307.989 1.318-3.688zm1.823-5.103l2.358 6.435-2.271.973-1.384-3.777 1.297-3.631zm-4.853 10.612l15.997-6.853-10.283-9.137-5.714 15.99zm20.46-15.629l.552-.694.281.841.831.309-.713.528-.038.886-.723-.516-.854.238.268-.846-.491-.739.887-.007zm-1.384.885l-.639 2.019 2.041-.568 1.724 1.23.089-2.115 1.704-1.258-1.985-.739-.672-2.008-1.315 1.658-2.118.017 1.171 1.764zm-2.167-4.194c.593-.044.924-.141 1.074-.315.176-.204.226-.647.165-1.433-.023-.276.183-.517.459-.539.277-.016.515.18.537.456.063.806.059 1.62-.402 2.156-.429.499-1.13.602-1.76.647-.702.052-.72.243-.774.878-.056.67-.152 1.744-1.84 1.933-1.017.115-1.433.33-1.377 1.956.008.275-.207.325-.484.325h-.016c-.269 0-.491-.022-.5-.291-.049-1.461.191-2.655 2.265-2.887.874-.099.9-.404.956-1.072.054-.635.145-1.7 1.697-1.814m5.264-3.048c.454 0 .823.37.823.824 0 .454-.369.823-.823.823-.454 0-.824-.369-.824-.823 0-.454.37-.824.824-.824m0 2.647c1.006 0 1.823-.817 1.823-1.823s-.817-1.823-1.823-1.823c-1.007 0-1.824.817-1.824 1.823s.817 1.823 1.824 1.823m-8.446-3.662c.552 0 1 .449 1 .999 0 .551-.448.999-1 .999s-1-.448-1-.999c0-.55.448-.999 1-.999m0 2.998c1.103 0 1.999-.896 1.999-1.999 0-1.103-.896-1.998-1.999-1.998-1.104 0-2 .895-2 1.998s.896 1.999 2 1.999"/></svg>
+                                    </div>
+                                    <div class="features-title">
+                                        We're creative
+                                    </div>
+                                    <div class="features-descr">
+                                        We find the best ideas for you
+                                    </div>
+                                </div>
+                                <!-- End Features Item -->
+                                
+                                <!-- Features Item -->
+                                <div class="features-item">
+                                    <div class="features-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M22 9.74l-2 1.02v7.24c-1.007 2.041-5.606 3-8.5 3-3.175 0-7.389-.994-8.5-3v-7.796l-3-1.896 12-5.308 11 6.231v8.769l1 3h-3l1-3v-8.26zm-18 1.095v6.873c.958 1.28 4.217 2.292 7.5 2.292 2.894 0 6.589-.959 7.5-2.269v-6.462l-7.923 4.039-7.077-4.473zm-1.881-2.371l9.011 5.694 9.759-4.974-8.944-5.066-9.826 4.346z"/></svg>
+                                    </div>
+                                    <div class="features-title">
+                                        We’re punctual
+                                    </div>
+                                    <div class="features-descr">
+                                        We always do your tasks on time
+                                    </div>
+                                </div>
+                                <!-- End Features Item -->
+                                
+                                <!-- Features Item -->
+                                <div class="features-item">
+                                    <div class="features-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.278 3.956c-.459 0-.883.211-1.103.552-.363.561-.218 1.315.352 1.832.383.346.888.546 1.385.546.581 0 1.093-.268 1.444-.755l3.208-4.373-.502-.366-2.928 3.966-.4-.557c-.39-.546-.908-.845-1.456-.845m.634 3.928c-.743 0-1.492-.293-2.056-.804-.578-.525-.883-1.211-.883-1.891 0-1.62 1.426-2.232 2.305-2.232.675 0 1.308.265 1.829.756l2.742-3.713 2.112 1.541-3.797 5.177c-.542.751-1.342 1.166-2.252 1.166m15.386-7.839l-1.2 2.215-2.476.455 1.735 1.825-.332 2.496 2.273-1.086 2.271 1.086-.331-2.496 1.735-1.825-2.476-.455-1.199-2.215zm0 2.098l.548 1.013 1.132.208-.793.834.152 1.142-1.039-.496-1.039.496.152-1.142-.794-.834 1.132-.208.549-1.013m-7.312 3.894c-2.48 0-4.494 2.014-4.494 4.494 0 2.482 2.014 4.494 4.494 4.494 2.481 0 4.495-2.012 4.495-4.494 0-2.48-2.014-4.494-4.495-4.494m0 .999c1.928 0 3.496 1.569 3.496 3.495 0 1.927-1.568 3.495-3.496 3.495-1.927 0-3.495-1.568-3.495-3.495 0-1.926 1.568-3.495 3.495-3.495m-4.983 15.965h9.974v-2.778c0-1.256.204-1.786.661-2.494l1.024-1.58c1.148-1.764 2.233-3.43 2.792-4.491.078-.148.03-.328-.112-.418-.168-.109-.403-.076-.536.07-.671.734-2.03 2.164-4.041 4.251l-.369.396c-.951 1.04-1.53 1.54-4.287 1.54h-.123c-2.859-.014-3.442-.515-4.391-1.554l-.356-.382c-1.999-2.074-3.359-3.504-4.042-4.251-.133-.146-.368-.177-.535-.07-.142.091-.189.271-.112.418.585 1.112 1.828 3.18 3.796 6.323.479.766.657 1.44.657 2.489v2.531zm10.973.999h-11.972v-3.53c0-.851-.132-1.363-.504-1.958-2.01-3.208-3.228-5.239-3.833-6.388-.321-.611-.126-1.352.455-1.725.565-.361 1.361-.258 1.812.236.668.731 2.059 2.195 4.024 4.233l.374.402c.786.86 1.111 1.216 3.659 1.228h.118c2.439 0 2.764-.355 3.55-1.215l.387-.415c2.005-2.08 3.358-3.504 4.024-4.232.452-.495 1.249-.598 1.811-.237.582.373.777 1.114.457 1.725-.582 1.101-1.677 2.786-2.839 4.57l-1.022 1.576c-.348.541-.501.889-.501 1.953v3.777z"/></svg>
+                                    </div>
+                                    <div class="features-title">
+                                        We have magic
+                                    </div>
+                                    <div class="features-descr">
+                                        You will be delighted
+                                    </div>
+                                </div>
+                                <!-- End Features Item -->
+                                
+                            </div>                            
+                        </div>
+                    
+                    </div>
+                </section>
+                <!-- End Section -->
+                
+                
+                <!-- Blog Section -->
+                <section class="page-section" id="blog">
+                    <div class="container relative">
+                        
+                        <div class="text-center mb-80 mb-sm-50">
+                            <div class="row">
+                                <div class="col-sm-6 offset-sm-3">
+                                    <h2 class="section-title">Our Blog</h2>
+                                    <p class="section-title-descr">
+                                        The latest news in our blog
+                                    </p>
+                                </div>
+                                <div class="col-sm-3 text-sm-end pt-30 pt-xs-0">
+                                    <a href="blog-classic-sidebar-right.html" class="section-more">Our Blog <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            
+                            <!-- Post Item -->
+                            <div class="col-sm-6 col-md-4 col-lg-4 mb-md-50">
+                                
+                                <div class="post-prev-img">
+                                    <a href="blog-single-sidebar-right.html" tabindex="-1"><img src="view/assets/images/blog/post-prev-1.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" /></a>
+                                </div>
+                                
+                                <h3 class="post-prev-title">
+                                    <a href="blog-single-sidebar-right.html">Meet the New Web Design Trends</a>
+                                </h3>
+                                
+                                <div class="post-prev-info">
+                                    <a href="">John Doe</a> • 10 December
+                                </div>
+                                
+                                <div class="post-prev-text">
+                                    Lorem ipsum dolor sit amet, rembe adipiscing elite. Inwege maximus ligula semper metusere pellentesque mattis. Maecenas volutpat, diam enime volutpa. 
+                                </div>
+                                
+                                <div class="post-prev-more">
+                                    <a href="blog-single-sidebar-right.html" class="text-link" tabindex="-1">Learn More</a>
+                                </div>
+                                
+                            </div>
+                            <!-- End Post Item -->
+                            
+                            <!-- Post Item -->
+                            <div class="col-sm-6 col-md-4 col-lg-4 mb-md-50">
+                                
+                                <div class="post-prev-img">
+                                    <a href="blog-single-sidebar-right.html" tabindex="-1"><img src="view/assets/images/blog/post-prev-2.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" /></a>
+                                </div>
+                                
+                                <h3 class="post-prev-title">
+                                    <a href="blog-single-sidebar-right.html">Minimalistic Product Design</a>
+                                </h3>
+                                
+                                <div class="post-prev-info">
+                                    <a href="">John Doe</a> • 9 December
+                                </div>
+                                
+                                <div class="post-prev-text">
+                                    Proin fringilla augue at maximus vestibulum. Nam pulvi vitae neque et porttitor. Praesent sed nisi eleifend, lorem fermentum ac ante lorem ipsum sit amet. 
+                                </div>
+                                
+                                <div class="post-prev-more">
+                                    <a href="blog-single-sidebar-right.html" class="text-link" tabindex="-1">Learn More</a>
+                                </div>
+                                
+                            </div>
+                            <!-- End Post Item -->
+                            
+                            <!-- Post Item -->
+                            <div class="col-sm-6 col-md-4 col-lg-4 mb-md-50">
+                                
+                                <div class="post-prev-img">
+                                    <a href="blog-single-sidebar-right.html" tabindex="-1"><img src="view/assets/images/blog/post-prev-3.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" /></a>
+                                </div>
+                                
+                                <h3 class="post-prev-title">
+                                    <a href="blog-single-sidebar-right.html">Clean Style in the Web</a>
+                                </h3>
+                                
+                                <div class="post-prev-info">
+                                    <a href="">John Doe</a> • 7 December
+                                </div>
+                                
+                                <div class="post-prev-text">
+                                    Ember adipiscing elite curabitur iaculis accumsan augu nec finibus mauris pretium eu. Duis placerat ex gravida nibh tristique ultricies eros lorem blandit. 
+                                </div>
+                                
+                                <div class="post-prev-more">
+                                    <a href="blog-single-sidebar-right.html" class="text-link" tabindex="-1">Learn More</a>
+                                </div>
+                                
+                            </div>
+                            <!-- End Post Item -->                            
+                            
+                        </div>
+                        
+                    </div>
+                </section>
+                <!-- End Blog Section -->
+                
+                
+                <!-- Newsletter Section -->
+                <section class="small-section bg-dark bg-dark-alfa-70 bg-scroll bg-position-top light-content" data-background="view/assets/images/full-width-images/section-bg-3.jpg">
+                    <div class="container relative">
+                        
+                        <form id="mailchimp" class="form wow fadeInUpShort">
+                            <div class="row">
+                                <div class="col-md-8 offset-md-2">
+                                    
+                                    <div class="newsletter-label d-flex mb-50 mb-sm-20">
+                                        <div class="newsletter-label-icon">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M1.999 1v7.269l-2 1.456v13.275h24.001v-13.275l-2.001-1.453v-7.272h-20zm1 11.234v-10.234h18v10.233l-9 5.766-9-5.765zm19 .54v-3.17l1.001.764v11.632h-22.001v-11.641l1-.707.063 3.134 9.937 6.413 10-6.425zm-14.305-6.752l-2.694.496 1.888 1.986-.361 2.716 2.472-1.182 2.473 1.182-.361-2.716 1.888-1.986-2.695-.496-1.305-2.41-1.305 2.41zm.248 2.139l-.945-.994 1.349-.249.653-1.206.654 1.206 1.349.249-.945.994.18 1.36-1.238-.591-1.238.591.181-1.36zm6.058-3.078h4.999v-1h-4.999v1zm0 2h4.999v-1h-4.999v1zm0 2h4.999v-1h-4.999v1zm0 2h3v-1h-3v1z"/></svg>
+                                        </div>
+                                        <h2 class="newsletter-label-text">
+                                            Stay informed with&nbsp;our newsletter
+                                        </h2>
+                                    </div>
+                                    
+                                    <div class="d-sm-flex justify-content-between mb-20">
+                                        <input placeholder="Your Email" class="newsletter-field input-lg round" type="email" pattern=".{5,100}" required aria-required="true">
+                                        <button type="submit" aria-controls="subscribe-result" class="newsletter-button btn btn-mod btn-w btn-large btn-round">
+                                            Subscribe Now
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="form-tip">
+                                        Proin fringilla augue at maximus vestibulum <a href="#">Terms & Conditions</a>.
+                                    </div>
+                                    
+                                    <div id="subscribe-result" role="region" aria-live="polite" aria-atomic="true"></div>
+                                    
+                                </div>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </section>
+                <!-- End Newsletter Section -->
+                
+                
+                <!-- Contact Section -->
+                <section class="page-section" id="contact">
+                    <div class="container relative">
+                        
+                        <div class="text-center mb-80 mb-sm-50">
+                            <h2 class="section-title">Contact</h2>
+                            <p class="section-title-descr">
+                                We’re available for the new projects
+                            </p>
+                        </div>
+                        
+                        <div class="row mb-60 mb-xs-40">
+                            
+                            <div class="col-md-10 offset-md-1">
+                                <div class="row">
+                                    
+                                    <!-- Phone -->
+                                    <div class="col-sm-6 col-lg-4 pb-20">
+                                        <div class="contact-item wow fadeScaleIn" data-wow-delay="0" data-wow-duration="1s">
+                                            <div class="ci-icon">
+                                                <i class="fa fa-phone-alt"></i>
+                                            </div>
+                                            <div class="ci-title">
+                                                Call Us
+                                            </div>
+                                            <div class="ci-text">
+                                                +61 383 767 284
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Phone -->
+                                    
+                                    <!-- Address -->
+                                    <div class="col-sm-6 col-lg-4 pb-20">
+                                        <div class="contact-item wow fadeScaleIn" data-wow-delay=".1s" data-wow-duration="1s">
+                                            <div class="ci-icon">
+                                                <i class="fa fa-map-marker-alt"></i>
+                                            </div>
+                                            <div class="ci-title">
+                                                Address
+                                            </div>
+                                            <div class="ci-text">
+                                                245 Quigley Blvd, Ste K
+                                            </div>
+                                            <div class="ci-link">
+                                                <a href="https://goo.gl/maps/7Vw1PBhxx5BaXStr8" target="_blank">See on the Map</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Address -->
+                                    
+                                    <!-- Email -->
+                                    <div class="col-sm-6 col-lg-4 pb-20">
+                                        <div class="contact-item wow fadeScaleIn" data-wow-delay=".2s" data-wow-duration="1s">
+                                            <div class="ci-icon">
+                                                <i class="fa fa-envelope"></i>
+                                            </div>
+                                            <div class="ci-title">
+                                                Email
+                                            </div>
+                                            <div class="ci-text">
+                                                support@bestlooker.pro
+                                            </div>
+                                            <div class="ci-link">
+                                                <a href="mailto:support@bestlooker.pro">Say Hello</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Email -->
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </section>
+                <!-- End Contact Section -->
+                
+                
+                <!-- Call Action Section -->
+                <section class="small-section bg-dark light-content">
+                    <div class="container relative">
+                        <div class="row wow fadeInUpShort">
+                            <div class="col-md-8 offset-md-2 text-center">
+                                <h3 class="call-action-1-heading">Want to discuss your new project?</h3>
+                                <div class="call-action-1-decription mb-60 mb-sm-30">
+                                    Proin fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Integer non dapibus diam, ac eleifend lectus. Duis placerat ex gravida nibh tristique ultricies eros lorem blandit.
+                                </div>                                     
+                            
+                                <div class="local-scroll">
+                                    <a href="pages-contact-1.html" class="btn btn-mod btn-w btn-large btn-round">Let's Talk</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Call Action Section -->
+                
+            </main>
 
-                            </form>
-                        </div><!-- div contact end -->
-                    </div><!-- col end -->
-                    
-                </div><!-- row end -->
-            </div><!-- container end -->            
-        </div><!-- section contact end -->
+            <!-- Footer
+            ===================================== -->
+            <?php require_once 'view/include/footer.php';?>
         
-        
-        <!-- Clients Area
-        ===================================== -->
-        <div id="client" class="bg-gray pt50 pb20">
-            <div class="container">
-                <div class="row">
-                    
-                    <!-- logo client start -->
-                    <div class="col-md-2 col-sm-3 col-xs-4">
-                        <img src="view/assets/img/brand/paypal-gray.png" alt="client logo" class="img-responsive center-block animated" data-animation="fadeIn" data-animation-delay="300">
-                    </div>
-                    <!-- logo client end -->
-                    
-                    <!-- logo client start -->
-                    <div class="col-md-2 col-sm-3 col-xs-4">
-                        <img src="view/assets/img/brand/evernote-gray.png" alt="client logo" class="img-responsive center-block animated" data-animation="fadeIn" data-animation-delay="150">
-                    </div>
-                    <!-- logo client end -->
-                    
-                    <!-- logo client start -->
-                    <div class="col-md-2 col-sm-3 col-xs-4">
-                        <img src="view/assets/img/brand/microsoft-gray.png" alt="client logo" class="img-responsive center-block animated" data-animation="fadeIn" data-animation-delay="100">
-                    </div>
-                    <!-- logo client end -->
-                    
-                    <!-- logo client start -->
-                    <div class="col-md-2 col-sm-3 col-xs-4">
-                        <img src="view/assets/img/brand/smashing-gray.png" alt="client logo" class="img-responsive center-block animated" data-animation="fadeIn" data-animation-delay="150">
-                    </div>
-                    <!-- logo client end -->
-                    
-                    <!-- logo client start -->
-                    <div class="col-md-2 col-sm-3 col-xs-4">
-                        <img src="view/assets/img/brand/mashable-gray.png" alt="client logo" class="img-responsive center-block animated" data-animation="fadeIn" data-animation-delay="200">
-                    </div>
-                    <!-- logo client end -->
-                    
-                    <!-- logo client start -->
-                    <div class="col-md-2 col-sm-3 col-xs-4">
-                        <img src="view/assets/img/brand/guardian-gray.png" alt="client logo" class="img-responsive center-block animated" data-animation="fadeIn" data-animation-delay="300">
-                    </div>
-                    <!-- logo client end -->
-                    
-                </div><!-- row end -->               
-            </div><!-- container end -->
-        </div><!-- section clients end -->
-
-        <!-- Footer
-        ===================================== -->
-        <?php require_once 'view/include/footer.php';?>
+        </div>
+        <!-- End Page Wrap -->
         
         <!-- JS
         ===================================== -->

@@ -1,278 +1,336 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
-        <title>Academia</title>        
-        <meta name="description" content="">
-        <meta name="keywords" content="">
+        <title>Academia Cartabón</title>
         <meta charset="utf-8">
-        <meta name="author" content="Harry Boo">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
         <!-- CSS
         ===================================== -->
         <?php require_once "view/include/style.php"?>
     </head>
-    <body  id="topPage" data-spy="scroll" data-target=".navbar" data-offset="100">
+    <body class="appear-animate">
         
-        <!-- Page Loader
-        ===================================== -->
-		<div id="pageloader" class="bg-grad-animation-1">
-			<div class="loader-item">
-                <img src="view/assets/img/other/oval.svg" alt="page loader">
-            </div>
-		</div>
-        <a href="view/shortcode-tables.html#page-top" class="go-to-top">
-            <i class="fa fa-long-arrow-up"></i>
-        </a>
+        <!-- Page Loader -->        
+        <div class="page-loader">
+            <div class="loader">Loading...</div>
+        </div>
+        <!-- End Page Loader -->
         
-        <!-- Nav
-        ===================================== -->
-        <?php require_once "view/include/nav.php"?>
+        <!-- Page Wrap -->
+        <div class="page" id="top">
         
-        <!-- Subheader Area
-        ===================================== -->
-        <header class="bg-grad-stellar mt70">
-            <div class="container">
-                <div class="row mt20 mb30">
-                    <div class="col-md-6 text-left">
-                        <h3 class="color-light text-uppercase animated" data-animation="fadeInUp" data-animation-delay="100">Blog Post Read<small class="color-light alpha7">some notes.</small></h3>
-                    </div>
-                    <div class="col-md-6 text-right pt35">
-                        <ul class="breadcrumb">
-                            <li><a href="blog-post-read.html#">Home</a></li>
-                            <li><a href="blog-post-read.html#">Blog Page</a></li>
-                            <li><a href="blog-post-read.html#">Blog Posts</a></li>
-                            <li>Blog Post Read</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </header>
+            <!-- Nav
+            ===================================== -->
+            <?php require_once "view/include/nav.php"?>
         
-        
-        <!-- Blog Area
-        ===================================== -->
-        <section id="blog" class="pt75 pb50">
-            <div class="container">
-                
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        
-                        <div class="blog-three-mini">
-                            <h2 class="color-dark"><a href="blog-post-read.html#">How to design good layout for blog page</a></h2>
-                            <div class="blog-three-attrib">
-                                <div><i class="fa fa-calendar"></i>Dec 15 2015</div> | 
-                                <div><i class="fa fa-pencil"></i><a href="blog-post-read.html#">Harry Boo</a></div> | 
-                                <div><i class="fa fa-comment-o"></i><a href="blog-post-read.html#">90 Comments</a></div> | 
-                                <div><a href="blog-post-read.html#"><i class="fa fa-thumbs-o-up"></i></a>150 Likes</div> | 
-                                <div>
-                                    Share:  <a href="blog-post-read.html#"><i class="fa fa-facebook-official"></i></a>
-                                            <a href="blog-post-read.html#"><i class="fa fa-twitter"></i></a>
-                                            <a href="blog-post-read.html#"><i class="fa fa-linkedin"></i></a>
-                                            <a href="blog-post-read.html#"><i class="fa fa-google-plus"></i></a>
-                                            <a href="blog-post-read.html#"><i class="fa fa-pinterest"></i></a>
+            <main id="main">    
+            
+                <!-- Home Section -->
+                <section class="small-section bg-dark-alfa-50 bg-scroll light-content" data-background="view/assets/images/full-width-images/section-bg-19.jpg" id="home">
+                    <div class="container relative pt-70">
+                    
+                        <div class="row">
+                            
+                            <div class="col-md-8">
+                                <div class="wow fadeInUpShort" data-wow-delay=".1s">
+                                    <h1 class="hs-line-7 mb-40 mb-xs-20">The Most Popular Web Design Trends in 2021 Year</h1>
+                                </div>
+                                <div class="wow fadeInUpShort" data-wow-delay=".2s">
+                                    <div class="mb-20 mb-xs-0">
+                                        <!-- Author, Categories, Comments -->
+                                        <div class="blog-item-data">
+                                            <a href="#"><i class="fa fa-clock"></i> 5 December</a>
+                                            <span class="separator">&nbsp;</span>
+                                            <a href="#"><i class="fa fa-user"></i> John Doe</a>
+                                            <span class="separator">&nbsp;</span>
+                                            <i class="fa fa-folder-open"></i>
+                                            <a href="">Design</a>, <a href="#">Branding</a>
+                                            <span class="separator">&nbsp;</span>
+                                            <a href="#"><i class="fa fa-comments"></i> 5 Comments</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
-                            <img src="view/assets/img/blog/img-blog-5.jpg" alt="Image Carousel" class="img-responsive">
-                            <p class="lead mt25">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur 
-                                excepteur sint occaecat cupidatat non proident sunt in culpa.
-                            </p>
-                            <h3 class="mt25 mb25">Heading Title Two</h3>
-                            <p>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur
-                            </p>
-                            <blockquote>
-                                Sometimes when you innovate, you make mistakes. It is best to admit them quickly, and get on with improving your other innovations.
-                                <footer><i class="fa fa-quote-right mt25"></i> Steve Job</footer>
-                            </blockquote>
-                            <p>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
-                            </p>
-                            <h4 class="mt25 mb25">Heading Title Three</h4>
-                            <p>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
-                            </p>
                             
-                            <div class="blog-post-read-tag mt50">
-                                <i class="fa fa-tags"></i> Tags:
-                                <a href="blog-post-read.html#"> Javascript</a>,
-                                <a href="blog-post-read.html#"> HTML</a>,
-                                <a href="blog-post-read.html#"> Wordpress</a>,
-                                <a href="blog-post-read.html#"> Tutorial </a>
+                            <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
+                                <div class="mod-breadcrumbs text-end">
+                                    <a href="#">Home</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="#">Blog</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Single</span>
+                                </div>                                
                             </div>
                             
                         </div>
+                    
+                    </div>
+                </section>
+                <!-- End Home Section -->
+                
+                
+                <!-- Section -->
+                <section class="page-section">
+                    <div class="container relative">
                         
                         <div class="row">
-                            <div class="col-md-12 text-center">
-                                <h5 class="bg-gray pt5 bp10 pl10">Related Articles</h5>
-                            </div>
-                            <!--Blog Post -->
-                            <div class="col-md-4 col-sm-6 col-xs-12 mb50">
-                                <div class="blog-three">
-                                    <h4 class="blog-title"><a href="blog-post-read.html#">Amazing Blog Post Title</a></h4>
-                                    <div class="blog-three-attrib">
-                                        <span class="icon-calendar"></span>Dec 15 2015 | 
-                                        <span class=" icon-pencil"></span><a href="blog-post-read.html#">Harry Boo</a>
-                                    </div>
-                                    <img src="view/assets/img/blog/img-blog-1.jpg" class="img-responsive" alt="image">
-                                    <p class="mt25">
-                                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.                            
-                                    </p>
-                                    <a href="blog-post-read.html#" class="button button-gray button-xs">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-
-                            <!--Blog Post -->
-                            <div class="col-md-4 col-sm-6 col-xs-12 mb50">
-                                <div class="blog-three">
-                                    <h4 class="blog-title"><a href="blog-post-read.html#">Amazing Blog Post Title</a></h4>
-                                    <div class="blog-three-attrib">
-                                        <span class="icon-calendar"></span>Dec 15 2015 | 
-                                        <span class=" icon-pencil"></span><a href="blog-post-read.html#">Harry Boo</a>
-                                    </div>
-                                    <img src="view/assets/img/blog/img-blog-2.jpg" class="img-responsive" alt="image">
-                                    <p class="mt25">
-                                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.                            
-                                    </p>
-                                    <a href="blog-post-read.html#" class="button button-gray button-xs">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
                             
-                            <!--Blog Post -->
-                            <div class="col-md-4 col-sm-6 col-xs-12 mb50">
-                                <div class="blog-three">
-                                    <h4 class="blog-title"><a href="blog-post-read.html#">Amazing Blog Post Title</a></h4>
-                                    <div class="blog-three-attrib">
-                                        <span class="icon-calendar"></span>Dec 15 2015 | 
-                                        <span class=" icon-pencil"></span><a href="blog-post-read.html#">Harry Boo</a>
-                                    </div>
-                                    <img src="view/assets/img/blog/img-blog-3.jpg" class="img-responsive" alt="image">
-                                    <p class="mt25">
-                                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.                            
-                                    </p>
-                                    <a href="blog-post-read.html#" class="button button-gray button-xs">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                            <!-- Content -->
+                            <div class="col-lg-8 offset-lg-2 mb-sm-80">
+                                
+                                <!-- Post -->
+                                <div class="blog-item mb-80 mb-xs-40">
+                                    
+                                    <!-- Text -->
+        							<div class="blog-item-body">
+                                    
+        							    <div class="lead mt-0">
+                                            <p>
+                                                Morbi lacus massa, euismod ut turpis molestie, tristique sodales est. Integer sit amet mi id sapien tempor molestie in nec massa.
+                                                Fusce non ante sed lorem rutrum feugiat.
+                                            </p>
+                                        </div>
+                                        <!-- End Text -->   
+                                        
+                                        <!-- Media Gallery -->
+                                        <div class="blog-media mt-40 mb-40 mb-xs-30">
+                                            <ul class="clearlist content-slider">
+                                                <li>
+                                                    <img src="view/assets/images/portfolio/full-project-1.jpg" alt="" />
+                                                </li>
+                                                <li>
+                                                    <img src="view/assets/images/portfolio/full-project-2.jpg" alt="" />
+                                                </li>
+                                                <li>
+                                                    <img src="view/assets/images/portfolio/full-project-3.jpg" alt="" />
+                                                </li>
+                                            </ul>
+                                        </div>
+        								
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non laoreet dui. Morbi lacus massa, euismod ut turpis molestie, tristique sodales est. Integer sit amet mi id sapien tempor molestie in nec massa.
+                                        </p>
+        								
+        								<p>
+                                            Fusce non ante sed lorem rutrum feugiat. Vestibulum pellentesque, purus ut&nbsp;dignissim consectetur, nulla erat ultrices purus, ut&nbsp;consequat sem elit non sem.
+                                            Morbi lacus massa, euismod ut turpis molestie, tristique sodales est. Integer sit amet mi id sapien tempor molestie in nec massa.
+                                            Fusce non ante sed lorem rutrum feugiat.
+                                        </p>
+        								
+        								<blockquote>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a&nbsp;ante. Vestibulum pellentesque, purus ut dignissim consectetur, nulla erat ultrices purus.
+                                            </p>
+                                            <footer>
+                                                Someone famous in 
+                                                <cite title="Source Title">
+                                                    Source Title
+                                                </cite>
+                                            </footer>
+                                        </blockquote>
+        								
+                                        <p>
+                                            Praesent ultricies ut ipsum non laoreet. Nunc ac <a href="#">ultricies</a> leo. Nulla ac ultrices arcu. Nullam adipiscing lacus in consectetur posuere. Nunc malesuada tellus turpis, ac pretium orci molestie vel.
+                                            Morbi lacus massa, euismod ut turpis molestie, tristique sodales est. Integer sit amet mi id sapien tempor molestie in nec massa.
+                                            Fusce non ante sed lorem rutrum feugiat.
+                                        </p>
+                                        
+                                        <ul>
+                                            <li>First item of the list</li>
+                                            <li>Second item of the list</li>
+                                            <li>Third item of the list</li>
+                                        </ul>
+                                        
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non laoreet dui. Morbi lacus massa, euismod ut turpis molestie, tristique sodales est. Integer sit amet mi id sapien tempor molestie in nec massa.
+                                            Fusce non ante sed lorem rutrum feugiat. Vestibulum pellentesque, purus ut&nbsp;dignissim consectetur, nulla erat ultrices purus, ut&nbsp;consequat sem elit non sem.
+                                        </p>
+                                        
+                                        
+        							</div>
+                                    <!-- End Text -->
+        							
+        						</div>
+        						<!-- End Post -->
+    						
+        						<!-- Comments -->
+                                <div class="mb-80 mb-xs-40">
+                                    
+                                    <h4 class="blog-page-title">Comments <small class="number">(3)</small></h4>
+        							
+                                    <ul class="media-list comment-list clearlist">
+                                    	
+                                        <!-- Comment Item -->
+                                        <li class="media comment-item">
+                                        	
+                                            <a class="float-start" href="#"><img class="media-object comment-avatar" src="view/assets/images/user-avatar.png" alt="" width="50" height="50"></a>
+                                            
+        									<div class="media-body">
+        										
+                                                <div class="comment-item-data">
+                                                    <div class="comment-author">
+                                                        <a href="#">John Doe</a>
+                                                    </div>
+                                                    Feb 9 2021 at 10:23 <span class="separator">&mdash;</span>
+                                                    <a href="#"><i class="fa fa-comment"></i>&nbsp;Reply</a>
+                                                </div>
+        										
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
+                                                </p>
+        										
+                                                <!-- Comment of second level -->
+                                                <div class="media comment-item">
+                                                    
+        											<a class="float-start" href="#"><img class="media-object comment-avatar" src="view/assets/images/user-avatar.png" alt=""></a>
+                                                    
+        											<div class="media-body">
+        												
+                                                        <div class="comment-item-data">
+                                                            <div class="comment-author">
+                                                                <a href="#">Sam Brin</a>
+                                                            </div>
+                                                            Feb 9 2021 at 10:27 <span class="separator">&mdash;</span>
+                                                            <a href="#"><i class="fa fa-comment"></i>&nbsp;Reply</a>
+                                                        </div>
+                                                        
+        												<p>
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
+                                                        </p>
+        												
+                                                    
+        											</div>
+        											
+                                                </div>
+                                                <!-- End Comment of second level -->
+        										
+                                            </div>
+        									
+                                        </li>
+                                        <!-- End Comment Item -->
+        								
+        								<!-- Comment Item -->
+                                        <li class="media comment-item">
+                                            
+        									<a class="float-start" href="#"><img class="media-object comment-avatar" src="view/assets/images/user-avatar.png" alt=""></a>
+                                            
+        									<div class="media-body">
                                                 
-                        
-                        <div class="blog-post-author mb50 pt30 bt-solid-1">
-                            <img src="view/assets/img/other/photo-1.jpg.png" class="img-circle" alt="image">
-                            <span class="blog-post-author-name">John Boo</span> <a href="https://twitter.com/booisme"><i class="fa fa-twitter"></i></a>
-                            <p>
-                                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
-                            </p>
-                        </div>
-                        
-                        
-                        <div class="blog-post-comment-container">
-                            <h5><i class="fa fa-comments-o mb25"></i> 20 Comments</h5>
-                            
-                            <div class="blog-post-comment">
-                                <img src="view/assets/img/other/photo-2.jpg" class="img-circle" alt="image">
-                                <span class="blog-post-comment-name">John Boo</span> Jan. 20 2016, 10:00 PM
-                                <a href="blog-post-read.html#" class="pull-right text-gray"><i class="fa fa-comment"></i> Reply</a>
-                                <p>
-                                    Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
-                                </p>
-                            </div>
-                            
-                            <div class="blog-post-comment">
-                                <img src="view/assets/img/other/photo-4.jpg" class="img-circle" alt="image">
-                                <span class="blog-post-comment-name">John Boo</span> Jan. 20 2016, 10:00 PM
-                                <a href="blog-post-read.html#" class="pull-right text-gray"><i class="fa fa-comment"></i> Reply</a>
-                                <p>
-                                    Adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.
-                                </p>
-                                
-                                <div class="blog-post-comment-reply">
-                                    <img src="view/assets/img/other/photo-2.jpg" class="img-circle" alt="image">
-                                    <span class="blog-post-comment-name">John Boo</span> Jan. 20 2016, 10:00 PM
-                                    <a href="blog-post-read.html#" class="pull-right text-gray"><i class="fa fa-comment"></i> Reply</a>
-                                    <p>
-                                        Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
-                                    </p>
+        										<div class="comment-item-data">
+                                                    <div class="comment-author">
+                                                        <a href="#">Emma Johnson</a>
+                                                    </div>
+                                                    Feb 9 2021 at 10:37 <span class="separator">&mdash;</span>
+                                                    <a href="#"><i class="fa fa-comment"></i>&nbsp;Reply</a>
+                                                </div>
+                                                
+        										<p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
+                                                </p>
+        										
+                                            </div>
+        									
+                                        </li>
+                                        <!-- End Comment Item -->
+        								
+        								<!-- Comment Item -->
+                                        <li class="media comment-item">
+                                            
+        									<a class="float-start" href="#"><img class="media-object comment-avatar" src="view/assets/images/user-avatar.png" alt=""></a>
+                                            
+        									<div class="media-body">
+                                                
+        										<div class="comment-item-data">
+                                                    <div class="comment-author">
+                                                        <a href="#">John Doe</a>
+                                                    </div>
+                                                    Feb 9 2021 at 10:3 <span class="separator">&mdash;</span>
+                                                    <a href="#"><i class="fa fa-comment"></i>&nbsp;Reply</a>
+                                                </div>
+                                                
+        										<p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
+                                                </p>
+        										
+                                            </div>
+        									
+                                        </li>
+                                        <!-- End Comment Item -->
+        								
+                                    </ul>
+        							
                                 </div>
+        						<!-- End Comments -->
+        						
+        						
+        						<!-- Add Comment -->
+        						<div class="mb-80 mb-xs-40">
+        							
+                                    <h4 class="blog-page-title">Leave a comment</h4>
+        							
+        							<!-- Form -->
+                                    <form method="post" action="#" id="form" class="form">
+                                        
+                                        <div class="row mb-30 mb-md-20">
+                                            
+                                            <div class="col-md-6 mb-md-20">
+                                                <!-- Name -->
+                                                <label for="name">Name *</label>
+                                                <input type="text" name="name" id="name" class="input-md round form-control" placeholder="Enter your name" maxlength="100" required aria-required="true">
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <!-- Email -->
+                                                <label for="email">Email *</label>
+                                                <input type="email" name="email" id="email" class="input-md round form-control" placeholder="Enter your email" maxlength="100" required aria-required="true">
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        <div class="mb-30 mb-md-20">
+                                            <!-- Website -->
+                                            <label for="website">Website</label>
+                                            <input type="text" name="website" id="website" class="input-md round form-control" placeholder="Enter your website" maxlength="100">
+                                        </div>
+                                        
+                                        <!-- Comment -->
+                                        <div class="mb-30 mb-md-20">
+                                            <label for="comment">Comment</label>
+                                            <textarea name="comment" id="comment" class="input-md round form-control" rows="6" placeholder="Enter your comment" maxlength="400"></textarea>
+                                        </div>
+                                        
+                                        <!-- Send Button -->
+                                        <button type="submit" class="btn btn-mod btn-medium btn-round">
+                                            Send comment
+                                        </button>
+        								
+                                    </form>
+        							<!-- End Form -->
+        								
+        						</div>
+        						<!-- End Add Comment -->
+        						
+                                <!-- Prev/Next Post -->
+                                <div class="clearfix mt-40">
+                                    <a href="#" class="blog-item-more left"><i class="fa fa-chevron-left"></i>&nbsp;Prev post</a>
+                                    <a href="#" class="blog-item-more right">Next post&nbsp;<i class="fa fa-chevron-right"></i></a>
+                                </div>
+                                <!-- End Prev/Next Post -->
                                 
                             </div>
-                            
-                            <div class="blog-post-comment">
-                                <img src="view/assets/img/other/photo-1.jpg.png" class="img-circle" alt="image">
-                                <span class="blog-post-comment-name">John Boo</span> Jan. 20 2016, 10:00 PM
-                                <a href="blog-post-read.html#" class="pull-right text-gray"><i class="fa fa-comment"></i> Reply</a>
-                                <p>
-                                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur adipisci velit.
-                                </p>
-                            </div>
-                            
-                            <button class="button button-default button-sm center-block button-block mt25 mb25">Load More Comments</button>
-                    
-                            
+                            <!-- End Content -->                            
+                        
                         </div>
                         
-                        <div class="blog-post-leave-comment">
-                            <h5><i class="fa fa-comment mt25 mb25"></i> Leave Comment</h5>
-                            
-                            <form>
-                                <input type="text" name="name" class="blog-leave-comment-input" placeholder="name" required>
-                                <input type="email" name="name" class="blog-leave-comment-input" placeholder="email"  required>
-                                <input type="url" name="name" class="blog-leave-comment-input" placeholder="website">
-                                <textarea name="message" class="blog-leave-comment-textarea"></textarea>
-                                <button class="button button-pasific button-sm center-block mb25">Leave Comment</button>                            
-                            </form>
-                            
-                         </div>
-                        
-                    </div>                    
-                    
-                </div>
+                    </div>
+                </section>
+                <!-- End Section -->                
                 
-                <div class="row mt35 animated" data-animation="fadeInUp" data-animation-delay="800">
-                    <div class="col-md-6">
-                        <a href="blog-post-read.html#" class="button button-dark button-sm pull-right">Prev</a>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="blog-post-read.html#" class="button button-dark button-sm pull-left">Next</a>
-                    </div>
-                </div>
-                
-            </div>
-        </section>
-         
-        
-        <!-- Newsletter Area
-        =====================================-->
-        <section id="newsletter" class="bg-dark2 pt50 pb50">
-            <div class="container">
-                <div class="row">
-                    
-                    <div class="col-md-2">
-                        <h4 class="color-light">
-                            Newsletter
-                        </h4>
-                    </div>
-                    
-                    <div class="col-md-10">
-                        <form name="newsletter">
-                            <div class="input-newsletter-container">
-                                <input type="text" name="email" class="input-newsletter" placeholder="enter your email address">
-                            </div>
-                            <a href="blog-post-read.html#" class="button button-sm button-pasific hover-ripple-out">Subscribe<i class="fa fa-envelope"></i></a>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </main>
 
-        <!-- Footer
-        ===================================== -->
-        <?php require_once 'view/include/footer.php';?>
+            <!-- Footer
+            ===================================== -->
+            <?php require_once 'view/include/footer.php';?>
+        
+        </div>
+        <!-- End Page Wrap -->
         
         <!-- JS
         ===================================== -->

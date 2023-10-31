@@ -18,9 +18,9 @@ $(document).ready(function() {
                 else {
                     $(".alert").remove();
                     let msg = `
-                        <div class="alert alert-danger alert-dismissible fade in col-sm-8 col-sm-offset-2">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>¡Error!</strong> ${jsonData.msg}
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     `;
                     $("#formLogin").append(msg);
@@ -48,9 +48,9 @@ $(document).ready(function() {
                 else {
                     $(".alert").remove();
                     let msg = `
-                    <div class="alert alert-danger alert-dismissible fade in col-sm-8 col-sm-offset-2">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>¡Error!</strong> ${jsonData.msg}
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     `;
                     $("#formRegister").append(msg);
@@ -118,9 +118,9 @@ $(document).ready(function() {
             if (email==new_email && password==new_password && name==new_name && last_name==new_last_name && phone_number==new_phone_number && dni==new_dni && type==new_type) {
                 $(".alert").remove();
                 let msg = `
-                    <div class="alert alert-danger alert-dismissible fade in">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>¡Error!</strong> No has cambiado los datos.
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> No has cambiado los datos.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 `;
                 $("#edit-form").append(msg);
@@ -176,9 +176,9 @@ $(document).ready(function() {
                         else {
                             $(".alert").remove();
                             let msg = `
-                                <div class="alert alert-danger alert-dismissible fade in">
-                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    <strong>¡Error!</strong> ${jsonData.msg}
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             `;
                             $("#edit-form").append(msg);
@@ -215,9 +215,9 @@ $(document).ready(function() {
                     else {
                         $(".alert").remove();
                         let msg = `
-                            <div class="alert alert-danger alert-dismissible fade in">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>¡Error!</strong> ${jsonData.msg}
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         `;
                         $("#delete-form").append(msg);
@@ -315,9 +315,9 @@ $(document).ready(function() {
                     else {
                         $(".alert").remove();
                         let msg = `
-                            <div class="alert alert-danger alert-dismissible fade in">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>¡Error!</strong> ${jsonData.msg}
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         `;
                         $("#create-form").append(msg);
@@ -378,9 +378,9 @@ $(document).ready(function() {
                     else {
                         $(".alert").remove();
                         let msg = `
-                            <div class="alert alert-danger alert-dismissible fade in">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>¡Error!</strong> ${jsonData.msg}
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         `;
                         $("#lesson-duplicate-form").append(msg);
@@ -415,9 +415,9 @@ $(document).ready(function() {
                     else {
                         $(".alert").remove();
                         let msg = `
-                            <div class="alert alert-danger alert-dismissible fade in">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>¡Error!</strong> ${jsonData.msg}
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         `;
                         $("#lesson-delete-form").append(msg);
@@ -477,9 +477,9 @@ $(document).ready(function() {
                     else {
                         $(".alert").remove();
                         let msg = `
-                            <div class="alert alert-danger alert-dismissible fade in">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>¡Error!</strong> ${jsonData.msg}
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         `;
                         $("#module-duplicate-form").append(msg);
@@ -514,9 +514,9 @@ $(document).ready(function() {
                     else {
                         $(".alert").remove();
                         let msg = `
-                            <div class="alert alert-danger alert-dismissible fade in">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>¡Error!</strong> ${jsonData.msg}
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         `;
                         $("#module-delete-form").append(msg);
@@ -545,9 +545,9 @@ $(document).ready(function() {
         base64URL = await encodeFileAsBase64URL(file.files[0]);
         if (base64URL == '') {
             let msg = `
-                <div class="alert alert-danger alert-dismissible fade in">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>¡Error!</strong> Fallo al cargar el archivo.
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> Fallo al cargar el archivo.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             `;
             $("#lesson-edit-form").append(msg);
@@ -572,9 +572,9 @@ $(document).ready(function() {
         }
         else {
             let msg = `
-                <div class="alert alert-danger alert-dismissible fade in">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>¡Error!</strong> El archivo debe de ser de tipo vídeo o pdf
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> El archivo debe de ser de tipo vídeo o pdf.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             `;
             $("#lesson-edit-form").append(msg);
@@ -679,9 +679,9 @@ $(document).ready(function() {
                 else {
                     $(".alert").remove();
                     let msg = `
-                        <div class="alert alert-danger alert-dismissible fade in">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>¡Error!</strong> ${jsonData.msg}
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     `;
                     $("#lesson-edit-form").append(msg);
@@ -753,9 +753,9 @@ $(document).ready(function() {
                 else {
                     $(".alert").remove();
                     let msg = `
-                        <div class="alert alert-danger alert-dismissible fade in">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>¡Error!</strong> ${jsonData.msg}
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     `;
                     $("#module-edit-form").append(msg);
