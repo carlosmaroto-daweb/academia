@@ -162,7 +162,7 @@
                 echo $this->lessonManagement->editLesson();
               }
               else {
-                $result = json_encode(
+                echo json_encode(
                     array(
                     'success' => 0, 
                     'msg'     => 'No se ha podido editar la lección.'
@@ -207,7 +207,7 @@
               echo $this->lessonManagement->createLesson();
             }
             else {
-              $result = json_encode(
+              echo json_encode(
                   array(
                   'success' => 0, 
                   'msg'     => 'No se ha podido crear la lección.'

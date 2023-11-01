@@ -59,19 +59,21 @@ $(document).ready(function() {
         });
     });
 
-    $("#user-edit").on('show.bs.modal', function(event) {
-        let button = '<button id="btn-edit" class="btn btn-primary">Guardar cambios</button>';
+    $(".btn-user-edit").on('click', function(e) {
+        let button = '<button id="btn-edit-cancel" class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>';
         $('#edit-modal-footer').append(button);
-        let option = $(event.relatedTarget);
-        let id_row       = option.data('id_row');
-        let id           = option.data('id');
-        let email        = option.data('email');
-        let password     = option.data('password');
-        let name         = option.data('name');
-        let last_name    = option.data('last_name');
-        let phone_number = option.data('phone_number');
-        let dni          = option.data('dni');
-        let type         = option.data('type');
+        button = '<button id="btn-edit" class="btn btn-mod btn-small btn-round">Guardar cambios</button>';
+        $('#edit-modal-footer').append(button);
+        e.preventDefault();
+        let id_row       = $(this).data('id_row');
+        let id           = $(this).data('id');
+        let email        = $(this).data('email');
+        let password     = $(this).data('password');
+        let name         = $(this).data('name');
+        let last_name    = $(this).data('last_name');
+        let phone_number = $(this).data('phone_number');
+        let dni          = $(this).data('dni');
+        let type         = $(this).data('type');
         $('#edit-form-email').val(email);
         $('#edit-form-password').val(password);
         $('#edit-form-name').val(name);
@@ -92,6 +94,11 @@ $(document).ready(function() {
                 $('#type-admin-edit').prop("selected", true);
                 break;
         };
+
+        $("#btn-edit-cancel").on('click', function(e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
 
         $('#btn-edit').on('click', function(e) {
             e.preventDefault();
@@ -166,12 +173,12 @@ $(document).ready(function() {
                                 <td>${new_dni}</td>
                                 <td>${type}</td>
                                 <td>
-                                    <a class='button-o button-sm button-rounded button-blue hover-fade' data-toggle='modal' data-target='#user-edit' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>&nbsp;
-                                    <a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#user-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
+                                    <a href='#user-edit' class='btn-user-edit btn btn-mod btn-border btn-circle btn-small lightbox-gallery-1 mfp-inline' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>&nbsp;
+                                    <a href='#user-delete' class='btn-user-delete btn btn-mod btn-border btn-circle btn-small lightbox-gallery-2 mfp-inline' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
                                 </td>
                             `;
                             $('#' + id_row).html(row);
-                            $("#user-edit").modal('hide');
+                            $.magnificPopup.close();
                         }
                         else {
                             $(".alert").remove();
@@ -189,18 +196,21 @@ $(document).ready(function() {
         });
     });
 
-    $('#user-edit').on('hidden.bs.modal', function() {
+    $(".lightbox-gallery-1").on('mfpClose', function() {
         $(".alert").remove();
         $('#edit-form').trigger("reset");
+        $('#btn-edit-cancel').remove();
         $('#btn-edit').remove();
     });
 
-    $("#user-delete").on('show.bs.modal', function(event) {
-        let button = '<button id="btn-delete" class="btn btn-primary">Aceptar</button>';
+    $(".btn-user-delete").on('click', function(e) {
+        let button = '<button id="btn-delete-cancel" class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>';
         $('#delete-modal-footer').append(button);
-        let option = $(event.relatedTarget);
-        let id_row = option.data('id_row');
-        let id = option.data('id');
+        button = '<button id="btn-delete" class="btn btn-mod btn-small btn-round">Eliminar usuario</button>';
+        $('#delete-modal-footer').append(button);
+        e.preventDefault();
+        let id_row       = $(this).data('id_row');
+        let id           = $(this).data('id');
         $('#btn-delete').on('click', function(e) {
             e.preventDefault();
             $.ajax({
@@ -210,7 +220,7 @@ $(document).ready(function() {
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
                         $('#' + id_row).remove();
-                        $("#user-delete").modal('hide');
+                        $.magnificPopup.close();
                     }
                     else {
                         $(".alert").remove();
@@ -227,13 +237,16 @@ $(document).ready(function() {
         });
     });
 
-    $('#user-delete').on('hidden.bs.modal', function() {
+    $(".lightbox-gallery-2").on('mfpClose', function() {
         $(".alert").remove();
+        $('#btn-delete-cancel').remove();
         $('#btn-delete').remove();
     });
 
-    $("#user-create").on('show.bs.modal', function() {
-        let button = '<button id="btn-create" class="btn btn-primary">Crear usuario</button>';
+    $(".btn-user-create").on('click', function() {
+        let button = '<button id="btn-create-cancel" class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>';
+        $('#create-modal-footer').append(button);
+        button = '<button id="btn-create" class="btn btn-mod btn-small btn-round">Crear usuario</button>';
         $('#create-modal-footer').append(button);
         $('#btn-create').on('click', function(event) {
             event.preventDefault();
@@ -305,12 +318,12 @@ $(document).ready(function() {
                                 <td>${new_dni}</td>
                                 <td>${type}</td>
                                 <td>
-                                    <a class='button-o button-sm button-rounded button-blue hover-fade' data-toggle='modal' data-target='#user-edit' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>&nbsp;
-                                    <a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#user-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
+                                    <a href='#user-edit' class='btn-user-edit btn btn-mod btn-border btn-circle btn-small lightbox-gallery-1 mfp-inline' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>&nbsp;
+                                    <a href='#user-delete' class='btn-user-delete btn btn-mod btn-border btn-circle btn-small lightbox-gallery-2 mfp-inline' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
                                 </td>
                             </tr>`;
                         $('#user-table').append(row);
-                        $("#user-create").modal('hide');
+                        $.magnificPopup.close();
                     }
                     else {
                         $(".alert").remove();
@@ -327,9 +340,10 @@ $(document).ready(function() {
         });
     });
 
-    $('#user-create').on('hidden.bs.modal', function() {
+    $(".lightbox-gallery-3").on('mfpClose', function() {
         $(".alert").remove();
         $('#create-form').trigger("reset");
+        $('#btn-create-cancel').remove();
         $('#btn-create').remove();
     });
 
@@ -605,6 +619,7 @@ $(document).ready(function() {
         title.setAttribute("placeholder", "Título");
         title.setAttribute("type", "text");
         title.setAttribute("name", "title");
+        title.setAttribute("class", "input-md round form-control");
         row_files.appendChild(title);
         let file = document.createElement("input");
         file.setAttribute("type", "file");
@@ -618,8 +633,8 @@ $(document).ready(function() {
         });
         row_files.appendChild(file);
         let button = document.createElement("div");
-        button.setAttribute("class", "delete-lesson-edit-files button-3d button-xs button-circle button-danger");
-        button.innerHTML = `<i class='fa fa-close'></i>`;
+        button.setAttribute("class", "delete-lesson-edit-files btn btn-mod btn-circle button-cancel");
+        button.innerHTML = `<i class='fa fa-times'></i>`;
         button.onclick = function() {
             $(this).closest(".row-files-complete").remove();
         }
@@ -631,7 +646,7 @@ $(document).ready(function() {
         $('#lesson-edit-files').append(row_files_complete);
     });
 
-    $('#edit-lessons').on('click', function(event) {
+    $('#edit-lessons').on('click', async (event) => {
         event.preventDefault();
         let id    = $('#lesson-edit-id').val();
         let name  = $('#lesson-edit-name').val();
@@ -652,7 +667,23 @@ $(document).ready(function() {
             pdf = row_files_complete[i].querySelector("embed");
             if (video || pdf) {
                 titles.push(title);
-                archive = row_files_complete[i].querySelector("input[name='file']").files[0];
+                if (row_files_complete[i].querySelector("input[name='file']").getAttribute("value")) {
+                    let path = row_files_complete[i].querySelector("input[name='file']").getAttribute("value");
+                    await fetch(path)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        if (path.includes(".mp4")) {
+                            archive = new File([blob], "nombre_del_archivo.mp4", { type: "video/mp4" });
+                        } else if (path.includes(".avi")) {
+                            archive = new File([blob], "nombre_del_archivo.avi", { type: "video/avi" });
+                        } else if (path.includes(".pdf")) {
+                            archive = new File([blob], "nombre_del_archivo.pdf", { type: "application/pdf" });
+                        }
+                    });
+                }
+                else {
+                    archive = row_files_complete[i].querySelector("input[name='file']").files[0];
+                }
                 archives.push(archive);
                 count++;
             }
@@ -778,8 +809,8 @@ $(document).ready(function() {
         input.setAttribute("name", "name");
         row_modules.appendChild(input);
         let link = document.createElement("a");
-        link.setAttribute("class", "delete-course-create-modules button-3d button-xs button-circle button-danger");
-        link.innerHTML = `<i class='fa fa-close'></i>`;
+        link.setAttribute("class", "delete-course-create-modules btn btn-mod btn-circle button-cancel");
+        link.innerHTML = `<i class='fa fa-times'></i>`;
         link.onclick = function() {
             $(this).parent().remove();
         }

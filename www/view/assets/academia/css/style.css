@@ -33,39 +33,6 @@
     font-weight: 300;
 }
 
-#navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar-nav {
-    display: flex;
-    align-items: center;
-}
-
-#showFormRegister {
-    padding: 10px;
-}
-
-#showFormLogin {
-    padding: 10px;
-}
-
-#showFormRegister:hover {
-    cursor: pointer;
-    color: #ff4530;
-}
-
-#showFormLogin:hover {
-    cursor: pointer;
-    color: #ff4530;
-}
-
-.table-secretary {
-    padding: 0 100px;
-}
-
 #module-table .header_image_preview {
     max-width: 150px;
 }
@@ -83,20 +50,22 @@
 }
 
 #lesson-edit-form .row-files {
-    height: 31px;
     display: flex;
     align-items: center;
 }
 
 #lesson-edit-form .row-files input {
+    max-width: 800px;
     margin-right: 10px;
 }
 
 #lesson-edit-form .file-type-preview video {
+    margin-top: 10px;
     width: 500px;
 }
 
 #lesson-edit-form .file-type-preview embed {
+    margin-top: 10px;
     width: 500px;
     height: 750px;
 }
@@ -233,4 +202,16 @@
     .col-footer-logo {
         text-align: center;
     }
+}
+
+.required-field-color {
+    color: #e10022;
+}
+
+.button-cancel {
+    background-color: #b13535 !important;
+}
+
+.button-success {
+    background-color: #49952d !important;
 }
