@@ -93,6 +93,11 @@ $(document).ready(function() {
                 break;
         };
 
+        $("#btn-edit-cancel").on('click', function(e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
+
         $('#btn-edit').on('click', function(e) {
             e.preventDefault();
             let new_email        = $('#edit-form-email').val();
@@ -192,6 +197,7 @@ $(document).ready(function() {
     $('#user-edit').on('hidden.bs.modal', function() {
         $(".alert").remove();
         $('#edit-form').trigger("reset");
+        $('#btn-edit-cancel').remove();
         $('#btn-edit').remove();
     });
 
@@ -210,7 +216,7 @@ $(document).ready(function() {
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
                         $('#' + id_row).remove();
-                        $("#user-delete").modal('hide');
+                        $.magnificPopup.close();
                     }
                     else {
                         $(".alert").remove();
@@ -229,12 +235,19 @@ $(document).ready(function() {
 
     $('#user-delete').on('hidden.bs.modal', function() {
         $(".alert").remove();
+        $('#btn-delete-cancel').remove();
         $('#btn-delete').remove();
     });
 
     $("#user-create").on('show.bs.modal', function() {
         let button = '<button id="btn-create" class="btn btn-primary">Crear usuario</button>';
         $('#create-modal-footer').append(button);
+        button = '<button id="btn-create" class="btn btn-mod btn-small btn-round">Crear usuario</button>';
+        $('#create-modal-footer').append(button);
+        $("#btn-create-cancel").on('click', function(e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
         $('#btn-create').on('click', function(event) {
             event.preventDefault();
             let email        = $('#create-form-email').val();
@@ -330,25 +343,43 @@ $(document).ready(function() {
     $('#user-create').on('hidden.bs.modal', function() {
         $(".alert").remove();
         $('#create-form').trigger("reset");
+        $('#btn-create-cancel').remove();
         $('#btn-create').remove();
     });
 
-    const canvas_preview = document.getElementsByClassName('canvas_preview');
-    if (canvas_preview) {
-        for (let i=0; i<canvas_preview.length; i++) {
-            html2canvas(canvas_preview[i]).then(function(canvas) {
-                canvas.setAttribute('style', 'width: 100%; height: 100%');
-                canvas_preview[i].innerHTML = "";
-                canvas_preview[i].appendChild(canvas);
-            });
+    $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function(e) {
+        const canvas_preview = document.getElementsByClassName('canvas_preview');
+        if (canvas_preview) {
+            for (let i=0; i<canvas_preview.length; i++) {
+                if (!canvas_preview[i].querySelector('canvas')) {
+                    html2canvas(canvas_preview[i]).then(function(canvas) {
+                        canvas.setAttribute('style', 'width: 100%; height: 100%');
+                        canvas_preview[i].innerHTML = "";
+                        canvas_preview[i].appendChild(canvas);
+                    });
+                }
+            }
         }
-    }
-    
-    $('#lesson-duplicate').on('show.bs.modal', function(event) {
-        let button = '<button id="btn-duplicate" class="btn btn-primary">Aceptar</button>';
+    });
+
+    $(".magnificPopup-lesson-duplicate").magnificPopup({
+        gallery: {
+            enabled: true
+        },
+        mainClass: "mfp-fade"
+    });
+
+    $(document).on('click','.btn-lesson-duplicate', function(e) {
+        e.preventDefault();
+        let button = '<button id="btn-duplicate-cancel" class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>';
         $('#lesson-duplicate-footer').append(button);
-        let option = $(event.relatedTarget);
-        let id = option.data('id');
+        button = '<button id="btn-duplicate" class="btn btn-mod btn-small btn-round">Duplicar lección</button>';
+        $('#lesson-duplicate-footer').append(button);
+        let id = $(this).data('id');
+        $("#btn-duplicate-cancel").on('click', function(e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
         $('#btn-duplicate').on('click', function(e) {
             e.preventDefault();
             $.ajax({
@@ -363,17 +394,47 @@ $(document).ready(function() {
                         let files  = jsonData.lesson.files;
                         let row = 
                             `<tr id='${id_row}'>
-                                <td>${name}</td>
-                                <td>${files}</td>
-                                <td> </td>
+                                <td>${name}</td>`;
+                                let arrays = files.split(';;')
+                                let countVideo = 0;
+                                let countPdf = 0;
+                                for (let i=0; i<arrays.length; i+=2) {
+                                    if (arrays[i+1].includes('.mp4')  || arrays[i+1].includes('.avi')) {
+                                        countVideo++;
+                                    }
+                                    else if (arrays[i+1].includes('.pdf')) {
+                                        countPdf++;
+                                    }
+                                }
+                                row += "<td>";
+                                    if (countVideo != 0) {
+                                        row += "<i class='fa fa-video'>" + countVideo + "</i> ";
+                                    }
+                                    if (countPdf != 0) {
+                                        row += "<i class='fa fa-file-pdf'>" + countPdf + "</i>";
+                                    }
+                                    row += "</td>";
+                                row += `
                                 <td>
-                                    <a href='index.php?controller=courseController&action=editLesson&id=${id}' class='button-o button-sm button-rounded button-blue hover-fade'>Editar</a>&nbsp;
-                                    <a class='button-o button-sm button-rounded button-purple hover-fade' data-toggle='modal' data-target='#lesson-duplicate' data-id='${id}'>Duplicar</a>&nbsp;
-                                    <a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#lesson-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
+                                    <a href='index.php?controller=courseController&action=editLesson&id=${id}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>
+                                    <a href='#lesson-duplicate' class='btn-lesson-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-lesson-duplicate' data-id='${id}'>Duplicar</a>
+                                    <a href='#lesson-delete' class='btn-lesson-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-lesson-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
                                 </td>
                             </tr>`;
                         $('#lesson-table').append(row);
-                        $("#lesson-duplicate").modal('hide');
+                        $(".magnificPopup-lesson-duplicate").magnificPopup({
+                            gallery: {
+                                enabled: true
+                            },
+                            mainClass: "mfp-fade"
+                        });
+                        $(".magnificPopup-lesson-delete").magnificPopup({
+                            gallery: {
+                                enabled: true
+                            },
+                            mainClass: "mfp-fade"
+                        });
+                        $.magnificPopup.close();
                     }
                     else {
                         $(".alert").remove();
@@ -390,17 +451,31 @@ $(document).ready(function() {
         });
     });
 
-    $('#lesson-duplicate').on('hidden.bs.modal', function() {
+    $(".magnificPopup-lesson-duplicate").on('mfpClose', function() {
         $(".alert").remove();
+        $('#btn-duplicate-cancel').remove();
         $('#btn-duplicate').remove();
     });
 
-    $("#lesson-delete").on('show.bs.modal', function(event) {
-        let button = '<button id="btn-delete" class="btn btn-primary">Aceptar</button>';
+    $(".magnificPopup-lesson-delete").magnificPopup({
+        gallery: {
+            enabled: true
+        },
+        mainClass: "mfp-fade"
+    });
+
+    $(document).on('click','.btn-lesson-delete', function(e) {
+        e.preventDefault();
+        let button = '<button id="btn-delete-cancel" class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>';
         $('#lesson-delete-footer').append(button);
-        let option = $(event.relatedTarget);
-        let id_row = option.data('id_row');
-        let id = option.data('id');
+        button = '<button id="btn-delete" class="btn btn-mod btn-small btn-round">Eliminar lección</button>';
+        $('#lesson-delete-footer').append(button);
+        let id_row       = $(this).data('id_row');
+        let id           = $(this).data('id');
+        $("#btn-delete-cancel").on('click', function(e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
         $('#btn-delete').on('click', function(e) {
             e.preventDefault();
             $.ajax({
@@ -410,7 +485,7 @@ $(document).ready(function() {
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
                         $('#' + id_row).remove();
-                        $("#lesson-delete").modal('hide');
+                        $.magnificPopup.close();
                     }
                     else {
                         $(".alert").remove();
@@ -427,16 +502,30 @@ $(document).ready(function() {
         });
     });
 
-    $('#lesson-delete').on('hidden.bs.modal', function() {
+    $(".magnificPopup-lesson-delete").on('mfpClose', function() {
         $(".alert").remove();
+        $('#btn-delete-cancel').remove();
         $('#btn-delete').remove();
     });
-    
-    $('#module-duplicate').on('show.bs.modal', function(event) {
-        let button = '<button id="btn-duplicate" class="btn btn-primary">Aceptar</button>';
+
+    $(".magnificPopup-module-duplicate").magnificPopup({
+        gallery: {
+            enabled: true
+        },
+        mainClass: "mfp-fade"
+    });
+
+    $(document).on('click','.btn-module-duplicate', function(e) {
+        e.preventDefault();
+        let button = '<button id="btn-duplicate-cancel" class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>';
         $('#module-duplicate-footer').append(button);
-        let option = $(event.relatedTarget);
-        let id = option.data('id');
+        button = '<button id="btn-duplicate" class="btn btn-mod btn-small btn-round">Duplicar módulo</button>';
+        $('#module-duplicate-footer').append(button);
+        let id = $(this).data('id');
+        $("#btn-duplicate-cancel").on('click', function(e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
         $('#btn-duplicate').on('click', function(e) {
             e.preventDefault();
             $.ajax({
@@ -459,12 +548,24 @@ $(document).ready(function() {
                                 <td><div class='canvas_preview'>${content}</div></td>
                                 <td> </td>
                                 <td>
-                                    <a href='index.php?controller=courseController&action=editModule&id=${id}' class='button-o button-sm button-rounded button-blue hover-fade'>Editar</a>&nbsp;
-                                    <a class='button-o button-sm button-rounded button-purple hover-fade' data-toggle='modal' data-target='#module-duplicate' data-id='${id}'>Duplicar</a>&nbsp;
-                                    <a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#module-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
+                                    <a href='index.php?controller=courseController&action=editModule&id=${id}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>
+                                    <a href='#module-duplicate' class='btn-module-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-module-duplicate' data-id='${id}'>Duplicar</a>
+                                    <a href='#module-delete' class='btn-module-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-module-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
                                 </td>
                             </tr>`;
                         $('#module-table').append(row);
+                        $(".magnificPopup-module-duplicate").magnificPopup({
+                            gallery: {
+                                enabled: true
+                            },
+                            mainClass: "mfp-fade"
+                        });
+                        $(".magnificPopup-module-delete").magnificPopup({
+                            gallery: {
+                                enabled: true
+                            },
+                            mainClass: "mfp-fade"
+                        });
                         let new_row = document.getElementById(id_row);
                         let canvas_preview = new_row.querySelector(".canvas_preview");
                         html2canvas(canvas_preview).then(function(canvas) {
@@ -472,7 +573,7 @@ $(document).ready(function() {
                             canvas_preview.innerHTML = "";
                             canvas_preview.appendChild(canvas);
                         });
-                        $("#module-duplicate").modal('hide');
+                        $.magnificPopup.close();
                     }
                     else {
                         $(".alert").remove();
@@ -489,17 +590,31 @@ $(document).ready(function() {
         });
     });
 
-    $('#module-duplicate').on('hidden.bs.modal', function() {
+    $(".magnificPopup-module-duplicate").on('mfpClose', function() {
         $(".alert").remove();
+        $('#btn-duplicate-cancel').remove();
         $('#btn-duplicate').remove();
     });
 
-    $("#module-delete").on('show.bs.modal', function(event) {
-        let button = '<button id="btn-delete" class="btn btn-primary">Aceptar</button>';
+    $(".magnificPopup-module-delete").magnificPopup({
+        gallery: {
+            enabled: true
+        },
+        mainClass: "mfp-fade"
+    });
+
+    $(document).on('click','.btn-module-delete', function(e) {
+        e.preventDefault();
+        let button = '<button id="btn-delete-cancel" class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>';
         $('#module-delete-footer').append(button);
-        let option = $(event.relatedTarget);
-        let id_row = option.data('id_row');
-        let id = option.data('id');
+        button = '<button id="btn-delete" class="btn btn-mod btn-small btn-round">Eliminar módulo</button>';
+        $('#module-delete-footer').append(button);
+        let id_row       = $(this).data('id_row');
+        let id           = $(this).data('id');
+        $("#btn-delete-cancel").on('click', function(e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
         $('#btn-delete').on('click', function(e) {
             e.preventDefault();
             $.ajax({
@@ -509,7 +624,7 @@ $(document).ready(function() {
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
                         $('#' + id_row).remove();
-                        $("#module-delete").modal('hide');
+                        $.magnificPopup.close();
                     }
                     else {
                         $(".alert").remove();
@@ -526,11 +641,12 @@ $(document).ready(function() {
         });
     });
 
-    $('#module-delete').on('hidden.bs.modal', function() {
+    $(".magnificPopup-module-delete").on('mfpClose', function() {
         $(".alert").remove();
+        $('#btn-delete-cancel').remove();
         $('#btn-delete').remove();
     });
-
+    
     async function encodeFileAsBase64URL(file) {
         return new Promise((resolve) => {
             const reader = new FileReader();
@@ -542,46 +658,50 @@ $(document).ready(function() {
     };
 
     async function showFileInput(file) {
-        base64URL = await encodeFileAsBase64URL(file.files[0]);
-        if (base64URL == '') {
-            let msg = `
-                <div class="alert alert-danger alert-dismissible" role="alert">
-                    <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> Fallo al cargar el archivo.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            `;
-            $("#lesson-edit-form").append(msg);
-        }
-        else if (base64URL.includes("video")) {
-            let video = document.createElement("video");
-            video.setAttribute('src', base64URL);
-            video.setAttribute('controls', '');
-            video.setAttribute('disablePictureInPicture', '');
-            video.setAttribute('controlsList', 'nodownload noplaybackrate');
-            let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
-            file_type_preview.innerHTML = "";
-            file_type_preview.appendChild(video);
-        }
-        else if (base64URL.includes("pdf")) {
-            let embed = document.createElement("embed");
-            embed.setAttribute('src', base64URL);
-            embed.setAttribute('type', 'application/pdf');
-            let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
-            file_type_preview.innerHTML = "";
-            file_type_preview.appendChild(embed);
+        if (file.files[0]["name"].includes(".mp4") || file.files[0]["name"].includes(".avi") || file.files[0]["name"].includes(".pdf")) {
+            let base64URL = await encodeFileAsBase64URL(file.files[0]);
+            if (base64URL == '') {
+                let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
+                file_type_preview.innerHTML = "";
+                let msg = `
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> Fallo al cargar el archivo.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `;
+                $("#lesson-edit-form").append(msg);
+            }
+            else if (file.files[0]["name"].includes(".mp4") || file.files[0]["name"].includes(".avi")) {
+                let video = document.createElement("video");
+                video.setAttribute('src', base64URL);
+                video.setAttribute('controls', '');
+                video.setAttribute('disablePictureInPicture', '');
+                video.setAttribute('controlsList', 'nodownload noplaybackrate');
+                let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
+                file_type_preview.innerHTML = "";
+                file_type_preview.appendChild(video);
+            }
+            else {
+                let embed = document.createElement("embed");
+                embed.setAttribute('src', base64URL);
+                embed.setAttribute('type', 'application/pdf');
+                let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
+                file_type_preview.innerHTML = "";
+                file_type_preview.appendChild(embed);
+            }
         }
         else {
+            let file_type_preview = file.closest(".row-files-complete").querySelector(".file-type-preview");
+            file_type_preview.innerHTML = "";
             let msg = `
                 <div class="alert alert-danger alert-dismissible" role="alert">
-                    <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> El archivo debe de ser de tipo vídeo o pdf.
+                    <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> El archivo debe de ser de tipo mp4, avi o pdf.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             `;
             $("#lesson-edit-form").append(msg);
         }
     }
-
-    var base64URL = null;
 
     const files = document.getElementsByClassName('file');
     if (files) {
@@ -595,6 +715,10 @@ $(document).ready(function() {
             });
         }
     }
+    
+    $(document).on('click','.delete-lesson-edit-files', function(e) {
+        $(this).closest(".row-files-complete").remove();
+    });
 
     $('#add-lesson-edit-files').on('click', function() {
         let row_files_complete = document.createElement("div");
@@ -605,6 +729,7 @@ $(document).ready(function() {
         title.setAttribute("placeholder", "Título");
         title.setAttribute("type", "text");
         title.setAttribute("name", "title");
+        title.setAttribute("class", "input-md round form-control");
         row_files.appendChild(title);
         let file = document.createElement("input");
         file.setAttribute("type", "file");
@@ -631,7 +756,7 @@ $(document).ready(function() {
         $('#lesson-edit-files').append(row_files_complete);
     });
 
-    $('#edit-lessons').on('click', function(event) {
+    $('#edit-lessons').on('click', async (event) => {
         event.preventDefault();
         let id    = $('#lesson-edit-id').val();
         let name  = $('#lesson-edit-name').val();
@@ -652,7 +777,23 @@ $(document).ready(function() {
             pdf = row_files_complete[i].querySelector("embed");
             if (video || pdf) {
                 titles.push(title);
-                archive = row_files_complete[i].querySelector("input[name='file']").files[0];
+                if (row_files_complete[i].querySelector("input[name='file']").getAttribute("value")) {
+                    let path = row_files_complete[i].querySelector("input[name='file']").getAttribute("value");
+                    await fetch(path)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        if (path.includes(".mp4")) {
+                            archive = new File([blob], "nombre_del_archivo.mp4", { type: "video/mp4" });
+                        } else if (path.includes(".avi")) {
+                            archive = new File([blob], "nombre_del_archivo.avi", { type: "video/avi" });
+                        } else if (path.includes(".pdf")) {
+                            archive = new File([blob], "nombre_del_archivo.pdf", { type: "application/pdf" });
+                        }
+                    });
+                }
+                else {
+                    archive = row_files_complete[i].querySelector("input[name='file']").files[0];
+                }
                 archives.push(archive);
                 count++;
             }
@@ -690,6 +831,7 @@ $(document).ready(function() {
         });
     });
 
+    var base64URL = null;
     const header_image         = document.getElementById('header_image');
     const header_image_preview = document.getElementById('header_image_preview');
     if (header_image) {
@@ -763,7 +905,7 @@ $(document).ready(function() {
             }
         });
     });
-
+/*
     $('#add-course-create-modules').on('click', function() {
         let row_modules = document.createElement("div");
         row_modules.setAttribute("class", "row-modules");
@@ -778,12 +920,13 @@ $(document).ready(function() {
         input.setAttribute("name", "name");
         row_modules.appendChild(input);
         let link = document.createElement("a");
-        link.setAttribute("class", "delete-course-create-modules button-3d button-xs button-circle button-danger");
-        link.innerHTML = `<i class='fa fa-close'></i>`;
+        link.setAttribute("class", "delete-course-create-modules btn btn-mod btn-circle button-cancel");
+        link.innerHTML = `<i class='fa fa-times'></i>`;
         link.onclick = function() {
             $(this).parent().remove();
         }
         row_modules.appendChild(link);
         $('#course-create-modules').append(row_modules);
     });
+    */
 });

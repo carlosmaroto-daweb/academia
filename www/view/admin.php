@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Academia Cartabón</title>
+        <title>Academia Cartabón | Administración</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
@@ -32,18 +32,18 @@
                         
                         <div class="col-md-8">
                             <div class="wow fadeInUpShort" data-wow-delay=".1s">
-                                <h1 class="hs-line-7 mb-20 mb-xs-10">Blog</h1>
+                                <h1 class="hs-line-7 mb-20 mb-xs-10">Administración</h1>
                             </div>
                             <div class="wow fadeInUpShort" data-wow-delay=".2s">
                                 <p class="hs-line-6 opacity-075 mb-20 mb-xs-0">
-                                    We share our best ideas in our blog
+                                    Gestiona todo lo relacionado con los usuarios
                                 </p>
                             </div>
                         </div>
                         
                         <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
                             <div class="mod-breadcrumbs text-end">
-                                <a href="#">Home</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="#">Blog</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Classic</span>
+                                <a href="index.php">Inicio</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Administración</span>
                             </div>                                
                         </div>
                         
@@ -124,39 +124,39 @@
                 </div>
             </section>
         
-            <!-- Modals
+            <!-- Modal edit user
             ===================================== -->
             <div id="user-edit" class="mfp-hide white-popup-block">
-                <div class="text-center mb-50 mb-sm-30">
+                <div class="text-center mb-30">
                     <h2 class="section-title">Modificar usuario</h2>
                 </div>
-                <div id="edit-form" class="form">
-                    <div class="mb-20 mb-md-10">
-                        Correo <strong>(*)</strong>
-                        <input id="edit-form-email" type="text" name="email" class="input-md round form-control">
+                <form id="edit-form" class="form">
+                    <div class="form-group">
+                        <label for="edit-form-email">Correo <span class="required-field-color">(*)</span></label>
+                        <input id="edit-form-email" type="email" name="email" class="input-md round form-control">
                     </div>
-                    <div class="mb-20 mb-md-10">
-                        Contraseña <strong>(*)</strong>
+                    <div class="form-group">
+                        <label for="edit-form-password">Contraseña <span class="required-field-color">(*)</span></label>
                         <input id="edit-form-password" type="text" name="password" class="input-md round form-control">
                     </div>
-                    <div class="mb-20 mb-md-10">
-                        Nombre
+                    <div class="form-group">
+                        <label for="edit-form-name">Nombre</label>
                         <input id="edit-form-name" type="text" name="name" class="input-md round form-control">
                     </div>
-                    <div class="mb-20 mb-md-10">
-                        Apellidos
+                    <div class="form-group">
+                        <label for="edit-form-last_name">Apellidos</label>
                         <input id="edit-form-last_name" type="text" name="last_name" class="input-md round form-control">
                     </div>
-                    <div class="mb-20 mb-md-10">
-                        Teléfono
+                    <div class="form-group">
+                        <label for="edit-form-phone_number">Teléfono</label>
                         <input id="edit-form-phone_number" type="text" name="phone_number" class="input-md round form-control">
                     </div>
-                    <div class="mb-20 mb-md-10">
-                        DNI
+                    <div class="form-group">
+                        <label for="edit-form-dni">DNI</label>
                         <input id="edit-form-dni" type="text" name="dni" class="input-md round form-control">
                     </div>
-                    <div class="mb-20 mb-md-10">
-                        Tipo <strong>(*)</strong>
+                    <div class="form-group">
+                        <label for="edit-form-type">Tipo <span class="required-field-color">(*)</span></label>
                         <select id="edit-form-type" name="type" class="input-md round form-control">
                             <option id="type-student-edit" value="student">Alumno</option>
                             <option id="type-teacher-edit" value="teacher">Profesor</option>
@@ -164,53 +164,57 @@
                             <option id="type-admin-edit" value="admin">Administrador</option>
                         </select>
                     </div>
-                </div>
+                </form>
                 <div id="edit-modal-footer" class="modal-footer">
-                    <button class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>
                 </div>
             </div>
+        
+            <!-- Modal delete user
+            ===================================== -->
             <div id="user-delete" class="mfp-hide white-popup-block">
-                <div class="text-center mb-50 mb-sm-30">
+                <div class="text-center mb-30">
                     <h2 class="section-title">Eliminar usuario</h2>
                 </div>
                 <div id="delete-form">
                     <p>¿Seguro que quieres eliminar este usuario?</p>
                 </div>
                 <div id="delete-modal-footer" class="modal-footer">
-                    <button class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>
                 </div>
             </div>
+        
+            <!-- Modal create user
+            ===================================== -->
             <div id="user-create" class="mfp-hide white-popup-block">
-                <div class="text-center mb-50 mb-sm-30">
+                <div class="text-center mb-30">
                     <h2 class="section-title">Crear usuario</h2>
                 </div>
-                <div id="create-form" class="form">
-                    <div class="mb-20 mb-md-10">
-                        Correo <strong>(*)</strong>
+                <form id="create-form" class="form">
+                    <div class="form-group">
+                        <label for="create-form-email">Correo <span class="required-field-color">(*)</span></label>
                         <input id="create-form-email" type="text" name="email" class="input-md round form-control">
                     </div>
-                    <div class="mb-20 mb-md-10">
-                        Contraseña <strong>(*)</strong>
+                    <div class="form-group">
+                        <label for="create-form-password">Contraseña <span class="required-field-color">(*)</span></label>
                         <input id="create-form-password" type="text" name="password" class="input-md round form-control">
                     </div>
-                    <div class="mb-20 mb-md-10">
-                        Nombre
+                    <div class="form-group">
+                        <label for="create-form-name">Nombre</label>
                         <input id="create-form-name" type="text" name="name" class="input-md round form-control">
                     </div>
-                    <div class="mb-20 mb-md-10">
-                        Apellidos
+                    <div class="form-group">
+                        <label for="create-form-last_name">Apellidos</label>
                         <input id="create-form-last_name" type="text" name="last_name" class="input-md round form-control">
                     </div>
-                    <div class="mb-20 mb-md-10">
-                        Teléfono
+                    <div class="form-group">
+                        <label for="create-form-phone_number">Teléfono</label>
                         <input id="create-form-phone_number" type="text" name="phone_number" class="input-md round form-control">
                     </div>
-                    <div class="mb-20 mb-md-10">
-                        DNI
+                    <div class="form-group">
+                        <label for="create-form-dni">DNI</label>
                         <input id="create-form-dni" type="text" name="dni" class="input-md round form-control">
                     </div>
-                    <div class="mb-20 mb-md-10">
-                        Tipo <strong>(*)</strong>
+                    <div class="form-group">
+                        <label for="create-form-type">Tipo <span class="required-field-color">(*)</span></label>
                         <select id="create-form-type" name="type" class="input-md round form-control">
                             <option id="type-student-create" value="student">Alumno</option>
                             <option id="type-teacher-create" value="teacher">Profesor</option>
@@ -218,9 +222,8 @@
                             <option id="type-admin-create" value="admin">Administrador</option>
                         </select>
                     </div>
-                </div>
+                </form>
                 <div id="create-modal-footer" class="modal-footer">
-                    <button class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>
                 </div>
             </div>
                 

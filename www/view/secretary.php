@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Academia Cartabón</title>
+        <title>Academia Cartabón | Secretaría</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
@@ -32,18 +32,18 @@
                         
                         <div class="col-md-8">
                             <div class="wow fadeInUpShort" data-wow-delay=".1s">
-                                <h1 class="hs-line-7 mb-20 mb-xs-10">Blog</h1>
+                                <h1 class="hs-line-7 mb-20 mb-xs-10">Secretaría</h1>
                             </div>
                             <div class="wow fadeInUpShort" data-wow-delay=".2s">
                                 <p class="hs-line-6 opacity-075 mb-20 mb-xs-0">
-                                    We share our best ideas in our blog
+                                    Gestiona todo lo relacionado con los cursos
                                 </p>
                             </div>
                         </div>
                         
                         <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
                             <div class="mod-breadcrumbs text-end">
-                                <a href="#">Home</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="#">Blog</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Classic</span>
+                                <a href="index.php">Inicio</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Secretaría</span>
                             </div>                                
                         </div>
                         
@@ -53,339 +53,327 @@
             </section>
             <!-- End Home Section -->
 
-            <section class="page-section container">
+            <section class="page-section">
+                <div class="container">
                         
-                <!-- Nav Tabs -->
-                <div class="align-center mb-40 mb-xxs-30">
-                    <ul class="nav nav-tabs tpl-tabs animate" id="productItem" role="tablist">
-                        
-                        <li class="nav-item" role="presentation">
-                            <a href="#tuition" aria-controls="tuition" class="nav-link active" data-bs-toggle="tab"  role="tab" aria-selected="true">Matrículas</a>
-                        </li>
-                        
-                        <li class="nav-item" role="presentation">
-                            <a href="#course" aria-controls="course" class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false">Cursos</a>
-                        </li>
-                        
-                        <li class="nav-item" role="presentation">
-                            <a href="#subject" aria-controls="subject" class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false">Asignaturas</a>
-                        </li>
-                        
-                        <li class="nav-item" role="presentation">
-                            <a href="#module" aria-controls="module" class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false">Módulos</a>
-                        </li>
-                        
-                        <li class="nav-item" role="presentation">
-                            <a href="#lesson" aria-controls="lesson" class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false">Lecciones</a>
-                        </li>
-                        
-                    </ul>
-                </div>
-                <!-- End Nav Tabs -->
-        
-                <?php     
-                    $modules = $dataToView["modules"];
-                    $lessons = $dataToView["lessons"];
-                ?>
+                    <!-- Nav Tabs -->
+                    <div class="align-center mb-40 mb-xxs-30">
+                        <ul class="nav nav-tabs tpl-tabs animate" id="productItem" role="tablist">
                             
-                <!-- Tab panes -->
-                <div class="tab-content tpl-minimal-tabs-cont">
-                    
-                    <div class="tab-pane fade show active" id="tuition" role="tabpanel">
+                            <li class="nav-item" role="presentation">
+                                <a href="#tuition" aria-controls="tuition" class="nav-link active" data-bs-toggle="tab"  role="tab" aria-selected="true">Matrículas</a>
+                            </li>
+                            
+                            <li class="nav-item" role="presentation">
+                                <a href="#course" aria-controls="course" class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false">Cursos</a>
+                            </li>
+                            
+                            <li class="nav-item" role="presentation">
+                                <a href="#subject" aria-controls="subject" class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false">Asignaturas</a>
+                            </li>
+                            
+                            <li class="nav-item" role="presentation">
+                                <a href="#module" aria-controls="module" class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false">Módulos</a>
+                            </li>
+                            
+                            <li class="nav-item" role="presentation">
+                                <a href="#lesson" aria-controls="lesson" class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false">Lecciones</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <!-- End Nav Tabs -->
+            
+                    <?php     
+                        $modules = $dataToView["modules"];
+                        $lessons = $dataToView["lessons"];
+                    ?>
+                                
+                    <!-- Tab panes -->
+                    <div class="tab-content tpl-minimal-tabs-cont">
+                        
+                        <div class="tab-pane fade show active" id="tuition" role="tabpanel">
 
-                        <!-- Table Styles
-                        ===================================== -->
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Curso</th>
-                                                <th>Alumnos</th>
-                                                <th>Profesores</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tuition-table">
-                                            <?php
-                                                //
-                                            ?>
-                                        </tbody>
-                                    </table>
+                            <!-- Table Tuition
+                            ===================================== -->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Curso</th>
+                                                    <th>Alumnos</th>
+                                                    <th>Profesores</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tuition-table">
+                                                <?php
+                                                    //
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="container mt-50">
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <a href="" class="btn btn-mod btn-circle btn-large">Añadir nueva matrícula</a>
+                            <div class="container mt-50">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <a href="" class="btn btn-mod btn-circle btn-large button-success">Añadir nueva matrícula</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                    </div>
-                    
-                    <div class="tab-pane fade" id="course" role="tabpanel">
-                        
-                        <!-- Table Styles
-                        ===================================== -->
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Asignatura</th>
-                                                <th>Fecha Inicio</th>
-                                                <th>Fecha Fin</th>
-                                                <th>Módulos</th>
-                                                <th>Precios</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="course-table">
-                                            <?php
-                                                //
-                                            ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container mt-50">
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <a href="index.php?controller=courseController&action=editCourse" class="btn btn-mod btn-circle btn-large">Añadir nuevo curso</a>
-                                </div>
-                            </div>
+                            
                         </div>
                         
-                    </div>
-                    
-                    <div class="tab-pane fade" id="subject" role="tabpanel">
+                        <div class="tab-pane fade" id="course" role="tabpanel">
+                            
+                            <!-- Table Course
+                            ===================================== -->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Asignatura</th>
+                                                    <th>Fecha Inicio</th>
+                                                    <th>Fecha Fin</th>
+                                                    <th>Módulos</th>
+                                                    <th>Precios</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="course-table">
+                                                <?php
+                                                    //
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container mt-50">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <a href="index.php?controller=courseController&action=editCourse" class="btn btn-mod btn-circle btn-large button-success">Añadir nuevo curso</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
                         
-                        <!-- Table Styles
-                        ===================================== -->
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <th>Estudios</th>
-                                                <th>Foto de cabecera</th>
-                                                <th>Previsualización</th>
-                                                <th>Contenido</th>
-                                                <th>Módulos asignados</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="subject-table">
-                                            <?php
-                                                //
-                                            ?>
-                                        </tbody>
-                                    </table>
+                        <div class="tab-pane fade" id="subject" role="tabpanel">
+                            
+                            <!-- Table Subject
+                            ===================================== -->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                    <th>Estudios</th>
+                                                    <th>Foto de cabecera</th>
+                                                    <th>Previsualización</th>
+                                                    <th>Contenido</th>
+                                                    <th>Módulos asignados</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="subject-table">
+                                                <?php
+                                                    //
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="container mt-50">
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <a href="" class="btn btn-mod btn-circle btn-large">Añadir nueva asignatura</a>
+                            <div class="container mt-50">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <a href="" class="btn btn-mod btn-circle btn-large button-success">Añadir nueva asignatura</a>
+                                    </div>
                                 </div>
                             </div>
+                            
                         </div>
                         
-                    </div>
-                    
-                    <div class="tab-pane fade" id="module" role="tabpanel">
-                        
-                        <!-- Table Styles
-                        ===================================== -->
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <th>Foto de cabecera</th>
-                                                <th>Previsualización</th>
-                                                <th>Contenido</th>
-                                                <th>Lecciones asignadas</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="module-table">
-                                            <?php
-                                                $count = 0; 
-                                                foreach ($modules as $row):
-                                                    echo "<tr id='row{$count}'>";
-                                                        echo "<td>{$row->getName()}</td>";
-                                                        echo "<td><img class='header_image_preview' src='{$row->getHeaderImage()}'></td>";
-                                                        echo "<td><div class='canvas_preview'>{$row->getPreview()}</div></td>";
-                                                        echo "<td><div class='canvas_preview'>{$row->getContent()}</div></td>";
-                                                        echo "<td> </td>";
-                                                        echo "<td>";
-                                                            echo "<a href='index.php?controller=courseController&action=editModule&id={$row->getId()}' class='button-o button-sm button-rounded button-blue hover-fade'>Editar</a>&nbsp;";
-                                                            echo "<a class='button-o button-sm button-rounded button-purple hover-fade' data-toggle='modal' data-target='#module-duplicate' data-id='{$row->getId()}'>Duplicar</a>&nbsp;";
-                                                            echo "<a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#module-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
-                                                        echo "</td>";
-                                                    echo "</tr>";
-                                                    $count++; 
-                                                endforeach;
-                                            ?>
-                                        </tbody>
-                                    </table>
+                        <div class="tab-pane fade" id="module" role="tabpanel">
+                            
+                            <!-- Table Module
+                            ===================================== -->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                    <th>Foto de cabecera</th>
+                                                    <th>Previsualización</th>
+                                                    <th>Contenido</th>
+                                                    <th>Lecciones asignadas</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="module-table">
+                                                <?php
+                                                    $count = 0; 
+                                                    foreach ($modules as $row):
+                                                        echo "<tr id='row{$count}'>";
+                                                            echo "<td>{$row->getName()}</td>";
+                                                            echo "<td><img class='header_image_preview' src='{$row->getHeaderImage()}'></td>";
+                                                            echo "<td><div class='canvas_preview'>{$row->getPreview()}</div></td>";
+                                                            echo "<td><div class='canvas_preview'>{$row->getContent()}</div></td>";
+                                                            echo "<td> </td>";
+                                                            echo "<td>";
+                                                                echo "<a href='index.php?controller=courseController&action=editModule&id={$row->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>&nbsp;";
+                                                                echo "<a href='#module-duplicate' class='btn-module-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-module-duplicate' data-id='{$row->getId()}'>Duplicar</a>&nbsp;";
+                                                                echo "<a href='#module-delete' class='btn-module-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-module-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
+                                                            echo "</td>";
+                                                        echo "</tr>";
+                                                        $count++; 
+                                                    endforeach;
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="container mt-50">
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <a href="index.php?controller=courseController&action=editModule" class="btn btn-mod btn-circle btn-large">Añadir nuevo módulo</a>
+                            <div class="container mt-50">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <a href="index.php?controller=courseController&action=editModule" class="btn btn-mod btn-circle btn-large button-success">Añadir nuevo módulo</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </div>
-                    
-                    <div class="tab-pane fade" id="lesson" role="tabpanel">
+                        </div>
+                        
+                        <div class="tab-pane fade" id="lesson" role="tabpanel">
 
-                        <!-- Table Styles
-                        ===================================== -->
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <th>Archivos</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="lesson-table">
-                                            <?php
-                                                $count = 0; 
-                                                foreach ($lessons as $row):
-                                                    echo "<tr id='row{$count}'>";
-                                                        echo "<td>{$row->getName()}</td>";
-                                                        echo "<td>'{$row->getFiles()}'</td>";
-                                                        echo "<td> </td>";
-                                                        echo "<td>";
-                                                            echo "<a href='index.php?controller=courseController&action=editLesson&id={$row->getId()}' class='button-o button-sm button-rounded button-blue hover-fade'>Editar</a>&nbsp;";
-                                                            echo "<a class='button-o button-sm button-rounded button-purple hover-fade' data-toggle='modal' data-target='#lesson-duplicate' data-id='{$row->getId()}'>Duplicar</a>&nbsp;";
-                                                            echo "<a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#lesson-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
-                                                        echo "</td>";
-                                                    echo "</tr>";
-                                                    $count++;
-                                                endforeach;
-                                            ?>
-                                        </tbody>
-                                    </table>
+                            <!-- Table Lesson
+                            ===================================== -->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                    <th>Archivos</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="lesson-table">
+                                                <?php
+                                                    $count = 0; 
+                                                    foreach ($lessons as $row):
+                                                        echo "<tr id='row{$count}'>";
+                                                            echo "<td>{$row->getName()}</td>";
+                                                            $arrays = explode(';;', $row->getFiles());
+                                                            $countVideo = 0;
+                                                            $countPdf = 0;
+                                                            for ($i=0; $i<count($arrays); $i+=2) {
+                                                                if (str_contains($arrays[$i+1], '.mp4')  || str_contains($arrays[$i+1], '.avi')) {
+                                                                    $countVideo++;
+                                                                }
+                                                                else if (str_contains($arrays[$i+1], '.pdf')) {
+                                                                    $countPdf++;
+                                                                }
+                                                            }
+                                                            echo "<td>";
+                                                                if ($countVideo != 0) {
+                                                                    echo "<i class='fa fa-video'> {$countVideo}</i> ";
+                                                                }
+                                                                if ($countPdf != 0) {
+                                                                    echo "<i class='fa fa-file-pdf'> {$countPdf}</i>";
+                                                                }
+                                                            echo "</td>";
+                                                            echo "<td>";
+                                                                echo "<a href='index.php?controller=courseController&action=editLesson&id={$row->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>&nbsp;";
+                                                                echo "<a href='#lesson-duplicate' class='btn-lesson-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-lesson-duplicate' data-id='{$row->getId()}'>Duplicar</a>&nbsp;";
+                                                                echo "<a href='#lesson-delete' class='btn-lesson-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-lesson-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
+                                                            echo "</td>";
+                                                        echo "</tr>";
+                                                        $count++;
+                                                    endforeach;
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="container mt-50">
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <a href="index.php?controller=courseController&action=editLesson" class="btn btn-mod btn-circle btn-large">Añadir nueva lección</a>
+                            <div class="container mt-50">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <a href="index.php?controller=courseController&action=editLesson" class="btn btn-mod btn-circle btn-large button-success">Añadir nueva lección</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
+                        </div>
+                        
                     </div>
-                    
+                    <!-- End Tab panes -->
+                        
                 </div>
-                <!-- End Tab panes -->
             
             </section>
-            
-            
-            <!-- Modals
+        
+            <!-- Modal duplicate module
             ===================================== -->
-            <div class="modal fade" id="module-duplicate" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title">Duplicar módulo</h2>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div id="module-duplicate-form">
-                                <p>¿Seguro que quieres duplicar este módulo?</p>
-                            </div>
-                        </div>
-                        <div id="module-duplicate-footer" class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        </div>
-                    </div>
+            <div id="module-duplicate" class="mfp-hide white-popup-block">
+                <div class="text-center mb-30">
+                    <h2 class="section-title">Duplicar módulo</h2>
+                </div>
+                <div id="module-duplicate-form">
+                    <p>¿Seguro que quieres duplicar este módulo?</p>
+                </div>
+                <div id="module-duplicate-footer" class="modal-footer">
                 </div>
             </div>
-            <div class="modal fade" id="module-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title">Eliminar módulo</h2>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div id="module-delete-form">
-                                <p>¿Seguro que quieres eliminar este módulo?</p>
-                            </div>
-                        </div>
-                        <div id="module-delete-footer" class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        </div>
-                    </div>
+        
+            <!-- Modal delete module
+            ===================================== -->
+            <div id="module-delete" class="mfp-hide white-popup-block">
+                <div class="text-center mb-30">
+                    <h2 class="section-title">Eliminar módulo</h2>
+                </div>
+                <div id="module-delete-form">
+                    <p>¿Seguro que quieres eliminar este módulo?</p>
+                </div>
+                <div id="module-delete-footer" class="modal-footer">
                 </div>
             </div>
-            <div class="modal fade" id="lesson-duplicate" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title">Duplicar lección</h2>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div id="lesson-duplicate-form">
-                                <p>¿Seguro que quieres duplicar esta lección?</p>
-                            </div>
-                        </div>
-                        <div id="lesson-duplicate-footer" class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        </div>
-                    </div>
+            
+            <!-- Modal duplicate lesson
+            ===================================== -->
+            <div id="lesson-duplicate" class="mfp-hide white-popup-block">
+                <div class="text-center mb-30">
+                    <h2 class="section-title">Duplicar lección</h2>
+                </div>
+                <div id="lesson-duplicate-form">
+                    <p>¿Seguro que quieres duplicar esta lección?</p>
+                </div>
+                <div id="lesson-duplicate-footer" class="modal-footer">
                 </div>
             </div>
-            <div class="modal fade" id="lesson-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title">Eliminar lección</h2>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div id="lesson-delete-form">
-                                <p>¿Seguro que quieres eliminar esta lección?</p>
-                            </div>
-                        </div>
-                        <div id="lesson-delete-footer" class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        </div>
-                    </div>
+        
+            <!-- Modal delete lesson
+            ===================================== -->
+            <div id="lesson-delete" class="mfp-hide white-popup-block">
+                <div class="text-center mb-30">
+                    <h2 class="section-title">Eliminar lección</h2>
+                </div>
+                <div id="lesson-delete-form">
+                    <p>¿Seguro que quieres eliminar esta lección?</p>
+                </div>
+                <div id="lesson-delete-footer" class="modal-footer">
                 </div>
             </div>
 

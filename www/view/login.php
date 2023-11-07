@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Academia Cartabón</title>
+        <title>Academia Cartabón | Acceso</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -34,18 +34,18 @@
                             
                             <div class="col-md-8">
                                 <div class="wow fadeInUpShort" data-wow-delay=".1s">
-                                    <h1 class="hs-line-7 mb-20 mb-xs-10">My Account</h1>
+                                    <h1 class="hs-line-7 mb-20 mb-xs-10">Acceso</h1>
                                 </div>
                                 <div class="wow fadeInUpShort" data-wow-delay=".2s">
                                     <p class="hs-line-6 opacity-075 mb-20 mb-xs-0">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                                        Únete a nuestra comunidad para acceder a recursos gratuitos
                                     </p>
                                 </div>
                             </div>
                             
                             <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
                                 <div class="mod-breadcrumbs text-end">
-                                    <a href="#">Home</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="#">Pages</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>My Account</span>
+                                    <a href="index.php">Inicio</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Acceso</span>
                                 </div>                                
                             </div>
                             
@@ -85,19 +85,19 @@
                                 <div class="row">
                                     <div class="col-md-6 offset-md-3">
                                         
-                                        <div id="formLogin" class="form contact-form">
+                                        <form id="formLogin" class="form contact-form">
                                             <div class="clearfix">
                                                 
                                                 <!-- Email -->
                                                 <div class="form-group">
-                                                    <label for="login-email">Correo</label>
-                                                    <input type="email" name="email" id="login-email" class="input-lg round form-control" placeholder="Introduce tu correo" pattern=".{3,100}" aria-required="true">
+                                                    <label for="login-email">Correo <span class="required-field-color">(*)</span></label>
+                                                    <input type="email" name="email" id="login-email" class="input-lg round form-control" placeholder="Introduce tu correo">
                                                 </div>
                                                 
                                                 <!-- Password -->
                                                 <div class="form-group">
-                                                    <label for="login-password">Contraseña</label>
-                                                    <input type="password" name="password" id="login-password" class="input-lg round form-control" placeholder="Introduce tu contraseña" pattern=".{5,100}" aria-required="true">
+                                                    <label for="login-password">Contraseña <span class="required-field-color">(*)</span></label>
+                                                    <input type="password" name="password" id="login-password" class="input-lg round form-control" placeholder="Introduce tu contraseña">
                                                 </div>
                                                     
                                             </div>
@@ -124,7 +124,7 @@
                                                 
                                             </div>
                                             
-                                        </div>
+                                        </form>
                                         
                                     </div>
                                 </div>
@@ -138,19 +138,19 @@
                                 <div class="row">
                                     <div class="col-md-6 offset-md-3">
                                         
-                                        <div id="formRegister" class="form contact-form">
+                                        <form id="formRegister" class="form contact-form">
                                             <div class="clearfix">
                                                 
                                                 <!-- Email -->
                                                 <div class="form-group">
-                                                    <label for="register-email">Correo</label>
-                                                    <input type="email" name="email" id="register-email" class="input-lg round form-control" placeholder="Introduce tu correo" pattern=".{3,100}" aria-required="true">
+                                                    <label for="register-email">Correo <span class="required-field-color">(*)</span></label>
+                                                    <input type="email" name="email" id="register-email" class="input-lg round form-control" placeholder="Introduce tu correo">
                                                 </div>
                                                 
                                                 <!-- Password -->
                                                 <div class="form-group">
-                                                    <label for="register-password">Contraseña</label>
-                                                    <input type="password" name="password" id="register-password" class="input-lg round form-control" placeholder="Introduce tu contraseña" pattern=".{5,100}" aria-required="true">
+                                                    <label for="register-password">Contraseña <span class="required-field-color">(*)</span></label>
+                                                    <input type="password" name="password" id="register-password" class="input-lg round form-control" placeholder="Introduce tu contraseña">
                                                 </div>
                                                     
                                             </div>
@@ -160,7 +160,7 @@
                                                 <button class="btn btn-mod btn-large btn-round btn-full" id="btn-register">Regístrate</button>
                                             </div>
                                             
-                                        </div>
+                                        </form>
                                         
                                     </div>
                                 </div>
@@ -173,26 +173,6 @@
                     </div>
                 </section>
                 <!-- End Section -->
-                
-                
-                <!-- Call Action Section -->
-                <section class="small-section bg-dark light-content">
-                    <div class="container relative">
-                        <div class="row wow fadeInUpShort">
-                            <div class="col-md-8 offset-md-2 text-center">
-                                <h3 class="call-action-1-heading">Want to discuss your new project?</h3>
-                                <div class="call-action-1-decription mb-60 mb-sm-30">
-                                    Proin fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Integer non dapibus diam, ac eleifend lectus. Duis placerat ex gravida nibh tristique ultricies eros lorem blandit.
-                                </div>                                        
-                            
-                                <div class="local-scroll">
-                                    <a href="pages-contact-1.html" class="btn btn-mod btn-w btn-large btn-round">Let's Talk</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- End Call Action Section -->
                 
                 
             </main>

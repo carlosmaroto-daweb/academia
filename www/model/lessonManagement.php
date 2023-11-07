@@ -206,7 +206,7 @@
             $lesson = $this->getLessonById($_GET['id']);
             if ($lesson) {
                 $_POST['name'] = $lesson->getName() . " Copia";
-                duplicateArchive($lesson->getFiles());
+                $this->duplicateArchive($lesson->getFiles());
                 if ($this->db->createLesson()) {
                     $this->updateLessons();
                     $lesson = $this->getLessonByName($_POST['name']);

@@ -55,7 +55,7 @@
                             
                             <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
                                 <div class="mod-breadcrumbs text-end">
-                                    <a href="#">Home</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="#">Blog</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Single</span>
+                                    <a href="index.php">Inicio</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="#">Blog</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Single</span>
                                 </div>                                
                             </div>
                             

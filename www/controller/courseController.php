@@ -150,7 +150,14 @@
               for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) { 
                   if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
                       $title = str_replace(" ", "_", $_POST['title-'.$i]);
-                      if (!isset($_FILES[$title]) || empty($_FILES[$title]) || !is_uploaded_file($_FILES[$title]["tmp_name"])) {
+                      if (isset($_FILES[$title]) && !empty($_FILES[$title]) && is_uploaded_file($_FILES[$title]["tmp_name"])) {
+                        $array = explode('.', $_FILES[$title]["name"]);
+                        $ext = end($array);
+                        if ($ext != "mp4" && $ext != "avi" && $ext != "pdf") {
+                          $valid = false;
+                        }
+                      }
+                      else {
                         $valid = false;
                       }
                   }
@@ -162,7 +169,7 @@
                 echo $this->lessonManagement->editLesson();
               }
               else {
-                $result = json_encode(
+                echo json_encode(
                     array(
                     'success' => 0, 
                     'msg'     => 'No se ha podido editar la lección.'
@@ -195,7 +202,14 @@
             for ($i=0; $i<$_POST['count_archives'] && $valid; $i++) { 
                 if (isset($_POST['title-'.$i]) && !empty($_POST['title-'.$i])) {
                     $title = str_replace(" ", "_", $_POST['title-'.$i]);
-                    if (!isset($_FILES[$title]) || empty($_FILES[$title]) || !is_uploaded_file($_FILES[$title]["tmp_name"])) {
+                    if (isset($_FILES[$title]) && !empty($_FILES[$title]) && is_uploaded_file($_FILES[$title]["tmp_name"])) {
+                      $array = explode('.', $_FILES[$title]["name"]);
+                      $ext = end($array);
+                      if ($ext != "mp4" && $ext != "avi" && $ext != "pdf") {
+                        $valid = false;
+                      }
+                    }
+                    else {
                       $valid = false;
                     }
                 }
@@ -207,7 +221,7 @@
               echo $this->lessonManagement->createLesson();
             }
             else {
-              $result = json_encode(
+              echo json_encode(
                   array(
                   'success' => 0, 
                   'msg'     => 'No se ha podido crear la lección.'

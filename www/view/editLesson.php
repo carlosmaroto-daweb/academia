@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Academia Cartabón</title>
+        <title>Academia Cartabón | Edición lección</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
@@ -32,18 +32,18 @@
                         
                         <div class="col-md-8">
                             <div class="wow fadeInUpShort" data-wow-delay=".1s">
-                                <h1 class="hs-line-7 mb-20 mb-xs-10">Blog</h1>
+                                <h1 class="hs-line-7 mb-20 mb-xs-10">Edición de lección</h1>
                             </div>
                             <div class="wow fadeInUpShort" data-wow-delay=".2s">
                                 <p class="hs-line-6 opacity-075 mb-20 mb-xs-0">
-                                    We share our best ideas in our blog
+                                    El contenido editado se mostrará en la lección específica
                                 </p>
                             </div>
                         </div>
                         
                         <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
                             <div class="mod-breadcrumbs text-end">
-                                <a href="#">Home</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="#">Blog</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Classic</span>
+                                <a href="index.php">Inicio</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="index.php?controller=courseController&action=secretary">Secretaría</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Edición lección</span>
                             </div>                                
                         </div>
                         
@@ -61,41 +61,62 @@
                     $id    = $dataToView->getId();
                     $name  = $dataToView->getName();
                     $files = $dataToView->getFiles();
+                    $arrays = explode(';;', $files);
                 }
-                echo "<div class='container pt70'>";
-                    echo "<h4 class='text-center mt100 mb10'>Creación de la Lección</h4>";
-                    echo "<form id='lesson-edit-form'>";
-                        echo "<input id='lesson-edit-id' type='hidden' name='id' value='{$id}'>";
-                        echo "Nombre: <span class='color-pasific'>(*)</span>";
-                        echo "<br>";
-                        echo "<input id='lesson-edit-name' type='text' name='name' value='{$name}'>";
-                        echo "<br>";
-                        echo "<br>";
-                        echo "Archivos (vídeo y pdf): <span class='color-pasific'>(*)</span>";
-                        echo "<br>";
-                        echo "<div id='lesson-edit-files'>";
-                            echo "<div class='row-files-complete'>";
-                                echo "<div class='row-files'>";
-                                    echo "<input placeholder='Título' type='text' name='title'>";
-                                    echo "<input type='file' name='file' class='file'>";
-                                echo "</div>";
-                                echo "<div class='file-type-preview'>";
-                                echo "</div>";
+                echo "<section class='page-section'>";
+                    echo "<div class='container'>";
+                        echo "<form id='lesson-edit-form' class='form'>";
+                            echo "<input id='lesson-edit-id' type='hidden' name='id' value='{$id}'>";
+                            echo "<div class='form-group'>";
+                                echo "<label for='lesson-edit-name'>Nombre <span class='required-field-color'>(*)</span></label>";
+                                echo "<input id='lesson-edit-name' type='text' name='name' value='{$name}' class='input-md round form-control'>";
                             echo "</div>";
-                        echo "</div>";
-                        echo "<a id='add-lesson-edit-files' class='button-3d button-xs button-circle button-success'><i class='fa fa-plus'></i></a>";
-                    echo "</form>";
-                    echo "<div class='container mb100'>";
-                        echo "<div class='row'>";
-                            echo "<div class='col-md-12 text-center'>";
-                                echo "<h3 class='color-light text-capitalize font-open-sans'>";
-                                    echo "<a href='index.php?controller=courseController&action=secretary' class='button-3d button-md button-rounded button-danger'>Cancelar</a>&nbsp;";
-                                    echo "<a id='edit-lessons' class='button-3d button-md button-rounded button-success'>Guardar</a>";
-                                echo "</h3>";
+                            echo "<div class='form-group'>";
+                                echo "<label>Archivos (vídeo y pdf) <span class='required-field-color'>(*)</span></label>";
+                                echo "<div id='lesson-edit-files'>";
+                                    if ($files != '') {
+                                        for ($i=0; $i<count($arrays); $i+=2) {
+                                            echo "<div class='row-files-complete'>";
+                                                echo "<div class='row-files'>";
+                                                    echo "<input placeholder='Título' type='text' name='title' value='" . $arrays[$i] . "' class='input-md round form-control'>";
+                                                    echo "<input type='file' name='file' class='file' value='" . $arrays[$i+1] . "'>";
+                                                    echo "<div class='delete-lesson-edit-files btn btn-mod btn-circle button-cancel'><i class='fa fa-times'></i></div>";
+                                                echo "</div>";
+                                                echo "<div class='file-type-preview'>";
+                                                    if (str_contains($arrays[$i+1], '.mp4')  || str_contains($arrays[$i+1], '.avi')) {
+                                                        echo "<video src='" . $arrays[$i+1] . "' controls disablepictureinpicture controlslist='nodownload noplaybackrate'></video>";
+                                                    }
+                                                    else if (str_contains($arrays[$i+1], '.pdf')) {
+                                                        echo "<embed src='" . $arrays[$i+1] . "' type='application/pdf'></embed>";
+                                                    }
+                                                echo "</div>";
+                                            echo "</div>";
+                                        }
+                                    }
+                                    else {
+                                        echo "<div class='row-files-complete'>";
+                                            echo "<div class='row-files'>";
+                                                echo "<input placeholder='Título' type='text' name='title' class='input-md round form-control'>";
+                                                echo "<input type='file' name='file' class='file'>";
+                                            echo "</div>";
+                                            echo "<div class='file-type-preview'>";
+                                            echo "</div>";
+                                        echo "</div>";
+                                    }
+                                echo "</div>";
+                                echo "<a id='add-lesson-edit-files' class='btn btn-mod btn-circle button-success'><i class='fa fa-plus'></i></a>";
+                            echo "</div>";
+                        echo "</form>";
+                        echo "<div class='container mt-50'>";
+                            echo "<div class='row'>";
+                                echo "<div class='col-md-12 text-center'>";
+                                    echo "<a href='index.php?controller=courseController&action=secretary' class='btn btn-mod btn-circle btn-large button-cancel'>Cancelar</a>&nbsp;";
+                                    echo "<a id='edit-lessons' class='btn btn-mod btn-circle btn-large button-success'>Guardar</a>";
+                                echo "</div>";
                             echo "</div>";
                         echo "</div>";
                     echo "</div>";
-                echo "</div>";
+                echo "</section>";
             ?>        
 
             <!-- Footer

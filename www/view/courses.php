@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Academia Cartabón</title>
+        <title>Academia Cartabón | Cursos</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
@@ -34,18 +34,18 @@
                             
                             <div class="col-md-8">
                                 <div class="wow fadeInUpShort" data-wow-delay=".1s">
-                                    <h1 class="hs-line-7 mb-20 mb-xs-10">Blog</h1>
+                                    <h1 class="hs-line-7 mb-20 mb-xs-10">Catálogo de cursos</h1>
                                 </div>
                                 <div class="wow fadeInUpShort" data-wow-delay=".2s">
                                     <p class="hs-line-6 opacity-075 mb-20 mb-xs-0">
-                                        We share our best ideas in our blog
+                                        Explora nuestros cursos online
                                     </p>
                                 </div>
                             </div>
                             
                             <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
                                 <div class="mod-breadcrumbs text-end">
-                                    <a href="#">Home</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="#">Blog</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Classic</span>
+                                    <a href="index.php">Inicio</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Cursos</span>
                                 </div>                                
                             </div>
                             
