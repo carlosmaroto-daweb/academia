@@ -11,5 +11,5 @@
 <link rel="stylesheet" href="view/assets/css/animate.min.css">
 <link rel="stylesheet" href="view/assets/css/splitting.css">
 
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<link rel="stylesheet" href="view/assets/academia/summernote/summernote.min.css">
 <link rel="stylesheet" href="view/assets/academia/css/style.css">
