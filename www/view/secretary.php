@@ -120,7 +120,11 @@
                             <div class="container mt-50">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
+<<<<<<< HEAD
                                         <a href="" class="btn btn-mod btn-circle btn-large button-success">Añadir nueva matrícula</a>
+=======
+                                        <a href="" class="btn btn-mod btn-circle btn-large">Añadir nueva matrícula</a>
+>>>>>>> 397ff6ec1d9b96e020659d50315ee1110f1addf9
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +161,11 @@
                             <div class="container mt-50">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
+<<<<<<< HEAD
                                         <a href="index.php?controller=courseController&action=editCourse" class="btn btn-mod btn-circle btn-large button-success">Añadir nuevo curso</a>
+=======
+                                        <a href="index.php?controller=courseController&action=editCourse" class="btn btn-mod btn-circle btn-large">Añadir nuevo curso</a>
+>>>>>>> 397ff6ec1d9b96e020659d50315ee1110f1addf9
                                     </div>
                                 </div>
                             </div>
@@ -195,7 +203,11 @@
                             <div class="container mt-50">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
+<<<<<<< HEAD
                                         <a href="" class="btn btn-mod btn-circle btn-large button-success">Añadir nueva asignatura</a>
+=======
+                                        <a href="" class="btn btn-mod btn-circle btn-large">Añadir nueva asignatura</a>
+>>>>>>> 397ff6ec1d9b96e020659d50315ee1110f1addf9
                                     </div>
                                 </div>
                             </div>
@@ -231,9 +243,15 @@
                                                             echo "<td><div class='canvas_preview'>{$row->getContent()}</div></td>";
                                                             echo "<td> </td>";
                                                             echo "<td>";
+<<<<<<< HEAD
                                                                 echo "<a href='index.php?controller=courseController&action=editModule&id={$row->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>&nbsp;";
                                                                 echo "<a href='#module-duplicate' class='btn-module-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-module-duplicate' data-id='{$row->getId()}'>Duplicar</a>&nbsp;";
                                                                 echo "<a href='#module-delete' class='btn-module-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-module-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
+=======
+                                                                echo "<a href='index.php?controller=courseController&action=editModule&id={$row->getId()}' class='button-o button-sm button-rounded button-blue hover-fade'>Editar</a>&nbsp;";
+                                                                echo "<a class='button-o button-sm button-rounded button-purple hover-fade' data-toggle='modal' data-target='#module-duplicate' data-id='{$row->getId()}'>Duplicar</a>&nbsp;";
+                                                                echo "<a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#module-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
+>>>>>>> 397ff6ec1d9b96e020659d50315ee1110f1addf9
                                                             echo "</td>";
                                                         echo "</tr>";
                                                         $count++; 
@@ -247,7 +265,11 @@
                             <div class="container mt-50">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
+<<<<<<< HEAD
                                         <a href="index.php?controller=courseController&action=editModule" class="btn btn-mod btn-circle btn-large button-success">Añadir nuevo módulo</a>
+=======
+                                        <a href="index.php?controller=courseController&action=editModule" class="btn btn-mod btn-circle btn-large">Añadir nuevo módulo</a>
+>>>>>>> 397ff6ec1d9b96e020659d50315ee1110f1addf9
                                     </div>
                                 </div>
                             </div>
@@ -275,6 +297,7 @@
                                                     foreach ($lessons as $row):
                                                         echo "<tr id='row{$count}'>";
                                                             echo "<td>{$row->getName()}</td>";
+<<<<<<< HEAD
                                                             $arrays = explode(';;', $row->getFiles());
                                                             $countVideo = 0;
                                                             $countPdf = 0;
@@ -298,6 +321,14 @@
                                                                 echo "<a href='index.php?controller=courseController&action=editLesson&id={$row->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>&nbsp;";
                                                                 echo "<a href='#lesson-duplicate' class='btn-lesson-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-lesson-duplicate' data-id='{$row->getId()}'>Duplicar</a>&nbsp;";
                                                                 echo "<a href='#lesson-delete' class='btn-lesson-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-lesson-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
+=======
+                                                            echo "<td>'{$row->getFiles()}'</td>";
+                                                            echo "<td> </td>";
+                                                            echo "<td>";
+                                                                echo "<a href='index.php?controller=courseController&action=editLesson&id={$row->getId()}' class='button-o button-sm button-rounded button-blue hover-fade'>Editar</a>&nbsp;";
+                                                                echo "<a class='button-o button-sm button-rounded button-purple hover-fade' data-toggle='modal' data-target='#lesson-duplicate' data-id='{$row->getId()}'>Duplicar</a>&nbsp;";
+                                                                echo "<a class='button-o button-sm button-rounded button-red hover-fade' data-toggle='modal' data-target='#lesson-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
+>>>>>>> 397ff6ec1d9b96e020659d50315ee1110f1addf9
                                                             echo "</td>";
                                                         echo "</tr>";
                                                         $count++;
@@ -311,7 +342,11 @@
                             <div class="container mt-50">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
+<<<<<<< HEAD
                                         <a href="index.php?controller=courseController&action=editLesson" class="btn btn-mod btn-circle btn-large button-success">Añadir nueva lección</a>
+=======
+                                        <a href="index.php?controller=courseController&action=editLesson" class="btn btn-mod btn-circle btn-large">Añadir nueva lección</a>
+>>>>>>> 397ff6ec1d9b96e020659d50315ee1110f1addf9
                                     </div>
                                 </div>
                             </div>

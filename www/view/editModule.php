@@ -2,7 +2,10 @@
 <html lang="es">
     <head>
         <title>Academia Cartabón | Edición módulo</title>
+<<<<<<< HEAD
         <title>Academia Cartabón | Edición módulo</title>
+=======
+>>>>>>> 397ff6ec1d9b96e020659d50315ee1110f1addf9
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
@@ -34,12 +37,18 @@
                         <div class="col-md-8">
                             <div class="wow fadeInUpShort" data-wow-delay=".1s">
                                 <h1 class="hs-line-7 mb-20 mb-xs-10">Edición de módulo</h1>
+<<<<<<< HEAD
                                 <h1 class="hs-line-7 mb-20 mb-xs-10">Edición de módulo</h1>
+=======
+>>>>>>> 397ff6ec1d9b96e020659d50315ee1110f1addf9
                             </div>
                             <div class="wow fadeInUpShort" data-wow-delay=".2s">
                                 <p class="hs-line-6 opacity-075 mb-20 mb-xs-0">
                                     El contenido editado se mostrará en el módulo específico
+<<<<<<< HEAD
                                     El contenido editado se mostrará en el módulo específico
+=======
+>>>>>>> 397ff6ec1d9b96e020659d50315ee1110f1addf9
                                 </p>
                             </div>
                         </div>
@@ -47,7 +56,10 @@
                         <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
                             <div class="mod-breadcrumbs text-end">
                                 <a href="index.php">Inicio</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="index.php?controller=courseController&action=secretary">Secretaría</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Edición módulo</span>
+<<<<<<< HEAD
                                 <a href="index.php">Inicio</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="index.php?controller=courseController&action=secretary">Secretaría</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Edición módulo</span>
+=======
+>>>>>>> 397ff6ec1d9b96e020659d50315ee1110f1addf9
                             </div>                                
                         </div>
                         
@@ -72,6 +84,7 @@
                 }
                 echo "<section class='page-section'>";
                     echo "<div class='container'>";
+<<<<<<< HEAD
                         echo "<form id='module-edit-form' class='form'>";
                             echo "<input id='module-edit-id' type='hidden' name='id' value='{$id}'>";
                             echo "<div class='form-group'>";
@@ -91,6 +104,29 @@
                                 echo "<label for='header_image'>Contenido <span class='required-field-color'>(*)</span></label>";
                                 echo "<div id='content'>{$content}</div>";
                             echo "</div>";
+=======
+                        echo "<form id='module-edit-form'>";
+                            echo "<input id='module-edit-id' type='hidden' name='id' value='{$id}'>";
+                            echo "Nombre <span class='required-field-color'>(*)</span>";
+                            echo "<br>";
+                            echo "<input id='module-edit-name' type='text' name='name' value='{$name}'>";
+                            echo "<br>";
+                            echo "<br>";
+                            echo "Foto de cabecera <span class='required-field-color'>(*)</span>";
+                            echo "<br>";
+                            echo "<input type='file' id='header_image' name='header_image' accept='.jpg, .jpeg, .png' />";
+                            echo "<img id='header_image_preview' src='{$header_image}'>";
+                            echo "<br>";
+                            echo "<br>";
+                            echo "Contenido previsualización <span class='required-field-color'>(*)</span>";
+                            echo "<br>";
+                            echo "<div id='preview'>{$preview}</div>";
+                            echo "<br>";
+                            echo "<br>";
+                            echo "Contenido <span class='required-field-color'>(*)</span>";
+                            echo "<br>";
+                            echo "<div id='content'>{$content}</div>";
+>>>>>>> 397ff6ec1d9b96e020659d50315ee1110f1addf9
                         echo "</form>";
                         echo "<div class='container mt-50'>";
                             echo "<div class='row'>";
@@ -102,7 +138,10 @@
                         echo "</div>";
                     echo "</div>";
                 echo "</section>";
+<<<<<<< HEAD
                 echo "</section>";
+=======
+>>>>>>> 397ff6ec1d9b96e020659d50315ee1110f1addf9
             ?>
 
             <!-- Footer

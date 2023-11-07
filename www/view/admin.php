@@ -103,8 +103,8 @@
                                                 };
                                                 echo "<td>{$type}</td>";
                                                 echo "<td>";
-                                                    echo "<a href='#user-edit' class='btn btn-mod btn-border btn-circle btn-small lightbox-gallery-5 mfp-inline' data-id_row='row{$count}' data-id='{$row->getId()}' data-email='{$row->getEmail()}' data-password='{$row->getPassword()}' data-name='{$row->getName()}' data-last_name='{$row->getLastName()}' data-phone_number='{$row->getPhoneNumber()}' data-dni='{$row->getDni()}' data-type='{$row->getType()}'>Modificar</a>&nbsp;";
-                                                    echo "<a href='#user-delete' class='btn btn-mod btn-border btn-circle btn-small lightbox-gallery-5 mfp-inline' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
+                                                    echo "<a href='#user-edit' class='btn-user-edit btn btn-mod btn-border btn-circle btn-small lightbox-gallery-1 mfp-inline' data-id_row='row{$count}' data-id='{$row->getId()}' data-email='{$row->getEmail()}' data-password='{$row->getPassword()}' data-name='{$row->getName()}' data-last_name='{$row->getLastName()}' data-phone_number='{$row->getPhoneNumber()}' data-dni='{$row->getDni()}' data-type='{$row->getType()}'>Modificar</a>&nbsp;";
+                                                    echo "<a href='#user-delete' class='btn-user-delete btn btn-mod btn-border btn-circle btn-small lightbox-gallery-2 mfp-inline' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
                                                 echo "</td>";
                                             echo "</tr>";
                                             $count++; 
@@ -118,7 +118,7 @@
                 <div class="container mt-50">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <a href='#user-create' class="btn btn-mod btn-circle btn-large lightbox-gallery-5 mfp-inline">Añadir nuevo usuario</a>
+                            <a href='#user-create' class="btn-user-create btn btn-mod btn-circle btn-large lightbox-gallery-3 mfp-inline">Añadir nuevo usuario</a>
                         </div>
                     </div>
                 </div>
