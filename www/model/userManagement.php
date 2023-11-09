@@ -247,7 +247,7 @@
          * Método que devuelve true si el id lo tiene algún usuario guardado.
          * 
          * @param  int id del usuario a consultar.
-         * @return Devuelve el true si el id lo tiene algún usuario guardado.
+         * @return Devuelve true si el id lo tiene algún usuario guardado.
         */
         private function isRegistered($id) {
             $result = false;
@@ -265,7 +265,7 @@
          * 
          * @param  int id del usuario a consultar.
          * @param  String email del usuario a consultar.
-         * @return Devuelve el true si el id lo tiene algún usuario guardado
+         * @return Devuelve true si el id lo tiene algún usuario guardado
          *         excluyendo el usuario que tenga el mismo id.
         */
         private function isRepeated($id, $email) {
