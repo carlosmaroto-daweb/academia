@@ -209,7 +209,7 @@
         function duplicateLesson() {
             $lesson = $this->getLessonById($_GET['id']);
             if ($lesson) {
-                $_POST['name'] = $lesson->getName() . " Copia";
+                $_POST['name'] = $lesson->getName() . ' ' . uniqid();
                 $this->duplicateArchive($lesson->getFiles());
                 if ($this->db->createLesson()) {
                     $this->updateLessons();
