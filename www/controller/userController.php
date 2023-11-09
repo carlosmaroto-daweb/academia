@@ -9,8 +9,8 @@
 
   /* 
    * Esta clase gestiona las funcionalidades que tienen relación con los 
-   * usuarios, tales como crear, editar y eliminar usuarios si el usuario que
-   * realiza la acción es administrador, registrarse, iniciar o cerrar sesión
+   * usuarios, tales como crear, editar y eliminar usuarios (si el usuario que
+   * realiza la acción es administrador), registrarse, iniciar o cerrar sesión
    * en la página cualquier usuario, definir rutas como inicio, home, admin y 
    * login para cambiar la vista del usuario, y métodos para verificar datos.
    * 
