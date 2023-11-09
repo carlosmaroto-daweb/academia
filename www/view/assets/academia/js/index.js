@@ -248,8 +248,6 @@ $(document).ready(function() {
         $('#create-modal-footer').append(button);
         button = '<button id="btn-create" class="btn btn-mod btn-small btn-round">Crear usuario</button>';
         $('#create-modal-footer').append(button);
-        button = '<button id="btn-create" class="btn btn-mod btn-small btn-round">Crear usuario</button>';
-        $('#create-modal-footer').append(button);
         $("#btn-create-cancel").on('click', function(e) {
             e.preventDefault();
             $.magnificPopup.close();

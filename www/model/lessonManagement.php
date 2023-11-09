@@ -44,9 +44,10 @@
         }
 
         /*
-        * Método que guarda los archivos pasados por parámetro y guarda en
-        * la variable files los nombres de los archivos y las rutas de los
-        * archivos creados.
+        * Método que guarda los archivos pasados por FILES en una ruta
+        * especificada en el archivo config con un nombre único. Devuelve
+        * una cadena de texto con el siguiente formato para cada archivo:
+        * <nombre_archivo>;;<ruta_archivo>
         * 
         * @return String nombres de los archivos y las rutas de los
         *                archivos creados
