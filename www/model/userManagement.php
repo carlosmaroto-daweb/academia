@@ -1,4 +1,7 @@
 <?php
+    // Comprobamos que no puedan entrar por ruta absoluta
+    defined('ABSPATH') or die('Hey Bro! You cannot access this file... twat!');
+
     // Incluimos el archivo db.php para instanciar la clase como objeto,
     // esta clase va a gestionar la comunicación con la base de datos.
     require_once 'model/db.php';

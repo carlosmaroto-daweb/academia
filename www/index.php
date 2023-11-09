@@ -21,6 +21,7 @@
     $controller_path = 'controller/'.$_GET["controller"].'.php';
     if (!file_exists($controller_path)) {
         $controller_path = 'controller/'.constant("DEFAULT_CONTROLLER").'.php';
+        $_GET["controller"] = constant("DEFAULT_CONTROLLER");
     }
 
     // Incluimos el controlador y creamos una instancia de él.
