@@ -4,7 +4,7 @@
   require_once 'model/userManagement.php';
 
   // Incluimos el archivo courseController.php para instanciar la clase como objeto,
-  // esta clase va a devolver los datos relativos a la vista home del usuario.
+  // esta clase va a devolver los datos correspondientes a la vista home del usuario.
   require_once 'controller/courseController.php';
 
   /* 
