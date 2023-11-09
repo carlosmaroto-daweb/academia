@@ -126,7 +126,7 @@
         function duplicateModule() {
             $module = $this->getModuleById($_GET['id']);
             if ($module) {
-                $_POST['name']         = $module->getName() . " Copia";
+                $_POST['name']         = $module->getName() . ' ' . uniqid();
                 $_POST['header_image'] = $module->getHeaderImage();
                 $_POST['preview']      = $module->getPreview();
                 $_POST['content']      = $module->getContent();
