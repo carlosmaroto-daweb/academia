@@ -16,17 +16,17 @@
     require_once 'config/config.php';
 
     /* 
-    * Esta clase hace de intermediaria entre el controlador courseController
-    * con funcionalidades de gestión de lecciones, y modelos como el de la base 
-    * de datos db y el modelo que define los campos de las lecciones lesson.
-    * De forma que termina de ejecutar las funcionalidades implementadas en el
-    * controlador courseController como crear, duplicar, editar y eliminar
-    * lecciones, haciendo comprobaciones con la lista de lecciones actuales de la
-    * base de datos y posteriormente llamar a los métodos de la base de datos 
-    * para terminar el proceso y devolver el resultado.
-    * 
-    * @author: Carlos Maroto
-    * @version: v1.0.0 Carlos Maroto
+     * Esta clase hace de intermediaria entre el controlador courseController
+     * con funcionalidades de gestión de lecciones, y modelos como el de la base 
+     * de datos db y el modelo que define los campos de las lecciones lesson.
+     * De forma que termina de ejecutar las funcionalidades implementadas en el
+     * controlador courseController como crear, duplicar, editar y eliminar
+     * lecciones, haciendo comprobaciones con la lista de lecciones actuales de la
+     * base de datos y posteriormente llamar a los métodos de la base de datos 
+     * para terminar el proceso y devolver el resultado.
+     * 
+     * @author: Carlos Maroto
+     * @version: v1.0.0 Carlos Maroto
     */
     class LessonManagement {
         
@@ -35,10 +35,10 @@
         private $lessons;
 
         /*
-        * Creamos una instancia de Db al inicio para poder utilizarla más 
-        * adelante, a su vez el constructor de esta clase crea una conexión
-        * con la base de datos. Además actualiza la lista de lecciones, por
-        * lo que siempre estamos trabajando con los nuevos datos.
+         * Creamos una instancia de Db al inicio para poder utilizarla más 
+         * adelante, a su vez el constructor de esta clase crea una conexión
+         * con la base de datos. Además actualiza la lista de lecciones, por
+         * lo que siempre estamos trabajando con los nuevos datos.
         */
         function __construct() {
             $this->db = new Db();
@@ -46,14 +46,14 @@
         }
 
         /*
-        * Método que guarda los archivos pasados por FILES en una ruta
-        * especificada en el archivo config con un nombre único. Devuelve
-        * una cadena de texto con el siguiente formato para cada archivo:
-        * <nombre_archivo>;;<ruta_archivo>. En caso de que no tenga permisos
-        * sobre los directorios devolverá una cadena vacía.
-        * 
-        * @return String nombres de los archivos y las rutas de los
-        *                archivos creados o una cadena vacía
+         * Método que guarda los archivos pasados por FILES en una ruta
+         * especificada en el archivo config con un nombre único. Devuelve
+         * una cadena de texto con el siguiente formato para cada archivo:
+         * <nombre_archivo>;;<ruta_archivo>. En caso de que no tenga permisos
+         * sobre los directorios devolverá una cadena vacía.
+         * 
+         * @return String nombres de los archivos y las rutas de los
+         *                archivos creados o una cadena vacía
         */
         private function createArchives() {
             $title = '';
@@ -204,13 +204,13 @@
         }
 
         /*
-        * Método que crea una copia de los archivos originales. Devuelve una
-        * cadena de texto con el siguiente formato para cada archivo:
-        * <nombre_archivo>;;<ruta_archivo>. En caso de que no tenga permisos
-        * sobre los directorios devolverá una cadena vacía.
-        * 
-        * @return String nombres de los archivos y las rutas de los
-        *                archivos creados o una cadena vacía
+         * Método que crea una copia de los archivos originales. Devuelve una
+         * cadena de texto con el siguiente formato para cada archivo:
+         * <nombre_archivo>;;<ruta_archivo>. En caso de que no tenga permisos
+         * sobre los directorios devolverá una cadena vacía.
+         *  
+         * @return String nombres de los archivos y las rutas de los
+         *                archivos creados o una cadena vacía
         */
         private function duplicateArchive($original) {
             $arrays = explode(';;', $original);
@@ -395,10 +395,10 @@
         }
 
         /*
-        * Método de consulta que devuelve el array privado lessons que contiene
-        * la lista de todas las lecciones actuales de la base de datos.
-        * 
-        * @return Lista de las lecciones de la base de datos.
+         * Método de consulta que devuelve el array privado lessons que contiene
+         * la lista de todas las lecciones actuales de la base de datos.
+         * 
+         * @return Lista de las lecciones de la base de datos.
         */
         function getLessons() {
             return $this->lessons;
