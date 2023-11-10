@@ -1,4 +1,9 @@
 <?php
+  // Comprobamos que no puedan entrar por ruta absoluta
+  if (session_status() != PHP_SESSION_ACTIVE) {
+      die('Hey Bro! You cannot access this file... twat!');
+  }
+
   // Incluimos el archivo userManagement.php para instanciar la clase como objeto,
   // esta clase va a gestionar las operaciones sobre los usuarios de la bd.
   require_once 'model/userManagement.php';
