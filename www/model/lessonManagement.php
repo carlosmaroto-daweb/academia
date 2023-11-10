@@ -131,7 +131,7 @@
         }
 
         /*
-         * Método que elimina los archivos almacenados en las ruta.
+         * Método que elimina los archivos almacenados en las rutas.
          * 
          * @param  String nombres y rutas de los archivos
          * @return Bool resultado de la operación
