@@ -306,13 +306,15 @@
 
         /*
          * Método que comprueba que el id introducido corresponde al id de una 
-         * lección de la base de datos y llama a la base de datos para editar la
-         * lección. Si todo funciona correctamente y se cumple las condiciones 
-         * se devuelve que ha sido un éxito, en caso contrario se muestra un 
+         * lección de la base de datos, crea los nuevos archivos y llama a la
+         * base de datos para editar la lección. Si todo funciona correctamente 
+         * y se cumple las condiciones se eliminan los archivos guardados 
+         * anteriormente y se devuelve que ha sido un éxito, en caso contrario se muestra un 
          * mensaje del error correspondiente.
          * 
-         * Previamente se ha comprobado que estén los parámetros id, name, 
-         * y files en el controlador y que sean válidos.
+         * Previamente se ha compropado que estén los parámetros name, 
+         * count_archives, title-X (por cada archivo) y su respectivo FILE en
+         * el controlador y que sean válidos.
          * 
          * @return JSON con parámetros success y en caso de error msg.
         */
@@ -364,7 +366,7 @@
          * Método que devuelve la lección dada por su id.
          * 
          * @param  int id de la lección a consultar.
-         * @return Devuelve la lección dada su id o null si no se encuentra.
+         * @return Devuelve la lección dada por su id o null si no se encuentra.
         */
         function getLessonById($id) {
             $result = null;
@@ -380,7 +382,7 @@
          * Método que devuelve la lección dado por su nombre.
          * 
          * @param  String nombre de la lección a consultar.
-         * @return Devuelve la lección dado su nombre o null si no se encuentra.
+         * @return Devuelve la lección dado por su nombre o null si no se encuentra.
         */
         private function getLessonByName($name) {
             $result = null;
