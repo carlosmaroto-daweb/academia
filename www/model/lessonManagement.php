@@ -355,7 +355,7 @@
                 $result = json_encode(
                     array(
                     'success' => 0, 
-                    'msg'     => 'No se ha podido editar la lección.'
+                    'msg'     => 'La lección no se encuentra en la base de datos.'
                     )
                 );
             }
