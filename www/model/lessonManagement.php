@@ -61,10 +61,10 @@
                 $noPrivileges = true;
             }
             for ($i=0; $i<$_POST['count_archives'] && !$noPrivileges; $i++) { 
-                $title = str_replace(" ", "_", $_POST['title-'.$i]);
-                $array = explode('.', $_FILES[$title]["name"]);
+                $title = str_replace(' ', '_', $_POST['title-'.$i]);
+                $array = explode('.', $_FILES[$title]['name']);
                 $ext = end($array);
-                $url_temp = $_FILES[$title]["tmp_name"];
+                $url_temp = $_FILES[$title]['tmp_name'];
                 $url_target = constant('DEFAULT_UPDATE') . '/' . uniqid() . '.' . $ext;
                 if (!@move_uploaded_file($url_temp, $url_target)) {
                     $noPrivileges = true;
