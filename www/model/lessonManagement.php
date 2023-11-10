@@ -81,7 +81,6 @@
                 }
             }
             if ($noPrivileges) {
-                $this->deleteArchives($files);
                 $files = '';
             }
             return $files;
