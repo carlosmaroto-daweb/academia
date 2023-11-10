@@ -13,17 +13,17 @@
     require_once 'model/module.php';
 
     /* 
-    * Esta clase hace de intermediaria entre el controlador courseController
-    * con funcionalidades de gestión de módulos, y modelos como el de la base 
-    * de datos db y el modelo que define los campos de los módulos module.
-    * De forma que termina de ejecutar las funcionalidades implementadas en el
-    * controlador courseController como crear, duplicar, editar y eliminar
-    * módulos, haciendo comprobaciones con la lista de módulos actuales de la
-    * base de datos y posteriormente llamar a los métodos de la base de datos 
-    * para terminar el proceso y devolver el resultado.
-    * 
-    * @author: Carlos Maroto
-    * @version: v1.0.0 Carlos Maroto
+     * Esta clase hace de intermediaria entre el controlador courseController
+     * con funcionalidades de gestión de módulos, y modelos como el de la base 
+     * de datos db y el modelo que define los campos de los módulos module.
+     * De forma que termina de ejecutar las funcionalidades implementadas en el
+     * controlador courseController como crear, duplicar, editar y eliminar
+     * módulos, haciendo comprobaciones con la lista de módulos actuales de la
+     * base de datos y posteriormente llamar a los métodos de la base de datos 
+     * para terminar el proceso y devolver el resultado.
+     * 
+     * @author: Carlos Maroto
+     * @version: v1.0.0 Carlos Maroto
     */
     class ModuleManagement {
         
@@ -32,10 +32,10 @@
         private $modules;
 
         /*
-        * Creamos una instancia de Db al inicio para poder utilizarla más 
-        * adelante, a su vez el constructor de esta clase crea una conexión
-        * con la base de datos. Además actualiza la lista de módulos, por
-        * lo que siempre estamos trabajando con los nuevos datos.
+         * Creamos una instancia de Db al inicio para poder utilizarla más 
+         * adelante, a su vez el constructor de esta clase crea una conexión
+         * con la base de datos. Además actualiza la lista de módulos, por
+         * lo que siempre estamos trabajando con los nuevos datos.
         */
         function __construct() {
             $this->db = new Db();
@@ -245,10 +245,10 @@
         }
 
         /*
-        * Método de consulta que devuelve el array privado modules que contiene
-        * la lista de todos los módulos actuales de la base de datos.
-        * 
-        * @return Lista de los módulos de la base de datos.
+         * Método de consulta que devuelve el array privado modules que contiene
+         * la lista de todos los módulos actuales de la base de datos.
+         * 
+         * @return Lista de los módulos de la base de datos.
         */
         function getModules() {
             return $this->modules;

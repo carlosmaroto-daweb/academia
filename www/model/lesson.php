@@ -1,10 +1,10 @@
 <?php
     /* 
-    * Esta clase forma la estructura de datos que puede tener una lección,
-    * es utilizada para instanciar lecciones y poder manejar sus datos.
-    * 
-    * @author: Carlos Maroto
-    * @version: v1.0.0 Carlos Maroto
+     * Esta clase forma la estructura de datos que puede tener una lección,
+     * es utilizada para instanciar lecciones y poder manejar sus datos.
+     * 
+     * @author: Carlos Maroto
+     * @version: v1.0.0 Carlos Maroto
     */
     class Lesson {
 
@@ -28,27 +28,27 @@
         }
 
         /*
-        * Método de consulta del atributo id.
-        * 
-        * @return Devuelve el id de la lección
+         * Método de consulta del atributo id.
+         * 
+         * @return Devuelve el id de la lección
         */
         function getId() {
             return $this->id;
         }
 
         /*
-        * Método de consulta del atributo name.
-        * 
-        * @return Devuelve el nombre de la lección
+         * Método de consulta del atributo name.
+         * 
+         * @return Devuelve el nombre de la lección
         */
         function getName() {
             return $this->name;
         }
 
         /*
-        * Método de consulta del atributo files.
-        * 
-        * @return Devuelve los archivos de la lección
+         * Método de consulta del atributo files.
+         * 
+         * @return Devuelve los archivos de la lección
         */
         function getFiles() {
             return $this->files;

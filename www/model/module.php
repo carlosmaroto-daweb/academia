@@ -1,10 +1,10 @@
 <?php
     /* 
-    * Esta clase forma la estructura de datos que puede tener un módulo,
-    * es utilizada para instanciar módulos y poder manejar sus datos.
-    * 
-    * @author: Carlos Maroto
-    * @version: v1.0.0 Carlos Maroto
+     * Esta clase forma la estructura de datos que puede tener un módulo,
+     * es utilizada para instanciar módulos y poder manejar sus datos.
+     * 
+     * @author: Carlos Maroto
+     * @version: v1.0.0 Carlos Maroto
     */
     class Module {
 
@@ -33,45 +33,45 @@
         }
 
         /*
-        * Método de consulta del atributo id.
-        * 
-        * @return Devuelve el id del módulo
+         * Método de consulta del atributo id.
+         * 
+         * @return Devuelve el id del módulo
         */
         function getId() {
             return $this->id;
         }
 
         /*
-        * Método de consulta del atributo name.
-        * 
-        * @return Devuelve el nombre del módulo
+         * Método de consulta del atributo name.
+         * 
+         * @return Devuelve el nombre del módulo
         */
         function getName() {
             return $this->name;
         }
 
         /*
-        * Método de consulta del atributo header_image.
-        * 
-        * @return Devuelve la imagen de cabecera del módulo
+         * Método de consulta del atributo header_image.
+         * 
+         * @return Devuelve la imagen de cabecera del módulo
         */
         function getHeaderImage() {
             return $this->header_image;
         }
 
         /*
-        * Método de consulta del atributo preview.
-        * 
-        * @return Devuelve el contenido de previsualización del módulo
+         * Método de consulta del atributo preview.
+         * 
+         * @return Devuelve el contenido de previsualización del módulo
         */
         function getPreview() {
             return $this->preview;
         }
 
         /*
-        * Método de consulta del atributo content.
-        * 
-        * @return Devuelve el contenido del módulo
+         * Método de consulta del atributo content.
+         * 
+         * @return Devuelve el contenido del módulo
         */
         function getContent() {
             return $this->content;

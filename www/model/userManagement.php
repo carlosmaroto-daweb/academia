@@ -13,18 +13,18 @@
     require_once 'model/user.php';
 
     /* 
-    * Esta clase hace de intermediaria entre el controlador userController con
-    * funcionalidades de gestión de usuarios, y modelos como el de la base de 
-    * datos db y el modelo que define los campos de los usuarios user.
-    * De forma que termina de ejecutar las funcionalidades implementadas en el
-    * controlador userController como crear, editar y eliminar usuarios, además
-    * de iniciar sesión y resgistrar a los usuarios, haciendo comprobaciones con
-    * la lista de usuarios actuales de la base de datos y posteriormente 
-    * llamar a los métodos de la base de datos para terminar el proceso y 
-    * devolver el resultado.
-    * 
-    * @author: Carlos Maroto
-    * @version: v1.0.0 Carlos Maroto
+     * Esta clase hace de intermediaria entre el controlador userController con
+     * funcionalidades de gestión de usuarios, y modelos como el de la base de 
+     * datos db y el modelo que define los campos de los usuarios user.
+     * De forma que termina de ejecutar las funcionalidades implementadas en el
+     * controlador userController como crear, editar y eliminar usuarios, además
+     * de iniciar sesión y resgistrar a los usuarios, haciendo comprobaciones con
+     * la lista de usuarios actuales de la base de datos y posteriormente 
+     * llamar a los métodos de la base de datos para terminar el proceso y 
+     * devolver el resultado.
+     *
+     * @author: Carlos Maroto
+     * @version: v1.0.0 Carlos Maroto
     */
     class UserManagement {
         
@@ -33,10 +33,10 @@
         private $users;
 
         /*
-        * Creamos una instancia de Db al inicio para poder utilizarla más 
-        * adelante, a su vez el constructor de esta clase crea una conexión
-        * con la base de datos. Además actualiza la lista de usuarios, por
-        * lo que siempre estamos trabajando con los nuevos datos.
+         * Creamos una instancia de Db al inicio para poder utilizarla más 
+         * adelante, a su vez el constructor de esta clase crea una conexión
+         * con la base de datos. Además actualiza la lista de usuarios, por
+         * lo que siempre estamos trabajando con los nuevos datos.
         */
         function __construct() {
             $this->db = new Db();
@@ -236,10 +236,10 @@
         }
 
         /*
-        * Método de consulta que devuelve el array privado users que contiene
-        * la lista de todos los usuarios actuales de la base de datos.
-        * 
-        * @return Lista de los usuarios de la base de datos.
+         * Método de consulta que devuelve el array privado users que contiene
+         * la lista de todos los usuarios actuales de la base de datos.
+         * 
+         * @return Lista de los usuarios de la base de datos.
         */
         function getUsers() {
             return $this->users;

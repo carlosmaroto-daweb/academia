@@ -1,10 +1,10 @@
 <?php
     /* 
-    * Esta clase forma la estructura de datos que puede tener un usuario,
-    * es utilizada para instanciar usuarios y poder manejar sus datos.
-    * 
-    * @author: Carlos Maroto
-    * @version: v1.0.0 Carlos Maroto
+     * Esta clase forma la estructura de datos que puede tener un usuario,
+     * es utilizada para instanciar usuarios y poder manejar sus datos.
+     * 
+     * @author: Carlos Maroto
+     * @version: v1.0.0 Carlos Maroto
     */
     class User {
 
@@ -42,72 +42,72 @@
         }
 
         /*
-        * Método de consulta del atributo id.
-        * 
-        * @return Devuelve el id del usuario
+         * Método de consulta del atributo id.
+         * 
+         * @return Devuelve el id del usuario
         */
         function getId() {
             return $this->id;
         }
 
         /*
-        * Método de consulta del atributo email.
-        * 
-        * @return Devuelve el correo del usuario
+         * Método de consulta del atributo email.
+         * 
+         * @return Devuelve el correo del usuario
         */
         function getEmail() {
             return $this->email;
         }
 
         /*
-        * Método de consulta del atributo password.
-        * 
-        * @return Devuelve la contraseña del usuario
+         * Método de consulta del atributo password.
+         * 
+         * @return Devuelve la contraseña del usuario
         */
         function getPassword() {
             return $this->password;
         }
 
         /*
-        * Método de consulta del atributo name.
-        * 
-        * @return Devuelve el nombre del usuario
+         * Método de consulta del atributo name.
+         * 
+         * @return Devuelve el nombre del usuario
         */
         function getName() {
             return $this->name;
         }
 
         /*
-        * Método de consulta del atributo last_name.
-        * 
-        * @return Devuelve el apellido del usuario
+         * Método de consulta del atributo last_name.
+         * 
+         * @return Devuelve el apellido del usuario
         */
         function getLastName() {
             return $this->last_name;
         }
 
         /*
-        * Método de consulta del atributo phone_number.
-        * 
-        * @return Devuelve el número de teléfono del usuario
+         * Método de consulta del atributo phone_number.
+         * 
+         * @return Devuelve el número de teléfono del usuario
         */
         function getPhoneNumber() {
             return $this->phone_number;
         }
 
         /*
-        * Método de consulta del atributo dni.
-        * 
-        * @return Devuelve el dni del usuario
+         * Método de consulta del atributo dni.
+         * 
+         * @return Devuelve el dni del usuario
         */
         function getDni() {
             return $this->dni;
         }
 
         /*
-        * Método de consulta del atributo type.
-        * 
-        * @return Devuelve el tipo del usuario
+         * Método de consulta del atributo type.
+         * 
+         * @return Devuelve el tipo del usuario
         */
         function getType() {
             return $this->type;
