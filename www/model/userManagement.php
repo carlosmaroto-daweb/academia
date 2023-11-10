@@ -7,9 +7,6 @@
     // Incluimos el archivo db.php para instanciar la clase como objeto,
     // esta clase va a gestionar la comunicación con la base de datos.
     require_once 'model/db.php';
-
-    // Incluimos el archivo config.php para utilizar las constantes definidas en él.
-    require_once 'config/config.php';
     
     // Incluimos el archivo user.php para instanciar la clase como objeto,
     // esta clase define los campos que van a tener los usuarios.

@@ -12,9 +12,6 @@
     // esta clase define los campos que van a tener las lecciones.
     require_once 'model/lesson.php';
 
-    // Incluimos el archivo config.php para utilizar las constantes definidas en él.
-    require_once 'config/config.php';
-
     /* 
      * Esta clase hace de intermediaria entre el controlador courseController
      * con funcionalidades de gestión de lecciones, y modelos como el de la base 
