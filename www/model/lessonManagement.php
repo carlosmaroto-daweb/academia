@@ -62,10 +62,9 @@
                 $array = explode('.', $_FILES[$title]["name"]);
                 $ext = end($array);
                 $url_temp = $_FILES[$title]["tmp_name"];
-                $url_insert = constant('DEFAULT_UPDATE');
-                $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
-                if (!file_exists($url_insert)) {
-                    mkdir($url_insert, 0777, true);
+                $url_target = constant('DEFAULT_UPDATE') . '/' . uniqid() . '.' . $ext;
+                if (!file_exists(constant('DEFAULT_UPDATE'))) {
+                    mkdir(constant('DEFAULT_UPDATE'), 0777, true);
                 }
                 move_uploaded_file($url_temp, $url_target);
                 if ($files != '') {
@@ -174,7 +173,6 @@
         * variable files los nombres y las rutas de los archivos creados.
         */
         private function duplicateArchive($original) {
-            $url_insert = constant('DEFAULT_UPDATE');
             $arrays = explode(';;', $original);
             $files = '';
             for ($i=0; $i<count($arrays); $i+=2) {
@@ -182,7 +180,7 @@
                 $archive = $arrays[$i+1];
                 $array = explode('.', $arrays[$i+1]);
                 $ext = end($array);
-                $url_target = $url_insert . '/' . uniqid() . '.' . $ext;
+                $url_target = constant('DEFAULT_UPDATE') . '/' . uniqid() . '.' . $ext;
                 copy($archive, $url_target);
                 if ($files != '') {
                     $files .= ';;';
