@@ -81,6 +81,7 @@
                 }
             }
             if ($noPrivileges) {
+                $this->deleteArchives($files);
                 $files = '';
             }
             return $files;
@@ -205,25 +206,39 @@
         }
 
         /*
-        * Método que crea una copia de los archivos originales y guarda en la
-        * variable files los nombres y las rutas de los archivos creados.
+        * Método que crea una copia de los archivos originales. Devuelve una
+        * cadena de texto con el siguiente formato para cada archivo:
+        * <nombre_archivo>;;<ruta_archivo>. En caso de que no tenga permisos
+        * sobre los directorios devolverá una cadena vacía.
+        * 
+        * @return String nombres de los archivos y las rutas de los
+        *                archivos creados o una cadena vacía
         */
         private function duplicateArchive($original) {
             $arrays = explode(';;', $original);
             $files = '';
-            for ($i=0; $i<count($arrays); $i+=2) {
+            $noPrivileges = false;
+            for ($i=0; $i<count($arrays) && !$noPrivileges; $i+=2) {
                 $title = $arrays[$i];
                 $archive = $arrays[$i+1];
                 $array = explode('.', $arrays[$i+1]);
                 $ext = end($array);
                 $url_target = constant('DEFAULT_UPDATE') . '/' . uniqid() . '.' . $ext;
-                copy($archive, $url_target);
-                if ($files != '') {
-                    $files .= ';;';
+                if ($!copy($archive, $url_target)) {
+                    $noPrivileges = true;
                 }
-                $files .= $title . ';;' . $url_target;
+                else {
+                    if ($files != '') {
+                        $files .= ';;';
+                    }
+                    $files .= $title . ';;' . $url_target;
+                }
             }
-            $_POST['files']  = $files;
+            if ($noPrivileges) {
+                $this->deleteArchives($files);
+                $files = '';
+            }
+            return $files;
         }
 
         /*
@@ -246,27 +261,38 @@
             $lesson = $this->getLessonById($_GET['id']);
             if ($lesson) {
                 $_POST['name'] = $lesson->getName() . ' ' . uniqid();
-                $this->duplicateArchive($lesson->getFiles());
-                if ($this->db->createLesson()) {
-                    $this->updateLessons();
-                    $lesson = $this->getLessonByName($_POST['name']);
-                    $result = json_encode(
-                        array(
-                            'success'   => 1, 
-                            'lesson'    => array(
-                                'id'    => $lesson->getId(),
-                                'name'  => $lesson->getName(),
-                                'files' => $lesson->getFiles()
+                $files = $this->duplicateArchive($lesson->getFiles());
+                if ($files != '') {
+                    $_POST['files'] = $files;
+                    if ($this->db->createLesson()) {
+                        $this->updateLessons();
+                        $lesson = $this->getLessonByName($_POST['name']);
+                        $result = json_encode(
+                            array(
+                                'success'   => 1, 
+                                'lesson'    => array(
+                                    'id'    => $lesson->getId(),
+                                    'name'  => $lesson->getName(),
+                                    'files' => $lesson->getFiles()
+                                )
                             )
-                        )
-                    );
+                        );
+                    }
+                    else {
+                        $this->deleteArchives($files);
+                        $result = json_encode(
+                            array(
+                                'success' => 0, 
+                                'msg'     => 'No se ha podido duplicar la lección de la base de datos.'
+                            )
+                        );
+                    }
                 }
                 else {
-                    $this->deleteArchives($files);
                     $result = json_encode(
                         array(
                             'success' => 0, 
-                            'msg'     => 'No se ha podido duplicar la lección de la base de datos.'
+                            'msg'     => 'No se han podido duplicar los archivos.'
                         )
                     );
                 }
@@ -298,21 +324,31 @@
             $lesson = $this->getLessonById($_POST['id']);
             if ($lesson) {
                 $files = $this->createArchives();
-                $_POST['files'] = $files;
-                if ($this->db->editLesson()) {
-                    $this->deleteArchives($lesson->getFiles());
-                    $result = json_encode(
-                        array(
-                            'success' => 1
-                        )
-                    );
+                if ($files != '') {
+                    $_POST['files'] = $files;
+                    if ($this->db->editLesson()) {
+                        $this->deleteArchives($lesson->getFiles());
+                        $result = json_encode(
+                            array(
+                                'success' => 1
+                            )
+                        );
+                    }
+                    else {
+                        $this->deleteArchives($files);
+                        $result = json_encode(
+                            array(
+                                'success' => 0,
+                                'msg'     => 'No se ha podido editar la lección de la base de datos.'
+                            )
+                        );
+                    }
                 }
                 else {
-                    $this->deleteArchives($files);
                     $result = json_encode(
                         array(
-                            'success' => 0,
-                            'msg'     => 'No se ha podido editar la lección de la base de datos.'
+                            'success' => 0, 
+                            'msg'     => 'No se han podido guardar los archivos.'
                         )
                     );
                 }
