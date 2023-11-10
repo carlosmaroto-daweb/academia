@@ -59,7 +59,14 @@ $(document).ready(function() {
         });
     });
 
-    $(".btn-user-edit").on('click', function(e) {
+    $(".magnificPopup-user-edit").magnificPopup({
+        gallery: {
+            enabled: true
+        },
+        mainClass: "mfp-fade"
+    });
+
+    $(document).on('click','.btn-user-edit', function(e) {
         let button = '<button id="btn-edit-cancel" class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>';
         $('#edit-modal-footer').append(button);
         button = '<button id="btn-edit" class="btn btn-mod btn-small btn-round">Guardar cambios</button>';
@@ -173,11 +180,23 @@ $(document).ready(function() {
                                 <td>${new_dni}</td>
                                 <td>${type}</td>
                                 <td>
-                                    <a href='#user-edit' class='btn-user-edit btn btn-mod btn-border btn-circle btn-small lightbox-gallery-1 mfp-inline' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>&nbsp;
-                                    <a href='#user-delete' class='btn-user-delete btn btn-mod btn-border btn-circle btn-small lightbox-gallery-2 mfp-inline' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
+                                    <a href='#user-edit' class='btn-user-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-user-edit' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>&nbsp;
+                                    <a href='#user-delete' class='btn-user-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-user-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
                                 </td>
                             `;
                             $('#' + id_row).html(row);
+                            $(".magnificPopup-user-edit").magnificPopup({
+                                gallery: {
+                                    enabled: true
+                                },
+                                mainClass: "mfp-fade"
+                            });
+                            $(".magnificPopup-user-delete").magnificPopup({
+                                gallery: {
+                                    enabled: true
+                                },
+                                mainClass: "mfp-fade"
+                            });
                             $.magnificPopup.close();
                         }
                         else {
@@ -196,14 +215,22 @@ $(document).ready(function() {
         });
     });
 
-    $(".lightbox-gallery-1").on('mfpClose', function() {
+    $(".magnificPopup-user-edit").on('mfpClose', function() {
         $(".alert").remove();
         $('#edit-form').trigger("reset");
         $('#btn-edit-cancel').remove();
         $('#btn-edit').remove();
     });
 
-    $(".btn-user-delete").on('click', function(e) {
+
+    $(".magnificPopup-user-delete").magnificPopup({
+        gallery: {
+            enabled: true
+        },
+        mainClass: "mfp-fade"
+    });
+
+    $(document).on('click','.btn-user-delete', function(e) {
         let button = '<button id="btn-delete-cancel" class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>';
         $('#delete-modal-footer').append(button);
         button = '<button id="btn-delete" class="btn btn-mod btn-small btn-round">Eliminar usuario</button>';
@@ -237,7 +264,7 @@ $(document).ready(function() {
         });
     });
 
-    $(".lightbox-gallery-2").on('mfpClose', function() {
+    $(".magnificPopup-user-delete").on('mfpClose', function() {
         $(".alert").remove();
         $('#btn-delete-cancel').remove();
         $('#btn-delete').remove();
@@ -322,11 +349,23 @@ $(document).ready(function() {
                                 <td>${new_dni}</td>
                                 <td>${type}</td>
                                 <td>
-                                    <a href='#user-edit' class='btn-user-edit btn btn-mod btn-border btn-circle btn-small lightbox-gallery-1 mfp-inline' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>&nbsp;
-                                    <a href='#user-delete' class='btn-user-delete btn btn-mod btn-border btn-circle btn-small lightbox-gallery-2 mfp-inline' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
+                                    <a href='#user-edit' class='btn-user-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-user-edit' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>&nbsp;
+                                    <a href='#user-delete' class='btn-user-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-user-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
                                 </td>
                             </tr>`;
                         $('#user-table').append(row);
+                        $(".magnificPopup-user-edit").magnificPopup({
+                            gallery: {
+                                enabled: true
+                            },
+                            mainClass: "mfp-fade"
+                        });
+                        $(".magnificPopup-user-delete").magnificPopup({
+                            gallery: {
+                                enabled: true
+                            },
+                            mainClass: "mfp-fade"
+                        });
                         $.magnificPopup.close();
                     }
                     else {
