@@ -1,7 +1,4 @@
 <?php
-    // Constantes para verificar que no puedan entrar por ruta absoluta
-    define("ABSPATH", "abspath");
-
     // Constantes de la base de datos
     define("DB_HOST", "db");
     define("DB", "academia");

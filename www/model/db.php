@@ -1,6 +1,8 @@
 <?php
   // Comprobamos que no puedan entrar por ruta absoluta
-  defined('ABSPATH') or die('Hey Bro! You cannot access this file... twat!');
+  if (session_status() != PHP_SESSION_ACTIVE) {
+    die('Hey Bro! You cannot access this file... twat!');
+  }
 
   // Incluimos el archivo config.php para utilizar las constantes definidas en él.
   require_once 'config/config.php';
