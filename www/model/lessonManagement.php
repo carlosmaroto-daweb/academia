@@ -223,7 +223,7 @@
                 $array = explode('.', $arrays[$i+1]);
                 $ext = end($array);
                 $url_target = constant('DEFAULT_UPDATE') . '/' . uniqid() . '.' . $ext;
-                if ($!copy($archive, $url_target)) {
+                if (!@copy($archive, $url_target)) {
                     $noPrivileges = true;
                 }
                 else {
