@@ -179,7 +179,7 @@
                         $result = json_encode(
                             array(
                                 'success' => 0, 
-                                'msg'     => 'Se ha borrado la lección, pero no se han podido eliminar los archivos.'
+                                'msg'     => 'Se ha borrado la lección, pero no se han podido eliminar los archivos asociados.'
                             )
                         );
                     }
