@@ -38,14 +38,14 @@
     }
 
     /*
-      * Método que asigna todos los valores pasados por el POST a un array
-      * asociativo para ejecutar una sentencia sql con la base de datos. En
-      * este caso la sentencia inserta un registro nuevo a la base de datos.
-      * 
-      * Previamente se ha comprobado que estén los parámetros name y files 
-      * en el controlador y que sean válidos.
-      * 
-      * @return Devuelve true si ha tenido éxito la sentencia sql.
+     * Método que asigna todos los valores pasados por el POST a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia inserta un registro nuevo a la base de datos.
+     * 
+     * Previamente se ha comprobado que estén los parámetros name y files 
+     * en el controlador y que sean válidos.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function createLesson() {
       $data = [
@@ -58,14 +58,14 @@
     }
 
     /*
-      * Método que asigna todos los valores pasados por el POST a un array
-      * asociativo para ejecutar una sentencia sql con la base de datos. En
-      * este caso la sentencia inserta un registro nuevo a la base de datos.
-      * 
-      * Previamente se ha comprobado que estén los parámetros name,
-      * header_image, preview y content en el controlador y que sean válidos.
-      * 
-      * @return Devuelve true si ha tenido éxito la sentencia sql.
+     * Método que asigna todos los valores pasados por el POST a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia inserta un registro nuevo a la base de datos.
+     * 
+     * Previamente se ha comprobado que estén los parámetros name,
+     * header_image, preview y content en el controlador y que sean válidos.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function createModule() {
       $data = [
@@ -80,15 +80,15 @@
     }
 
     /*
-      * Método que asigna todos los valores pasados por el POST a un array
-      * asociativo para ejecutar una sentencia sql con la base de datos. En
-      * este caso la sentencia inserta un registro nuevo a la base de datos.
-      * 
-      * Previamente se ha comprobado que estén los parámetros email, password,
-      * name, last_name, phone_number, dni y type en el controlador y que sean
-      * válidos.
-      * 
-      * @return Devuelve true si ha tenido éxito la sentencia sql.
+     * Método que asigna todos los valores pasados por el POST a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia inserta un registro nuevo a la base de datos.
+     * 
+     * Previamente se ha comprobado que estén los parámetros email, password,
+     * name, last_name, phone_number, dni y type en el controlador y que sean
+     * válidos.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function createUser() {
       $data = [
@@ -106,13 +106,13 @@
     }
 
     /*
-      * Método que asigna todos los valores pasados por el GET a un array
-      * asociativo para ejecutar una sentencia sql con la base de datos. En
-      * este caso la sentencia elimina el registro que coincide con el id.
-      * 
-      * Previamente se ha comprobado que esté el parámetro id y que sea válido.
-      * 
-      * @return Devuelve true si ha tenido éxito la sentencia sql.
+     * Método que asigna todos los valores pasados por el GET a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia elimina el registro que coincide con el id.
+     * 
+     * Previamente se ha comprobado que esté el parámetro id y que sea válido.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function deleteLesson() {
       $data = [
@@ -124,13 +124,13 @@
     }
 
     /*
-      * Método que asigna todos los valores pasados por el GET a un array
-      * asociativo para ejecutar una sentencia sql con la base de datos. En
-      * este caso la sentencia elimina el registro que coincide con el id.
-      * 
-      * Previamente se ha comprobado que esté el parámetro id y que sea válido.
-      * 
-      * @return Devuelve true si ha tenido éxito la sentencia sql.
+     * Método que asigna todos los valores pasados por el GET a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia elimina el registro que coincide con el id.
+     * 
+     * Previamente se ha comprobado que esté el parámetro id y que sea válido.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function deleteModule() {
       $data = [
@@ -142,13 +142,13 @@
     }
 
     /*
-      * Método que asigna todos los valores pasados por el GET a un array
-      * asociativo para ejecutar una sentencia sql con la base de datos. En
-      * este caso la sentencia elimina el registro que coincide con el id.
-      * 
-      * Previamente se ha comprobado que esté el parámetro id y que sea válido.
-      * 
-      * @return Devuelve true si ha tenido éxito la sentencia sql.
+     * Método que asigna todos los valores pasados por el GET a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia elimina el registro que coincide con el id.
+     * 
+     * Previamente se ha comprobado que esté el parámetro id y que sea válido.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function deleteUser() {
       $data = [
@@ -160,15 +160,15 @@
     }
 
     /*
-      * Método que asigna todos los valores pasados por el POST a un array
-      * asociativo para ejecutar una sentencia sql con la base de datos. En
-      * este caso la sentencia actualiza el registro que coincide con el id 
-      * de la base de datos.
-      * 
-      * Previamente se ha comprobado que estén los parámetros id, name,
-      * y files en el controlador y que sean válidos.
-      * 
-      * @return Devuelve true si ha tenido éxito la sentencia sql.
+     * Método que asigna todos los valores pasados por el POST a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia actualiza el registro que coincide con el id 
+     * de la base de datos.
+     * 
+     * Previamente se ha comprobado que estén los parámetros id, name,
+     * y files en el controlador y que sean válidos.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function editLesson() {
       $data = [
@@ -182,15 +182,15 @@
     }
 
     /*
-      * Método que asigna todos los valores pasados por el POST a un array
-      * asociativo para ejecutar una sentencia sql con la base de datos. En
-      * este caso la sentencia actualiza el registro que coincide con el id 
-      * de la base de datos.
-      * 
-      * Previamente se ha comprobado que estén los parámetros id, name,
-      * header_image, preview y content en el controlador y que sean válidos.
-      * 
-      * @return Devuelve true si ha tenido éxito la sentencia sql.
+     * Método que asigna todos los valores pasados por el POST a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia actualiza el registro que coincide con el id 
+     * de la base de datos.
+     * 
+     * Previamente se ha comprobado que estén los parámetros id, name,
+     * header_image, preview y content en el controlador y que sean válidos.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function editModule() {
       $data = [
@@ -206,16 +206,16 @@
     }
 
     /*
-      * Método que asigna todos los valores pasados por el POST a un array
-      * asociativo para ejecutar una sentencia sql con la base de datos. En
-      * este caso la sentencia actualiza el registro que coincide con el id 
-      * de la base de datos.
-      * 
-      * Previamente se ha comprobado que estén los parámetros id, email,
-      * password, name, last_name, phone_number, dni y type en el controlador
-      * y que sean válidos.
-      * 
-      * @return Devuelve true si ha tenido éxito la sentencia sql.
+     * Método que asigna todos los valores pasados por el POST a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia actualiza el registro que coincide con el id 
+     * de la base de datos.
+     * 
+     * Previamente se ha comprobado que estén los parámetros id, email,
+     * password, name, last_name, phone_number, dni y type en el controlador
+     * y que sean válidos.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function editUser() {
       $data = [
@@ -234,10 +234,10 @@
     }
 
     /*
-      * Método que ejecuta una sentencia sql para obtener todas las lecciones
-      * de la base de datos y las devuelve.
-      * 
-      * @return Devuelve una query con todas las lecciones de la base de datos.
+     * Método que ejecuta una sentencia sql para obtener todas las lecciones
+     * de la base de datos y las devuelve.
+     * 
+     * @return Devuelve una query con todas las lecciones de la base de datos.
     */
     function getLessons() {
       $sql = "select * from lesson";
@@ -247,10 +247,10 @@
     }
 
     /*
-      * Método que ejecuta una sentencia sql para obtener todos los módulos
-      * de la base de datos y los devuelve.
-      * 
-      * @return Devuelve una query con todos los módulos de la base de datos.
+     * Método que ejecuta una sentencia sql para obtener todos los módulos
+     * de la base de datos y los devuelve.
+     * 
+     * @return Devuelve una query con todos los módulos de la base de datos.
     */
     function getModules() {
       $sql = "select * from module";
@@ -260,10 +260,10 @@
     }
 
     /*
-      * Método que ejecuta una sentencia sql para obtener todos los usuarios
-      * de la base de datos y los devuelve.
-      * 
-      * @return Devuelve una query con todos los usuarios de la base de datos.
+     * Método que ejecuta una sentencia sql para obtener todos los usuarios
+     * de la base de datos y los devuelve.
+     * 
+     * @return Devuelve una query con todos los usuarios de la base de datos.
     */
     function getUsers() {
       $sql = "select * from user";
@@ -273,14 +273,14 @@
     }
 
     /*
-      * Método que asigna todos los valores pasados por el POST a un array
-      * asociativo para ejecutar una sentencia sql con la base de datos. En
-      * este caso la sentencia inserta un registro nuevo a la base de datos.
-      * 
-      * Previamente se ha comprobado que estén y sean válidos los parámetros
-      * email y password en el controlador.
-      * 
-      * @return Devuelve true si ha tenido éxito la sentencia sql.
+     * Método que asigna todos los valores pasados por el POST a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia inserta un registro nuevo a la base de datos.
+     * 
+     * Previamente se ha comprobado que estén y sean válidos los parámetros
+     * email y password en el controlador.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function registerUser() {
       $data = [
