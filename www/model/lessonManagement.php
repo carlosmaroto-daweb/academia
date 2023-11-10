@@ -49,62 +49,84 @@
         * Método que guarda los archivos pasados por FILES en una ruta
         * especificada en el archivo config con un nombre único. Devuelve
         * una cadena de texto con el siguiente formato para cada archivo:
-        * <nombre_archivo>;;<ruta_archivo>
+        * <nombre_archivo>;;<ruta_archivo>. En caso de que no tenga permisos
+        * sobre los directorios devolverá una cadena vacía.
         * 
         * @return String nombres de los archivos y las rutas de los
-        *                archivos creados
+        *                archivos creados o una cadena vacía
         */
         private function createArchives() {
             $title = '';
             $files = '';
-            for ($i=0; $i<$_POST['count_archives']; $i++) { 
+            $noPrivileges = false;
+            for ($i=0; $i<$_POST['count_archives'] && !$noPrivileges; $i++) { 
                 $title = str_replace(" ", "_", $_POST['title-'.$i]);
                 $array = explode('.', $_FILES[$title]["name"]);
                 $ext = end($array);
                 $url_temp = $_FILES[$title]["tmp_name"];
                 $url_target = constant('DEFAULT_UPDATE') . '/' . uniqid() . '.' . $ext;
                 if (!file_exists(constant('DEFAULT_UPDATE'))) {
-                    mkdir(constant('DEFAULT_UPDATE'), 0777, true);
+                    if (!@mkdir(constant('DEFAULT_UPDATE'), 0777, true)) {
+                        $noPrivileges = true;
+                    }
                 }
-                move_uploaded_file($url_temp, $url_target);
-                if ($files != '') {
-                    $files .= ';;';
+                if (!@move_uploaded_file($url_temp, $url_target)) {
+                    $noPrivileges = true;
                 }
-                $files .= $title . ';;' . $url_target;
+                else {
+                    if ($files != '') {
+                        $files .= ';;';
+                    }
+                    $files .= $title . ';;' . $url_target;
+                }
+            }
+            if ($noPrivileges) {
+                $files = '';
             }
             return $files;
         }
 
         /*
-         * Método que guarda los archivos que se pasan por parámetro y se
-         * guarda el título y la ruta al archivo en una variable para
-         * guardarla en la base de datos, posteriormente llama a la base 
-         * de datos para crear la lección. Si todo funciona correctamente 
-         * se devuelve que ha tenido éxito, en caso contrario se muestra 
-         * un mensaje del error correspondiente.
+         * Método que llama al método createArchives donde se van a crear
+         * los archivos pasados por FILES y va a devolver una cadena de
+         * texto con su nombre y su ruta, esta cadena la vamos a guardar 
+         * en POST para crear en la base de datos la lección con los parámetros.
+         * Si todo funciona correctamente se devuelve que ha tenido éxito, 
+         * en caso contrario se borran los archivos anteriormente creados (si 
+         * se llegan a crear) y se muestra un mensaje del error correspondiente.
          * 
-         * Previamente se ha comprobado que estén los parámetros name 
-         * y los parámetros referentes a los archivos en el controlador 
-         * y que sean válidos.
+         * Previamente se ha compropado que estén los parámetros name, 
+         * count_archives, title-X (por cada archivo) y su respectivo FILE en
+         * el controlador y que sean válidos.
          * 
          * @return JSON con parámetros success y en caso de error msg.
         */
         function createLesson() {
             $files = $this->createArchives();
-            $_POST['files'] = $files;
-            if ($this->db->createLesson()) {
-                $result = json_encode(
-                    array(
-                        'success' => 1
-                    )
-                );
+            if ($files != '') {
+                $_POST['files'] = $files;
+                if ($this->db->createLesson()) {
+                    $result = json_encode(
+                        array(
+                            'success' => 1
+                        )
+                    );
+                }
+                else {
+                    $this->deleteArchives($files);
+                    $result = json_encode(
+                        array(
+                            'success' => 0, 
+                            'msg'     => 'No se ha podido crear la lección en la base de datos.'
+                        )
+                    );
+                }
             }
             else {
-                $this->deleteArchives($files);
                 $result = json_encode(
                     array(
                         'success' => 0, 
-                        'msg'     => 'No se ha podido crear la lección en la base de datos.'
+                        'msg'     => 'No se han podido guardar los archivos.'
                     )
                 );
             }
@@ -112,7 +134,7 @@
         }
 
         /*
-         * Método que elimina los archivos almacenados en la ruta.
+         * Método que elimina los archivos almacenados en las ruta.
          * 
          * @param  String nombres y rutas de los archivos
         */
