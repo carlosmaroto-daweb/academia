@@ -59,17 +59,15 @@
             $title = '';
             $files = '';
             $noPrivileges = false;
+            if (!file_exists(constant('DEFAULT_UPDATE')) && !@mkdir(constant('DEFAULT_UPDATE'), 0755, true)) {
+                $noPrivileges = true;
+            }
             for ($i=0; $i<$_POST['count_archives'] && !$noPrivileges; $i++) { 
                 $title = str_replace(" ", "_", $_POST['title-'.$i]);
                 $array = explode('.', $_FILES[$title]["name"]);
                 $ext = end($array);
                 $url_temp = $_FILES[$title]["tmp_name"];
                 $url_target = constant('DEFAULT_UPDATE') . '/' . uniqid() . '.' . $ext;
-                if (!file_exists(constant('DEFAULT_UPDATE'))) {
-                    if (!@mkdir(constant('DEFAULT_UPDATE'), 0755, true)) {
-                        $noPrivileges = true;
-                    }
-                }
                 if (!@move_uploaded_file($url_temp, $url_target)) {
                     $noPrivileges = true;
                 }
@@ -81,6 +79,7 @@
                 }
             }
             if ($noPrivileges) {
+                $this->deleteArchives($files);
                 $files = '';
             }
             return $files;
