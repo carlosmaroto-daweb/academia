@@ -18,9 +18,10 @@
      * de datos db y el modelo que define los campos de las lecciones lesson.
      * De forma que termina de ejecutar las funcionalidades implementadas en el
      * controlador courseController como crear, duplicar, editar y eliminar
-     * lecciones, haciendo comprobaciones con la lista de lecciones actuales de la
-     * base de datos y posteriormente llamar a los métodos de la base de datos 
-     * para terminar el proceso y devolver el resultado.
+     * lecciones (junto con sus recursos), haciendo comprobaciones con la lista 
+     * de lecciones actuales de la base de datos y posteriormente llamar a los 
+     * métodos de la base de datos para terminar el proceso y devolver el 
+     * resultado.
      * 
      * @author: Carlos Maroto
      * @version: v1.0.0 Carlos Maroto
