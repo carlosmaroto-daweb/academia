@@ -66,7 +66,7 @@
                 $url_temp = $_FILES[$title]["tmp_name"];
                 $url_target = constant('DEFAULT_UPDATE') . '/' . uniqid() . '.' . $ext;
                 if (!file_exists(constant('DEFAULT_UPDATE'))) {
-                    if (!@mkdir(constant('DEFAULT_UPDATE'), 0777, true)) {
+                    if (!@mkdir(constant('DEFAULT_UPDATE'), 0755, true)) {
                         $noPrivileges = true;
                     }
                 }
