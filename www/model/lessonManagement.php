@@ -137,19 +137,24 @@
          * Método que elimina los archivos almacenados en las ruta.
          * 
          * @param  String nombres y rutas de los archivos
+         * @return Bool resultado de la operación
         */
         private function deleteArchives($files) {
+            $result = true;
             $arrays = explode(';;', $files);
-            for ($i=1; $i<count($arrays); $i+=2) { 
-                unlink($arrays[$i]);
+            for ($i=1; $i<count($arrays) && $result; $i+=2) { 
+                if (!@unlink($arrays[$i])) {
+                    $result = false;
+                }
             }
+            return $result;
         }
 
         /*
          * Método que comprueba que el id introducido corresponde al id de una 
          * lección de la base de datos y llama a la base de datos para eliminar
          * la lección. Si todo funciona correctamente y se cumple las 
-         * condiciones se eliminan los archivos almacenadoos y se devuelve que
+         * condiciones se eliminan los archivos almacenados y se devuelve que
          * ha tenido éxito, en caso contrario se muestra un mensaje del error 
          * correspondiente.
          * 
@@ -163,12 +168,21 @@
             if ($lesson) {
                 $files  = $lesson->getFiles();
                 if ($this->db->deleteLesson()) {
-                    $this->deleteArchives($files);
-                    $result = json_encode(
-                        array(
-                            'success' => 1
-                        )
-                    );
+                    if ($this->deleteArchives($files)) {
+                        $result = json_encode(
+                            array(
+                                'success' => 1
+                            )
+                        );
+                    }
+                    else {
+                        $result = json_encode(
+                            array(
+                                'success' => 0, 
+                                'msg'     => 'Se ha borrado la lección, pero no se han podido eliminar los archivos.'
+                            )
+                        );
+                    }
                 }
                 else {
                     $result = json_encode(
