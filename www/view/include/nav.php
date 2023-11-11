@@ -22,7 +22,7 @@
         <div class="inner-nav desktop-nav">
             <ul class="clearlist">
                 <li>
-                    <a href="index.php" <?php if($_SERVER["REQUEST_URI"] == 'index.php') echo "class='active'"; ?>>Inicio</a>
+                    <a href="index.php" <?php if($_SERVER["REQUEST_URI"] == '/index.php') echo "class='active'"; ?>>Inicio</a>
                 </li>
                 <li>
                     <a href="index.php?controller=courseController&action=courses" <?php if(str_contains($_SERVER["REQUEST_URI"], 'courses')) echo "class='active'"; ?>>Cursos</a>
