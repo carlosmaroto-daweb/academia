@@ -30,7 +30,7 @@
                 <div class="home-section fullwidth-slider bg-dark light-content" id="home">
                     
                     <!-- Slide Item -->
-                    <section class="home-section bg-scroll bg-dark-alfa-50 light-content" data-background="view/assets/images/full-width-images/section-bg-14.jpg">
+                    <section class="home-section bg-scroll bg-dark-alfa-50 light-content" data-background="view/assets/academia/img/full-width-images/section-bg-1.jpg">
                         <div class="container min-height-100vh d-flex align-items-center pt-100 pb-100">
                             
                             <!-- Hero Content -->
