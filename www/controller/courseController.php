@@ -4,13 +4,13 @@
       die('Hey Bro! You cannot access this file... twat!');
   }
 
-  // Incluimos el archivo moduleManagement.php para instanciar la clase como objeto,
-  // esta clase va a gestionar las operaciones sobre los módulos.
-  require_once 'model/moduleManagement.php';
-
   // Incluimos el archivo lessonManagement.php para instanciar la clase como objeto,
   // esta clase va a gestionar las operaciones sobre las lecciones.
   require_once 'model/lessonManagement.php';
+
+  // Incluimos el archivo moduleManagement.php para instanciar la clase como objeto,
+  // esta clase va a gestionar las operaciones sobre los módulos.
+  require_once 'model/moduleManagement.php';
 
   // Incluimos el archivo userController.php para instanciar la clase como objeto,
   // esta clase va a redirigir a los usuarios no logeados.
@@ -24,8 +24,8 @@
     private $lessonManagement;
 
     function __construct() {
-      $this->moduleManagement = new ModuleManagement();
       $this->lessonManagement = new LessonManagement();
+      $this->moduleManagement = new ModuleManagement();
     }
 
     function deleteLesson() {
