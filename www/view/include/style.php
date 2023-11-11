@@ -1,5 +1,5 @@
 <!-- Favicons -->
-<link rel="shortcut icon" href="view/assets/images/favicon.png">
+<link rel="shortcut icon" href="view/assets/academia/img/favicon.ico">
 
 <!-- CSS -->
 <link rel="stylesheet" href="view/assets/css/bootstrap.min.css">
