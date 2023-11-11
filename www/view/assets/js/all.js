@@ -138,12 +138,12 @@
         $(".mobile-on .desktop-nav > ul").css("max-height", $(window).height() - $(".main-nav").height() - 20 + "px");
         
         // Mobile menu style toggle
-        if ($(window).width() <= 1024) {
+        if ($(window).width() <= 1420) {
             $(".main-nav").addClass("mobile-on");
             $(".mobile-cart").show();
         }
         else 
-            if ($(window).width() > 1024) {
+            if ($(window).width() > 1420) {
                 $(".main-nav").removeClass("mobile-on");
                 desktop_nav.show();
                 $(".mobile-cart").hide();
@@ -208,7 +208,7 @@
         });
         
         $(document).on("click", function(event){            
-            if ($(window).width() <= 1024) {
+            if ($(window).width() <= 1420) {
                 var $trigger = $(".main-nav");
                 if ($trigger !== event.target && !$trigger.has(event.target).length) {
                     desktop_nav.slideUp("slow", "easeOutExpo").removeClass("js-opened");
@@ -1119,7 +1119,7 @@ function init_wow(){
         
         /* Wow for menu bar init */
         
-        if (($("body").hasClass("appear-animate")) && ($(window).width() >= 1024) && ($("html").hasClass("no-mobile"))){
+        if (($("body").hasClass("appear-animate")) && ($(window).width() >= 1420) && ($("html").hasClass("no-mobile"))){
            $(".wow-menubar").addClass("no-animate").addClass("fadeInDownShort").addClass("animated");  
            setInterval(function(){ $(".wow-menubar").removeClass("no-animate"); }, 1500);         
         } else{

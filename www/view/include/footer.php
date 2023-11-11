@@ -20,7 +20,7 @@
             <div class="col-sm-12 col-lg-9 col-footer-contain">
                 <div class="row-footer-link">
                     <div class="col-text">
-                        <p class="uppercase">¿Y tú, quieres aprobar?</p>
+                        <p class="uppercase">¿Y tú? ¿Quieres aprobar?</p>
                     </div>
                     <div class="footer-social-links">
                         <a class="whatsapp" href="https://api.whatsapp.com/send/?phone=34699136622&text=Hola+necesito+informaci%C3%B3n&app_absent=0" title="Whatsapp" target="_blank"><i class="fab fa-whatsapp"></i>></a>
@@ -29,10 +29,10 @@
                     </div>
                 </div>
                 <hr class="mt-0 mb-0 white" />
-                <div class="row informacion-legal">
-                    <a class="col-" href="#">Política de privacidad</a>
-                    <a class="col-" href="#">Política de cookies</a>
-                    <a class="col-" href="#">Aviso legal</a></li>
+                <div class="row footer-btn">
+                    <a class="btn btn-mod btn-border-w btn-circle btn-large <?php if(str_contains($_SERVER["REQUEST_URI"], 'privacyPolicy')) echo "active"; ?>" href="index.php?controller=pageController&action=privacyPolicy">Política de privacidad</a>
+                    <a class="btn btn-mod btn-border-w btn-circle btn-large <?php if(str_contains($_SERVER["REQUEST_URI"], 'cookiesPolicy')) echo "active"; ?>" href="index.php?controller=pageController&action=cookiesPolicy">Política de cookies</a>
+                    <a class="btn btn-mod btn-border-w btn-circle btn-large <?php if(str_contains($_SERVER["REQUEST_URI"], 'disclaimer')) echo "active"; ?>" href="index.php?controller=pageController&action=disclaimer">Aviso legal</a></li>
                 </div>
             </div>
         </div>

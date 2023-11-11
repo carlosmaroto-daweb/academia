@@ -100,6 +100,11 @@
 .nav-logo {
     display: flex;
     align-items: center;
+    text-decoration: none;
+}
+
+.nav-logo:hover {
+    text-decoration: none;
 }
 
 .nav-logo h3 {
@@ -190,25 +195,19 @@
     width: 100%;
 }
 
-.informacion-legal a {
+.footer-btn a {
     margin-top: 30px;
     width: fit-content;
-    text-decoration: none;
-    border: 2px solid white;
-    color: white;
-    border-radius: 30px;
-    padding: 10px 20px;
     margin-right: 10px;
 }
 
-.informacion-legal a:hover {
+.footer-btn .active{
     background-color: rgb(255, 255, 255);
     color: black;
 }
 
-.informacion-legal .active{
-    background-color: rgb(255, 255, 255);
-    color: black;
+.footer-copy a {
+    text-decoration: none;
 }
 
 .required-field-color {
@@ -241,4 +240,15 @@
 
 .row-studies .location-studies {
     margin-right: 10px;
+}
+
+.table-col-btn {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-col-btn .btn {
+    margin-bottom: 10px;
+    width: fit-content;
+    min-width: 110px;
 }

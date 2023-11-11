@@ -316,7 +316,7 @@
       }
     }
 
-    function index() {
+    function courses() {
       $this->view = 'courses';
     }
 

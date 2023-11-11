@@ -230,9 +230,9 @@
                                                             echo "<td><div class='canvas_preview'>{$row->getPreview()}</div></td>";
                                                             echo "<td><div class='canvas_preview'>{$row->getContent()}</div></td>";
                                                             echo "<td> </td>";
-                                                            echo "<td>";
-                                                                echo "<a href='index.php?controller=courseController&action=editModule&id={$row->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>&nbsp;";
-                                                                echo "<a href='#module-duplicate' class='btn-module-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-module-duplicate' data-id='{$row->getId()}'>Duplicar</a>&nbsp;";
+                                                            echo "<td class='table-col-btn'>";
+                                                                echo "<a href='index.php?controller=courseController&action=editModule&id={$row->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>";
+                                                                echo "<a href='#module-duplicate' class='btn-module-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-module-duplicate' data-id='{$row->getId()}'>Duplicar</a>";
                                                                 echo "<a href='#module-delete' class='btn-module-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-module-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
                                                             echo "</td>";
                                                         echo "</tr>";
@@ -294,9 +294,9 @@
                                                                     echo "<i class='fa fa-file-pdf'> {$countPdf}</i>";
                                                                 }
                                                             echo "</td>";
-                                                            echo "<td>";
-                                                                echo "<a href='index.php?controller=courseController&action=editLesson&id={$row->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>&nbsp;";
-                                                                echo "<a href='#lesson-duplicate' class='btn-lesson-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-lesson-duplicate' data-id='{$row->getId()}'>Duplicar</a>&nbsp;";
+                                                            echo "<td class='table-col-btn'>";
+                                                                echo "<a href='index.php?controller=courseController&action=editLesson&id={$row->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>";
+                                                                echo "<a href='#lesson-duplicate' class='btn-lesson-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-lesson-duplicate' data-id='{$row->getId()}'>Duplicar</a>";
                                                                 echo "<a href='#lesson-delete' class='btn-lesson-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-lesson-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
                                                             echo "</td>";
                                                         echo "</tr>";

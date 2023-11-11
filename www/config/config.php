@@ -6,7 +6,7 @@
 	define("DB_PASS", "u-Area14");
 
 	// Constantes de la ruta por defecto
-	define("DEFAULT_CONTROLLER", "userController");
+	define("DEFAULT_CONTROLLER", "pageController");
 	define("DEFAULT_ACTION", "index");
 
 	// Constantes del encriptamiento

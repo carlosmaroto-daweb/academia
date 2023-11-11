@@ -8,16 +8,12 @@
   // esta clase va a gestionar las operaciones sobre los usuarios de la bd.
   require_once 'model/userManagement.php';
 
-  // Incluimos el archivo courseController.php para instanciar la clase como objeto,
-  // esta clase va a devolver los datos correspondientes a la vista home del usuario.
-  require_once 'controller/courseController.php';
-
   /* 
    * Esta clase gestiona las funcionalidades que tienen relación con los 
    * usuarios, tales como crear, editar y eliminar usuarios (si el usuario que
    * realiza la acción es administrador), registrarse, iniciar o cerrar sesión
-   * en la página cualquier usuario, definir rutas como inicio, home, admin y 
-   * login para cambiar la vista del usuario, y métodos para verificar datos.
+   * en la página cualquier usuario, definir rutas como home, admin y login 
+   * para cambiar la vista del usuario, y métodos para verificar datos.
    * 
    * @author: Carlos Maroto
    * @version: v1.0.0 Carlos Maroto
@@ -230,44 +226,28 @@
     }
 
     /*
-     * En caso de que este método sea llamado por un administrador llama al
-     * método admin de la clase, en caso de que sea alguien de secretaría
-     * llama al método secretary del controlador courseController devolviendo
-     * su salida y mostrando como vista la correspondiente, en caso de que sea
-     * un alumno o un profesor llama al método home del controlador 
-     * courseController devolviendo su salida y mostrando como vista la 
-     * correspondiente, en caso de que no esté logeado llama al método login.
-     * 
-     * @return Devuelve la lista de todos los usuarios si es admin, de todos
-     *         los cursos, asignaturas etc si es secretario y de los cursos a 
-     *         los que está asociado si es profesor o alumno.
+     * En caso de que este método sea llamado por un administrador redirige
+     * al usuario a la página admin, en caso de que sea alguien de secretaría
+     * lo redirige a la página de secretaría y en caso de que sea un alumno o
+     * un profesor lo redirige a la página home, por último en caso de que no 
+     * esté logeado llama al método login.
     */
     function home() {
-      $result = null;
       if (isAdmin()) {
-        $result = $this->admin();
+        header("Location: index.php?controller=userController&action=admin");
+        die();
       }
       elseif (isSecretary()) {
-        $courseController = new courseController();
-        $result = $courseController->secretary();
-        $this->view = $courseController->getView();
+        header("Location: index.php?controller=courseController&action=secretary");
+        die();
       }
       else if (isStudent() || isTeacher()) {
-        $courseController = new courseController();
-        $result = $courseController->home();
-        $this->view = $courseController->getView();
+        header("Location: index.php?controller=userController&action=home");
+        die();
       }
       else if (!hasLoggedIn()) {
         $this->login();
       }
-      return $result;
-    }
-
-    /*
-     * Método que asigna el valor de la vista a index.
-    */
-    function index() {
-      $this->view = 'index';
     }
 
     /*
@@ -331,14 +311,15 @@
 
     /*
      * Método que comprueba si se ha iniciado sesión, en ese caso la destruye
-     * y redirige al usuario la vista de inicio.
+     * y redirige al usuario a la página de inicio.
     */
     function logout() {
       if (hasLoggedIn()) {
         $_SESSION["type"] = null;
         session_destroy();
+        header("Location: index.php");
+        die();
       }
-      $this->index();
     }
 
     /*

@@ -102,8 +102,8 @@
                                                         break;
                                                 };
                                                 echo "<td>{$type}</td>";
-                                                echo "<td>";
-                                                    echo "<a href='#user-edit' class='btn-user-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-user-edit' data-id_row='row{$count}' data-id='{$row->getId()}' data-email='{$row->getEmail()}' data-password='{$row->getPassword()}' data-name='{$row->getName()}' data-last_name='{$row->getLastName()}' data-phone_number='{$row->getPhoneNumber()}' data-dni='{$row->getDni()}' data-type='{$row->getType()}'>Modificar</a>&nbsp;";
+                                                echo "<td class='table-col-btn'>";
+                                                    echo "<a href='#user-edit' class='btn-user-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-user-edit' data-id_row='row{$count}' data-id='{$row->getId()}' data-email='{$row->getEmail()}' data-password='{$row->getPassword()}' data-name='{$row->getName()}' data-last_name='{$row->getLastName()}' data-phone_number='{$row->getPhoneNumber()}' data-dni='{$row->getDni()}' data-type='{$row->getType()}'>Modificar</a>";
                                                     echo "<a href='#user-delete' class='btn-user-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-user-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
                                                 echo "</td>";
                                             echo "</tr>";

@@ -179,8 +179,8 @@ $(document).ready(function() {
                                 <td>${new_phone_number}</td>
                                 <td>${new_dni}</td>
                                 <td>${type}</td>
-                                <td>
-                                    <a href='#user-edit' class='btn-user-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-user-edit' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>&nbsp;
+                                <td class='table-col-btn'>
+                                    <a href='#user-edit' class='btn-user-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-user-edit' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>
                                     <a href='#user-delete' class='btn-user-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-user-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
                                 </td>
                             `;
@@ -348,8 +348,8 @@ $(document).ready(function() {
                                 <td>${new_phone_number}</td>
                                 <td>${new_dni}</td>
                                 <td>${type}</td>
-                                <td>
-                                    <a href='#user-edit' class='btn-user-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-user-edit' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>&nbsp;
+                                <td class='table-col-btn'>
+                                    <a href='#user-edit' class='btn-user-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-user-edit' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>
                                     <a href='#user-delete' class='btn-user-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-user-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
                                 </td>
                             </tr>`;
@@ -458,7 +458,7 @@ $(document).ready(function() {
                                     }
                                     row += "</td>";
                                 row += `
-                                <td>
+                                <td class='table-col-btn'>
                                     <a href='index.php?controller=courseController&action=editLesson&id=${id}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>
                                     <a href='#lesson-duplicate' class='btn-lesson-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-lesson-duplicate' data-id='${id}'>Duplicar</a>
                                     <a href='#lesson-delete' class='btn-lesson-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-lesson-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
@@ -590,7 +590,7 @@ $(document).ready(function() {
                                 <td><div class='canvas_preview'>${preview}</div></td>
                                 <td><div class='canvas_preview'>${content}</div></td>
                                 <td> </td>
-                                <td>
+                                <td class='table-col-btn'>
                                     <a href='index.php?controller=courseController&action=editModule&id=${id}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>
                                     <a href='#module-duplicate' class='btn-module-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-module-duplicate' data-id='${id}'>Duplicar</a>
                                     <a href='#module-delete' class='btn-module-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-module-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
