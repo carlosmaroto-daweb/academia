@@ -4,9 +4,12 @@
         
         <!-- Logo ( * your text or image into link tag *) -->
         <div class="nav-logo-wrap local-scroll">
-            <a href="index.php" class="logo">
-                <img src="view/assets/images/logo-white.png" alt="Company logo" width="188" height="37" />
-            </a>
+            <div class="nav-logo">
+                <a href="index.php" class="logo">
+                    <img src="view/assets/academia/img/logo.png" alt="Academia Cartabón" width="188" height="37" />
+                </a>
+                <h3>Academia Cartabón</h3>
+            </div>
         </div>
         
         <!-- Mobile Menu Button -->

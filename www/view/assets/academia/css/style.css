@@ -97,6 +97,18 @@
     display: flex;
 }
 
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo h3 {
+    margin: 0px;
+    margin-left: 20px;
+    font-family: 'Quicksand';
+    color: white;
+}
+
 .col-footer-logo {
     display: flex;
     flex-direction: column;
