@@ -100,6 +100,7 @@
 .col-footer-logo {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .col-footer-contain {
@@ -139,12 +140,13 @@
     background-color: transparent !important;
 }
 
-.footer-social-links .twitter{
-    background-color: #00ACEE;
+.footer-social-links .whatsapp{
+    background-color: #25D366;
     border-radius: 50%;
 }
 
-.footer-social-links .twitter i {
+.footer-social-links .whatsapp i {
+    font-size: 25px;
     color: white;
 }
 
@@ -158,6 +160,7 @@
 }
 
 .footer-social-links .instagram i {
+    font-size: 25px;
     color: white;
 }
 
@@ -167,6 +170,7 @@
 }
 
 .footer-social-links .facebook i {
+    font-size: 25px;
     color: white;
 }
 
@@ -174,15 +178,8 @@
     width: 100%;
 }
 
-.row-footer-btn {
-    width: 100%;
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .informacion-legal a {
+    margin-top: 30px;
     width: fit-content;
     text-decoration: none;
     border: 2px solid white;
@@ -200,13 +197,6 @@
 .informacion-legal .active{
     background-color: rgb(255, 255, 255);
     color: black;
-}
-
-@media (max-width: 992px) {
-
-    .col-footer-logo {
-        text-align: center;
-    }
 }
 
 .required-field-color {

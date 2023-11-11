@@ -5,41 +5,34 @@
             <div class="col-sm-12 col-lg-3 col-footer-logo">
                 <div class="local-scroll">
                     <a href="index.php" class="logo">
-                        <img src="view/assets/images/logo-white.png" alt="Company logo" width="188" height="37" />
+                        <img src="view/assets/academia/img/logo.png" alt="Logo Academia Cartabón" width="188" height="37" />
                     </a>
                 </div>
                 <div class="footer-text">
                     <div class="footer-copy">
-                        <a href="index.html">© Rhythm 2023</a>.
+                        <a href="index.php">Academia Cartabón</a>
                     </div>
                     <div class="footer-made">
-                        Made with love for great people.
+                        Calidad y formación desde 1994
                     </div>
                 </div>
             </div>
             <div class="col-sm-12 col-lg-9 col-footer-contain">
                 <div class="row-footer-link">
                     <div class="col-text">
-                        <p class="uppercase">Respaldando su infraestructura comercial</p>
+                        <p class="uppercase">¿Y tú, quieres aprobar?</p>
                     </div>
                     <div class="footer-social-links">
-                        <a class="twitter" href="#" title="Twitter" target="_blank"><i class="fab fa-twitter"></i> <span class="sr-only">Twitter profile</span></a>
-                        <a class="instagram" href="#" title="Instagram" target="_blank"><i class="fab fa-instagram"></i> <span class="sr-only">Instagram profile</span></a>
-                        <a class="facebook" href="#" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i> <span class="sr-only">Facebook profile</span></a>
+                        <a class="whatsapp" href="https://api.whatsapp.com/send/?phone=34699136622&text=Hola+necesito+informaci%C3%B3n&app_absent=0" title="Whatsapp" target="_blank"><i class="fab fa-whatsapp"></i>></a>
+                        <a class="instagram" href="https://www.instagram.com/academiacartabon/?hl=es" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="facebook" href="https://www.facebook.com/academiacartabon" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
                 <hr class="mt-0 mb-0 white" />
-                <div class="row-footer-btn">
-                    <div class="row informacion-legal">
-                        <a class="col-" href="#">Política de privacidad</a>
-                        <a class="col-" href="#">Política de cookies</a>
-                        <a class="col-" href="#">Aviso legal</a></li>
-                    </div>
-                    <div>
-                        Calle de Velázquez, 80 Madrid
-                        <br/>
-                        28001 Madrid
-                    </div>
+                <div class="row informacion-legal">
+                    <a class="col-" href="#">Política de privacidad</a>
+                    <a class="col-" href="#">Política de cookies</a>
+                    <a class="col-" href="#">Aviso legal</a></li>
                 </div>
             </div>
         </div>
