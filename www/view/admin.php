@@ -128,20 +128,20 @@
                 </div>
                 <form id="edit-form" class="form">
                     <div class="form-group">
+                        <label for="edit-form-name">Nombre <span class="required-field-color">(*)</span></label>
+                        <input id="edit-form-name" type="text" name="name" class="input-md round form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-form-last_name">Apellidos <span class="required-field-color">(*)</span></label>
+                        <input id="edit-form-last_name" type="text" name="last_name" class="input-md round form-control">
+                    </div>
+                    <div class="form-group">
                         <label for="edit-form-email">Correo <span class="required-field-color">(*)</span></label>
                         <input id="edit-form-email" type="email" name="email" class="input-md round form-control">
                     </div>
                     <div class="form-group">
                         <label for="edit-form-password">Contraseña <span class="required-field-color">(*)</span></label>
                         <input id="edit-form-password" type="text" name="password" class="input-md round form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="edit-form-name">Nombre</label>
-                        <input id="edit-form-name" type="text" name="name" class="input-md round form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="edit-form-last_name">Apellidos</label>
-                        <input id="edit-form-last_name" type="text" name="last_name" class="input-md round form-control">
                     </div>
                     <div class="form-group">
                         <label for="edit-form-phone_number">Teléfono</label>
@@ -186,20 +186,20 @@
                 </div>
                 <form id="create-form" class="form">
                     <div class="form-group">
+                        <label for="create-form-name">Nombre <span class="required-field-color">(*)</span></label>
+                        <input id="create-form-name" type="text" name="name" class="input-md round form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="create-form-last_name">Apellidos <span class="required-field-color">(*)</span></label>
+                        <input id="create-form-last_name" type="text" name="last_name" class="input-md round form-control">
+                    </div>
+                    <div class="form-group">
                         <label for="create-form-email">Correo <span class="required-field-color">(*)</span></label>
                         <input id="create-form-email" type="text" name="email" class="input-md round form-control">
                     </div>
                     <div class="form-group">
                         <label for="create-form-password">Contraseña <span class="required-field-color">(*)</span></label>
                         <input id="create-form-password" type="text" name="password" class="input-md round form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="create-form-name">Nombre</label>
-                        <input id="create-form-name" type="text" name="name" class="input-md round form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="create-form-last_name">Apellidos</label>
-                        <input id="create-form-last_name" type="text" name="last_name" class="input-md round form-control">
                     </div>
                     <div class="form-group">
                         <label for="create-form-phone_number">Teléfono</label>
