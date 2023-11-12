@@ -176,12 +176,10 @@ $(document).ready(function() {
                                     break;
                             };
                             let row = `
-                                <td>${new_email}</td>
-                                <td>${new_password.substring(0, 10)}...</td>
                                 <td>${new_name}</td>
                                 <td>${new_last_name}</td>
+                                <td>${new_email}</td>
                                 <td>${new_phone_number}</td>
-                                <td>${new_dni}</td>
                                 <td>${type}</td>
                                 <td class='table-col-btn'>
                                     <a href='#user-edit' class='btn-user-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-user-edit' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>
@@ -345,12 +343,10 @@ $(document).ready(function() {
                         };
                         let row = 
                             `<tr id='${id_row}'>
-                                <td>${new_email}</td>
-                                <td>${new_password.substring(0, 10)}...</td>
                                 <td>${new_name}</td>
                                 <td>${new_last_name}</td>
+                                <td>${new_email}</td>
                                 <td>${new_phone_number}</td>
-                                <td>${new_dni}</td>
                                 <td>${type}</td>
                                 <td class='table-col-btn'>
                                     <a href='#user-edit' class='btn-user-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-user-edit' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>

@@ -66,12 +66,10 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Correo</th>
-                                        <th>Contraseña</th>
                                         <th>Nombre</th>
                                         <th>Apellidos</th>
+                                        <th>Correo</th>
                                         <th>Teléfono</th>
-                                        <th>Dni</th>
                                         <th>Tipo</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -81,12 +79,10 @@
                                         $count = 0; 
                                         foreach ($dataToView as $row):
                                             echo "<tr id='row{$count}'>";
-                                                echo "<td>{$row->getEmail()}</td>";
-                                                echo "<td>" . substr($row->getPassword(), 0, 10) . "...</td>";
                                                 echo "<td>{$row->getName()}</td>";
                                                 echo "<td>{$row->getLastName()}</td>";
+                                                echo "<td>{$row->getEmail()}</td>";
                                                 echo "<td>{$row->getPhoneNumber()}</td>";
-                                                echo "<td>{$row->getDni()}</td>";
                                                 switch ($row->getType()) {
                                                     case "student":
                                                         $type = "Alumno";
