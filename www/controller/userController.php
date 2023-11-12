@@ -57,9 +57,9 @@
     /*
      * En caso de que este método sea llamado por un administrador y se le pase
      * todas las variables: email, password, name, last_name, phone_number, dni
-     * y type (siendo obligatorio que email, password y type sean válidos) a 
-     * través de POST, creará el usuario con los datos pasados, en caso 
-     * contrario mostrará el mensaje de error correspondiente.
+     * y type (siendo obligatorio que email, password, name, last_name y type 
+     * sean válidos) a través de POST, creará el usuario con los datos pasados, 
+     * en caso contrario mostrará el mensaje de error correspondiente.
      * 
      * @return JSON con parámetros success, en caso de error msg y en caso 
      *         de éxito user con todos los parámetros del usuario creado.
@@ -67,7 +67,7 @@
     function create() {
       if (isAdmin()) {
         if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type']) && $this->validType($_POST['type'])) {
-          if (!empty($_POST['email']) && !empty($_POST['password'])) {
+          if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['last_name'])) {
             if ($this->validEmail($_POST['email'])) {
               if ($this->validPassword($_POST['password'])) {
                 echo $this->userManagement->createUser();
@@ -94,7 +94,7 @@
             echo json_encode(
               array(
                 'success' => 0, 
-                'msg'     => 'No puedes dejar vacíos los campos: correo y contraseña.'
+                'msg'     => 'No puedes dejar vacíos los campos: nombre, apellidos, correo y contraseña.'
               )
             );
           }
@@ -153,10 +153,10 @@
     /*
      * En caso de que este método sea llamado por un administrador y se le pase
      * todas las variables: id, email, password, name, last_name, phone_number,
-     * dni y type (siendo obligatorio que el id no esté vacío, y que el email,
-     * password y type sean válidos) a través de POST, editará el usuario
-     * correspondiente al id con los datos pasados, en caso contrario mostrará
-     * el mensaje de error correspondiente.
+     * dni y type (siendo obligatorio que el id, name y last_name no estén 
+     * vacíos, y que el email, password y type sean válidos) a través de POST, 
+     * editará el usuario correspondiente al id con los datos pasados, en caso 
+     * contrario mostrará el mensaje de error correspondiente.
      * 
      * @return JSON con parámetros success, en caso de error msg y en caso 
      *         de éxito password con la contraseña encriptada.
@@ -164,7 +164,7 @@
     function edit() {
       if (isAdmin()) {
         if (isset($_POST['id']) && !empty($_POST['id']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['phone_number']) && isset($_POST['dni']) && isset($_POST['type']) && $this->validType($_POST['type'])) {
-          if (!empty($_POST['email'])  && !empty($_POST['password'])) {
+          if (!empty($_POST['email'])  && !empty($_POST['password']) && !empty($_POST['name'])  && !empty($_POST['last_name'])) {
             if ($this->validEmail($_POST['email'])) {
               if ($this->validPassword($_POST['password'])) {
                 echo $this->userManagement->editUser();
@@ -191,7 +191,7 @@
             echo json_encode(
               array(
                 'success' => 0, 
-                'msg'     => 'No puedes dejar vacíos los campos: correo y contraseña.'
+                'msg'     => 'No puedes dejar vacíos los campos: nombre, apellidos, correo y contraseña.'
               )
             );
           }
