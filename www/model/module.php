@@ -13,7 +13,9 @@
         private $name;
         private $header_image;
         private $preview;
+        private $preview_image;
         private $content;
+        private $content_image;
 
         /*
          * Constructor que inicializa todos los atributos a los pasados como argumento.
@@ -22,14 +24,18 @@
          * @param name           String nombre del módulo
          * @param header_image   String imagen de cabecera del módulo
          * @param preview        String contenido de previsualización del módulo
+         * @param preview_image  String contenido de previsualización del módulo en formato imagen
          * @param content        String contenido del módulo
+         * @param content_image  String contenido del módulo en formato imagen
         */
-        function __construct($id, $name, $header_image, $preview, $content) {
-            $this->id           = $id;
-            $this->name         = $name;
-            $this->header_image = $header_image;
-            $this->preview      = $preview;
-            $this->content      = $content;
+        function __construct($id, $name, $header_image, $preview, $preview_image, $content, $content_image) {
+            $this->id            = $id;
+            $this->name          = $name;
+            $this->header_image  = $header_image;
+            $this->preview       = $preview;
+            $this->preview_image = $preview_image;
+            $this->content       = $content;
+            $this->content_image = $content_image;
         }
 
         /*
@@ -69,12 +75,30 @@
         }
 
         /*
+         * Método de consulta del atributo preview_image.
+         * 
+         * @return Devuelve el contenido de previsualización del módulo en formato imagen
+        */
+        function getPreviewImage() {
+            return $this->preview_image;
+        }
+
+        /*
          * Método de consulta del atributo content.
          * 
          * @return Devuelve el contenido del módulo
         */
         function getContent() {
             return $this->content;
+        }
+
+        /*
+         * Método de consulta del atributo content_image.
+         * 
+         * @return Devuelve el contenido del módulo en formato imagen
+        */
+        function getContentImage() {
+            return $this->content_image;
         }
     }
 ?>

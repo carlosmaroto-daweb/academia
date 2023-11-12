@@ -255,8 +255,8 @@
           return $this->moduleManagement->getModuleById($_GET['id']);
         }
         else if (isset($_POST['id']) && !empty($_POST['id'])) {
-          if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['content'])){
-            if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['content'])) {
+          if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['preview_image']) && isset($_POST['content']) && isset($_POST['content_image'])){
+            if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['preview_image']) && !empty($_POST['content']) && !empty($_POST['content_image'])) {
               echo $this->moduleManagement->editModule();
             }
             else {
@@ -277,8 +277,8 @@
             );
           }
         }
-        else if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['content'])){
-          if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['content'])) {
+        else if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['preview_image']) && isset($_POST['content']) && isset($_POST['content_image'])){
+          if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['preview_image']) && !empty($_POST['content']) && !empty($_POST['content_image'])) {
             echo $this->moduleManagement->createModule();
           }
           else {

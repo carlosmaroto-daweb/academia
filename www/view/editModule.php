@@ -70,6 +70,8 @@
                     echo "<div class='container'>";
                         echo "<form id='module-edit-form' class='form'>";
                             echo "<input id='module-edit-id' type='hidden' name='id' value='{$id}'>";
+                            echo "<div id='preview_image'></div>";
+                            echo "<div id='content_image'></div>";
                             echo "<div class='form-group'>";
                                 echo "<label for='module-edit-name'>Nombre <span class='required-field-color'>(*)</span></label>";
                                 echo "<input id='module-edit-name' type='text' name='name' value='{$name}' class='input-md round form-control'>";
@@ -80,11 +82,11 @@
                                 echo "<img id='header_image_preview' src='{$header_image}'>";
                             echo "</div>";
                             echo "<div class='form-group'>";
-                                echo "<label for='header_image'>Contenido previsualización <span class='required-field-color'>(*)</span></label>";
+                                echo "<label>Contenido previsualización <span class='required-field-color'>(*)</span></label>";
                                 echo "<div id='preview'>{$preview}</div>";
                             echo "</div>";
                             echo "<div class='form-group'>";
-                                echo "<label for='header_image'>Contenido <span class='required-field-color'>(*)</span></label>";
+                                echo "<label>Contenido <span class='required-field-color'>(*)</span></label>";
                                 echo "<div id='content'>{$content}</div>";
                             echo "</div>";
                         echo "</form>";

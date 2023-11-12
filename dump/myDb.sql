@@ -22,6 +22,8 @@ CREATE TABLE `module` (
   `name` VARCHAR(255),
   `header_image` LONGTEXT,
   `preview` LONGTEXT,
+  `preview_image` LONGTEXT,
   `content` LONGTEXT,
+  `content_image` LONGTEXT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

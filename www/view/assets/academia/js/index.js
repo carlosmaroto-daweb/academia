@@ -224,7 +224,6 @@ $(document).ready(function() {
         $('#btn-edit').remove();
     });
 
-
     $(".magnificPopup-user-delete").magnificPopup({
         gallery: {
             enabled: true
@@ -388,21 +387,6 @@ $(document).ready(function() {
         $('#create-form').trigger("reset");
         $('#btn-create-cancel').remove();
         $('#btn-create').remove();
-    });
-
-    $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function(e) {
-        const canvas_preview = document.getElementsByClassName('canvas_preview');
-        if (canvas_preview) {
-            for (let i=0; i<canvas_preview.length; i++) {
-                if (!canvas_preview[i].querySelector('canvas')) {
-                    html2canvas(canvas_preview[i]).then(function(canvas) {
-                        canvas.setAttribute('style', 'width: 100%; height: 100%');
-                        canvas_preview[i].innerHTML = "";
-                        canvas_preview[i].appendChild(canvas);
-                    });
-                }
-            }
-        }
     });
 
     $(".magnificPopup-lesson-duplicate").magnificPopup({
@@ -577,18 +561,18 @@ $(document).ready(function() {
                 success: function(response) {
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
-                        let id           = jsonData.module.id;
-                        let id_row       = 'row' + $('#module-table').children('tr').length;
-                        let name         = jsonData.module.name;
-                        let header_image = jsonData.module.header_image;
-                        let preview      = jsonData.module.preview;
-                        let content      = jsonData.module.content;
+                        let id            = jsonData.module.id;
+                        let id_row        = 'row' + $('#module-table').children('tr').length;
+                        let name          = jsonData.module.name;
+                        let header_image  = jsonData.module.header_image;
+                        let preview_image = jsonData.module.preview_image;
+                        let content_image = jsonData.module.content_image;
                         let row = 
                             `<tr id='${id_row}'>
                                 <td>${name}</td>
                                 <td><img class='header_image_preview' src='${header_image}'></td>
-                                <td><div class='canvas_preview'>${preview}</div></td>
-                                <td><div class='canvas_preview'>${content}</div></td>
+                                <td><img class='preview_image_preview' src='${preview_image}'></td>
+                                <td><img class='content_image_preview' src='${content_image}'></td>
                                 <td> </td>
                                 <td class='table-col-btn'>
                                     <a href='index.php?controller=courseController&action=editModule&id=${id}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>
@@ -608,13 +592,6 @@ $(document).ready(function() {
                                 enabled: true
                             },
                             mainClass: "mfp-fade"
-                        });
-                        let new_row = document.getElementById(id_row);
-                        let canvas_preview = new_row.querySelector(".canvas_preview");
-                        html2canvas(canvas_preview).then(function(canvas) {
-                            canvas.setAttribute('style', 'width: 100%; height: 100%');
-                            canvas_preview.innerHTML = "";
-                            canvas_preview.appendChild(canvas);
                         });
                         $.magnificPopup.close();
                     }
@@ -913,22 +890,38 @@ $(document).ready(function() {
         height: 500,
     });
 
-    $('#edit-module').on('click', function(event) {
+    $('#edit-module').on('click', async function(event) {
         event.preventDefault();
-        let id           = $('#module-edit-id').val();
-        let name         = $('#module-edit-name').val();
-        let header_image = base64URL;
-        let preview      = $('#preview').summernote('code')
-        let content      = $('#content').summernote('code')
+        let id            = $('#module-edit-id').val();
+        let name          = $('#module-edit-name').val();
+        let header_image  = base64URL;
+        let preview       = $('#preview').summernote('code');
+        let preview_image = document.getElementById('preview_image');
+        preview_image.innerHTML = preview;
+        await html2canvas(preview_image).then(function(canvas) {
+            canvas.setAttribute('style', 'width: 100%; height: 100%');
+            preview_image.innerHTML = "";
+            preview_image = canvas.toDataURL();
+        });
+        let content = $('#content').summernote('code');
+        let content_image = document.getElementById('content_image');
+        content_image.innerHTML = content;
+        await html2canvas(content_image).then(function(canvas) {
+            canvas.setAttribute('style', 'width: 100%; height: 100%');
+            content_image.innerHTML = "";
+            content_image = canvas.toDataURL();
+        });
         $.ajax({
             type: "POST",
             url: 'index.php?controller=courseController&action=editModule&ajax=true',
             data: {
-                'id':           id,
-                'name':         name,
-                'header_image': header_image,
-                'preview':      preview,
-                'content':      content
+                'id':            id,
+                'name':          name,
+                'header_image':  header_image,
+                'preview':       preview,
+                'preview_image': preview_image,
+                'content':       content,
+                'content_image': content_image
             },
             success: function(response) {
                 let jsonData = JSON.parse(response);

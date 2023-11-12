@@ -48,8 +48,8 @@
          * contrario se muestra un mensaje del error correspondiente.
          * 
          * Previamente se ha comprobado que estén los parámetros name, 
-         * header_image, preview y content en el controlador y que sean
-         * válidos.
+         * header_image, preview, preview_image, content y content_image en 
+         * el controlador y que sean válidos.
          * 
          * @return JSON con parámetros success y en caso de error msg.
         */
@@ -131,10 +131,12 @@
         function duplicateModule() {
             $module = $this->getModuleById($_GET['id']);
             if ($module) {
-                $_POST['name']         = $module->getName() . ' ' . uniqid();
-                $_POST['header_image'] = $module->getHeaderImage();
-                $_POST['preview']      = $module->getPreview();
-                $_POST['content']      = $module->getContent();
+                $_POST['name']          = $module->getName() . ' ' . uniqid();
+                $_POST['header_image']  = $module->getHeaderImage();
+                $_POST['preview']       = $module->getPreview();
+                $_POST['preview_image'] = $module->getPreviewImage();
+                $_POST['content']       = $module->getContent();
+                $_POST['content_image'] = $module->getContentImage();
                 if ($this->db->createModule()) {
                     $this->updateModules();
                     $module = $this->getModuleByName($_POST['name']);
@@ -142,11 +144,13 @@
                         array(
                             'success'   => 1, 
                             'module'    => array(
-                                'id'           => $module->getId(),
-                                'name'         => $module->getName(),
-                                'header_image' => $module->getHeaderImage(),
-                                'preview'      => $module->getPreview(),
-                                'content'      => $module->getContent()
+                                'id'            => $module->getId(),
+                                'name'          => $module->getName(),
+                                'header_image'  => $module->getHeaderImage(),
+                                'preview'       => $module->getPreview(),
+                                'preview_image' => $module->getPreviewImage(),
+                                'content'       => $module->getContent(),
+                                'content_image' => $module->getContentImage()
                             )
                         )
                     );
@@ -179,7 +183,8 @@
          * mensaje del error correspondiente.
          * 
          * Previamente se ha comprobado que estén los parámetros id, name, 
-         * header_image, preview y content en el controlador y que sean válidos.
+         * header_image, preview, preview_image, content y content_image en el 
+         * controlador y que sean válidos.
          * 
          * @return JSON con parámetros success y en caso de error msg.
         */
@@ -262,7 +267,7 @@
             $this->modules = [];
             $query = $this->db->getModules();
             foreach ($query as $row) {
-                array_push($this->modules, new Module($row['id'], $row['name'], $row['header_image'], $row['preview'], $row['content']));
+                array_push($this->modules, new Module($row['id'], $row['name'], $row['header_image'], $row['preview'], $row['preview_image'], $row['content'], $row['content_image']));
             }
         }
     }

@@ -227,8 +227,8 @@
                                                         echo "<tr id='row{$count}'>";
                                                             echo "<td>{$row->getName()}</td>";
                                                             echo "<td><img class='header_image_preview' src='{$row->getHeaderImage()}'></td>";
-                                                            echo "<td><div class='canvas_preview'>{$row->getPreview()}</div></td>";
-                                                            echo "<td><div class='canvas_preview'>{$row->getContent()}</div></td>";
+                                                            echo "<td><img class='preview_image_preview' src='{$row->getPreviewImage()}'></td>";
+                                                            echo "<td><img class='content_image_preview' src='{$row->getContentImage()}'></td>";
                                                             echo "<td> </td>";
                                                             echo "<td class='table-col-btn'>";
                                                                 echo "<a href='index.php?controller=courseController&action=editModule&id={$row->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>";

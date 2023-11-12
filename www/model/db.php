@@ -63,18 +63,21 @@
      * este caso la sentencia inserta un registro nuevo a la base de datos.
      * 
      * Previamente se ha comprobado que estén los parámetros name,
-     * header_image, preview y content en el controlador y que sean válidos.
+     * header_image, preview, preview_image, content y content_image en el 
+     * controlador y que sean válidos.
      * 
      * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function createModule() {
       $data = [
-        'name'         => $_POST['name'],
-        'header_image' => $_POST['header_image'],
-        'preview'      => $_POST['preview'],
-        'content'      => $_POST['content']
+        'name'          => $_POST['name'],
+        'header_image'  => $_POST['header_image'],
+        'preview'       => $_POST['preview'],
+        'preview_image' => $_POST['preview_image'],
+        'content'       => $_POST['content'],
+        'content_image' => $_POST['content_image']
       ];
-      $sql = "insert into module (name, header_image, preview, content) values (:name, :header_image, :preview, :content)";
+      $sql = "insert into module (name, header_image, preview, preview_image, content, content_image) values (:name, :header_image, :preview, :preview_image, :content, :content_image)";
       $stmt = $this->conection->prepare($sql);
       return $stmt->execute($data);
     }
@@ -188,19 +191,22 @@
      * de la base de datos.
      * 
      * Previamente se ha comprobado que estén los parámetros id, name,
-     * header_image, preview y content en el controlador y que sean válidos.
+     * header_image, preview, preview_image, content y content_image en el 
+     * controlador y que sean válidos.
      * 
      * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
     function editModule() {
       $data = [
-        'name'         => $_POST['name'],
-        'header_image' => $_POST['header_image'],
-        'preview'      => $_POST['preview'],
-        'content'      => $_POST['content'],
-        'id'           => $_POST['id']
+        'name'          => $_POST['name'],
+        'header_image'  => $_POST['header_image'],
+        'preview'       => $_POST['preview'],
+        'preview_image' => $_POST['preview_image'],
+        'content'       => $_POST['content'],
+        'content_image' => $_POST['content_image'],
+        'id'            => $_POST['id']
       ];
-      $sql = "update module set name=:name, header_image=:header_image, preview=:preview, content=:content where id=:id";
+      $sql = "update module set name=:name, header_image=:header_image, preview=:preview, preview_image=:preview_image, content=:content, content_image=:content_image where id=:id";
       $stmt = $this->conection->prepare($sql);
       return $stmt->execute($data);
     }
