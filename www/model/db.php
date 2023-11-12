@@ -286,8 +286,8 @@
       $data = [
         'email'        => $_POST['email'],
         'password'     => $_POST['password'],
-        'name'         => '',
-        'last_name'    => '',
+        'name'         => $_POST['name'],
+        'last_name'    => $_POST['last_name'],
         'phone_number' => '',
         'dni'          => '',
         'type'         => 'student'

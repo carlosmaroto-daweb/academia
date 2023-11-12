@@ -31,14 +31,18 @@ $(document).ready(function() {
 
     $("#btn-register").on('click', function(e) {
         e.preventDefault();
-        let email    = $('#register-email').val();
-        let password = $('#register-password').val();
+        let name      = $('#register-name').val();
+        let last_name = $('#register-last-name').val();
+        let email     = $('#register-email').val();
+        let password  = $('#register-password').val();
         $.ajax({
             type: "POST",
             url: 'index.php?controller=userController&action=register&ajax=true',
             data: {
-                'email':    email,
-                'password': password
+                'name':      name,
+                'last_name': last_name,
+                'email':     email,
+                'password':  password
             },
             success: function(response) {
                 let jsonData = JSON.parse(response);

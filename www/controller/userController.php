@@ -237,12 +237,12 @@
         header("Location: index.php?controller=userController&action=admin");
         die();
       }
-      elseif (isSecretary()) {
+      else if (isSecretary()) {
         header("Location: index.php?controller=courseController&action=secretary");
         die();
       }
       else if (isStudent() || isTeacher()) {
-        header("Location: index.php?controller=userController&action=home");
+        header("Location: index.php?controller=courseController&action=home");
         die();
       }
       else if (!hasLoggedIn()) {
@@ -323,16 +323,17 @@
     }
 
     /*
-     * En caso de que este método sea llamado y se le pase las variables email
-     * y password (siendo obligatorio que sean válidos) a través de POST, 
-     * se registrará e iniciará sesión el usuario siendo de tipo estudiante,
-     * en caso contrario mostrará el mensaje de error correspondiente.
+     * En caso de que este método sea llamado y se le pase las variables name, 
+     * last_name, email y password (siendo obligatorio que sean válidos) a 
+     * través de POST, se registrará e iniciará sesión el usuario siendo de 
+     * tipo estudiante, en caso contrario mostrará el mensaje de error 
+     * correspondiente.
      * 
      * @return JSON con parámetros success y en caso de error msg.
     */
     function register() {
-      if (isset($_POST['email']) && isset($_POST['password'])) {
-        if (!empty($_POST['email']) && !empty($_POST['password'])) {
+      if (isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['email']) && isset($_POST['password'])) {
+        if (!empty($_POST['name']) && !empty($_POST['last_name']) && !empty($_POST['email']) && !empty($_POST['password'])) {
           if ($this->validEmail($_POST['email'])) {
             if ($this->validPassword($_POST['password'])) {
               echo $this->userManagement->registerUser();
@@ -359,7 +360,7 @@
           echo json_encode(
             array(
               'success' => 0, 
-              'msg'     => 'Se debe introducir el correo y la contraseña.'
+              'msg'     => 'Se debe introducir: nombre, apellidos, correo y contraseña.'
             )
           );
         }

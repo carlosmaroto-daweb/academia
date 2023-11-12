@@ -141,6 +141,18 @@
                                         <form id="formRegister" class="form contact-form">
                                             <div class="clearfix">
                                                 
+                                                <!-- Name -->
+                                                <div class="form-group">
+                                                    <label for="register-name">Nombre <span class="required-field-color">(*)</span></label>
+                                                    <input type="text" name="name" id="register-name" class="input-lg round form-control" placeholder="Introduce tu nombre">
+                                                </div>
+                                                
+                                                <!-- Last Name -->
+                                                <div class="form-group">
+                                                    <label for="register-last-name">Apellidos <span class="required-field-color">(*)</span></label>
+                                                    <input type="text" name="last-name" id="register-last-name" class="input-lg round form-control" placeholder="Introduce tus apellidos">
+                                                </div>
+                                                
                                                 <!-- Email -->
                                                 <div class="form-group">
                                                     <label for="register-email">Correo <span class="required-field-color">(*)</span></label>
