@@ -571,6 +571,7 @@ $(document).ready(function() {
                         let content_image = jsonData.module.content_image;
                         let row = 
                             `<tr id='${id_row}'>
+                                <td>${id}</td>
                                 <td>${name}</td>
                                 <td><img class='header_image_preview' src='${header_image}'></td>
                                 <td><img class='preview_image_preview' src='${preview_image}'></td>

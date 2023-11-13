@@ -34,15 +34,15 @@
 }
 
 #module-table .header_image_preview {
-    max-width: 150px;
+    max-width: 100px;
 }
 
 #module-table .preview_image_preview {
-    max-width: 300px;
+    max-width: 200px;
 }
 
 #module-table .content_image_preview {
-    max-width: 300px;
+    max-width: 200px;
 }
 
 .panel-default .panel-heading {

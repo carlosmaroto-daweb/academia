@@ -212,6 +212,7 @@
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
+                                                    <th>Id</th>
                                                     <th>Nombre</th>
                                                     <th>Foto de cabecera</th>
                                                     <th>Previsualización</th>
@@ -225,6 +226,7 @@
                                                     $count = 0; 
                                                     foreach ($modules as $row):
                                                         echo "<tr id='row{$count}'>";
+                                                            echo "<td>{$row->getId()}</td>";
                                                             echo "<td>{$row->getName()}</td>";
                                                             echo "<td><img class='header_image_preview' src='{$row->getHeaderImage()}'></td>";
                                                             echo "<td><img class='preview_image_preview' src='{$row->getPreviewImage()}'></td>";
