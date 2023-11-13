@@ -513,7 +513,7 @@ $(document).ready(function() {
                 success: function(response) {
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
-                        $('#' + id_row).remove();
+                        $('#lesson-table #' + id_row).remove();
                         $.magnificPopup.close();
                     }
                     else {
@@ -646,7 +646,7 @@ $(document).ready(function() {
                 success: function(response) {
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
-                        $('#' + id_row).remove();
+                        $('#module-table #' + id_row).remove();
                         $.magnificPopup.close();
                     }
                     else {
