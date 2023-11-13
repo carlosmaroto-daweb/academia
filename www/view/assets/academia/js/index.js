@@ -914,17 +914,25 @@ $(document).ready(function() {
             content_image.innerHTML = "";
             content_image = canvas.toDataURL();
         });
+        let assigned_lessons = '';
+        $(".assigned_lessons").each(function() {
+            if (assigned_lessons != '') {
+                assigned_lessons += ";;";
+            }
+            assigned_lessons += $(this).val();
+        });
         $.ajax({
             type: "POST",
             url: 'index.php?controller=courseController&action=editModule&ajax=true',
             data: {
-                'id':            id,
-                'name':          name,
-                'header_image':  header_image,
-                'preview':       preview,
-                'preview_image': preview_image,
-                'content':       content,
-                'content_image': content_image
+                'id':               id,
+                'name':             name,
+                'header_image':     header_image,
+                'preview':          preview,
+                'preview_image':    preview_image,
+                'content':          content,
+                'content_image':    content_image,
+                'assigned_lessons': assigned_lessons
             },
             success: function(response) {
                 let jsonData = JSON.parse(response);
@@ -943,6 +951,21 @@ $(document).ready(function() {
                 }
             }
         });
+    });
+    $('#add-row-assigned_lessons').on('click', function(e) {
+        e.preventDefault();
+        let options_lessons = $(this).data('options_lessons');
+        let row_assigned_lessons = `
+            <div class='row-assigned_lessons'>
+                <div class='grid-row-assigned_lessons btn btn-mod btn-circle'><i class='fa fa-grip-vertical'></i></div>
+                <select class='assigned_lessons input-md round form-control'>` + options_lessons + `</select>
+                <div class='delete-row-assigned_lessons btn btn-mod btn-circle button-cancel'><i class='fa fa-times'></i></div>
+            </div>`;
+        $('#container-assigned_lessons').append(row_assigned_lessons);
+    });
+
+    $(document).on('click','.delete-row-assigned_lessons', function(e) {
+        $(this).closest(".row-assigned_lessons").remove();
     });
 /*
     $('#add-course-create-modules').on('click', function() {

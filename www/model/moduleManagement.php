@@ -54,12 +54,47 @@
          * @return JSON con parámetros success y en caso de error msg.
         */
         function createModule() {
+            $name = $_POST['name'];
+            $_POST['name'] = uniqid();
             if ($this->db->createModule()) {
-                $result = json_encode(
-                    array(
-                        'success' => 1
-                    )
-                );
+                $this->updateModules();
+                $module = $this->getModuleByName($_POST['name']);
+                $_POST['id']   = $module->getId();
+                $_POST['name'] = $name;
+                $this->db->editModule();
+                if ($_POST['assigned_lessons'] != "No hay lecciones.") {
+                    $id_lessons = explode(';;', $_POST['assigned_lessons']);
+                    $errorCreate = false;
+                    $_POST['id_module'] = $_POST['id'];
+                    for ($i=0; $i<count($id_lessons) && !$errorCreate; $i++) {
+                        $_POST['id_lesson'] = $id_lessons[$i];
+                        if (!$this->db->createModuleLesson()) {
+                            $errorCreate = true;
+                        }
+                    }
+                    if ($errorCreate) {
+                        $result = json_encode(
+                            array(
+                                'success' => 0, 
+                                'msg'     => 'No se ha podido crear el módulo en la base de datos.'
+                            )
+                        );
+                    }
+                    else {
+                        $result = json_encode(
+                            array(
+                                'success' => 1
+                            )
+                        );
+                    }
+                }
+                else {
+                    $result = json_encode(
+                        array(
+                            'success' => 1
+                        )
+                    );
+                }
             }
             else {
                 $result = json_encode(
