@@ -421,6 +421,7 @@ $(document).ready(function() {
                         let files  = jsonData.lesson.files;
                         let row = 
                             `<tr id='${id_row}'>
+                                <td>${id}</td>
                                 <td>${name}</td>`;
                                 let arrays = files.split(';;')
                                 let countVideo = 0;
@@ -435,13 +436,14 @@ $(document).ready(function() {
                                 }
                                 row += "<td>";
                                     if (countVideo != 0) {
-                                        row += "<i class='fa fa-video'>" + countVideo + "</i> ";
+                                        row += "<i class='fa fa-video'> " + countVideo + "</i> ";
                                     }
                                     if (countPdf != 0) {
-                                        row += "<i class='fa fa-file-pdf'>" + countPdf + "</i>";
+                                        row += "<i class='fa fa-file-pdf'> " + countPdf + "</i>";
                                     }
                                     row += "</td>";
                                 row += `
+                                <td> </td>
                                 <td class='table-col-btn'>
                                     <a href='index.php?controller=courseController&action=editLesson&id=${id}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>
                                     <a href='#lesson-duplicate' class='btn-lesson-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-lesson-duplicate' data-id='${id}'>Duplicar</a>

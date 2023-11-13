@@ -216,7 +216,7 @@
                                                     <th>Foto de cabecera</th>
                                                     <th>Previsualización</th>
                                                     <th>Contenido</th>
-                                                    <th>Lecciones asignadas</th>
+                                                    <th>Lecciones asig.</th>
                                                     <th>Acciones</th>
                                                 </tr>
                                             </thead>
@@ -264,8 +264,10 @@
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
+                                                    <th>Id</th>
                                                     <th>Nombre</th>
                                                     <th>Archivos</th>
+                                                    <th>Módulos asig.</th>
                                                     <th>Acciones</th>
                                                 </tr>
                                             </thead>
@@ -274,6 +276,7 @@
                                                     $count = 0; 
                                                     foreach ($lessons as $row):
                                                         echo "<tr id='row{$count}'>";
+                                                            echo "<td>{$row->getId()}</td>";
                                                             echo "<td>{$row->getName()}</td>";
                                                             $arrays = explode(';;', $row->getFiles());
                                                             $countVideo = 0;
@@ -294,6 +297,7 @@
                                                                     echo "<i class='fa fa-file-pdf'> {$countPdf}</i>";
                                                                 }
                                                             echo "</td>";
+                                                            echo "<td> </td>";
                                                             echo "<td class='table-col-btn'>";
                                                                 echo "<a href='index.php?controller=courseController&action=editLesson&id={$row->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>";
                                                                 echo "<a href='#lesson-duplicate' class='btn-lesson-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-lesson-duplicate' data-id='{$row->getId()}'>Duplicar</a>";
