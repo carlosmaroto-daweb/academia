@@ -256,20 +256,25 @@
         function duplicateLesson() {
             $lesson = $this->getLessonById($_GET['id']);
             if ($lesson) {
-                $_POST['name'] = $lesson->getName() . ' ' . uniqid();
+                $_POST['name'] = uniqid();
                 $files = $this->duplicateArchive($lesson->getFiles());
                 if ($files != '') {
                     $_POST['files'] = $files;
                     if ($this->db->createLesson()) {
                         $this->updateLessons();
-                        $lesson = $this->getLessonByName($_POST['name']);
+                        $new_lesson = $this->getLessonByName($_POST['name']);
+                        $_POST['id']   = $new_lesson->getId();
+                        $_POST['name'] = $lesson->getName() . ' Copia';
+                        $this->db->editLesson();
+                        $this->updateLessons();
+                        $new_lesson = $this->getLessonById($_POST['id']);
                         $result = json_encode(
                             array(
                                 'success'   => 1, 
                                 'lesson'    => array(
-                                    'id'    => $lesson->getId(),
-                                    'name'  => $lesson->getName(),
-                                    'files' => $lesson->getFiles()
+                                    'id'    => $new_lesson->getId(),
+                                    'name'  => $new_lesson->getName(),
+                                    'files' => $new_lesson->getFiles()
                                 )
                             )
                         );

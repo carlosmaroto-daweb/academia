@@ -131,7 +131,7 @@
         function duplicateModule() {
             $module = $this->getModuleById($_GET['id']);
             if ($module) {
-                $_POST['name']          = $module->getName() . ' ' . uniqid();
+                $_POST['name']          = uniqid();
                 $_POST['header_image']  = $module->getHeaderImage();
                 $_POST['preview']       = $module->getPreview();
                 $_POST['preview_image'] = $module->getPreviewImage();
@@ -139,18 +139,23 @@
                 $_POST['content_image'] = $module->getContentImage();
                 if ($this->db->createModule()) {
                     $this->updateModules();
-                    $module = $this->getModuleByName($_POST['name']);
+                    $new_module = $this->getModuleByName($_POST['name']);
+                    $_POST['id']   = $new_module->getId();
+                    $_POST['name'] = $module->getName() . ' Copia';
+                    $this->db->editModule();
+                    $this->updateModules();
+                    $new_module = $this->getModuleById($_POST['id']);
                     $result = json_encode(
                         array(
                             'success'   => 1, 
                             'module'    => array(
-                                'id'            => $module->getId(),
-                                'name'          => $module->getName(),
-                                'header_image'  => $module->getHeaderImage(),
-                                'preview'       => $module->getPreview(),
-                                'preview_image' => $module->getPreviewImage(),
-                                'content'       => $module->getContent(),
-                                'content_image' => $module->getContentImage()
+                                'id'            => $new_module->getId(),
+                                'name'          => $new_module->getName(),
+                                'header_image'  => $new_module->getHeaderImage(),
+                                'preview'       => $new_module->getPreview(),
+                                'preview_image' => $new_module->getPreviewImage(),
+                                'content'       => $new_module->getContent(),
+                                'content_image' => $new_module->getContentImage()
                             )
                         )
                     );
