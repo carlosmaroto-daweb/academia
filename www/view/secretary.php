@@ -85,8 +85,9 @@
                     <!-- End Nav Tabs -->
             
                     <?php     
-                        $modules = $dataToView["modules"];
-                        $lessons = $dataToView["lessons"];
+                        $modules       = $dataToView["modules"];
+                        $lessons       = $dataToView["lessons"];
+                        $module_lesson = $dataToView["module_lesson"];
                     ?>
                                 
                     <!-- Tab panes -->
@@ -231,7 +232,13 @@
                                                             echo "<td><img class='header_image_preview' src='{$row->getHeaderImage()}'></td>";
                                                             echo "<td><img class='preview_image_preview' src='{$row->getPreviewImage()}'></td>";
                                                             echo "<td><img class='content_image_preview' src='{$row->getContentImage()}'></td>";
-                                                            echo "<td> </td>";
+                                                            echo "<td>";
+                                                                for ($i=0; $i <count($module_lesson) ; $i++) { 
+                                                                    if ($module_lesson[$i][0]->getId() == $row->getId()) {
+                                                                        echo "({$module_lesson[$i][1]->getId()}) {$module_lesson[$i][1]->getName()}";
+                                                                    }
+                                                                }
+                                                            echo "</td>";
                                                             echo "<td class='table-col-btn'>";
                                                                 echo "<a href='index.php?controller=courseController&action=editModule&id={$row->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>";
                                                                 echo "<a href='#module-duplicate' class='btn-module-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-module-duplicate' data-id='{$row->getId()}'>Duplicar</a>";
@@ -299,7 +306,13 @@
                                                                     echo "<i class='fa fa-file-pdf'> {$countPdf}</i>";
                                                                 }
                                                             echo "</td>";
-                                                            echo "<td> </td>";
+                                                            echo "<td>";
+                                                                for ($i=0; $i <count($module_lesson) ; $i++) { 
+                                                                    if ($module_lesson[$i][1]->getId() == $row->getId()) {
+                                                                        echo "({$module_lesson[$i][0]->getId()}) {$module_lesson[$i][0]->getName()}";
+                                                                    }
+                                                                }
+                                                            echo "</td>";
                                                             echo "<td class='table-col-btn'>";
                                                                 echo "<a href='index.php?controller=courseController&action=editLesson&id={$row->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>";
                                                                 echo "<a href='#lesson-duplicate' class='btn-lesson-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-lesson-duplicate' data-id='{$row->getId()}'>Duplicar</a>";

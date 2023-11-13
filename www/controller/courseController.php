@@ -12,6 +12,8 @@
   // esta clase va a gestionar las operaciones sobre los módulos.
   require_once 'model/moduleManagement.php';
 
+  require_once 'model/relatedTableManager.php';
+
   // Incluimos el archivo userController.php para instanciar la clase como objeto,
   // esta clase va a redirigir a los usuarios no logeados.
   require_once 'controller/userController.php';
@@ -24,8 +26,9 @@
     private $lessonManagement;
 
     function __construct() {
-      $this->lessonManagement = new LessonManagement();
-      $this->moduleManagement = new ModuleManagement();
+      $this->lessonManagement    = new LessonManagement();
+      $this->moduleManagement    = new ModuleManagement();
+      $this->relatedTableManager = new RelatedTableManager();
     }
 
     function deleteLesson() {
@@ -252,7 +255,11 @@
       if (isSecretary() || isAdmin()) {
         if (isset($_GET['id']) && !empty($_GET['id'])) {
           $this->view = 'editModule';
-          return $this->moduleManagement->getModuleById($_GET['id']);
+          $result = [
+            'module'  => $this->moduleManagement->getModuleById($_GET['id']),
+            'lessons' => $this->lessonManagement->getLessons(),
+          ];
+          return $result;
         }
         else if (isset($_POST['id']) && !empty($_POST['id'])) {
           if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['preview_image']) && isset($_POST['content']) && isset($_POST['content_image'])){
@@ -277,9 +284,20 @@
             );
           }
         }
-        else if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['preview_image']) && isset($_POST['content']) && isset($_POST['content_image'])){
-          if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['preview_image']) && !empty($_POST['content']) && !empty($_POST['content_image'])) {
-            echo $this->moduleManagement->createModule();
+        else if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['preview_image']) && isset($_POST['content']) && isset($_POST['content_image']) && isset($_POST['assigned_lessons'])){
+          if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['preview_image']) && !empty($_POST['content']) && !empty($_POST['content_image']) && !empty($_POST['assigned_lessons'])) {
+            $id_lessons = explode(';;', $_POST['assigned_lessons']);
+            if (count($id_lessons) == count(array_unique($id_lessons))) {
+              echo $this->moduleManagement->createModule();
+            }
+            else {
+              echo json_encode(
+                array(
+                  'success' => 0, 
+                  'msg'     => 'Las lecciones asignadas no pueden repetirse.'
+                )
+              );
+            }
           }
           else {
             echo json_encode(
@@ -292,6 +310,11 @@
         }
         else {
           $this->view = 'editModule';
+          $result = [
+            'module'  => [],
+            'lessons' => $this->lessonManagement->getLessons(),
+          ];
+          return $result;
         }
       }
       else {
@@ -327,8 +350,9 @@
     function secretary() {
       if (isSecretary() || isAdmin()) {
         $result = [
-          'modules' => $this->moduleManagement->getModules(),
-          'lessons' => $this->lessonManagement->getLessons(),
+          'modules'       => $this->moduleManagement->getModules(),
+          'lessons'       => $this->lessonManagement->getLessons(),
+          'module_lesson' => $this->relatedTableManager->getModuleLesson(),
         ];
         $this->view = 'secretary';
         return $result;
