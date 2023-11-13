@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="wow fadeInUpShort" data-wow-delay=".2s">
                                     <p class="hs-line-6 opacity-075 mb-20 mb-xs-0">
-                                        Únete a nuestra comunidad para acceder a recursos gratuitos
+                                        Únete a nuestra comunidad para acceder a todas las ofertas
                                     </p>
                                 </div>
                             </div>
