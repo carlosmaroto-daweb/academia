@@ -82,6 +82,16 @@
       return $stmt->execute($data);
     }
 
+    function createModuleLesson() {
+      $data = [
+        'id_module' => $_POST['id_module'],
+        'id_lesson' => $_POST['id_lesson']
+      ];
+      $sql = "insert into module_lesson (id_module, id_lesson) values (:id_module, :id_lesson)";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
     /*
      * Método que asigna todos los valores pasados por el POST a un array
      * asociativo para ejecutar una sentencia sql con la base de datos. En
@@ -294,6 +304,13 @@
     */
     function getModules() {
       $sql = "select * from module";
+      $stmt = $this->conection->prepare($sql);
+      $stmt->execute();
+      return $stmt->fetchAll();
+    }
+
+    function getModuleLesson() {
+      $sql = "select * from module_lesson";
       $stmt = $this->conection->prepare($sql);
       $stmt->execute();
       return $stmt->fetchAll();

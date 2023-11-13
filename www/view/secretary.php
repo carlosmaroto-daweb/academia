@@ -233,7 +233,11 @@
                                                             echo "<td><img class='preview_image_preview' src='{$row->getPreviewImage()}'></td>";
                                                             echo "<td><img class='content_image_preview' src='{$row->getContentImage()}'></td>";
                                                             echo "<td>";
+<<<<<<< HEAD
                                                                 for ($i=0; $i<count($module_lesson); $i++) { 
+=======
+                                                                for ($i=0; $i <count($module_lesson) ; $i++) { 
+>>>>>>> bbb132cedcab6cf00859af734a421e2c9e221c74
                                                                     if ($module_lesson[$i][0]->getId() == $row->getId()) {
                                                                         echo "({$module_lesson[$i][1]->getId()}) {$module_lesson[$i][1]->getName()}";
                                                                     }
@@ -307,7 +311,11 @@
                                                                 }
                                                             echo "</td>";
                                                             echo "<td>";
+<<<<<<< HEAD
                                                                 for ($i=0; $i<count($module_lesson); $i++) { 
+=======
+                                                                for ($i=0; $i <count($module_lesson) ; $i++) { 
+>>>>>>> bbb132cedcab6cf00859af734a421e2c9e221c74
                                                                     if ($module_lesson[$i][1]->getId() == $row->getId()) {
                                                                         echo "({$module_lesson[$i][0]->getId()}) {$module_lesson[$i][0]->getName()}";
                                                                     }

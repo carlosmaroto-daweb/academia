@@ -12,10 +12,6 @@
   // esta clase va a gestionar las operaciones sobre los módulos.
   require_once 'model/moduleManagement.php';
 
-  // Incluimos el archivo relatedTableManager.php para instanciar la clase como objeto,
-  // esta clase va a consultar los registros de las tablas relacionadas.
-  require_once 'model/relatedTableManager.php';
-
   // Incluimos el archivo userController.php para instanciar la clase como objeto,
   // esta clase va a redirigir a los usuarios no logeados.
   require_once 'controller/userController.php';
