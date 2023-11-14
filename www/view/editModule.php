@@ -60,12 +60,19 @@
                 $header_image = "";
                 $preview      = "";
                 $content      = "";
+                $assigned_lessons = [];
                 if ($module) {
-                    $id           = $module->getId();
-                    $name         = $module->getName();
-                    $header_image = $module->getHeaderImage();
-                    $preview      = $module->getPreview();
-                    $content      = $module->getContent();
+                    $id            = $module->getId();
+                    $name          = $module->getName();
+                    $header_image  = $module->getHeaderImage();
+                    $preview       = $module->getPreview();
+                    $content       = $module->getContent();
+                    $module_lesson = $dataToView["module_lesson"];
+                    for ($i=0; $i<count($module_lesson); $i++) { 
+                        if ($module_lesson[$i][0]->getId() == $id) {
+                            array_push($assigned_lessons, $module_lesson[$i][1]->getId());
+                        }
+                    }
                 }
                 $lessons = $dataToView["lessons"];
                 $options_lessons = "<option>No hay lecciones.</option>";
@@ -101,7 +108,23 @@
                             echo "<div class='form-group'>";
                                 echo "<label>Lecciones asignadas</label>";
                                 echo "<div id='container-assigned_lessons'>";
-                                    // CARGAR LAS LECCIONES RELACIONADAS PARA LA EDICIÓN DE UN MÓDULO
+                                    if ($assigned_lessons) {
+                                        foreach ($assigned_lessons as $assigned_lesson):
+                                            $options_lessons_selected = "";
+                                            foreach ($lessons as $lesson):
+                                                $stringSelected = '';
+                                                if ($lesson->getId() == $assigned_lesson) {
+                                                    $stringSelected = ' selected ';
+                                                }
+                                                $options_lessons_selected .= '<option value="' . $lesson->getId() . '"' . $stringSelected . '>(' . $lesson->getId() . ') ' . $lesson->getName() . '</option>';
+                                            endforeach;
+                                            echo "<div class='row-assigned_lessons'>";
+                                                echo "<div class='grid-row-assigned_lessons btn btn-mod btn-circle'><i class='fa fa-grip-vertical'></i></div>";
+                                                echo "<select class='assigned_lessons input-md round form-control'>{$options_lessons_selected}</select>";
+                                                echo "<div class='delete-row-assigned_lessons btn btn-mod btn-circle button-cancel'><i class='fa fa-times'></i></div>";
+                                            echo "</div>";
+                                        endforeach;
+                                    }
                                 echo "</div>";
                                 echo "<a id='add-row-assigned_lessons' class='btn btn-mod btn-circle button-success' data-options_lessons='{$options_lessons}'><i class='fa fa-plus'></i></a>";
                             echo "</div>";

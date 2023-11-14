@@ -260,19 +260,52 @@
           $result = [
             'module'  => $this->moduleManagement->getModuleById($_GET['id']),
             'lessons' => $this->lessonManagement->getLessons(),
+            'module_lesson' => $this->relatedTableManager->getModuleLesson(),
           ];
           return $result;
         }
         else if (isset($_POST['id']) && !empty($_POST['id'])) {
-          if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['preview_image']) && isset($_POST['content']) && isset($_POST['content_image'])){
+          if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['preview_image']) && isset($_POST['content']) && isset($_POST['content_image']) && isset($_POST['assigned_lessons'])){
             if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['preview_image']) && !empty($_POST['content']) && !empty($_POST['content_image'])) {
-              echo $this->moduleManagement->editModule();
+              if (!empty($_POST['assigned_lessons']) && $_POST['assigned_lessons'] != "No hay lecciones.") {
+                $id_lessons = explode(';;', $_POST['assigned_lessons']);
+                if (count($id_lessons) == count(array_unique($id_lessons))) {
+                  $errorLesson = false;
+                  for ($i=0; $i<count($id_lessons) && !$errorLesson; $i++) {
+                    if (!$this->lessonManagement->getLessonById($id_lessons[$i])) {
+                        $errorLesson = true;
+                    }
+                  }
+                  if ($errorLesson) {
+                    echo json_encode(
+                      array(
+                        'success' => 0, 
+                        'msg'     => 'No se ha podido editar el módulo.'
+                      )
+                    );
+                  }
+                  else {
+                    echo $this->moduleManagement->editModule();
+                  }
+                }
+                else {
+                  echo json_encode(
+                    array(
+                      'success' => 0, 
+                      'msg'     => 'Las lecciones asignadas no pueden repetirse.'
+                    )
+                  );
+                }
+              }
+              else {
+                echo $this->moduleManagement->editModule();
+              }
             }
             else {
               echo json_encode(
                 array(
                   'success' => 0, 
-                  'msg'     => 'Se deben de rellenar todos los campos.'
+                  'msg'     => 'Se deben de rellenar los campos señalados.'
                 )
               );
             }
@@ -326,7 +359,7 @@
             echo json_encode(
               array(
                 'success' => 0, 
-                'msg'     => 'Se deben de rellenar todos los señalados.'
+                'msg'     => 'Se deben de rellenar los campos señalados.'
               )
             );
           }

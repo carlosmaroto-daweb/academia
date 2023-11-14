@@ -173,6 +173,34 @@
      * 
      * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
+    function deleteModuleLesson() {
+      if (isset($_GET['id_module'])) {
+        $data = [
+          'id_module' => $_GET['id_module']
+        ];
+        $sql = "delete from module_lesson where id_module=:id_module";
+        $stmt = $this->conection->prepare($sql);
+        return $stmt->execute($data);
+      }
+      else if (isset($_GET['id_lesson'])) {
+        $data = [
+          'id_lesson' => $_GET['id_lesson']
+        ];
+        $sql = "delete from module_lesson where id_lesson=:id_lesson";
+        $stmt = $this->conection->prepare($sql);
+        return $stmt->execute($data);
+      }
+    }
+
+    /*
+     * Método que asigna todos los valores pasados por el GET a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia elimina el registro que coincide con el id.
+     * 
+     * Previamente se ha comprobado que esté el parámetro id y que sea válido.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
     function deleteUser() {
       $data = [
         'id' => $_GET['id']
