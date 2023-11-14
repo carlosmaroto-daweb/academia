@@ -175,7 +175,39 @@
                   }
               }
               if ($valid) {
-                echo $this->lessonManagement->editLesson();
+                if (!empty($_POST['assigned_modules']) && $_POST['assigned_modules'] != "No hay módulos.") {
+                  $id_modules = explode(';;', $_POST['assigned_modules']);
+                  if (count($id_modules) == count(array_unique($id_modules))) {
+                    $errorModule = false;
+                    for ($i=0; $i<count($id_modules) && !$errorModule; $i++) {
+                      if (!$this->moduleManagement->getModuleById($id_modules[$i])) {
+                          $errorModule = true;
+                      }
+                    }
+                    if ($errorModule) {
+                      echo json_encode(
+                        array(
+                          'success' => 0, 
+                          'msg'     => 'No se ha podido editar la lección.'
+                        )
+                      );
+                    }
+                    else {
+                      echo $this->lessonManagement->editLesson();
+                    }
+                  }
+                  else {
+                    echo json_encode(
+                      array(
+                        'success' => 0, 
+                        'msg'     => 'Los módulos asignados no pueden repetirse.'
+                      )
+                    );
+                  }
+                }
+                else {
+                  echo $this->lessonManagement->editLesson();
+                }
               }
               else {
                 echo json_encode(
@@ -227,7 +259,39 @@
                 }
             }
             if ($valid) {
-              echo $this->lessonManagement->createLesson();
+              if (!empty($_POST['assigned_modules']) && $_POST['assigned_modules'] != "No hay módulos.") {
+                $id_modules = explode(';;', $_POST['assigned_modules']);
+                if (count($id_modules) == count(array_unique($id_modules))) {
+                  $errorModule = false;
+                  for ($i=0; $i<count($id_modules) && !$errorModule; $i++) {
+                    if (!$this->moduleManagement->getModuleById($id_modules[$i])) {
+                        $errorModule = true;
+                    }
+                  }
+                  if ($errorModule) {
+                    echo json_encode(
+                      array(
+                        'success' => 0, 
+                        'msg'     => 'No se ha podido crear la lección.'
+                      )
+                    );
+                  }
+                  else {
+                    echo $this->lessonManagement->createLesson();
+                  }
+                }
+                else {
+                  echo json_encode(
+                    array(
+                      'success' => 0, 
+                      'msg'     => 'Los módulos asignados no pueden repetirse.'
+                    )
+                  );
+                }
+              }
+              else {
+                echo $this->lessonManagement->createLesson();
+              }
             }
             else {
               echo json_encode(

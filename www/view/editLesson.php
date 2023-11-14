@@ -58,11 +58,18 @@
                 $id    = "";
                 $name  = "";
                 $files = "";
+                $assigned_modules = [];
                 if ($lesson) {
                     $id    = $lesson->getId();
                     $name  = $lesson->getName();
                     $files = $lesson->getFiles();
                     $arrays = explode(';;', $files);
+                    $module_lesson = $dataToView["module_lesson"];
+                    for ($i=0; $i<count($module_lesson); $i++) { 
+                        if ($module_lesson[$i][1]->getId() == $id) {
+                            array_push($assigned_modules, $module_lesson[$i][0]->getId());
+                        }
+                    }
                 }
                 $modules = $dataToView["modules"];
                 $options_modules = "<option>No hay módulos.</option>";
@@ -118,7 +125,23 @@
                             echo "<div class='form-group'>";
                                 echo "<label>Módulos asignados</label>";
                                 echo "<div id='container-assigned_modules'>";
-                                    // EDITAR
+                                    if ($assigned_modules) {
+                                        foreach ($assigned_modules as $assigned_module):
+                                            $options_modules_selected = "";
+                                            foreach ($modules as $module):
+                                                $stringSelected = '';
+                                                if ($module->getId() == $assigned_module) {
+                                                    $stringSelected = ' selected ';
+                                                }
+                                                $options_modules_selected .= '<option value="' . $module->getId() . '"' . $stringSelected . '>(' . $module->getId() . ') ' . $module->getName() . '</option>';
+                                            endforeach;
+                                            echo "<div class='row-assigned_modules'>";
+                                                echo "<div class='grid-row-assigned_modules btn btn-mod btn-circle'><i class='fa fa-grip-vertical'></i></div>";
+                                                echo "<select class='assigned_modules input-md round form-control'>{$options_modules_selected}</select>";
+                                                echo "<div class='delete-row-assigned_modules btn btn-mod btn-circle button-cancel'><i class='fa fa-times'></i></div>";
+                                            echo "</div>";
+                                        endforeach;
+                                    }
                                 echo "</div>";
                                 echo "<a id='add-row-assigned_modules' class='btn btn-mod btn-circle button-success' data-options_modules='{$options_modules}'><i class='fa fa-plus'></i></a>";
                             echo "</div>";

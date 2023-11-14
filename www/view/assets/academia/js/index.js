@@ -829,6 +829,14 @@ $(document).ready(function() {
             formData.append('title-'+i, titles[i]);
             formData.append(titles[i], archives[i]);
         }
+        let assigned_modules = '';
+        $(".assigned_modules").each(function() {
+            if (assigned_modules != '') {
+                assigned_modules += ";;";
+            }
+            assigned_modules += $(this).val();
+        });
+        formData.append('assigned_modules', assigned_modules);
         $.ajax({
             type: "POST",
             url: 'index.php?controller=courseController&action=editLesson&ajax=true',

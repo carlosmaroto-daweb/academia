@@ -102,12 +102,47 @@
             $files = $this->createArchives();
             if ($files != '') {
                 $_POST['files'] = $files;
+                $name = $_POST['name'];
+                $_POST['name'] = uniqid();
                 if ($this->db->createLesson()) {
-                    $result = json_encode(
-                        array(
-                            'success' => 1
-                        )
-                    );
+                    $this->updateLessons();
+                    $lesson = $this->getLessonByName($_POST['name']);
+                    $_POST['id']   = $lesson->getId();
+                    $_POST['name'] = $name;
+                    $this->db->editLesson();
+                    if (!empty($_POST['assigned_modules']) && $_POST['assigned_modules'] != "No hay lecciones.") {
+                        $id_modules = explode(';;', $_POST['assigned_modules']);
+                        $errorCreate = false;
+                        $_POST['id_lesson'] = $_POST['id'];
+                        for ($i=0; $i<count($id_modules) && !$errorCreate; $i++) {
+                            $_POST['id_module'] = $id_modules[$i];
+                            if (!$this->db->createModuleLesson()) {
+                                $errorCreate = true;
+                            }
+                        }
+                        if ($errorCreate) {
+                            $result = json_encode(
+                                array(
+                                    'success' => 0, 
+                                    'msg'     => 'No se ha podido crear la lección en la base de datos.'
+                                )
+                            );
+                        }
+                        else {
+                            $result = json_encode(
+                                array(
+                                    'success' => 1
+                                )
+                            );
+                        }
+                    }
+                    else {
+                        $result = json_encode(
+                            array(
+                                'success' => 1
+                            )
+                        );
+                    }
                 }
                 else {
                     $this->deleteArchives($files);
@@ -166,11 +201,22 @@
                 $files  = $lesson->getFiles();
                 if ($this->db->deleteLesson()) {
                     if ($this->deleteArchives($files)) {
-                        $result = json_encode(
-                            array(
-                                'success' => 1
-                            )
-                        );
+                        $_GET['id_lesson'] = $lesson->getId();
+                        if ($this->db->deleteModuleLesson()) {
+                            $result = json_encode(
+                                array(
+                                    'success' => 1
+                                )
+                            );
+                        }
+                        else {
+                            $result = json_encode(
+                                array(
+                                    'success' => 0, 
+                                    'msg'     => 'No se ha podido eliminar la lección de la base de datos.'
+                                )
+                            );
+                        }
                     }
                     else {
                         $result = json_encode(
@@ -329,13 +375,42 @@
                 $files = $this->createArchives();
                 if ($files != '') {
                     $_POST['files'] = $files;
-                    if ($this->db->editLesson()) {
+                    $_GET['id_lesson'] = $_POST['id'];
+                    if ($this->db->editLesson() && $this->db->deleteModuleLesson()) {
                         $this->deleteArchives($lesson->getFiles());
-                        $result = json_encode(
-                            array(
-                                'success' => 1
-                            )
-                        );
+                        if (!empty($_POST['assigned_modules']) && $_POST['assigned_modules'] != "No hay módulos.") {
+                            $id_modules = explode(';;', $_POST['assigned_modules']);
+                            $errorCreate = false;
+                            $_POST['id_lesson'] = $_POST['id'];
+                            for ($i=0; $i<count($id_modules) && !$errorCreate; $i++) {
+                                $_POST['id_module'] = $id_modules[$i];
+                                if (!$this->db->createModuleLesson()) {
+                                    $errorCreate = true;
+                                }
+                            }
+                            if ($errorCreate) {
+                                $result = json_encode(
+                                    array(
+                                        'success' => 0,
+                                        'msg'     => 'No se ha podido editar la lección en la base de datos.'
+                                    )
+                                );
+                            }
+                            else {
+                                $result = json_encode(
+                                    array(
+                                        'success' => 1
+                                    )
+                                );
+                            }
+                        }
+                        else {
+                            $result = json_encode(
+                                array(
+                                    'success' => 1
+                                )
+                            );
+                        }
                     }
                     else {
                         $this->deleteArchives($files);
