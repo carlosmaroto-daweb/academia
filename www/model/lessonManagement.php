@@ -110,7 +110,7 @@
                     $_POST['id']   = $lesson->getId();
                     $_POST['name'] = $name;
                     $this->db->editLesson();
-                    if (!empty($_POST['assigned_modules']) && $_POST['assigned_modules'] != "No hay lecciones.") {
+                    if (!empty($_POST['assigned_modules']) && $_POST['assigned_modules'] != "No hay módulos.") {
                         $id_modules = explode(';;', $_POST['assigned_modules']);
                         $errorCreate = false;
                         $_POST['id_lesson'] = $_POST['id'];

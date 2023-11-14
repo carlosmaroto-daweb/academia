@@ -514,6 +514,7 @@ $(document).ready(function() {
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
                         $('#lesson-table #' + id_row).remove();
+                        $('.assigned_lesson_' + id).remove();
                         $.magnificPopup.close();
                     }
                     else {
@@ -647,6 +648,7 @@ $(document).ready(function() {
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
                         $('#module-table #' + id_row).remove();
+                        $('.assigned_module_' + id).remove();
                         $.magnificPopup.close();
                     }
                     else {

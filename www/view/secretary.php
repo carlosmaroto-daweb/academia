@@ -235,7 +235,7 @@
                                                             echo "<td class='related_table'>";
                                                                 for ($i=0; $i<count($module_lesson); $i++) { 
                                                                     if ($module_lesson[$i][0]->getId() == $row->getId()) {
-                                                                        echo "<p>({$module_lesson[$i][1]->getId()}) {$module_lesson[$i][1]->getName()}</p>";
+                                                                        echo "<p class='assigned_lesson_{$module_lesson[$i][1]->getId()}'>({$module_lesson[$i][1]->getId()}) {$module_lesson[$i][1]->getName()}</p>";
                                                                     }
                                                                 }
                                                             echo "</td>";
@@ -309,7 +309,7 @@
                                                             echo "<td class='related_table'>";
                                                                 for ($i=0; $i<count($module_lesson); $i++) { 
                                                                     if ($module_lesson[$i][1]->getId() == $row->getId()) {
-                                                                        echo "<p>({$module_lesson[$i][0]->getId()}) {$module_lesson[$i][0]->getName()}</p>";
+                                                                        echo "<p class='assigned_module_{$module_lesson[$i][0]->getId()}'>({$module_lesson[$i][0]->getId()}) {$module_lesson[$i][0]->getName()}</p>";
                                                                     }
                                                                 }
                                                             echo "</td>";
