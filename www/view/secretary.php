@@ -232,10 +232,10 @@
                                                             echo "<td><img class='header_image_preview' src='{$row->getHeaderImage()}'></td>";
                                                             echo "<td><img class='preview_image_preview' src='{$row->getPreviewImage()}'></td>";
                                                             echo "<td><img class='content_image_preview' src='{$row->getContentImage()}'></td>";
-                                                            echo "<td>";
+                                                            echo "<td class='related_table'>";
                                                                 for ($i=0; $i<count($module_lesson); $i++) { 
                                                                     if ($module_lesson[$i][0]->getId() == $row->getId()) {
-                                                                        echo "({$module_lesson[$i][1]->getId()}) {$module_lesson[$i][1]->getName()}";
+                                                                        echo "<p>({$module_lesson[$i][1]->getId()}) {$module_lesson[$i][1]->getName()}</p>";
                                                                     }
                                                                 }
                                                             echo "</td>";
@@ -306,10 +306,10 @@
                                                                     echo "<i class='fa fa-file-pdf'> {$countPdf}</i>";
                                                                 }
                                                             echo "</td>";
-                                                            echo "<td>";
+                                                            echo "<td class='related_table'>";
                                                                 for ($i=0; $i<count($module_lesson); $i++) { 
                                                                     if ($module_lesson[$i][1]->getId() == $row->getId()) {
-                                                                        echo "({$module_lesson[$i][0]->getId()}) {$module_lesson[$i][0]->getName()}";
+                                                                        echo "<p>({$module_lesson[$i][0]->getId()}) {$module_lesson[$i][0]->getName()}</p>";
                                                                     }
                                                                 }
                                                             echo "</td>";

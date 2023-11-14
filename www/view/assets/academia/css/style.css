@@ -266,3 +266,7 @@
 #module-edit-form .row-assigned_lessons select {
     margin: 0px 10px;
 }
+
+.related_table  p {
+    margin: 0px;
+}
