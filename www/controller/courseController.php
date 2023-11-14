@@ -144,7 +144,12 @@
       if (isSecretary() || isAdmin()) {
         if (isset($_GET['id']) && !empty($_GET['id'])) {
           $this->view = 'editLesson';
-          return $this->lessonManagement->getLessonById($_GET['id']);
+          $result = [
+            'lesson'  => $this->lessonManagement->getLessonById($_GET['id']),
+            'modules' => $this->moduleManagement->getModules(),
+            'module_lesson' => $this->relatedTableManager->getModuleLesson(),
+          ];
+          return $result;
         }
         else if (isset($_POST['id']) && !empty($_POST['id'])) {
           if (isset($_POST['name']) && isset($_POST['count_archives'])){
@@ -244,6 +249,11 @@
         }
         else {
           $this->view = 'editLesson';
+          $result = [
+            'lesson'  => null,
+            'modules' => $this->moduleManagement->getModules(),
+          ];
+          return $result;
         }
       }
       else {
@@ -367,7 +377,7 @@
         else {
           $this->view = 'editModule';
           $result = [
-            'module'  => [],
+            'module'  => null,
             'lessons' => $this->lessonManagement->getLessons(),
           ];
           return $result;

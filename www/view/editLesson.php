@@ -54,14 +54,23 @@
             <!-- End Home Section -->
         
             <?php
+                $lesson  = $dataToView["lesson"];
                 $id    = "";
                 $name  = "";
                 $files = "";
-                if ($dataToView) {
-                    $id    = $dataToView->getId();
-                    $name  = $dataToView->getName();
-                    $files = $dataToView->getFiles();
+                if ($lesson) {
+                    $id    = $lesson->getId();
+                    $name  = $lesson->getName();
+                    $files = $lesson->getFiles();
                     $arrays = explode(';;', $files);
+                }
+                $modules = $dataToView["modules"];
+                $options_modules = "<option>No hay módulos.</option>";
+                if ($modules) {
+                    $options_modules = "";
+                    foreach ($modules as $module):
+                        $options_modules .= '<option value="' . $module->getId() . '">(' . $module->getId() . ') ' . $module->getName() . '</option>';
+                    endforeach;
                 }
                 echo "<section class='page-section'>";
                     echo "<div class='container'>";
@@ -105,6 +114,13 @@
                                     }
                                 echo "</div>";
                                 echo "<a id='add-lesson-edit-files' class='btn btn-mod btn-circle button-success'><i class='fa fa-plus'></i></a>";
+                            echo "</div>";
+                            echo "<div class='form-group'>";
+                                echo "<label>Módulos asignados</label>";
+                                echo "<div id='container-assigned_modules'>";
+                                    // EDITAR
+                                echo "</div>";
+                                echo "<a id='add-row-assigned_modules' class='btn btn-mod btn-circle button-success' data-options_modules='{$options_modules}'><i class='fa fa-plus'></i></a>";
                             echo "</div>";
                         echo "</form>";
                         echo "<div class='container mt-50'>";

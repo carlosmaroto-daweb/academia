@@ -267,6 +267,16 @@
     margin: 0px 10px;
 }
 
+#lesson-edit-form .row-assigned_modules {
+    display: flex;
+    align-items: center;
+    margin: 3px 0px;
+}
+
+#lesson-edit-form .row-assigned_modules select {
+    margin: 0px 10px;
+}
+
 .related_table  p {
     margin: 0px;
 }

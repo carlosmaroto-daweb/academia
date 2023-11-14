@@ -968,6 +968,23 @@ $(document).ready(function() {
         e.preventDefault();
         $(this).closest(".row-assigned_lessons").remove();
     });
+    
+    $('#add-row-assigned_modules').on('click', function(e) {
+        e.preventDefault();
+        let options_modules = $(this).data('options_modules');
+        let row_assigned_modules = `
+            <div class='row-assigned_modules'>
+                <div class='grid-row-assigned_modules btn btn-mod btn-circle'><i class='fa fa-grip-vertical'></i></div>
+                <select class='assigned_modules input-md round form-control'>` + options_modules + `</select>
+                <div class='delete-row-assigned_modules btn btn-mod btn-circle button-cancel'><i class='fa fa-times'></i></div>
+            </div>`;
+        $('#container-assigned_modules').append(row_assigned_modules);
+    });
+
+    $(document).on('click','.delete-row-assigned_modules', function(e) {
+        e.preventDefault();
+        $(this).closest(".row-assigned_modules").remove();
+    });
 /*
     $('#add-course-create-modules').on('click', function() {
         let row_modules = document.createElement("div");
