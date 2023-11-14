@@ -54,17 +54,26 @@
             <!-- End Home Section -->
         
             <?php
+                $module  = $dataToView["module"];
                 $id           = "";
                 $name         = "";
                 $header_image = "";
                 $preview      = "";
                 $content      = "";
-                if ($dataToView) {
-                    $id           = $dataToView->getId();
-                    $name         = $dataToView->getName();
-                    $header_image = $dataToView->getHeaderImage();
-                    $preview      = $dataToView->getPreview();
-                    $content      = $dataToView->getContent();
+                if ($module) {
+                    $id           = $module->getId();
+                    $name         = $module->getName();
+                    $header_image = $module->getHeaderImage();
+                    $preview      = $module->getPreview();
+                    $content      = $module->getContent();
+                }
+                $lessons = $dataToView["lessons"];
+                $options_lessons = "<option>No hay lecciones.</option>";
+                if ($lessons) {
+                    $options_lessons = "";
+                    foreach ($lessons as $lesson):
+                        $options_lessons .= '<option value="' . $lesson->getId() . '">(' . $lesson->getId() . ') ' . $lesson->getName() . '</option>';
+                    endforeach;
                 }
                 echo "<section class='page-section'>";
                     echo "<div class='container'>";
@@ -88,6 +97,13 @@
                             echo "<div class='form-group'>";
                                 echo "<label>Contenido <span class='required-field-color'>(*)</span></label>";
                                 echo "<div id='content'>{$content}</div>";
+                            echo "</div>";
+                            echo "<div class='form-group'>";
+                                echo "<label>Lecciones asignadas</label>";
+                                echo "<div id='container-assigned_lessons'>";
+                                    // CARGAR LAS LECCIONES RELACIONADAS PARA LA EDICIÓN DE UN MÓDULO
+                                echo "</div>";
+                                echo "<a id='add-row-assigned_lessons' class='btn btn-mod btn-circle button-success' data-options_lessons='{$options_lessons}'><i class='fa fa-plus'></i></a>";
                             echo "</div>";
                         echo "</form>";
                         echo "<div class='container mt-50'>";

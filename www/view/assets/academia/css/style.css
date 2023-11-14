@@ -256,3 +256,13 @@
     width: fit-content;
     min-width: 110px;
 }
+
+#module-edit-form .row-assigned_lessons {
+    display: flex;
+    align-items: center;
+    margin: 3px 0px;
+}
+
+#module-edit-form .row-assigned_lessons select {
+    margin: 0px 10px;
+}
