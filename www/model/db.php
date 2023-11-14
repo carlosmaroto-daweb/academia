@@ -107,26 +107,6 @@
      * asociativo para ejecutar una sentencia sql con la base de datos. En
      * este caso la sentencia inserta un registro nuevo a la base de datos.
      * 
-     * Previamente se ha comprobado que estén los parámetros id_module y
-     * id_lesson en el controlador y que sean válidos.
-     * 
-     * @return Devuelve true si ha tenido éxito la sentencia sql.
-    */
-    function createModuleLesson() {
-      $data = [
-        'id_module' => $_POST['id_module'],
-        'id_lesson' => $_POST['id_lesson']
-      ];
-      $sql = "insert into module_lesson (id_module, id_lesson) values (:id_module, :id_lesson)";
-      $stmt = $this->conection->prepare($sql);
-      return $stmt->execute($data);
-    }
-
-    /*
-     * Método que asigna todos los valores pasados por el POST a un array
-     * asociativo para ejecutar una sentencia sql con la base de datos. En
-     * este caso la sentencia inserta un registro nuevo a la base de datos.
-     * 
      * Previamente se ha comprobado que estén los parámetros email, password,
      * name, last_name, phone_number, dni y type en el controlador y que sean
      * válidos.
