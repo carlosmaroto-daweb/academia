@@ -257,6 +257,16 @@
     min-width: 110px;
 }
 
+#subject-edit-form .row-assigned_modules {
+    display: flex;
+    align-items: center;
+    margin: 3px 0px;
+}
+
+#subject-edit-form .row-assigned_modules select {
+    margin: 0px 10px;
+}
+
 #module-edit-form .row-assigned_lessons {
     display: flex;
     align-items: center;
