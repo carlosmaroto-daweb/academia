@@ -397,28 +397,25 @@
         else if (isset($_POST['id']) && !empty($_POST['id'])) {
           if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['preview_image']) && isset($_POST['content']) && isset($_POST['content_image']) && isset($_POST['assigned_subjects']) && isset($_POST['assigned_lessons'])){
             if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['preview_image']) && !empty($_POST['content']) && !empty($_POST['content_image'])) {
+              $errorSubject = false;
+              $errorLesson = false;
               if (!empty($_POST['assigned_subjects']) && $_POST['assigned_subjects'] != "No hay asignaturas.") {
                 $id_subjects = explode(';;', $_POST['assigned_subjects']);
                 if (count($id_subjects) == count(array_unique($id_subjects))) {
-                  $errorSubject = false;
                   for ($i=0; $i<count($id_subjects) && !$errorSubject; $i++) {
                     if (!$this->subjectManagement->getSubjectById($id_subjects[$i])) {
-                        $errorSubject = true;
+                      $errorSubject = true;
+                      echo json_encode(
+                        array(
+                          'success' => 0, 
+                          'msg'     => 'No se ha podido editar el módulo.'
+                        )
+                      );
                     }
-                  }
-                  if ($errorSubject) {
-                    echo json_encode(
-                      array(
-                        'success' => 0, 
-                        'msg'     => 'No se ha podido editar el módulo.'
-                      )
-                    );
-                  }
-                  else {
-                    echo $this->moduleManagement->editModule();
                   }
                 }
                 else {
+                  $errorSubject = true;
                   echo json_encode(
                     array(
                       'success' => 0, 
@@ -427,28 +424,23 @@
                   );
                 }
               }
-              else if (!empty($_POST['assigned_lessons']) && $_POST['assigned_lessons'] != "No hay lecciones.") {
+              if (!empty($_POST['assigned_lessons']) && $_POST['assigned_lessons'] != "No hay lecciones.") {
                 $id_lessons = explode(';;', $_POST['assigned_lessons']);
                 if (count($id_lessons) == count(array_unique($id_lessons))) {
-                  $errorLesson = false;
                   for ($i=0; $i<count($id_lessons) && !$errorLesson; $i++) {
                     if (!$this->lessonManagement->getLessonById($id_lessons[$i])) {
-                        $errorLesson = true;
+                      $errorLesson = true;
+                      echo json_encode(
+                        array(
+                          'success' => 0, 
+                          'msg'     => 'No se ha podido editar el módulo.'
+                        )
+                      );
                     }
-                  }
-                  if ($errorLesson) {
-                    echo json_encode(
-                      array(
-                        'success' => 0, 
-                        'msg'     => 'No se ha podido editar el módulo.'
-                      )
-                    );
-                  }
-                  else {
-                    echo $this->moduleManagement->editModule();
                   }
                 }
                 else {
+                  $errorLesson = true;
                   echo json_encode(
                     array(
                       'success' => 0, 
@@ -457,7 +449,7 @@
                   );
                 }
               }
-              else {
+              if (!$errorSubject && !$errorLesson) {
                 echo $this->moduleManagement->editModule();
               }
             }
@@ -481,28 +473,25 @@
         }
         else if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['preview_image']) && isset($_POST['content']) && isset($_POST['content_image']) && isset($_POST['assigned_subjects']) && isset($_POST['assigned_lessons'])){
           if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['preview_image']) && !empty($_POST['content']) && !empty($_POST['content_image'])) {
+            $errorSubject = false;
+            $errorLesson = false;
             if (!empty($_POST['assigned_subjects']) && $_POST['assigned_subjects'] != "No hay asignaturas.") {
               $id_subjects = explode(';;', $_POST['assigned_subjects']);
               if (count($id_subjects) == count(array_unique($id_subjects))) {
-                $errorSubject = false;
                 for ($i=0; $i<count($id_subjects) && !$errorSubject; $i++) {
                   if (!$this->subjectManagement->getSubjectById($id_subjects[$i])) {
-                      $errorSubject = true;
+                    $errorSubject = true;
+                    echo json_encode(
+                      array(
+                        'success' => 0, 
+                        'msg'     => 'No se ha podido crear el módulo.'
+                      )
+                    );
                   }
-                }
-                if ($errorSubject) {
-                  echo json_encode(
-                    array(
-                      'success' => 0, 
-                      'msg'     => 'No se ha podido crear el módulo.'
-                    )
-                  );
-                }
-                else {
-                  echo $this->moduleManagement->createModule();
                 }
               }
               else {
+                $errorSubject = true;
                 echo json_encode(
                   array(
                     'success' => 0, 
@@ -511,28 +500,23 @@
                 );
               }
             }
-            else if (!empty($_POST['assigned_lessons']) && $_POST['assigned_lessons'] != "No hay lecciones.") {
+            if (!empty($_POST['assigned_lessons']) && $_POST['assigned_lessons'] != "No hay lecciones.") {
               $id_lessons = explode(';;', $_POST['assigned_lessons']);
               if (count($id_lessons) == count(array_unique($id_lessons))) {
-                $errorLesson = false;
                 for ($i=0; $i<count($id_lessons) && !$errorLesson; $i++) {
                   if (!$this->lessonManagement->getLessonById($id_lessons[$i])) {
-                      $errorLesson = true;
+                    $errorLesson = true;
+                    echo json_encode(
+                      array(
+                        'success' => 0, 
+                        'msg'     => 'No se ha podido crear el módulo.'
+                      )
+                    );
                   }
-                }
-                if ($errorLesson) {
-                  echo json_encode(
-                    array(
-                      'success' => 0, 
-                      'msg'     => 'No se ha podido crear el módulo.'
-                    )
-                  );
-                }
-                else {
-                  echo $this->moduleManagement->createModule();
                 }
               }
               else {
+                $errorLesson = true;
                 echo json_encode(
                   array(
                     'success' => 0, 
@@ -541,7 +525,7 @@
                 );
               }
             }
-            else {
+            if (!$errorSubject && !$errorLesson) {
               echo $this->moduleManagement->createModule();
             }
           }
