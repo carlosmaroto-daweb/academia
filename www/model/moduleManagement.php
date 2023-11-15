@@ -62,7 +62,33 @@
                 $_POST['id']   = $module->getId();
                 $_POST['name'] = $name;
                 $this->db->editModule();
-                if (!empty($_POST['assigned_lessons']) && $_POST['assigned_lessons'] != "No hay lecciones.") {
+                if (!empty($_POST['assigned_subjects']) && $_POST['assigned_subjects'] != "No hay asignaturas.") {
+                    $id_subjects = explode(';;', $_POST['assigned_subjects']);
+                    $errorCreate = false;
+                    $_POST['id_module'] = $_POST['id'];
+                    for ($i=0; $i<count($id_subjects) && !$errorCreate; $i++) {
+                        $_POST['id_subject'] = $id_subjects[$i];
+                        if (!$this->db->createSubjectModule()) {
+                            $errorCreate = true;
+                        }
+                    }
+                    if ($errorCreate) {
+                        $result = json_encode(
+                            array(
+                                'success' => 0, 
+                                'msg'     => 'No se ha podido crear el módulo en la base de datos.'
+                            )
+                        );
+                    }
+                    else {
+                        $result = json_encode(
+                            array(
+                                'success' => 1
+                            )
+                        );
+                    }
+                }
+                else if (!empty($_POST['assigned_lessons']) && $_POST['assigned_lessons'] != "No hay lecciones.") {
                     $id_lessons = explode(';;', $_POST['assigned_lessons']);
                     $errorCreate = false;
                     $_POST['id_module'] = $_POST['id'];
@@ -243,8 +269,34 @@
         function editModule() {
             if ($this->getModuleById($_POST['id'])) {
                 $_GET['id_module'] = $_POST['id'];
-                if ($this->db->editModule() && $this->db->deleteModuleLesson()) {
-                    if (!empty($_POST['assigned_lessons']) && $_POST['assigned_lessons'] != "No hay lecciones.") {
+                if ($this->db->editModule() && $this->db->deleteSubjectModule() && $this->db->deleteModuleLesson()) {
+                    if (!empty($_POST['assigned_subjects']) && $_POST['assigned_subjects'] != "No hay asignaturas.") {
+                        $id_subjects = explode(';;', $_POST['assigned_subjects']);
+                        $errorCreate = false;
+                        $_POST['id_module'] = $_POST['id'];
+                        for ($i=0; $i<count($id_subjects) && !$errorCreate; $i++) {
+                            $_POST['id_subject'] = $id_subjects[$i];
+                            if (!$this->db->createSubjectModule()) {
+                                $errorCreate = true;
+                            }
+                        }
+                        if ($errorCreate) {
+                            $result = json_encode(
+                                array(
+                                    'success' => 0, 
+                                    'msg'     => 'No se ha podido editar el módulo en la base de datos.'
+                                )
+                            );
+                        }
+                        else {
+                            $result = json_encode(
+                                array(
+                                    'success' => 1
+                                )
+                            );
+                        }
+                    }
+                    else if (!empty($_POST['assigned_lessons']) && $_POST['assigned_lessons'] != "No hay lecciones.") {
                         $id_lessons = explode(';;', $_POST['assigned_lessons']);
                         $errorCreate = false;
                         $_POST['id_module'] = $_POST['id'];
