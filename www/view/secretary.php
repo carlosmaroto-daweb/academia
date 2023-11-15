@@ -196,7 +196,6 @@
                                                             echo "<td><img class='header_image_preview' src='{$row->getHeaderImage()}'></td>";
                                                             echo "<td><img class='preview_image_preview' src='{$row->getPreviewImage()}'></td>";
                                                             echo "<td><img class='content_image_preview' src='{$row->getContentImage()}'></td>";
-                                                            echo "<td> </td>";
                                                             echo "<td class='related_table'>";
                                                                 for ($i=0; $i<count($subject_module); $i++) { 
                                                                     if ($subject_module[$i][0]->getId() == $row->getId()) {

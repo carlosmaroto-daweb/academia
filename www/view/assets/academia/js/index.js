@@ -672,6 +672,140 @@ $(document).ready(function() {
         $('#btn-delete-cancel').remove();
         $('#btn-delete').remove();
     });
+
+    $(".magnificPopup-subject-duplicate").magnificPopup({
+        gallery: {
+            enabled: true
+        },
+        mainClass: "mfp-fade"
+    });
+
+    $(document).on('click','.btn-subject-duplicate', function(e) {
+        e.preventDefault();
+        let button = '<button id="btn-duplicate-cancel" class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>';
+        $('#subject-duplicate-footer').append(button);
+        button = '<button id="btn-duplicate" class="btn btn-mod btn-small btn-round">Duplicar asignatura</button>';
+        $('#subject-duplicate-footer').append(button);
+        let id = $(this).data('id');
+        $("#btn-duplicate-cancel").on('click', function(e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
+        $('#btn-duplicate').on('click', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: 'index.php?controller=courseController&action=duplicateSubject&ajax=true&id=' + id,
+                success: function(response) {
+                    let jsonData = JSON.parse(response);
+                    if (jsonData.success == "1") {
+                        let id            = jsonData.subject.id;
+                        let id_row        = 'row' + $('#subject-table').children('tr').length;
+                        let name          = jsonData.subject.name;
+                        let header_image  = jsonData.subject.header_image;
+                        let preview_image = jsonData.subject.preview_image;
+                        let content_image = jsonData.subject.content_image;
+                        let row = 
+                            `<tr id='${id_row}'>
+                                <td>${id}</td>
+                                <td>${name}</td>
+                                <td><img class='header_image_preview' src='${header_image}'></td>
+                                <td><img class='preview_image_preview' src='${preview_image}'></td>
+                                <td><img class='content_image_preview' src='${content_image}'></td>
+                                <td> </td>
+                                <td class='table-col-btn'>
+                                    <a href='index.php?controller=courseController&action=editSubject&id=${id}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>
+                                    <a href='#subject-duplicate' class='btn-subject-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-subject-duplicate' data-id='${id}'>Duplicar</a>
+                                    <a href='#subject-delete' class='btn-subject-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-subject-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
+                                </td>
+                            </tr>`;
+                        $('#subject-table').append(row);
+                        $(".magnificPopup-subject-duplicate").magnificPopup({
+                            gallery: {
+                                enabled: true
+                            },
+                            mainClass: "mfp-fade"
+                        });
+                        $(".magnificPopup-subject-delete").magnificPopup({
+                            gallery: {
+                                enabled: true
+                            },
+                            mainClass: "mfp-fade"
+                        });
+                        $.magnificPopup.close();
+                    }
+                    else {
+                        $(".alert").remove();
+                        let msg = `
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        `;
+                        $("#subject-duplicate-form").append(msg);
+                    }
+                }
+            });
+        });
+    });
+
+    $(".magnificPopup-subject-duplicate").on('mfpClose', function() {
+        $(".alert").remove();
+        $('#btn-duplicate-cancel').remove();
+        $('#btn-duplicate').remove();
+    });
+
+    $(".magnificPopup-subject-delete").magnificPopup({
+        gallery: {
+            enabled: true
+        },
+        mainClass: "mfp-fade"
+    });
+
+    $(document).on('click','.btn-subject-delete', function(e) {
+        e.preventDefault();
+        let button = '<button id="btn-delete-cancel" class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>';
+        $('#subject-delete-footer').append(button);
+        button = '<button id="btn-delete" class="btn btn-mod btn-small btn-round">Eliminar asignatura</button>';
+        $('#subject-delete-footer').append(button);
+        let id_row       = $(this).data('id_row');
+        let id           = $(this).data('id');
+        $("#btn-delete-cancel").on('click', function(e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
+        $('#btn-delete').on('click', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: 'index.php?controller=courseController&action=deleteSubject&ajax=true&id=' + id,
+                success: function(response) {
+                    let jsonData = JSON.parse(response);
+                    if (jsonData.success == "1") {
+                        $('#subject-table #' + id_row).remove();
+                        $('.assigned_subject_' + id).remove();
+                        $.magnificPopup.close();
+                    }
+                    else {
+                        $(".alert").remove();
+                        let msg = `
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        `;
+                        $("#subject-delete-form").append(msg);
+                    }
+                }
+            });
+        });
+    });
+
+    $(".magnificPopup-subject-delete").on('mfpClose', function() {
+        $(".alert").remove();
+        $('#btn-delete-cancel').remove();
+        $('#btn-delete').remove();
+    });
     
     async function encodeFileAsBase64URL(file) {
         return new Promise((resolve) => {
@@ -963,6 +1097,67 @@ $(document).ready(function() {
             }
         });
     });
+
+    $('#edit-subject').on('click', async function(event) {
+        event.preventDefault();
+        let id            = $('#subject-edit-id').val();
+        let name          = $('#subject-edit-name').val();
+        let header_image  = base64URL;
+        let preview       = $('#preview').summernote('code');
+        let preview_image = document.getElementById('preview_image');
+        preview_image.innerHTML = preview;
+        await html2canvas(preview_image).then(function(canvas) {
+            canvas.setAttribute('style', 'width: 100%; height: 100%');
+            preview_image.innerHTML = "";
+            preview_image = canvas.toDataURL();
+        });
+        let content = $('#content').summernote('code');
+        let content_image = document.getElementById('content_image');
+        content_image.innerHTML = content;
+        await html2canvas(content_image).then(function(canvas) {
+            canvas.setAttribute('style', 'width: 100%; height: 100%');
+            content_image.innerHTML = "";
+            content_image = canvas.toDataURL();
+        });
+        let assigned_modules = '';
+        $(".assigned_modules").each(function() {
+            if (assigned_modules != '') {
+                assigned_modules += ";;";
+            }
+            assigned_modules += $(this).val();
+        });
+        $.ajax({
+            type: "POST",
+            url: 'index.php?controller=courseController&action=editSubject&ajax=true',
+            data: {
+                'id':               id,
+                'name':             name,
+                'header_image':     header_image,
+                'preview':          preview,
+                'preview_image':    preview_image,
+                'content':          content,
+                'content_image':    content_image,
+                'assigned_modules': assigned_modules
+            },
+            success: function(response) {
+                let jsonData = JSON.parse(response);
+                if (jsonData.success == "1") {
+                    location.replace('index.php?controller=courseController&action=secretary');
+                }
+                else {
+                    $(".alert").remove();
+                    let msg = `
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    `;
+                    $("#subject-edit-form").append(msg);
+                }
+            }
+        });
+    });
+
     $('#add-row-assigned_lessons').on('click', function(e) {
         e.preventDefault();
         let options_lessons = $(this).data('options_lessons');

@@ -45,6 +45,18 @@
     max-width: 200px;
 }
 
+#subject-table .header_image_preview {
+    max-width: 100px;
+}
+
+#subject-table .preview_image_preview {
+    max-width: 200px;
+}
+
+#subject-table .content_image_preview {
+    max-width: 200px;
+}
+
 .panel-default .panel-heading {
     background-color: #e5e5e5;
 }
@@ -75,6 +87,12 @@
 }
 
 #module-edit-form #header_image_preview {
+    max-width: 150px;
+    max-height: 150px;
+    margin-top: 10px;
+}
+
+#subject-edit-form #header_image_preview {
     max-width: 150px;
     max-height: 150px;
     margin-top: 10px;
