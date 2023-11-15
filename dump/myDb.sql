@@ -43,3 +43,9 @@ CREATE TABLE `module_lesson` (
   `id_module` INT NOT NULL,
   `id_lesson` INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `subject_module` (
+  `id_subject` INT NOT NULL,
+  `id_module` INT NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
