@@ -1059,6 +1059,13 @@ $(document).ready(function() {
             content_image.innerHTML = "";
             content_image = canvas.toDataURL();
         });
+        let assigned_subjects = '';
+        $(".assigned_subjects").each(function() {
+            if (assigned_subjects != '') {
+                assigned_subjects += ";;";
+            }
+            assigned_subjects += $(this).val();
+        });
         let assigned_lessons = '';
         $(".assigned_lessons").each(function() {
             if (assigned_lessons != '') {
@@ -1070,14 +1077,15 @@ $(document).ready(function() {
             type: "POST",
             url: 'index.php?controller=courseController&action=editModule&ajax=true',
             data: {
-                'id':               id,
-                'name':             name,
-                'header_image':     header_image,
-                'preview':          preview,
-                'preview_image':    preview_image,
-                'content':          content,
-                'content_image':    content_image,
-                'assigned_lessons': assigned_lessons
+                'id':                id,
+                'name':              name,
+                'header_image':      header_image,
+                'preview':           preview,
+                'preview_image':     preview_image,
+                'content':           content,
+                'content_image':     content_image,
+                'assigned_subjects': assigned_subjects,
+                'assigned_lessons':  assigned_lessons
             },
             success: function(response) {
                 let jsonData = JSON.parse(response);
