@@ -252,7 +252,6 @@
                     $errorCreateModuleLesson = false;
                     if (!empty($_POST['assigned_subjects']) && $_POST['assigned_subjects'] != "No hay asignaturas.") {
                         $id_subjects = explode(';;', $_POST['assigned_subjects']);
-                        $errorCreateSubjectModule = false;
                         $_POST['id_module'] = $_POST['id'];
                         for ($i=0; $i<count($id_subjects) && !$errorCreateSubjectModule; $i++) {
                             $_POST['id_subject'] = $id_subjects[$i];
@@ -263,7 +262,6 @@
                     }
                     if (!empty($_POST['assigned_lessons']) && $_POST['assigned_lessons'] != "No hay lecciones.") {
                         $id_lessons = explode(';;', $_POST['assigned_lessons']);
-                        $errorCreateModuleLesson = false;
                         $_POST['id_module'] = $_POST['id'];
                         for ($i=0; $i<count($id_lessons) && !$errorCreateModuleLesson; $i++) {
                             $_POST['id_lesson'] = $id_lessons[$i];
