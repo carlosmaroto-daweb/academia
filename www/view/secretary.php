@@ -85,9 +85,11 @@
                     <!-- End Nav Tabs -->
             
                     <?php     
-                        $modules       = $dataToView["modules"];
-                        $lessons       = $dataToView["lessons"];
-                        $module_lesson = $dataToView["module_lesson"];
+                        $subjects       = $dataToView["subjects"];
+                        $modules        = $dataToView["modules"];
+                        $lessons        = $dataToView["lessons"];
+                        $subject_module = $dataToView["subject_module"];
+                        $module_lesson  = $dataToView["module_lesson"];
                     ?>
                                 
                     <!-- Tab panes -->
@@ -186,7 +188,30 @@
                                             </thead>
                                             <tbody id="subject-table">
                                                 <?php
-                                                    //
+                                                    $count = 0; 
+                                                    foreach ($subjects as $row):
+                                                        echo "<tr id='row{$count}'>";
+                                                            echo "<td>{$row->getId()}</td>";
+                                                            echo "<td>{$row->getName()}</td>";
+                                                            echo "<td><img class='header_image_preview' src='{$row->getHeaderImage()}'></td>";
+                                                            echo "<td><img class='preview_image_preview' src='{$row->getPreviewImage()}'></td>";
+                                                            echo "<td><img class='content_image_preview' src='{$row->getContentImage()}'></td>";
+                                                            echo "<td> </td>";
+                                                            echo "<td class='related_table'>";
+                                                                for ($i=0; $i<count($subject_module); $i++) { 
+                                                                    if ($subject_module[$i][0]->getId() == $row->getId()) {
+                                                                        echo "<p class='assigned_module_{$subject_module[$i][1]->getId()}'>({$subject_module[$i][1]->getId()}) {$subject_module[$i][1]->getName()}</p>";
+                                                                    }
+                                                                }
+                                                            echo "</td>";
+                                                            echo "<td class='table-col-btn'>";
+                                                                echo "<a href='index.php?controller=courseController&action=editSubject&id={$row->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>";
+                                                                echo "<a href='#subject-duplicate' class='btn-subject-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-subject-duplicate' data-id='{$row->getId()}'>Duplicar</a>";
+                                                                echo "<a href='#subject-delete' class='btn-subject-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-subject-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
+                                                            echo "</td>";
+                                                        echo "</tr>";
+                                                        $count++; 
+                                                    endforeach;
                                                 ?>
                                             </tbody>
                                         </table>
@@ -196,7 +221,7 @@
                             <div class="container mt-50">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
-                                        <a href="" class="btn btn-mod btn-circle btn-large button-success">Añadir nueva asignatura</a>
+                                        <a href="index.php?controller=courseController&action=editSubject" class="btn btn-mod btn-circle btn-large button-success">Añadir nueva asignatura</a>
                                     </div>
                                 </div>
                             </div>
@@ -346,31 +371,31 @@
             
             </section>
         
-            <!-- Modal duplicate module
-            ===================================== -->
-            <div id="module-duplicate" class="mfp-hide white-popup-block">
-                <div class="text-center mb-30">
-                    <h2 class="section-title">Duplicar módulo</h2>
-                </div>
-                <div id="module-duplicate-form">
-                    <p>¿Seguro que quieres duplicar este módulo?</p>
-                </div>
-                <div id="module-duplicate-footer" class="modal-footer">
-                </div>
+        <!-- Modal duplicate subject
+        ===================================== -->
+        <div id="subject-duplicate" class="mfp-hide white-popup-block">
+            <div class="text-center mb-30">
+                <h2 class="section-title">Duplicar asignatura</h2>
             </div>
-        
-            <!-- Modal delete module
-            ===================================== -->
-            <div id="module-delete" class="mfp-hide white-popup-block">
-                <div class="text-center mb-30">
-                    <h2 class="section-title">Eliminar módulo</h2>
-                </div>
-                <div id="module-delete-form">
-                    <p>¿Seguro que quieres eliminar este módulo?</p>
-                </div>
-                <div id="module-delete-footer" class="modal-footer">
-                </div>
+            <div id="subject-duplicate-form">
+                <p>¿Seguro que quieres duplicar esta asignatura?</p>
             </div>
+            <div id="subject-duplicate-footer" class="modal-footer">
+            </div>
+        </div>
+    
+        <!-- Modal delete subject
+        ===================================== -->
+        <div id="subject-delete" class="mfp-hide white-popup-block">
+            <div class="text-center mb-30">
+                <h2 class="section-title">Eliminar asignatura</h2>
+            </div>
+            <div id="subject-delete-form">
+                <p>¿Seguro que quieres eliminar esta asignatura?</p>
+            </div>
+            <div id="subject-delete-footer" class="modal-footer">
+            </div>
+        </div>
             
             <!-- Modal duplicate lesson
             ===================================== -->
