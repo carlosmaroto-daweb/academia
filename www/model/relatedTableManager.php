@@ -15,6 +15,10 @@
     // Incluimos el archivo moduleManagement.php para instanciar la clase como
     // objeto, esta clase va a gestionar las operaciones sobre los módulos.
     require_once 'model/moduleManagement.php';
+  
+    // Incluimos el archivo subjectManagement.php para instanciar la clase como
+    // objeto, esta clase va a gestionar las operaciones sobre las asignaturas.
+    require_once 'model/subjectManagement.php';
 
     /* 
      * Esta clase realiza las consultas a la base de datos relacionadas con las
@@ -39,6 +43,7 @@
             $this->db = new Db();
             $this->lessonManagement    = new LessonManagement();
             $this->moduleManagement    = new ModuleManagement();
+            $this->subjectManagement   = new SubjectManagement();
         }
         
         /*
@@ -54,6 +59,21 @@
                 array_push($moduleLesson, [$this->moduleManagement->getModuleById($row['id_module']), $this->lessonManagement->getLessonById($row['id_lesson'])]);
             }
             return $moduleLesson;
+        }
+        
+        /*
+         * Método que devuelve un array con los objetos Subject y Module
+         * correspondientes a los registros guardados en la tabla subject_module.
+         * 
+         * @return Array con pares de valores Subject y Module.
+        */
+        function getSubjectModule() {
+            $subjectModule = [];
+            $query = $this->db->getSubjectModule();
+            foreach ($query as $row) {
+                array_push($subjectModule, [$this->subjectManagement->getSubjectById($row['id_subject']), $this->moduleManagement->getModuleById($row['id_module'])]);
+            }
+            return $subjectModule;
         }
     }
 ?>
