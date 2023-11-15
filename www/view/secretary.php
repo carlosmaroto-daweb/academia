@@ -371,31 +371,57 @@
             
             </section>
         
-        <!-- Modal duplicate subject
-        ===================================== -->
-        <div id="subject-duplicate" class="mfp-hide white-popup-block">
-            <div class="text-center mb-30">
-                <h2 class="section-title">Duplicar asignatura</h2>
+            <!-- Modal duplicate subject
+            ===================================== -->
+            <div id="subject-duplicate" class="mfp-hide white-popup-block">
+                <div class="text-center mb-30">
+                    <h2 class="section-title">Duplicar asignatura</h2>
+                </div>
+                <div id="subject-duplicate-form">
+                    <p>¿Seguro que quieres duplicar esta asignatura?</p>
+                </div>
+                <div id="subject-duplicate-footer" class="modal-footer">
+                </div>
             </div>
-            <div id="subject-duplicate-form">
-                <p>¿Seguro que quieres duplicar esta asignatura?</p>
+        
+            <!-- Modal delete subject
+            ===================================== -->
+            <div id="subject-delete" class="mfp-hide white-popup-block">
+                <div class="text-center mb-30">
+                    <h2 class="section-title">Eliminar asignatura</h2>
+                </div>
+                <div id="subject-delete-form">
+                    <p>¿Seguro que quieres eliminar esta asignatura?</p>
+                </div>
+                <div id="subject-delete-footer" class="modal-footer">
+                </div>
             </div>
-            <div id="subject-duplicate-footer" class="modal-footer">
+        
+            <!-- Modal duplicate module
+            ===================================== -->
+            <div id="module-duplicate" class="mfp-hide white-popup-block">
+                <div class="text-center mb-30">
+                    <h2 class="section-title">Duplicar módulo</h2>
+                </div>
+                <div id="module-duplicate-form">
+                    <p>¿Seguro que quieres duplicar este módulo?</p>
+                </div>
+                <div id="module-duplicate-footer" class="modal-footer">
+                </div>
             </div>
-        </div>
-    
-        <!-- Modal delete subject
-        ===================================== -->
-        <div id="subject-delete" class="mfp-hide white-popup-block">
-            <div class="text-center mb-30">
-                <h2 class="section-title">Eliminar asignatura</h2>
+        
+            <!-- Modal delete module
+            ===================================== -->
+            <div id="module-delete" class="mfp-hide white-popup-block">
+                <div class="text-center mb-30">
+                    <h2 class="section-title">Eliminar módulo</h2>
+                </div>
+                <div id="module-delete-form">
+                    <p>¿Seguro que quieres eliminar este módulo?</p>
+                </div>
+                <div id="module-delete-footer" class="modal-footer">
+                </div>
             </div>
-            <div id="subject-delete-form">
-                <p>¿Seguro que quieres eliminar esta asignatura?</p>
-            </div>
-            <div id="subject-delete-footer" class="modal-footer">
-            </div>
-        </div>
             
             <!-- Modal duplicate lesson
             ===================================== -->
