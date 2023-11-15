@@ -260,7 +260,7 @@
                                                             echo "<td class='related_table'>";
                                                                 for ($i=0; $i<count($subject_module); $i++) { 
                                                                     if ($subject_module[$i][1]->getId() == $row->getId()) {
-                                                                        echo "<p class='assigned_lesson_{$subject_module[$i][0]->getId()}'>({$subject_module[$i][0]->getId()}) {$subject_module[$i][0]->getName()}</p>";
+                                                                        echo "<p class='assigned_subject_{$subject_module[$i][0]->getId()}'>({$subject_module[$i][0]->getId()}) {$subject_module[$i][0]->getName()}</p>";
                                                                     }
                                                                 }
                                                             echo "</td>";
