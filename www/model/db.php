@@ -107,6 +107,51 @@
      * asociativo para ejecutar una sentencia sql con la base de datos. En
      * este caso la sentencia inserta un registro nuevo a la base de datos.
      * 
+     * Previamente se ha comprobado que estén los parámetros name,
+     * header_image, preview, preview_image, content y content_image en el 
+     * controlador y que sean válidos.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
+    function createSubject() {
+      $data = [
+        'name'          => $_POST['name'],
+        'header_image'  => $_POST['header_image'],
+        'preview'       => $_POST['preview'],
+        'preview_image' => $_POST['preview_image'],
+        'content'       => $_POST['content'],
+        'content_image' => $_POST['content_image']
+      ];
+      $sql = "insert into subject (name, header_image, preview, preview_image, content, content_image) values (:name, :header_image, :preview, :preview_image, :content, :content_image)";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
+    /*
+     * Método que asigna todos los valores pasados por el POST a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia inserta un registro nuevo a la base de datos.
+     * 
+     * Previamente se ha comprobado que estén los parámetros id_subject y
+     * id_module en el controlador y que sean válidos.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
+    function createSubjectModule() {
+      $data = [
+        'id_subject' => $_POST['id_subject'],
+        'id_module' => $_POST['id_module']
+      ];
+      $sql = "insert into subject_module (id_subject, id_module) values (:id_subject, :id_module)";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
+    /*
+     * Método que asigna todos los valores pasados por el POST a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia inserta un registro nuevo a la base de datos.
+     * 
      * Previamente se ha comprobado que estén los parámetros email, password,
      * name, last_name, phone_number, dni y type en el controlador y que sean
      * válidos.
@@ -201,6 +246,52 @@
      * 
      * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
+    function deleteSubject() {
+      $data = [
+        'id' => $_GET['id']
+      ];
+      $sql = "delete from subject where id=:id";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
+    /*
+     * Método que asigna todos los valores pasados por el GET a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia elimina el registro que coincide con el id.
+     * 
+     * Previamente se ha comprobado que esté el parámetro id y que sea válido.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
+    function deleteSubjectModule() {
+      if (isset($_GET['id_subject'])) {
+        $data = [
+          'id_subject' => $_GET['id_subject']
+        ];
+        $sql = "delete from subject_module where id_subject=:id_subject";
+        $stmt = $this->conection->prepare($sql);
+        return $stmt->execute($data);
+      }
+      else if (isset($_GET['id_module'])) {
+        $data = [
+          'id_module' => $_GET['id_module']
+        ];
+        $sql = "delete from subject_module where id_module=:id_module";
+        $stmt = $this->conection->prepare($sql);
+        return $stmt->execute($data);
+      }
+    }
+
+    /*
+     * Método que asigna todos los valores pasados por el GET a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia elimina el registro que coincide con el id.
+     * 
+     * Previamente se ha comprobado que esté el parámetro id y que sea válido.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
     function deleteUser() {
       $data = [
         'id' => $_GET['id']
@@ -255,6 +346,33 @@
         'id'            => $_POST['id']
       ];
       $sql = "update module set name=:name, header_image=:header_image, preview=:preview, preview_image=:preview_image, content=:content, content_image=:content_image where id=:id";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
+    /*
+     * Método que asigna todos los valores pasados por el POST a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia actualiza el registro que coincide con el id 
+     * de la base de datos.
+     * 
+     * Previamente se ha comprobado que estén los parámetros id, name,
+     * header_image, preview, preview_image, content y content_image en el 
+     * controlador y que sean válidos.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
+    function editSubject() {
+      $data = [
+        'name'          => $_POST['name'],
+        'header_image'  => $_POST['header_image'],
+        'preview'       => $_POST['preview'],
+        'preview_image' => $_POST['preview_image'],
+        'content'       => $_POST['content'],
+        'content_image' => $_POST['content_image'],
+        'id'            => $_POST['id']
+      ];
+      $sql = "update subject set name=:name, header_image=:header_image, preview=:preview, preview_image=:preview_image, content=:content, content_image=:content_image where id=:id";
       $stmt = $this->conection->prepare($sql);
       return $stmt->execute($data);
     }
@@ -322,6 +440,33 @@
     */
     function getModules() {
       $sql = "select * from module";
+      $stmt = $this->conection->prepare($sql);
+      $stmt->execute();
+      return $stmt->fetchAll();
+    }
+
+    /*
+     * Método que ejecuta una sentencia sql para obtener todos los registros
+     * de la relación entre las asignaturas y módulos de la base de datos y los
+     * devuelve.
+     * 
+     * @return Devuelve una query con todos los registros de la tabla.
+    */
+    function getSubjectModule() {
+      $sql = "select * from subject_module";
+      $stmt = $this->conection->prepare($sql);
+      $stmt->execute();
+      return $stmt->fetchAll();
+    }
+
+    /*
+     * Método que ejecuta una sentencia sql para obtener todas las asignaturas
+     * de la base de datos y las devuelve.
+     * 
+     * @return Devuelve una query con todos las asignaturas de la base de datos.
+    */
+    function getSubjects() {
+      $sql = "select * from subject";
       $stmt = $this->conection->prepare($sql);
       $stmt->execute();
       return $stmt->fetchAll();
