@@ -62,57 +62,35 @@
                 $_POST['id']   = $module->getId();
                 $_POST['name'] = $name;
                 $this->db->editModule();
+                $errorCreateSubjectModule = false;
+                $errorCreateModuleLesson = false;
                 if (!empty($_POST['assigned_subjects']) && $_POST['assigned_subjects'] != "No hay asignaturas.") {
                     $id_subjects = explode(';;', $_POST['assigned_subjects']);
-                    $errorCreate = false;
                     $_POST['id_module'] = $_POST['id'];
-                    for ($i=0; $i<count($id_subjects) && !$errorCreate; $i++) {
+                    for ($i=0; $i<count($id_subjects) && !$errorCreateSubjectModule; $i++) {
                         $_POST['id_subject'] = $id_subjects[$i];
                         if (!$this->db->createSubjectModule()) {
-                            $errorCreate = true;
+                            $errorCreateSubjectModule = true;
                         }
-                    }
-                    if ($errorCreate) {
-                        $result = json_encode(
-                            array(
-                                'success' => 0, 
-                                'msg'     => 'No se ha podido crear el módulo en la base de datos.'
-                            )
-                        );
-                    }
-                    else {
-                        $result = json_encode(
-                            array(
-                                'success' => 1
-                            )
-                        );
                     }
                 }
-                else if (!empty($_POST['assigned_lessons']) && $_POST['assigned_lessons'] != "No hay lecciones.") {
+                if (!empty($_POST['assigned_lessons']) && $_POST['assigned_lessons'] != "No hay lecciones.") {
                     $id_lessons = explode(';;', $_POST['assigned_lessons']);
-                    $errorCreate = false;
                     $_POST['id_module'] = $_POST['id'];
-                    for ($i=0; $i<count($id_lessons) && !$errorCreate; $i++) {
+                    for ($i=0; $i<count($id_lessons) && !$errorCreateModuleLesson; $i++) {
                         $_POST['id_lesson'] = $id_lessons[$i];
                         if (!$this->db->createModuleLesson()) {
-                            $errorCreate = true;
+                            $errorCreateModuleLesson = true;
                         }
                     }
-                    if ($errorCreate) {
-                        $result = json_encode(
-                            array(
-                                'success' => 0, 
-                                'msg'     => 'No se ha podido crear el módulo en la base de datos.'
-                            )
-                        );
-                    }
-                    else {
-                        $result = json_encode(
-                            array(
-                                'success' => 1
-                            )
-                        );
-                    }
+                }
+                if ($errorCreateSubjectModule || $errorCreateModuleLesson) {
+                    $result = json_encode(
+                        array(
+                            'success' => 0, 
+                            'msg'     => 'No se ha podido crear el módulo en la base de datos.'
+                        )
+                    );
                 }
                 else {
                     $result = json_encode(
@@ -270,57 +248,37 @@
             if ($this->getModuleById($_POST['id'])) {
                 $_GET['id_module'] = $_POST['id'];
                 if ($this->db->editModule() && $this->db->deleteSubjectModule() && $this->db->deleteModuleLesson()) {
+                    $errorCreateSubjectModule = false;
+                    $errorCreateModuleLesson = false;
                     if (!empty($_POST['assigned_subjects']) && $_POST['assigned_subjects'] != "No hay asignaturas.") {
                         $id_subjects = explode(';;', $_POST['assigned_subjects']);
-                        $errorCreate = false;
+                        $errorCreateSubjectModule = false;
                         $_POST['id_module'] = $_POST['id'];
-                        for ($i=0; $i<count($id_subjects) && !$errorCreate; $i++) {
+                        for ($i=0; $i<count($id_subjects) && !$errorCreateSubjectModule; $i++) {
                             $_POST['id_subject'] = $id_subjects[$i];
                             if (!$this->db->createSubjectModule()) {
-                                $errorCreate = true;
+                                $errorCreateSubjectModule = true;
                             }
-                        }
-                        if ($errorCreate) {
-                            $result = json_encode(
-                                array(
-                                    'success' => 0, 
-                                    'msg'     => 'No se ha podido editar el módulo en la base de datos.'
-                                )
-                            );
-                        }
-                        else {
-                            $result = json_encode(
-                                array(
-                                    'success' => 1
-                                )
-                            );
                         }
                     }
-                    else if (!empty($_POST['assigned_lessons']) && $_POST['assigned_lessons'] != "No hay lecciones.") {
+                    if (!empty($_POST['assigned_lessons']) && $_POST['assigned_lessons'] != "No hay lecciones.") {
                         $id_lessons = explode(';;', $_POST['assigned_lessons']);
-                        $errorCreate = false;
+                        $errorCreateModuleLesson = false;
                         $_POST['id_module'] = $_POST['id'];
-                        for ($i=0; $i<count($id_lessons) && !$errorCreate; $i++) {
+                        for ($i=0; $i<count($id_lessons) && !$errorCreateModuleLesson; $i++) {
                             $_POST['id_lesson'] = $id_lessons[$i];
                             if (!$this->db->createModuleLesson()) {
-                                $errorCreate = true;
+                                $errorCreateModuleLesson = true;
                             }
                         }
-                        if ($errorCreate) {
-                            $result = json_encode(
-                                array(
-                                    'success' => 0, 
-                                    'msg'     => 'No se ha podido editar el módulo en la base de datos.'
-                                )
-                            );
-                        }
-                        else {
-                            $result = json_encode(
-                                array(
-                                    'success' => 1
-                                )
-                            );
-                        }
+                    }
+                    if ($errorCreateSubjectModule || $errorCreateModuleLesson) {
+                        $result = json_encode(
+                            array(
+                                'success' => 0, 
+                                'msg'     => 'No se ha podido editar el módulo en la base de datos.'
+                            )
+                        );
                     }
                     else {
                         $result = json_encode(
