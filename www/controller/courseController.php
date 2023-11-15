@@ -12,6 +12,10 @@
   // esta clase va a gestionar las operaciones sobre los módulos.
   require_once 'model/moduleManagement.php';
 
+  // Incluimos el archivo subjectManagement.php para instanciar la clase como objeto,
+  // esta clase va a gestionar las operaciones sobre las asignaturas.
+  require_once 'model/subjectManagement.php';
+
   // Incluimos el archivo relatedTableManager.php para instanciar la clase como objeto,
   // esta clase va a consultar los registros de las tablas relacionadas.
   require_once 'model/relatedTableManager.php';
@@ -24,12 +28,14 @@
 
     // Atributos
     private $view;
+    private $subjectManagement;
     private $moduleManagement;
     private $lessonManagement;
 
     function __construct() {
       $this->lessonManagement    = new LessonManagement();
       $this->moduleManagement    = new ModuleManagement();
+      $this->subjectManagement   = new SubjectManagement();
       $this->relatedTableManager = new RelatedTableManager();
     }
 
@@ -81,6 +87,30 @@
       }
     }
 
+    function deleteSubject() {
+      if (isSecretary() || isAdmin()) {
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+          echo $this->subjectManagement->deleteSubject();
+        }
+        else {
+          echo json_encode(
+            array(
+              'success' => 0, 
+              'msg'     => 'No se ha podido eliminar la asignatura.'
+            )
+          );
+        }
+      }
+      else {
+        echo json_encode(
+          array(
+            'success' => 0, 
+            'msg'     => 'No tienes permisos para eliminar una asignatura.'
+          )
+        );
+      }
+    }
+
     function duplicateLesson() {
       if (isSecretary() || isAdmin()) {
         if (isset($_GET['id']) && !empty($_GET['id'])) {
@@ -124,6 +154,30 @@
           array(
             'success' => 0, 
             'msg'     => 'No tienes permisos para duplicar un módulo.'
+          )
+        );
+      }
+    }
+
+    function duplicateSubject() {
+      if (isSecretary() || isAdmin()) {
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+          echo $this->subjectManagement->duplicateSubject();
+        }
+        else {
+          echo json_encode(
+            array(
+              'success' => 0, 
+              'msg'     => 'No se ha podido duplicar la asignatura.'
+            )
+          );
+        }
+      }
+      else {
+        echo json_encode(
+          array(
+            'success' => 0, 
+            'msg'     => 'No tienes permisos para duplicar una asignatura.'
           )
         );
       }
@@ -453,6 +507,133 @@
         $this->view = $userController->getView();
       }
     }
+
+    function editSubject() {
+      if (isSecretary() || isAdmin()) {
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+          $this->view = 'editSubject';
+          $result = [
+            'subject'  => $this->subjectManagement->getSubjectById($_GET['id']),
+            'modules' => $this->moduleManagement->getModules(),
+            'subject_module' => $this->relatedTableManager->getSubjectModule(),
+          ];
+          return $result;
+        }
+        else if (isset($_POST['id']) && !empty($_POST['id'])) {
+          if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['preview_image']) && isset($_POST['content']) && isset($_POST['content_image']) && isset($_POST['assigned_modules'])){
+            if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['preview_image']) && !empty($_POST['content']) && !empty($_POST['content_image'])) {
+              if (!empty($_POST['assigned_modules']) && $_POST['assigned_modules'] != "No hay módulos.") {
+                $id_modules = explode(';;', $_POST['assigned_modules']);
+                if (count($id_modules) == count(array_unique($id_modules))) {
+                  $errorModule = false;
+                  for ($i=0; $i<count($id_modules) && !$errorModule; $i++) {
+                    if (!$this->moduleManagement->getModuleById($id_modules[$i])) {
+                        $errorModule = true;
+                    }
+                  }
+                  if ($errorModule) {
+                    echo json_encode(
+                      array(
+                        'success' => 0, 
+                        'msg'     => 'No se ha podido editar la asignatura.'
+                      )
+                    );
+                  }
+                  else {
+                    echo $this->subjectManagement->editSubject();
+                  }
+                }
+                else {
+                  echo json_encode(
+                    array(
+                      'success' => 0, 
+                      'msg'     => 'Los módulos asignados no pueden repetirse.'
+                    )
+                  );
+                }
+              }
+              else {
+                echo $this->subjectManagement->editSubject();
+              }
+            }
+            else {
+              echo json_encode(
+                array(
+                  'success' => 0, 
+                  'msg'     => 'Se deben de rellenar los campos señalados.'
+                )
+              );
+            }
+          }
+          else {
+            echo json_encode(
+              array(
+                'success' => 0, 
+                'msg'     => 'No se ha podido editar la asignatura.'
+              )
+            );
+          }
+        }
+        else if (isset($_POST['name']) && isset($_POST['header_image']) && isset($_POST['preview']) && isset($_POST['preview_image']) && isset($_POST['content']) && isset($_POST['content_image']) && isset($_POST['assigned_modules'])){
+          if (!empty($_POST['name']) && !empty($_POST['header_image']) && !empty($_POST['preview']) && !empty($_POST['preview_image']) && !empty($_POST['content']) && !empty($_POST['content_image'])) {
+            if (!empty($_POST['assigned_modules']) && $_POST['assigned_modules'] != "No hay módulos.") {
+              $id_modules = explode(';;', $_POST['assigned_modules']);
+              if (count($id_modules) == count(array_unique($id_modules))) {
+                $errorModule = false;
+                for ($i=0; $i<count($id_modules) && !$errorModule; $i++) {
+                  if (!$this->moduleManagement->getModuleById($id_modules[$i])) {
+                      $errorModule = true;
+                  }
+                }
+                if ($errorModule) {
+                  echo json_encode(
+                    array(
+                      'success' => 0, 
+                      'msg'     => 'No se ha podido crear la asignatura.'
+                    )
+                  );
+                }
+                else {
+                  echo $this->subjectManagement->createSubject();
+                }
+              }
+              else {
+                echo json_encode(
+                  array(
+                    'success' => 0, 
+                    'msg'     => 'Los módulos asignados no pueden repetirse.'
+                  )
+                );
+              }
+            }
+            else {
+              echo $this->subjectManagement->createSubject();
+            }
+          }
+          else {
+            echo json_encode(
+              array(
+                'success' => 0, 
+                'msg'     => 'Se deben de rellenar los campos señalados.'
+              )
+            );
+          }
+        }
+        else {
+          $this->view = 'editSubject';
+          $result = [
+            'subject'  => null,
+            'modules' => $this->moduleManagement->getModules(),
+          ];
+          return $result;
+        }
+      }
+      else {
+        $userController = new userController();
+        $userController->login();
+        $this->view = $userController->getView();
+      }
+    }
     
     function getView() {
       return $this->view;
@@ -477,12 +658,19 @@
       $this->view = 'module';
     }
 
+    function subject() {
+      $this->view = 'subject';
+    }
+
+
     function secretary() {
       if (isSecretary() || isAdmin()) {
         $result = [
-          'modules'       => $this->moduleManagement->getModules(),
-          'lessons'       => $this->lessonManagement->getLessons(),
-          'module_lesson' => $this->relatedTableManager->getModuleLesson(),
+          'subjects'       => $this->subjectManagement->getSubjects(),
+          'modules'        => $this->moduleManagement->getModules(),
+          'lessons'        => $this->lessonManagement->getLessons(),
+          'subject_module' => $this->relatedTableManager->getSubjectModule(),
+          'module_lesson'  => $this->relatedTableManager->getModuleLesson(),
         ];
         $this->view = 'secretary';
         return $result;
