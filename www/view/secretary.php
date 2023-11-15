@@ -142,9 +142,9 @@
                                                 <tr>
                                                     <th>Nombre</th>
                                                     <th>Asignatura</th>
+                                                    <th>Estudios</th>
                                                     <th>Fecha Inicio</th>
                                                     <th>Fecha Fin</th>
-                                                    <th>Estudios</th>
                                                     <th>Acciones</th>
                                                 </tr>
                                             </thead>
