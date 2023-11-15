@@ -295,6 +295,16 @@
     margin: 0px 10px;
 }
 
+#module-edit-form .row-assigned_subjects {
+    display: flex;
+    align-items: center;
+    margin: 3px 0px;
+}
+
+#module-edit-form .row-assigned_subjects select {
+    margin: 0px 10px;
+}
+
 #lesson-edit-form .row-assigned_modules {
     display: flex;
     align-items: center;

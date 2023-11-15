@@ -1191,6 +1191,23 @@ $(document).ready(function() {
         e.preventDefault();
         $(this).closest(".row-assigned_modules").remove();
     });
+    
+    $('#add-row-assigned_subjects').on('click', function(e) {
+        e.preventDefault();
+        let options_subjects = $(this).data('options_subjects');
+        let row_assigned_subjects = `
+            <div class='row-assigned_subjects'>
+                <div class='grid-row-assigned_subjects btn btn-mod btn-circle'><i class='fa fa-grip-vertical'></i></div>
+                <select class='assigned_subjects input-md round form-control'>` + options_subjects + `</select>
+                <div class='delete-row-assigned_subjects btn btn-mod btn-circle button-cancel'><i class='fa fa-times'></i></div>
+            </div>`;
+        $('#container-assigned_subjects').append(row_assigned_subjects);
+    });
+
+    $(document).on('click','.delete-row-assigned_subjects', function(e) {
+        e.preventDefault();
+        $(this).closest(".row-assigned_subjects").remove();
+    });
 /*
     $('#add-course-create-modules').on('click', function() {
         let row_modules = document.createElement("div");
