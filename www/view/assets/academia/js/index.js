@@ -578,6 +578,7 @@ $(document).ready(function() {
                                 <td><img class='preview_image_preview' src='${preview_image}'></td>
                                 <td><img class='content_image_preview' src='${content_image}'></td>
                                 <td> </td>
+                                <td> </td>
                                 <td class='table-col-btn'>
                                     <a href='index.php?controller=courseController&action=editModule&id=${id}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>
                                     <a href='#module-duplicate' class='btn-module-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-module-duplicate' data-id='${id}'>Duplicar</a>

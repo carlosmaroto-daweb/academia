@@ -138,11 +138,11 @@
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
+                                                    <th>Nombre</th>
                                                     <th>Asignatura</th>
                                                     <th>Fecha Inicio</th>
                                                     <th>Fecha Fin</th>
-                                                    <th>Módulos</th>
-                                                    <th>Precios</th>
+                                                    <th>Estudios</th>
                                                     <th>Acciones</th>
                                                 </tr>
                                             </thead>
@@ -175,12 +175,12 @@
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
+                                                    <th>Id</th>
                                                     <th>Nombre</th>
-                                                    <th>Estudios</th>
                                                     <th>Foto de cabecera</th>
                                                     <th>Previsualización</th>
                                                     <th>Contenido</th>
-                                                    <th>Módulos asignados</th>
+                                                    <th>Módulos asig.</th>
                                                     <th>Acciones</th>
                                                 </tr>
                                             </thead>
@@ -218,6 +218,7 @@
                                                     <th>Foto de cabecera</th>
                                                     <th>Previsualización</th>
                                                     <th>Contenido</th>
+                                                    <th>Asignaturas asig.</th>
                                                     <th>Lecciones asig.</th>
                                                     <th>Acciones</th>
                                                 </tr>
@@ -232,6 +233,7 @@
                                                             echo "<td><img class='header_image_preview' src='{$row->getHeaderImage()}'></td>";
                                                             echo "<td><img class='preview_image_preview' src='{$row->getPreviewImage()}'></td>";
                                                             echo "<td><img class='content_image_preview' src='{$row->getContentImage()}'></td>";
+                                                            echo "<td> </td>";
                                                             echo "<td class='related_table'>";
                                                                 for ($i=0; $i<count($module_lesson); $i++) { 
                                                                     if ($module_lesson[$i][0]->getId() == $row->getId()) {
