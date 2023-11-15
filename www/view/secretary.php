@@ -177,7 +177,7 @@
                                                 <tr>
                                                     <th>Id</th>
                                                     <th>Nombre</th>
-                                                    <th>Foto de cabecera</th>
+                                                    <th>Cabecera</th>
                                                     <th>Previsualización</th>
                                                     <th>Contenido</th>
                                                     <th>Módulos asig.</th>
@@ -215,7 +215,7 @@
                                                 <tr>
                                                     <th>Id</th>
                                                     <th>Nombre</th>
-                                                    <th>Foto de cabecera</th>
+                                                    <th>Cabecera</th>
                                                     <th>Previsualización</th>
                                                     <th>Contenido</th>
                                                     <th>Asignaturas asig.</th>
