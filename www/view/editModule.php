@@ -60,19 +60,34 @@
                 $header_image = "";
                 $preview      = "";
                 $content      = "";
+                $assigned_subjects = [];
                 $assigned_lessons = [];
                 if ($module) {
-                    $id            = $module->getId();
-                    $name          = $module->getName();
-                    $header_image  = $module->getHeaderImage();
-                    $preview       = $module->getPreview();
-                    $content       = $module->getContent();
+                    $id                = $module->getId();
+                    $name              = $module->getName();
+                    $header_image      = $module->getHeaderImage();
+                    $preview           = $module->getPreview();
+                    $content           = $module->getContent();
+                    $subject_module = $dataToView["subject_module"];
+                    for ($i=0; $i<count($subject_module); $i++) { 
+                        if ($subject_module[$i][1]->getId() == $id) {
+                            array_push($assigned_subjects, $subject_module[$i][0]->getId());
+                        }
+                    }
                     $module_lesson = $dataToView["module_lesson"];
                     for ($i=0; $i<count($module_lesson); $i++) { 
                         if ($module_lesson[$i][0]->getId() == $id) {
                             array_push($assigned_lessons, $module_lesson[$i][1]->getId());
                         }
                     }
+                }
+                $subjects = $dataToView["subjects"];
+                $options_subjects = "<option>No hay asignaturas.</option>";
+                if ($subjects) {
+                    $options_subjects = "";
+                    foreach ($subjects as $subject):
+                        $options_subjects .= '<option value="' . $subject->getId() . '">(' . $subject->getId() . ') ' . $subject->getName() . '</option>';
+                    endforeach;
                 }
                 $lessons = $dataToView["lessons"];
                 $options_lessons = "<option>No hay lecciones.</option>";
@@ -104,6 +119,29 @@
                             echo "<div class='form-group'>";
                                 echo "<label>Contenido <span class='required-field-color'>(*)</span></label>";
                                 echo "<div id='content'>{$content}</div>";
+                            echo "</div>";
+                            echo "<div class='form-group'>";
+                                echo "<label>Asignaturas asignadas</label>";
+                                echo "<div id='container-assigned_subjects'>";
+                                    if ($assigned_subjects) {
+                                        foreach ($assigned_subjects as $assigned_subject):
+                                            $options_subjects_selected = "";
+                                            foreach ($subjects as $subject):
+                                                $stringSelected = '';
+                                                if ($subject->getId() == $assigned_subject) {
+                                                    $stringSelected = ' selected ';
+                                                }
+                                                $options_subjects_selected .= '<option value="' . $subject->getId() . '"' . $stringSelected . '>(' . $subject->getId() . ') ' . $subject->getName() . '</option>';
+                                            endforeach;
+                                            echo "<div class='row-assigned_subjects'>";
+                                                echo "<div class='grid-row-assigned_subjects btn btn-mod btn-circle'><i class='fa fa-grip-vertical'></i></div>";
+                                                echo "<select class='assigned_subjects input-md round form-control'>{$options_subjects_selected}</select>";
+                                                echo "<div class='delete-row-assigned_subjects btn btn-mod btn-circle button-cancel'><i class='fa fa-times'></i></div>";
+                                            echo "</div>";
+                                        endforeach;
+                                    }
+                                echo "</div>";
+                                echo "<a id='add-row-assigned_subjects' class='btn btn-mod btn-circle button-success' data-options_subjects='{$options_subjects}'><i class='fa fa-plus'></i></a>";
                             echo "</div>";
                             echo "<div class='form-group'>";
                                 echo "<label>Lecciones asignadas</label>";

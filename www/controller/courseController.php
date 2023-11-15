@@ -387,7 +387,9 @@
           $this->view = 'editModule';
           $result = [
             'module'  => $this->moduleManagement->getModuleById($_GET['id']),
+            'subjects' => $this->subjectManagement->getSubjects(),
             'lessons' => $this->lessonManagement->getLessons(),
+            'subject_module' => $this->relatedTableManager->getSubjectModule(),
             'module_lesson' => $this->relatedTableManager->getModuleLesson(),
           ];
           return $result;
@@ -496,6 +498,7 @@
           $this->view = 'editModule';
           $result = [
             'module'  => null,
+            'subjects' => $this->subjectManagement->getSubjects(),
             'lessons' => $this->lessonManagement->getLessons(),
           ];
           return $result;
