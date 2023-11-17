@@ -167,6 +167,13 @@
         } else if (!($(".main-nav").hasClass("dark"))){
            $(".main-nav").addClass("js-no-transparent-white");
         }
+            
+        if ($(window).scrollTop() > 0) {
+            $(".js-transparent").removeClass("transparent");
+            $(".main-nav, .nav-logo-wrap .logo, .mobile-nav, .mobile-cart").addClass("small-height");
+            $(".light-after-scroll").removeClass("dark");
+            $(".main-nav").addClass("body-scrolled");
+        }
         
         $(window).scroll(function(){        
             

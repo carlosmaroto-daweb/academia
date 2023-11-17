@@ -186,6 +186,10 @@
     function editCourse() {
       if (isSecretary() || isAdmin()) {
         $this->view = 'editCourse';
+        $result = [
+          'subjects' => $this->subjectManagement->getSubjects(),
+        ];
+        return $result;
       }
       else {
         $userController = new userController();
