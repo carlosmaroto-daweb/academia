@@ -256,11 +256,11 @@
     display: flex;
 }
 
-.row-tags .name-studies {
+.row-tags #studies {
     margin-right: 10px;
 }
 
-.row-tags .location-studies {
+.row-tags #location {
     margin-right: 10px;
 }
 
