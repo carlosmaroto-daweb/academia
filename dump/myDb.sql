@@ -39,6 +39,16 @@ CREATE TABLE `subject` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+CREATE TABLE `course` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255),
+  `id_subject` INT,
+  `tags` VARCHAR(255),
+  `start_date` DATE,
+  `end_date` DATE,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 CREATE TABLE `module_lesson` (
   `id_module` INT NOT NULL,
   `id_lesson` INT NOT NULL,
