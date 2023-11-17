@@ -1219,31 +1219,31 @@ $(document).ready(function() {
 
     $('#edit-course').on('click', async (event) => {
         event.preventDefault();
-        let id                = $('#course-edit-id').val();
-        let name              = $('#course-edit-name').val();
-        let assigned_subject  = $('#assigned_subject').val();
-        let studies           = $('#studies').val();
-        let location          = $('#location').val();
-        let type              = $('#type').val();
-        let start_date        = $('#start_date').val();
-        let end_date          = $('#end_date').val();
+        let id         = $('#course-edit-id').val();
+        let name       = $('#course-edit-name').val();
+        let id_subject = $('#id_subject').val();
+        let studies    = $('#studies').val();
+        let location   = $('#location').val();
+        let type       = $('#type').val();
+        let start_date = $('#start_date').val();
+        let end_date   = $('#end_date').val();
         $.ajax({
             type: "POST",
             url: 'index.php?controller=courseController&action=editSubject&ajax=true',
             data: {
-                'id':               id,
-                'name':             name,
-                'assigned_subject': assigned_subject,
-                'studies':          studies,
-                'location':         location,
-                'type':             type,
-                'start_date':       start_date,
-                'end_date':         end_date
+                'id':         id,
+                'name':       name,
+                'id_subject': id_subject,
+                'studies':    studies,
+                'location':   location,
+                'type':       type,
+                'start_date': start_date,
+                'end_date':   end_date
             },
             success: function(response) {
                 let jsonData = JSON.parse(response);
                 if (jsonData.success == "1") {
-                    location.replace('index.php?controller=courseController&action=editCourse');
+                    location.replace('index.php?controller=courseController&action=secretary');
                 }
                 else {
                     $(".alert").remove();

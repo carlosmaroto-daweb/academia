@@ -73,8 +73,8 @@
                                 echo "<input id='course-edit-name' type='text' name='name' value='{$name}' class='input-md round form-control'>";
                             echo "</div>";
                             echo "<div class='form-group'>";
-                                echo "<label for='assigned_subject'>Asignatura <span class='required-field-color'>(*)</span></label>";
-                                echo "<select id='assigned_subject' class='input-md round form-control'>{$options_subjects}</select>";
+                                echo "<label for='id_subject'>Asignatura <span class='required-field-color'>(*)</span></label>";
+                                echo "<select id='id_subject' class='input-md round form-control'>{$options_subjects}</select>";
                             echo "</div>";
                             echo "<div class='form-group'>";
                                 echo "<label>Etiquetas <span class='required-field-color'>(*)</span></label>";

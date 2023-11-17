@@ -42,6 +42,32 @@
      * asociativo para ejecutar una sentencia sql con la base de datos. En
      * este caso la sentencia inserta un registro nuevo a la base de datos.
      * 
+     * Previamente se ha comprobado que estén los parámetros name,
+     * header_image, preview, preview_image, content y content_image en el 
+     * controlador y que sean válidos.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
+    function createCourse() {
+      $data = [
+        'name'          => $_POST['name'],
+        'id_subject'  => $_POST['id_subject'],
+        'studies'       => $_POST['studies'],
+        'location' => $_POST['location'],
+        'type'       => $_POST['type'],
+        'start_date' => $_POST['start_date'],
+        'end_date' => $_POST['end_date']
+      ];
+      $sql = "insert into course (name, id_subject, studies, location, type, start_date, end_date) values (:name, :id_subject, :studies, :location, :type, :start_date, :end_date)";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
+    /*
+     * Método que asigna todos los valores pasados por el POST a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia inserta un registro nuevo a la base de datos.
+     * 
      * Previamente se ha comprobado que estén los parámetros name y files 
      * en el controlador y que sean válidos.
      * 
@@ -200,6 +226,24 @@
      * 
      * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
+    function deleteCourse() {
+      $data = [
+        'id' => $_GET['id']
+      ];
+      $sql = "delete from course where id=:id";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
+    /*
+     * Método que asigna todos los valores pasados por el GET a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia elimina el registro que coincide con el id.
+     * 
+     * Previamente se ha comprobado que esté el parámetro id y que sea válido.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
     function deleteModule() {
       $data = [
         'id' => $_GET['id']
@@ -312,6 +356,33 @@
      * 
      * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
+    function editCourse() {
+      $data = [
+        'name'          => $_POST['name'],
+        'id_subject'  => $_POST['id_subject'],
+        'studies'       => $_POST['studies'],
+        'location' => $_POST['location'],
+        'type'       => $_POST['type'],
+        'start_date' => $_POST['start_date'],
+        'end_date' => $_POST['end_date'],
+        'id'    => $_POST['id']
+      ];
+      $sql = "update course set name=:name, id_subject=:id_subject, studies=:studies, location=:location, type=:type, start_date=:start_date, end_date=:end_date where id=:id";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
+    /*
+     * Método que asigna todos los valores pasados por el POST a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia actualiza el registro que coincide con el id 
+     * de la base de datos.
+     * 
+     * Previamente se ha comprobado que estén los parámetros id, name,
+     * y files en el controlador y que sean válidos.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
     function editLesson() {
       $data = [
         'name'  => $_POST['name'],
@@ -403,6 +474,19 @@
       $sql = "update user set email=:email, password=:password, name=:name, last_name=:last_name, phone_number=:phone_number, dni=:dni, type=:type where id=:id";
       $stmt = $this->conection->prepare($sql);
       return $stmt->execute($data);
+    }
+
+    /*
+     * Método que ejecuta una sentencia sql para obtener todas las lecciones
+     * de la base de datos y las devuelve.
+     * 
+     * @return Devuelve una query con todas las lecciones de la base de datos.
+    */
+    function getCourses() {
+      $sql = "select * from course";
+      $stmt = $this->conection->prepare($sql);
+      $stmt->execute();
+      return $stmt->fetchAll();
     }
 
     /*

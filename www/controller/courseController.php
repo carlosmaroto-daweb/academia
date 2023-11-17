@@ -16,6 +16,10 @@
   // esta clase va a gestionar las operaciones sobre las asignaturas.
   require_once 'model/subjectManagement.php';
 
+  // Incluimos el archivo courseManagement.php para instanciar la clase como objeto,
+  // esta clase va a gestionar las operaciones sobre los cursos.
+  require_once 'model/courseManagement.php';
+
   // Incluimos el archivo relatedTableManager.php para instanciar la clase como objeto,
   // esta clase va a consultar los registros de las tablas relacionadas.
   require_once 'model/relatedTableManager.php';
@@ -28,6 +32,7 @@
 
     // Atributos
     private $view;
+    private $courseManagement;
     private $subjectManagement;
     private $moduleManagement;
     private $lessonManagement;
@@ -36,7 +41,32 @@
       $this->lessonManagement    = new LessonManagement();
       $this->moduleManagement    = new ModuleManagement();
       $this->subjectManagement   = new SubjectManagement();
+      $this->courseManagement    = new CourseManagement();
       $this->relatedTableManager = new RelatedTableManager();
+    }
+
+    function deleteCourse() {
+      if (isSecretary() || isAdmin()) {
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+          echo $this->courseManagement->deleteCourse();
+        }
+        else {
+          echo json_encode(
+            array(
+              'success' => 0, 
+              'msg'     => 'No se ha podido eliminar el curso.'
+            )
+          );
+        }
+      }
+      else {
+        echo json_encode(
+          array(
+            'success' => 0, 
+            'msg'     => 'No tienes permisos para eliminar un curso.'
+          )
+        );
+      }
     }
 
     function deleteLesson() {
@@ -106,6 +136,30 @@
           array(
             'success' => 0, 
             'msg'     => 'No tienes permisos para eliminar una asignatura.'
+          )
+        );
+      }
+    }
+
+    function duplicateCourse() {
+      if (isSecretary() || isAdmin()) {
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+          echo $this->courseManagement->duplicateCourse();
+        }
+        else {
+          echo json_encode(
+            array(
+              'success' => 0, 
+              'msg'     => 'No se ha podido duplicar el curso.'
+            )
+          );
+        }
+      }
+      else {
+        echo json_encode(
+          array(
+            'success' => 0, 
+            'msg'     => 'No tienes permisos para duplicar un curso.'
           )
         );
       }
@@ -185,11 +239,58 @@
 
     function editCourse() {
       if (isSecretary() || isAdmin()) {
-        $this->view = 'editCourse';
-        $result = [
-          'subjects' => $this->subjectManagement->getSubjects(),
-        ];
-        return $result;
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+          $this->view = 'editCourse';
+          $result = [
+            'course'  => $this->courseManagement->getCourseById($_GET['id']),
+            'subjects' => $this->subjectManagement->getSubjects(),
+          ];
+          return $result;
+        }
+        else if (isset($_POST['id']) && !empty($_POST['id'])) {
+          if (isset($_POST['name']) && isset($_POST['id_subject']) && isset($_POST['studies']) && isset($_POST['location']) && isset($_POST['type']) && isset($_POST['start_date']) && isset($_POST['end_date'])){
+            if (!empty($_POST['name']) && !empty($_POST['id_subject']) && !empty($_POST['studies']) && !empty($_POST['location']) && !empty($_POST['type']) && !empty($_POST['start_date']) && !empty($_POST['end_date'])) {
+              echo $this->courseManagement->editCourse();
+            }
+            else {
+              echo json_encode(
+                array(
+                  'success' => 0, 
+                  'msg'     => 'Se deben de rellenar todos los campos.'
+                )
+              );
+            }
+          }
+          else {
+            echo json_encode(
+              array(
+                'success' => 0, 
+                'msg'     => 'No se ha podido editar el curso.'
+              )
+            );
+          }
+        }
+        else if (isset($_POST['name']) && isset($_POST['id_subject']) && isset($_POST['studies']) && isset($_POST['location']) && isset($_POST['type']) && isset($_POST['start_date']) && isset($_POST['end_date'])){
+          if (!empty($_POST['name']) && !empty($_POST['id_subject']) && !empty($_POST['studies']) && !empty($_POST['location']) && !empty($_POST['type']) && !empty($_POST['start_date']) && !empty($_POST['end_date'])) {
+            echo $this->courseManagement->createCourse();
+          }
+          else {
+            echo json_encode(
+              array(
+                'success' => 0, 
+                'msg'     => 'Se deben de rellenar todos los campos.'
+              )
+            );
+          }
+        }
+        else {
+          $this->view = 'editCourse';
+          $result = [
+            'course'   => null,
+            'subjects' => $this->subjectManagement->getSubjects(),
+          ];
+          return $result;
+        }
       }
       else {
         $userController = new userController();
@@ -713,10 +814,10 @@
       $this->view = 'subject';
     }
 
-
     function secretary() {
       if (isSecretary() || isAdmin()) {
         $result = [
+          'courses'        => $this->courseManagement->getCourses(),
           'subjects'       => $this->subjectManagement->getSubjects(),
           'modules'        => $this->moduleManagement->getModules(),
           'lessons'        => $this->lessonManagement->getLessons(),
