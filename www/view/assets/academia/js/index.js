@@ -1216,28 +1216,46 @@ $(document).ready(function() {
         e.preventDefault();
         $(this).closest(".row-assigned_subjects").remove();
     });
-/*
-    $('#add-course-create-modules').on('click', function() {
-        let row_modules = document.createElement("div");
-        row_modules.setAttribute("class", "row-modules");
-        let select = document.createElement("select");
-        select.setAttribute("class", "modules");
-        select.innerHTML = document.getElementById("select-modules").innerHTML;
-        row_modules.appendChild(select);
-        let input = document.createElement("input");
-        input.setAttribute("class", "price-modules");
-        input.setAttribute("placeholder", "Precio");
-        input.setAttribute("type", "text");
-        input.setAttribute("name", "name");
-        row_modules.appendChild(input);
-        let link = document.createElement("a");
-        link.setAttribute("class", "delete-course-create-modules btn btn-mod btn-circle button-cancel");
-        link.innerHTML = `<i class='fa fa-times'></i>`;
-        link.onclick = function() {
-            $(this).parent().remove();
-        }
-        row_modules.appendChild(link);
-        $('#course-create-modules').append(row_modules);
+
+    $('#edit-course').on('click', async (event) => {
+        event.preventDefault();
+        let id                = $('#course-edit-id').val();
+        let name              = $('#course-edit-name').val();
+        let assigned_subject  = $('#assigned_subject').val();
+        let studies           = $('#studies').val();
+        let location          = $('#location').val();
+        let type              = $('#type').val();
+        let start_date        = $('#start_date').val();
+        let end_date          = $('#end_date').val();
+        $.ajax({
+            type: "POST",
+            url: 'index.php?controller=courseController&action=editSubject&ajax=true',
+            data: {
+                'id':               id,
+                'name':             name,
+                'assigned_subject': assigned_subject,
+                'studies':          studies,
+                'location':         location,
+                'type':             type,
+                'start_date':       start_date,
+                'end_date':         end_date
+            },
+            success: function(response) {
+                let jsonData = JSON.parse(response);
+                if (jsonData.success == "1") {
+                    location.replace('index.php?controller=courseController&action=editCourse');
+                }
+                else {
+                    $(".alert").remove();
+                    let msg = `
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    `;
+                    $("#subject-edit-form").append(msg);
+                }
+            }
+        });
     });
-    */
 });

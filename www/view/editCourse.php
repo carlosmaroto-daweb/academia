@@ -110,7 +110,7 @@
                             echo "<div class='row'>";
                                 echo "<div class='col-md-12 text-center'>";
                                     echo "<a href='index.php?controller=courseController&action=secretary' class='btn btn-mod btn-circle btn-large button-cancel'>Cancelar</a>&nbsp;";
-                                    echo "<a id='create-course' class='btn btn-mod btn-circle btn-large button-success'>Guardar</a>";
+                                    echo "<a id='edit-course' class='btn btn-mod btn-circle btn-large button-success'>Guardar</a>";
                                 echo "</div>";
                             echo "</div>";
                         echo "</div>";

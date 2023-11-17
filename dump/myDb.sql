@@ -43,7 +43,9 @@ CREATE TABLE `course` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255),
   `id_subject` INT,
-  `tags` VARCHAR(255),
+  `studies` VARCHAR(255),
+  `location` VARCHAR(255),
+  `type` VARCHAR(255),
   `start_date` DATE,
   `end_date` DATE,
   PRIMARY KEY (`id`)
