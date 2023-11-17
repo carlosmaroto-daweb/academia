@@ -1223,19 +1223,19 @@ $(document).ready(function() {
         let name       = $('#course-edit-name').val();
         let id_subject = $('#id_subject').val();
         let studies    = $('#studies').val();
-        let location   = $('#location').val();
+        let locationInput   = $('#location').val();
         let type       = $('#type').val();
         let start_date = $('#start_date').val();
         let end_date   = $('#end_date').val();
         $.ajax({
             type: "POST",
-            url: 'index.php?controller=courseController&action=editSubject&ajax=true',
+            url: 'index.php?controller=courseController&action=editCourse&ajax=true',
             data: {
                 'id':         id,
                 'name':       name,
                 'id_subject': id_subject,
                 'studies':    studies,
-                'location':   location,
+                'location':   locationInput,
                 'type':       type,
                 'start_date': start_date,
                 'end_date':   end_date
@@ -1253,7 +1253,7 @@ $(document).ready(function() {
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     `;
-                    $("#subject-edit-form").append(msg);
+                    $("#course-create-form").append(msg);
                 }
             }
         });
