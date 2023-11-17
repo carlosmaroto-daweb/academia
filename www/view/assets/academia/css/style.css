@@ -252,15 +252,15 @@
     background-color: #8135b1 !important;
 }
 
-.row-studies {
+.row-tags {
     display: flex;
 }
 
-.row-studies .name-studies {
+.row-tags .name-studies {
     margin-right: 10px;
 }
 
-.row-studies .location-studies {
+.row-tags .location-studies {
     margin-right: 10px;
 }
 

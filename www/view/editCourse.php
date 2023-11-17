@@ -78,11 +78,12 @@
                             echo "</div>";
                             echo "<div class='form-group'>";
                                 echo "<label>Etiquetas <span class='required-field-color'>(*)</span></label>";
-                                echo "<div id='course-create-studies'>";
-                                    echo "<div class='row-studies'>";
+                                echo "<div id='course-create-tags'>";
+                                    echo "<div class='row-tags'>";
                                         echo "<input class='name-studies input-md round form-control' placeholder='Estudios' type='text' name='name'>";
                                         echo "<input class='location-studies input-md round form-control' placeholder='Ubicación'  type='text' name='location'>";
-                                        echo "<select class='type-studies input-md round form-control'>";
+                                        echo "<select class='type input-md round form-control'>";
+                                            echo "<option disabled selected>Selecciona el tipo</option>";
                                             echo "<option value='oppositions'>Oposiciones</option>";
                                             echo "<option value='university'>Univerdidad</option>";
                                             echo "<option value='institute'>Instituto</option>";
