@@ -65,7 +65,7 @@
                 $result = json_encode(
                     array(
                         'success' => 0, 
-                        'msg'     => 'No se ha podido crear el módulo en la base de datos.'
+                        'msg'     => 'No se ha podido crear el curso en la base de datos.'
                     )
                 );
             }
@@ -97,7 +97,7 @@
                     $result = json_encode(
                         array(
                             'success' => 0, 
-                            'msg'     => 'No se ha podido eliminar el módulo de la base de datos.'
+                            'msg'     => 'No se ha podido eliminar el mócursodulo de la base de datos.'
                         )
                     );
                 }
@@ -106,7 +106,7 @@
                 $result = json_encode(
                     array(
                         'success' => 0, 
-                        'msg'     => 'El módulo no se encuentra en la base de datos.'
+                        'msg'     => 'El curso no se encuentra en la base de datos.'
                     )
                 );
             }
@@ -131,13 +131,13 @@
         function duplicateCourse() {
             $course = $this->getCourseById($_GET['id']);
             if ($course) {
-                $_POST['name']             = uniqid();
+                $_POST['name']       = uniqid();
                 $_POST['id_subject'] = $course->getAssignedSubject();
-                $_POST['studies']          = $course->getStudies();
-                $_POST['location']         = $course->getLocation();
-                $_POST['type']             = $course->getType();
-                $_POST['start_date']       = $course->getStartDate();
-                $_POST['end_date']         = $course->getEndDate();
+                $_POST['studies']    = $course->getStudies();
+                $_POST['location']   = $course->getLocation();
+                $_POST['type']       = $course->getType();
+                $_POST['start_date'] = $course->getStartDate();
+                $_POST['end_date']   = $course->getEndDate();
                 if ($this->db->createCourse()) {
                     $this->updateCourses();
                     $new_course = $this->getCourseByName($_POST['name']);
@@ -150,14 +150,14 @@
                         array(
                             'success'   => 1, 
                             'course'    => array(
-                                'id'               => $new_course->getId(),
-                                'name'             => $new_course->getName(),
+                                'id'         => $new_course->getId(),
+                                'name'       => $new_course->getName(),
                                 'id_subject' => $new_course->getAssignedSubject(),
-                                'studies'          => $new_course->getStudies(),
-                                'location'         => $new_course->getLocation(),
-                                'type'             => $new_course->getType(),
-                                'start_date'       => $new_course->getStartDate(),
-                                'end_date'         => $new_course->getEndDate()
+                                'studies'    => $new_course->getStudies(),
+                                'location'   => $new_course->getLocation(),
+                                'type'       => $new_course->getType(),
+                                'start_date' => $new_course->getStartDate(),
+                                'end_date'   => $new_course->getEndDate()
                             )
                         )
                     );
