@@ -50,13 +50,13 @@
     */
     function createCourse() {
       $data = [
-        'name'          => $_POST['name'],
-        'id_subject'  => $_POST['id_subject'],
-        'studies'       => $_POST['studies'],
-        'location' => $_POST['location'],
+        'name'       => $_POST['name'],
+        'id_subject' => $_POST['id_subject'],
+        'studies'    => $_POST['studies'],
+        'location'   => $_POST['location'],
         'type'       => $_POST['type'],
         'start_date' => $_POST['start_date'],
-        'end_date' => $_POST['end_date']
+        'end_date'   => $_POST['end_date']
       ];
       $sql = "insert into course (name, id_subject, studies, location, type, start_date, end_date) values (:name, :id_subject, :studies, :location, :type, :start_date, :end_date)";
       $stmt = $this->conection->prepare($sql);
@@ -166,7 +166,7 @@
     function createSubjectModule() {
       $data = [
         'id_subject' => $_POST['id_subject'],
-        'id_module' => $_POST['id_module']
+        'id_module'  => $_POST['id_module']
       ];
       $sql = "insert into subject_module (id_subject, id_module) values (:id_subject, :id_module)";
       $stmt = $this->conection->prepare($sql);
@@ -208,11 +208,11 @@
      * 
      * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
-    function deleteLesson() {
+    function deleteCourse() {
       $data = [
         'id' => $_GET['id']
       ];
-      $sql = "delete from lesson where id=:id";
+      $sql = "delete from course where id=:id";
       $stmt = $this->conection->prepare($sql);
       return $stmt->execute($data);
     }
@@ -226,11 +226,11 @@
      * 
      * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
-    function deleteCourse() {
+    function deleteLesson() {
       $data = [
         'id' => $_GET['id']
       ];
-      $sql = "delete from course where id=:id";
+      $sql = "delete from lesson where id=:id";
       $stmt = $this->conection->prepare($sql);
       return $stmt->execute($data);
     }
@@ -358,14 +358,14 @@
     */
     function editCourse() {
       $data = [
-        'name'          => $_POST['name'],
-        'id_subject'  => $_POST['id_subject'],
-        'studies'       => $_POST['studies'],
-        'location' => $_POST['location'],
+        'name'       => $_POST['name'],
+        'id_subject' => $_POST['id_subject'],
+        'studies'    => $_POST['studies'],
+        'location'   => $_POST['location'],
         'type'       => $_POST['type'],
         'start_date' => $_POST['start_date'],
-        'end_date' => $_POST['end_date'],
-        'id'    => $_POST['id']
+        'end_date'   => $_POST['end_date'],
+        'id'         => $_POST['id']
       ];
       $sql = "update course set name=:name, id_subject=:id_subject, studies=:studies, location=:location, type=:type, start_date=:start_date, end_date=:end_date where id=:id";
       $stmt = $this->conection->prepare($sql);
