@@ -404,6 +404,32 @@
             
             </section>
         
+            <!-- Modal duplicate course
+            ===================================== -->
+            <div id="course-duplicate" class="mfp-hide white-popup-block">
+                <div class="text-center mb-30">
+                    <h2 class="section-title">Duplicar curso</h2>
+                </div>
+                <div id="course-duplicate-form">
+                    <p>¿Seguro que quieres duplicar este curso?</p>
+                </div>
+                <div id="course-duplicate-footer" class="modal-footer">
+                </div>
+            </div>
+        
+            <!-- Modal delete course
+            ===================================== -->
+            <div id="course-delete" class="mfp-hide white-popup-block">
+                <div class="text-center mb-30">
+                    <h2 class="section-title">Eliminar curso</h2>
+                </div>
+                <div id="course-delete-form">
+                    <p>¿Seguro que quieres eliminar este curso?</p>
+                </div>
+                <div id="course-delete-footer" class="modal-footer">
+                </div>
+            </div>
+        
             <!-- Modal duplicate subject
             ===================================== -->
             <div id="subject-duplicate" class="mfp-hide white-popup-block">
