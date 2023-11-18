@@ -132,7 +132,7 @@
             $course = $this->getCourseById($_GET['id']);
             if ($course) {
                 $_POST['name']       = uniqid();
-                $_POST['id_subject'] = $course->getAssignedSubject();
+                $_POST['id_subject'] = null;
                 $_POST['studies']    = $course->getStudies();
                 $_POST['location']   = $course->getLocation();
                 $_POST['type']       = $course->getType();
@@ -152,7 +152,6 @@
                             'course'    => array(
                                 'id'         => $new_course->getId(),
                                 'name'       => $new_course->getName(),
-                                'id_subject' => $new_course->getAssignedSubject(),
                                 'studies'    => $new_course->getStudies(),
                                 'location'   => $new_course->getLocation(),
                                 'type'       => $new_course->getType(),
