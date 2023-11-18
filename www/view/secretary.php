@@ -157,8 +157,18 @@
                                                         echo "<tr id='row{$count}'>";
                                                             echo "<td>{$row->getId()}</td>";
                                                             echo "<td>{$row->getName()}</td>";
-                                                            echo "<td>{$row->getAssignedSubject()}</td>";
-                                                            echo "<td>{$row->getStudies()}, {$row->getLocation()}, {$row->getType()}</td>";
+                                                            echo "<td class='related_table'>";
+                                                            for ($i=0; $i<count($subjects); $i++) { 
+                                                                if ($subjects[$i]->getId() == $row->getAssignedSubject()) {
+                                                                    echo "<p class='assigned_subject_{$subjects[$i]->getId()}'>({$subjects[$i]->getId()}) {$subjects[$i]->getName()}</p>";
+                                                                }
+                                                            }
+                                                            echo "</td>";
+                                                            echo "<td class='tags'>";
+                                                                echo "<p>{$row->getStudies()}</p>";
+                                                                echo "<p>{$row->getLocation()}</p>";
+                                                                echo "<p>{$row->getType()}</p>";
+                                                            echo "</td>";
                                                             echo "<td>{$row->getStartDate()}</td>";
                                                             echo "<td>{$row->getEndDate()}</td>";
                                                             echo "<td class='table-col-btn'>";
