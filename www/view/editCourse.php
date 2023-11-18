@@ -54,14 +54,35 @@
             <!-- End Home Section -->
         
             <?php
-                $id           = "";
-                $name         = "";
+                $course = $dataToView["course"];
+                $id         = "";
+                $name       = "";
+                $studies    = "";
+                $location   = "";
+                $type       = "";
+                $start_date = "";
+                $end_date   = "";
+                $id_subject = "";
+                if ($course) {
+                    $id         = $course->getId();
+                    $name       = $course->getName();
+                    $studies    = $course->getStudies();
+                    $location   = $course->getLocation();
+                    $type       = $course->getType();
+                    $start_date = $course->getStartDate();
+                    $end_date   = $course->getEndDate();
+                    $id_subject = $course->getAssignedSubject();
+                }
                 $subjects = $dataToView["subjects"];
                 $options_subjects = "<option>No hay asignaturas.</option>";
                 if ($subjects) {
                     $options_subjects = "";
                     foreach ($subjects as $subject):
-                        $options_subjects .= '<option value="' . $subject->getId() . '">(' . $subject->getId() . ') ' . $subject->getName() . '</option>';
+                        $stringSelected = '';
+                        if ($subject->getId() == $id_subject) {
+                            $stringSelected = ' selected ';
+                        }
+                        $options_subjects .= '<option value="' . $subject->getId() . '"' . $stringSelected . '>(' . $subject->getId() . ') ' . $subject->getName() . '</option>';
                     endforeach;
                 }
                 echo "<section class='page-section'>";
@@ -79,31 +100,41 @@
                             echo "<div class='form-group'>";
                                 echo "<label>Etiquetas <span class='required-field-color'>(*)</span></label>";
                                 echo "<div class='row-tags'>";
-                                    echo "<input id='studies' class='input-md round form-control' placeholder='Estudios' type='text' name='name'>";
-                                    echo "<input id='location' class='input-md round form-control' placeholder='Ubicación'  type='text' name='location'>";
+                                    echo "<input id='studies' placeholder='Estudios' type='text' value='{$studies}' class='input-md round form-control'>";
+                                    echo "<input id='location' placeholder='Ubicación' type='text' value='{$location}' class='input-md round form-control'>";
                                     echo "<select id='type' class='input-md round form-control'>";
-                                        echo "<option disabled selected>Selecciona el tipo</option>";
-                                        echo "<option value='oppositions'>Oposiciones</option>";
-                                        echo "<option value='university'>Univerdidad</option>";
-                                        echo "<option value='institute'>Instituto</option>";
+                                        echo "<option disabled"; if($type == '') echo " selected"; echo ">Selecciona el tipo</option>";
+                                        echo "<option value='Oposiciones'"; if($type == 'Oposiciones') echo " selected"; echo ">Oposiciones</option>";
+                                        echo "<option value='Univerdidad'"; if($type == 'Univerdidad') echo " selected"; echo ">Univerdidad</option>";
+                                        echo "<option value='Instituto'"; if($type == 'Instituto') echo " selected"; echo ">Instituto</option>";
                                     echo "</select>";
                                 echo "</div>";
                             echo "</div>";
                             echo "<div class='form-group'>";
                                 echo "<label for='start_date'>Fecha Inicio <span class='required-field-color'>(*)</span></label>";
-                                $date = getdate();
-                                $year = $date['year'];
-                                $mon = str_pad($date['mon'], 2, "0", STR_PAD_LEFT);
-                                $day = str_pad($date['mday'], 2, "0", STR_PAD_LEFT);
-                                echo "<input id='start_date' type='date' value='{$year}-{$mon}-{$day}' class='input-md round form-control'>";
+                                if ($start_date == '') {
+                                    $date = getdate();
+                                    $year = $date['year'];
+                                    $mon = str_pad($date['mon'], 2, "0", STR_PAD_LEFT);
+                                    $day = str_pad($date['mday'], 2, "0", STR_PAD_LEFT);
+                                    echo "<input id='start_date' type='date' value='{$year}-{$mon}-{$day}' class='input-md round form-control'>";
+                                }
+                                else {
+                                    echo "<input id='start_date' type='date' value='{$start_date}' class='input-md round form-control'>";
+                                }
                             echo "</div>";
                             echo "<div class='form-group'>";
                                 echo "<label for='end_date'>Fecha Fin <span class='required-field-color'>(*)</span></label>";
-                                $date = getdate();
-                                $year = $date['year'];
-                                $mon = str_pad($date['mon'], 2, "0", STR_PAD_LEFT);
-                                $day = str_pad($date['mday'], 2, "0", STR_PAD_LEFT);
-                                echo "<input id='end_date' type='date' value='{$year}-{$mon}-{$day}' class='input-md round form-control'>";
+                                if ($end_date == '') {
+                                    $date = getdate();
+                                    $year = $date['year'];
+                                    $mon = str_pad($date['mon'], 2, "0", STR_PAD_LEFT);
+                                    $day = str_pad($date['mday'], 2, "0", STR_PAD_LEFT);
+                                    echo "<input id='end_date' type='date' value='{$year}-{$mon}-{$day}' class='input-md round form-control'>";
+                                }
+                                else {
+                                    echo "<input id='end_date' type='date' value='{$end_date}' class='input-md round form-control'>";
+                                }
                             echo "</div>";
                         echo "</form>";
                         echo "<div class='container mt-50'>";
