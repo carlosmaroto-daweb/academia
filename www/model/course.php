@@ -31,14 +31,14 @@
          * @param end_date  String contenido de la asignatura en formato imagen
         */
         function __construct($id, $name, $id_subject, $studies, $location, $type, $start_date, $end_date) {
-            $this->id            = $id;
-            $this->name          = $name;
-            $this->id_subject  = $id_subject;
-            $this->studies       = $studies;
-            $this->location = $location;
+            $this->id         = $id;
+            $this->name       = $name;
+            $this->id_subject = $id_subject;
+            $this->studies    = $studies;
+            $this->location   = $location;
             $this->type       = $type;
             $this->start_date = $start_date;
-            $this->end_date = $end_date;
+            $this->end_date   = $end_date;
         }
 
         /*
