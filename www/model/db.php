@@ -490,6 +490,20 @@
     }
 
     /*
+     * Método que ejecuta una sentencia sql para obtener todos los registros
+     * de la relación entre cursos y usuarios de la base de datos y los 
+     * devuelve.
+     * 
+     * @return Devuelve una query con todos los registros de la tabla.
+    */
+    function getCourseUser() {
+      $sql = "select * from course_user";
+      $stmt = $this->conection->prepare($sql);
+      $stmt->execute();
+      return $stmt->fetchAll();
+    }
+
+    /*
      * Método que ejecuta una sentencia sql para obtener todas las lecciones
      * de la base de datos y las devuelve.
      * 

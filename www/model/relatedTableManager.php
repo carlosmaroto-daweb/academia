@@ -19,11 +19,19 @@
     // Incluimos el archivo subjectManagement.php para instanciar la clase como
     // objeto, esta clase va a gestionar las operaciones sobre las asignaturas.
     require_once 'model/subjectManagement.php';
+  
+    // Incluimos el archivo courseManagement.php para instanciar la clase como
+    // objeto, esta clase va a gestionar las operaciones sobre los cursos.
+    require_once 'model/courseManagement.php';
+  
+    // Incluimos el archivo userManagement.php para instanciar la clase como
+    // objeto, esta clase va a gestionar las operaciones sobre los usuarios.
+    require_once 'model/userManagement.php';
 
     /* 
      * Esta clase realiza las consultas a la base de datos relacionadas con las
      * tablas creadas como resultado de la relación entre otras tablas como 
-     * usuario/curso, curso/asignatura, asignatura/módulo, módulo/lección.
+     * usuario/curso, asignatura/módulo, módulo/lección.
      * 
      * @author: Carlos Maroto
      * @version: v1.0.0 Carlos Maroto
@@ -41,9 +49,26 @@
         */
         function __construct() {
             $this->db = new Db();
-            $this->lessonManagement    = new LessonManagement();
-            $this->moduleManagement    = new ModuleManagement();
-            $this->subjectManagement   = new SubjectManagement();
+            $this->lessonManagement  = new LessonManagement();
+            $this->moduleManagement  = new ModuleManagement();
+            $this->subjectManagement = new SubjectManagement();
+            $this->courseManagement  = new CourseManagement();
+            $this->userManagement    = new UserManagement();
+        }
+        
+        /*
+         * Método que devuelve un array con los objetos Course y User
+         * correspondientes a los registros guardados en la tabla course_user.
+         * 
+         * @return Array con pares de valores Course y User.
+        */
+        function getCourseUser() {
+            $courseUser = [];
+            $query = $this->db->getCourseUser();
+            foreach ($query as $row) {
+                array_push($courseUser, [$this->courseManagement->getCourseById($row['id_course']), $this->userManagement->getUserById($row['id_user'])]);
+            }
+            return $courseUser;
         }
         
         /*
