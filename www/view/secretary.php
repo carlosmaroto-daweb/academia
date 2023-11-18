@@ -84,7 +84,8 @@
                     </div>
                     <!-- End Nav Tabs -->
             
-                    <?php     
+                    <?php
+                        $courses        = $dataToView["courses"];
                         $subjects       = $dataToView["subjects"];
                         $modules        = $dataToView["modules"];
                         $lessons        = $dataToView["lessons"];
@@ -140,6 +141,7 @@
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
+                                                    <th>Id</th>
                                                     <th>Nombre</th>
                                                     <th>Asignatura</th>
                                                     <th>Etiquetas</th>
@@ -150,7 +152,23 @@
                                             </thead>
                                             <tbody id="course-table">
                                                 <?php
-                                                    //
+                                                    $count = 0; 
+                                                    foreach ($courses as $row):
+                                                        echo "<tr id='row{$count}'>";
+                                                            echo "<td>{$row->getId()}</td>";
+                                                            echo "<td>{$row->getName()}</td>";
+                                                            echo "<td>{$row->getAssignedSubject()}</td>";
+                                                            echo "<td>{$row->getStudies()}, {$row->getLocation()}, {$row->getType()}</td>";
+                                                            echo "<td>{$row->getStartDate()}</td>";
+                                                            echo "<td>{$row->getEndDate()}</td>";
+                                                            echo "<td class='table-col-btn'>";
+                                                                echo "<a href='index.php?controller=courseController&action=editCourse&id={$row->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>";
+                                                                echo "<a href='#course-duplicate' class='btn-course-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-course-duplicate' data-id='{$row->getId()}'>Duplicar</a>";
+                                                                echo "<a href='#course-delete' class='btn-course-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-course-delete' data-id_row='row{$count}' data-id='{$row->getId()}'>Eliminar</a>";
+                                                            echo "</td>";
+                                                        echo "</tr>";
+                                                        $count++; 
+                                                    endforeach;
                                                 ?>
                                             </tbody>
                                         </table>
