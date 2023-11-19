@@ -511,6 +511,40 @@
       }
     }
 
+    function editCourseUser() {
+      if (isSecretary() || isAdmin()) {
+        if (isset($_POST['id_course']) && isset($_POST['id_users'])) {
+          if (!empty($_POST['id_course']) && !empty($_POST['id_users'])) {
+            echo $this->relatedTableManager->editCourseUser();
+          }
+          else {
+            echo json_encode(
+              array(
+                'success' => 0, 
+                'msg'     => 'Se deben de rellenar todos los campos.'
+              )
+            );
+          }
+        }
+        else {
+          echo json_encode(
+            array(
+              'success' => 0, 
+              'msg'     => 'No se han podido crear las matrículas del curso.'
+            )
+          );
+        }
+      }
+      else {
+        echo json_encode(
+          array(
+            'success' => 0, 
+            'msg'     => 'No tienes permisos para crear las matrículas del curso.'
+          )
+        );
+      }
+    }
+
     function editModule() {
       if (isSecretary() || isAdmin()) {
         if (isset($_GET['id']) && !empty($_GET['id'])) {

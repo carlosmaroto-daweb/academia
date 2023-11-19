@@ -84,6 +84,50 @@
             }
             return $result;
         }
+
+        function editCourseUser() {
+            if ($this->courseManagement->getCourseById($_POST['id_course'])) {
+                $_GET['id_course'] = $_POST['id_course'];
+                $this->db->deleteCourseUser();
+                $id_users = explode(';;', $_POST['id_users']);
+                $errorCreate = false;
+                for ($i=0; $i<count($id_users) && !$errorCreate; $i++) {
+                    if ($this->userManagement->getUserById($id_users[$i])) {
+                        $_POST['id_user'] = $id_users[$i];
+                        if (!$this->db->createCourseUser()) {
+                            $errorCreate = true;
+                        }
+                    }
+                    else {
+                        $errorCreate = true;
+                    }
+                }
+                if ($errorCreate) {
+                    $result = json_encode(
+                        array(
+                            'success' => 0, 
+                            'msg'     => 'No se ha podido crear las matrículas del curso en la base de datos.'
+                        )
+                    );
+                }
+                else {
+                    $result = json_encode(
+                        array(
+                            'success' => 1
+                        )
+                    );
+                }
+            }
+            else {
+                $result = json_encode(
+                    array(
+                    'success' => 0, 
+                    'msg'     => 'El curso no se encuentra en la base de datos.'
+                    )
+                );
+            }
+            return $result;
+        }
         
         /*
          * Método que devuelve un array con los objetos Course y User
