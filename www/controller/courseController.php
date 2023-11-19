@@ -72,14 +72,14 @@
 
     function deleteCourseUser() {
       if (isSecretary() || isAdmin()) {
-        if ((isset($_GET['id_course']) && !empty($_GET['id_course'])) || (isset($_GET['id_user']) && !empty($_GET['id_user']))) {
+        if (isset($_GET['id_course']) && !empty($_GET['id_course'])) {
           echo $this->relatedTableManager->deleteCourseUser();
         }
         else {
           echo json_encode(
             array(
               'success' => 0, 
-              'msg'     => 'No se ha podido eliminar la matrícula.'
+              'msg'     => 'No se han podido eliminar las matrículas del curso.'
             )
           );
         }
@@ -88,7 +88,7 @@
         echo json_encode(
           array(
             'success' => 0, 
-            'msg'     => 'No tienes permisos para eliminar una matrícula.'
+            'msg'     => 'No tienes permisos para eliminar las matrículas del curso.'
           )
         );
       }

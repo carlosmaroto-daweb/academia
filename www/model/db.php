@@ -246,31 +246,23 @@
      * 
      * @return Devuelve true si ha tenido éxito la sentencia sql.
     */
-    function deleteCourseUserByCourse() {
-      $data = [
-        'id_course' => $_GET['id_course']
-      ];
-      $sql = "delete from course_user where id_course=:id_course";
-      $stmt = $this->conection->prepare($sql);
-      return $stmt->execute($data);
-    }
-
-    /*
-     * Método que asigna todos los valores pasados por el GET a un array
-     * asociativo para ejecutar una sentencia sql con la base de datos. En
-     * este caso la sentencia elimina el registro que coincide con el id.
-     * 
-     * Previamente se ha comprobado que esté el parámetro id y que sea válido.
-     * 
-     * @return Devuelve true si ha tenido éxito la sentencia sql.
-    */
-    function deleteCourseUserByUser() {
-      $data = [
-        'id_user' => $_GET['id_user']
-      ];
-      $sql = "delete from course_user where id_user=:id_user";
-      $stmt = $this->conection->prepare($sql);
-      return $stmt->execute($data);
+    function deleteCourseUser() {
+      if (isset($_GET['id_course'])) {
+        $data = [
+          'id_course' => $_GET['id_course']
+        ];
+        $sql = "delete from course_user where id_course=:id_course";
+        $stmt = $this->conection->prepare($sql);
+        return $stmt->execute($data);
+      }
+      else if (isset($_GET['id_user'])) {
+        $data = [
+          'id_user' => $_GET['id_user']
+        ];
+        $sql = "delete from course_user where id_user=:id_user";
+        $stmt = $this->conection->prepare($sql);
+        return $stmt->execute($data);
+      }
     }
 
     /*
