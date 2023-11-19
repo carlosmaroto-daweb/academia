@@ -150,7 +150,14 @@
                     $id_users = $course_user[i][1];
                 }
                 else {
-                    array_push($tuition, [$id_course, $id_users]);
+                    if ($course_user[i-1][0] != $course_user[i][0]) {
+                        array_push($tuition, [$id_course, $id_users]);
+                        $id_course = $course_user[i][0];
+                        $id_users = $course_user[i][1];
+                    }
+                    else {
+                        $id_users .= ';;' . $course_user[i][1];
+                    }
                 }
             }
             return $tuition;
