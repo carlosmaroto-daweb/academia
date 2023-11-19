@@ -97,7 +97,7 @@
                     $result = json_encode(
                         array(
                             'success' => 0, 
-                            'msg'     => 'No se ha podido eliminar el mócursodulo de la base de datos.'
+                            'msg'     => 'No se ha podido eliminar el curso de la base de datos.'
                         )
                     );
                 }

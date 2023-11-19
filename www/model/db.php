@@ -68,6 +68,26 @@
      * asociativo para ejecutar una sentencia sql con la base de datos. En
      * este caso la sentencia inserta un registro nuevo a la base de datos.
      * 
+     * Previamente se ha comprobado que estén los parámetros id_course y
+     * id_user en el controlador y que sean válidos.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
+    function createCourseUser() {
+      $data = [
+        'id_course' => $_POST['id_course'],
+        'id_user'   => $_POST['id_user']
+      ];
+      $sql = "insert into module_lesson (id_course, id_user) values (:id_course, :id_user)";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
+    /*
+     * Método que asigna todos los valores pasados por el POST a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia inserta un registro nuevo a la base de datos.
+     * 
      * Previamente se ha comprobado que estén los parámetros name y files 
      * en el controlador y que sean válidos.
      * 
@@ -213,6 +233,42 @@
         'id' => $_GET['id']
       ];
       $sql = "delete from course where id=:id";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
+    /*
+     * Método que asigna todos los valores pasados por el GET a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia elimina el registro que coincide con el id.
+     * 
+     * Previamente se ha comprobado que esté el parámetro id y que sea válido.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
+    function deleteCourseUserByCourse() {
+      $data = [
+        'id_course' => $_GET['id_course']
+      ];
+      $sql = "delete from course_user where id_course=:id_course";
+      $stmt = $this->conection->prepare($sql);
+      return $stmt->execute($data);
+    }
+
+    /*
+     * Método que asigna todos los valores pasados por el GET a un array
+     * asociativo para ejecutar una sentencia sql con la base de datos. En
+     * este caso la sentencia elimina el registro que coincide con el id.
+     * 
+     * Previamente se ha comprobado que esté el parámetro id y que sea válido.
+     * 
+     * @return Devuelve true si ha tenido éxito la sentencia sql.
+    */
+    function deleteCourseUserByUser() {
+      $data = [
+        'id_user' => $_GET['id_user']
+      ];
+      $sql = "delete from course_user where id_user=:id_user";
       $stmt = $this->conection->prepare($sql);
       return $stmt->execute($data);
     }

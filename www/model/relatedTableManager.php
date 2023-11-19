@@ -55,6 +55,33 @@
             $this->courseManagement  = new CourseManagement();
             $this->userManagement    = new UserManagement();
         }
+
+        function deleteCourseUser() {
+            $result_delete_1 = true;
+            $result_delete_2 = true;
+            if (isset($_GET['id_course']) && $this->courseManagement->getCourseById($_GET['id_course'])) {
+                $result_delete_1 = $this->db->deleteCourseUserByCourse();
+            }
+            if (isset($_GET['id_user']) && $this->courseManagement->getCourseById($_GET['id_user'])) {
+                $result_delete_2 = $this->db->deleteCourseUserByUser();
+            }
+            if ($result_delete_1 && $result_delete_2) {
+                $result = json_encode(
+                    array(
+                        'success' => 1
+                    )
+                );
+            }
+            else {
+                $result = json_encode(
+                    array(
+                    'success' => 0, 
+                    'msg'     => 'No se ha podido eliminar la matrícula de la base de datos.'
+                    )
+                );
+            }
+            return $result;
+        }
         
         /*
          * Método que devuelve un array con los objetos Course y User

@@ -36,6 +36,7 @@
     private $subjectManagement;
     private $moduleManagement;
     private $lessonManagement;
+    private $relatedTableManager;
 
     function __construct() {
       $this->lessonManagement    = new LessonManagement();
@@ -64,6 +65,30 @@
           array(
             'success' => 0, 
             'msg'     => 'No tienes permisos para eliminar un curso.'
+          )
+        );
+      }
+    }
+
+    function deleteCourseUser() {
+      if (isSecretary() || isAdmin()) {
+        if ((isset($_GET['id_course']) && !empty($_GET['id_course'])) || (isset($_GET['id_user']) && !empty($_GET['id_user']))) {
+          echo $this->relatedTableManager->deleteCourseUser();
+        }
+        else {
+          echo json_encode(
+            array(
+              'success' => 0, 
+              'msg'     => 'No se ha podido eliminar la matrícula.'
+            )
+          );
+        }
+      }
+      else {
+        echo json_encode(
+          array(
+            'success' => 0, 
+            'msg'     => 'No tienes permisos para eliminar una matrícula.'
           )
         );
       }
