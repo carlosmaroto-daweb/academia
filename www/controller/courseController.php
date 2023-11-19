@@ -876,6 +876,7 @@
     function secretary() {
       if (isSecretary() || isAdmin()) {
         $result = [
+          'tuition'        => $this->relatedTableManager->getTuition(),
           'courses'        => $this->courseManagement->getCourses(),
           'subjects'       => $this->subjectManagement->getSubjects(),
           'modules'        => $this->moduleManagement->getModules(),

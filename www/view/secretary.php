@@ -85,6 +85,7 @@
                     <!-- End Nav Tabs -->
             
                     <?php
+                        $tuition        = $dataToView["tuition"];
                         $courses        = $dataToView["courses"];
                         $subjects       = $dataToView["subjects"];
                         $modules        = $dataToView["modules"];
@@ -114,7 +115,6 @@
                                             </thead>
                                             <tbody id="tuition-table">
                                                 <?php
-                                                    //
                                                 ?>
                                             </tbody>
                                         </table>

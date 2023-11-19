@@ -135,13 +135,25 @@
          * 
          * @return Array con pares de valores Course y User.
         */
-        function getCourseUser() {
+        function getTuition() {
             $courseUser = [];
             $query = $this->db->getCourseUser();
             foreach ($query as $row) {
                 array_push($courseUser, [$this->courseManagement->getCourseById($row['id_course']), $this->userManagement->getUserById($row['id_user'])]);
             }
-            return $courseUser;
+            $tuition = [];
+            $id_course;
+            $id_users;
+            for ($i=0; $i<count($course_user); $i++) {
+                if ($i==0) {
+                    $id_course = $course_user[i][0];
+                    $id_users = $course_user[i][1];
+                }
+                else {
+                    array_push($tuition, [$id_course, $id_users]);
+                }
+            }
+            return $tuition;
         }
         
         /*
