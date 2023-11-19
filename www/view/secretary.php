@@ -86,6 +86,7 @@
             
                     <?php
                         $tuition        = $dataToView["tuition"];
+                        $users          = $dataToView["users"];
                         $courses        = $dataToView["courses"];
                         $subjects       = $dataToView["subjects"];
                         $modules        = $dataToView["modules"];

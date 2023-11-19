@@ -4,6 +4,10 @@
       die('Hey Bro! You cannot access this file... twat!');
   }
 
+  // Incluimos el archivo userManagement.php para instanciar la clase como objeto,
+  // esta clase va a gestionar las operaciones sobre los usuarios de la bd.
+  require_once 'model/userManagement.php';
+
   // Incluimos el archivo lessonManagement.php para instanciar la clase como objeto,
   // esta clase va a gestionar las operaciones sobre las lecciones.
   require_once 'model/lessonManagement.php';
@@ -33,6 +37,7 @@
     // Atributos
     private $view;
     private $courseManagement;
+    private $userManagement;
     private $subjectManagement;
     private $moduleManagement;
     private $lessonManagement;
@@ -43,6 +48,7 @@
       $this->moduleManagement    = new ModuleManagement();
       $this->subjectManagement   = new SubjectManagement();
       $this->courseManagement    = new CourseManagement();
+      $this->userManagement      = new UserManagement();
       $this->relatedTableManager = new RelatedTableManager();
     }
 
@@ -877,6 +883,7 @@
       if (isSecretary() || isAdmin()) {
         $result = [
           'tuition'        => $this->relatedTableManager->getTuition(),
+          'users'          => $this->userManagement->getUsers(),
           'courses'        => $this->courseManagement->getCourses(),
           'subjects'       => $this->subjectManagement->getSubjects(),
           'modules'        => $this->moduleManagement->getModules(),
