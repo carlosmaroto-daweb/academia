@@ -142,21 +142,22 @@
                 array_push($courseUser, [$this->courseManagement->getCourseById($row['id_course']), $this->userManagement->getUserById($row['id_user'])]);
             }
             $tuition = [];
-            $id_course;
-            $id_users;
-            for ($i=0; $i<count($course_user); $i++) {
+            $course;
+            $users = [];
+            for ($i=0; $i<count($courseUser); $i++) {
                 if ($i==0) {
-                    $id_course = $course_user[i][0];
-                    $id_users = $course_user[i][1];
+                    $course = $this->courseManagement->getCourseById($courseUser[$i][0]);
+                    array_push($users, $this->userManagement->getUserById($courseUser[$i][1]));
                 }
                 else {
-                    if ($course_user[i-1][0] != $course_user[i][0]) {
-                        array_push($tuition, [$id_course, $id_users]);
-                        $id_course = $course_user[i][0];
-                        $id_users = $course_user[i][1];
+                    if ($courseUser[$i-1][0] != $courseUser[$i][0]) {
+                        array_push($tuition, [$course, $users]);
+                        $course = $this->courseManagement->getCourseById($courseUser[$i][0]);
+                        $users = [];
+                        array_push($users, $this->userManagement->getUserById($courseUser[$i][1]));
                     }
                     else {
-                        $id_users .= ';;' . $course_user[i][1];
+                        array_push($users, $this->userManagement->getUserById($courseUser[$i][1]));
                     }
                 }
             }
