@@ -109,8 +109,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>Curso</th>
-                                                    <th>Alumnos</th>
                                                     <th>Profesores</th>
+                                                    <th>Alumnos</th>
                                                     <th>Acciones</th>
                                                 </tr>
                                             </thead>
@@ -119,26 +119,35 @@
                                                     $count = 0;
                                                     for ($i=0; $i<count($tuition); $i++) {
                                                         echo "<tr id='row{$count}'>";
-                                                            echo "<td>" . $tuition[$i][0]->getName() . "</td>";
+                                                            echo "<td>" . "(" . $tuition[$i][0]->getId() . ") " . $tuition[$i][0]->getName() . "</td>";
+                                                            echo "<td class='related_table'>";
+                                                            $asigned_users = $tuition[$i][1];
+                                                            $id_users = '';
+                                                            for ($j=0; $j<count($asigned_users); $j++) { 
+                                                                if ($asigned_users[$j]->getType() == "teacher") {
+                                                                    echo "<p>" . $asigned_users[$j]->getName() . ", " . $asigned_users[$j]->getLastName() . "</p>";
+                                                                    if ($id_users != '') {
+                                                                        $id_users .= ';;';
+                                                                    }
+                                                                    $id_users .= $asigned_users[$j]->getId();
+                                                                }
+                                                            }
+                                                            echo "</td>";
                                                             echo "<td class='related_table'>";
                                                             $asigned_users = $tuition[$i][1];
                                                             for ($j=0; $j<count($asigned_users); $j++) { 
                                                                 if ($asigned_users[$j]->getType() == "student") {
                                                                     echo "<p>" . $asigned_users[$j]->getName() . ", " . $asigned_users[$j]->getLastName() . "</p>";
-                                                                }
-                                                            }
-                                                            echo "</td>";
-                                                            echo "<td class='related_table'>";
-                                                            $asigned_users = $tuition[$i][1];
-                                                            for ($j=0; $j<count($asigned_users); $j++) { 
-                                                                if ($asigned_users[$j]->getType() == "teacher") {
-                                                                    echo "<p>" . $asigned_users[$j]->getName() . ", " . $asigned_users[$j]->getLastName() . "</p>";
+                                                                    if ($id_users != '') {
+                                                                        $id_users .= ';;';
+                                                                    }
+                                                                    $id_users .= $asigned_users[$j]->getId();
                                                                 }
                                                             }
                                                             echo "</td>";
                                                             echo "<td class='table-col-btn'>";
-                                                                echo "<a href='index.php?controller=courseController&action=editCourse&id={$tuition[$i]->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>";
-                                                                echo "<a href='#course-delete' class='btn-course-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-course-delete' data-id_row='row{$count}' data-id='{$tuition[$i][0]->getId()}'>Eliminar</a>";
+                                                                echo "<a href='#tuition-edit' class='btn-tuition-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-tuition-edit' data-id_row='row{$count}' data-id_course='" . $tuition[$i][0]->getId() . "' data-id_users='{$id_users}'>Editar</a>";
+                                                                echo "<a href='#tuition-delete' class='btn-tuition-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-tuition-delete' data-id_row='row{$count}' data-id='" . $tuition[$i][0]->getId() . "'>Eliminar</a>";
                                                             echo "</td>";
                                                         echo "</tr>";
                                                         $count++;
@@ -152,7 +161,7 @@
                             <div class="container mt-50">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
-                                        <a href="" class="btn btn-mod btn-circle btn-large button-success">Añadir nueva matrícula</a>
+                                        <a href="#tuition-create" class="btn-tuition-create btn btn-mod btn-circle btn-large button-success magnificPopup-tuition-create">Añadir nuevas matrículas</a>
                                     </div>
                                 </div>
                             </div>
@@ -431,6 +440,93 @@
                 </div>
             
             </section>
+
+            <?php
+                $options_courses = "<option>No hay cursos.</option>";
+                if ($courses) {
+                    $options_courses = "";
+                    foreach ($courses as $course):
+                        $options_courses .= '<option value="' . $course->getId() . '">(' . $course->getId() . ') ' . $course->getName() . '</option>';
+                    endforeach;
+                }
+                $options_users = "<option>No hay usuarios.</option>";
+                if ($users) {
+                    $options_users = "";
+                    foreach ($users as $user):
+                        if ($user->getType() == 'student' || $user->getType() == 'teacher') {
+                            $options_users .= '<option value="' . $user->getId() . '">' . $user->getName() . ', ' . $user->getLastName() . '</option>';
+                        }
+                    endforeach;
+                    if ($options_users == "") {
+                        $options_users = "<option>No hay usuarios.</option>";
+                    }
+                }
+            ?>
+
+            <!-- Modal create tuition
+            ===================================== -->
+            <div id="tuition-create" class="mfp-hide white-popup-block">
+                <div class="text-center mb-30">
+                    <h2 class="section-title">Crear matrículas del curso</h2>
+                </div>
+                <form id="tuition-create-form" class="form">
+                    <div class='form-group'>
+                        <label>Curso <span class='required-field-color'>(*)</span></label>
+                        <select id='assigned_course' class='input-md round form-control'><?php echo $options_courses ?></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Users <span class='required-field-color'>(*)</span></label>
+                        <div id='container-assigned_users'>
+                            <div class='row-assigned_users'>
+                                <select class='assigned_users input-md round form-control'><?php echo $options_users ?></select>
+                                <div class='delete-row-assigned_users btn btn-mod btn-circle button-cancel'><i class='fa fa-times'></i></div>
+                            </div>
+                        </div>
+                        <a id='add-row-assigned_users' class='btn btn-mod btn-circle button-success' data-options_users='<?php echo $options_users; ?>'><i class='fa fa-plus'></i></a>
+                    </div>
+                </form>
+                <div id="create-modal-footer" class="modal-footer">
+                </div>
+            </div>
+
+            <!-- Modal edit tuition
+            ===================================== -->
+            <div id="tuition-edit" class="mfp-hide white-popup-block">
+                <div class="text-center mb-30">
+                    <h2 class="section-title">Editar matrículas del curso</h2>
+                </div>
+                <form id="tuition-edit-form" class="form">
+                    <div class='form-group'>
+                        <label>Curso <span class='required-field-color'>(*)</span></label>
+                        <select id='assigned_course' class='input-md round form-control'><?php echo $options_courses ?></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Users <span class='required-field-color'>(*)</span></label>
+                        <div id='container-assigned_users'>
+                            <div class='row-assigned_users'>
+                                <select class='assigned_users input-md round form-control'><?php echo $options_users ?></select>
+                                <div class='delete-row-assigned_users btn btn-mod btn-circle button-cancel'><i class='fa fa-times'></i></div>
+                            </div>
+                        </div>
+                        <a id='add-row-assigned_users' class='btn btn-mod btn-circle button-success' data-options_users='<?php echo $options_users; ?>'><i class='fa fa-plus'></i></a>
+                    </div>
+                </form>
+                <div id="edit-modal-footer" class="modal-footer">
+                </div>
+            </div>
+        
+            <!-- Modal delete tuition
+            ===================================== -->
+            <div id="tuition-delete" class="mfp-hide white-popup-block">
+                <div class="text-center mb-30">
+                    <h2 class="section-title">Eliminar matrículas del curso</h2>
+                </div>
+                <div id="tuition-delete-form">
+                    <p>¿Seguro que quieres eliminar todas las matrículas de este curso?</p>
+                </div>
+                <div id="delete-modal-footer" class="modal-footer">
+                </div>
+            </div>
         
             <!-- Modal duplicate course
             ===================================== -->

@@ -225,7 +225,7 @@
          * @param  int id del usuario a consultar.
          * @return Devuelve el usuario dado su id o null si no se encuentra.
         */
-        private function getUserById($id) {
+        function getUserById($id) {
             $result = null;
             for ($i=0; $i<count($this->users) && !$result; $i++) {
                 if ($this->users[$i]->getId() == $id) {

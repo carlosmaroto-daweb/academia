@@ -275,6 +275,16 @@
     min-width: 110px;
 }
 
+#container-assigned_users .row-assigned_users {
+    display: flex;
+    align-items: center;
+    margin: 3px 0px;
+}
+
+#container-assigned_users .row-assigned_users select {
+    margin-right: 10px;
+}
+
 #subject-edit-form .row-assigned_modules {
     display: flex;
     align-items: center;

@@ -1398,4 +1398,270 @@ $(document).ready(function() {
             }
         });
     });
+
+    let option_course = $('#tuition-edit #assigned_course').html();
+    let option_users = $('#tuition-edit .assigned_users').html();
+
+    $(".magnificPopup-tuition-edit").magnificPopup({
+        gallery: {
+            enabled: true
+        },
+        mainClass: "mfp-fade"
+    });
+
+    $(document).on('click','.btn-tuition-edit', function(e) {
+        let button = '<button id="btn-edit-cancel" class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>';
+        $('#edit-modal-footer').append(button);
+        button = '<button id="btn-edit" class="btn btn-mod btn-small btn-round">Guardar cambios</button>';
+        $('#edit-modal-footer').append(button);
+        e.preventDefault();
+        let id_row    = $(this).data('id_row');
+        let id_course = $(this).data('id_course');
+        let id_users  = $(this).data('id_users');
+        console.log(id_users);
+        $('#tuition-edit #assigned_course option[value="' + id_course + '"]').attr("selected","selected");
+        let row_assigned_users = $('#tuition-edit .row-assigned_users');
+        let arrays = id_users.split(';;')
+        for (let i=1; i<arrays.length; i++) {
+            $('#tuition-edit #container-assigned_users').append(row_assigned_users.clone());
+        }
+        for (let i=1; i<=arrays.length; i++) {
+            $('#tuition-edit .row-assigned_users:nth-child(' + i + ') .assigned_users option[value="' + arrays[i-1] + '"]').attr("selected", "selected");
+        }
+        $("#btn-edit-cancel").on('click', function(e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
+
+        $('#btn-edit').on('click', function(e) {
+            e.preventDefault();
+            id_course = $('#assigned_course').val();
+            id_users = '';
+            $(".assigned_users").each(function() {
+                if (id_users != '') {
+                    id_users += ";;";
+                }
+                id_users += $(this).val();
+            });
+            $.ajax({
+                type: "POST",
+                url: 'index.php?controller=courseController&action=editCourseUser&ajax=true',
+                data: {
+                    'id_course': id_course,
+                    'id_users':  id_users
+                },
+                success: function(response) {
+                    let jsonData = JSON.parse(response);
+
+                    new_password = jsonData.password;
+                    if (jsonData.success == "1") {
+                        /*
+                        let course        = jsonData.course;
+                        let asigned_users = jsonData.users;
+                        let id_row        = 'row' + $('#tuition-table').children('tr').length;
+                        let row = 
+                            `<tr id='${id_row}'>
+                                <td>${course.getName()}</td>
+                                <td class='related_table'>${new_last_name}</td>
+                                <td class='related_table'>${new_email}</td>
+                                <td class='table-col-btn'>
+                                    <a href='#user-edit' class='btn-user-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-user-edit' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>
+                                    <a href='#user-delete' class='btn-user-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-user-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
+                                </td>
+                            </tr>`;
+                        $('#tuition-table').append(row);
+                        $(".magnificPopup-tuition-edit").magnificPopup({
+                            gallery: {
+                                enabled: true
+                            },
+                            mainClass: "mfp-fade"
+                        });
+                        $(".magnificPopup-tuition-delete").magnificPopup({
+                            gallery: {
+                                enabled: true
+                            },
+                            mainClass: "mfp-fade"
+                        });
+                        $.magnificPopup.close();
+                        */
+                    }
+                    else {
+                        $(".alert").remove();
+                        let msg = `
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        `;
+                        $("#edit-form").append(msg);
+                    }
+                }
+            });
+        });
+    });
+
+    $(".magnificPopup-tuition-edit").on('mfpClose', function() {
+        $(".alert").remove();
+        $('#tuition-edit #assigned_course option').remove();
+        $('#tuition-edit #assigned_course').append(option_course);
+        $('#tuition-edit #container-assigned_users option').remove();
+        $('#tuition-edit #container-assigned_users .assigned_users').append(option_users);
+        $('#btn-edit-cancel').remove();
+        $('#btn-edit').remove();
+    });
+
+    $(".magnificPopup-tuition-delete").magnificPopup({
+        gallery: {
+            enabled: true
+        },
+        mainClass: "mfp-fade"
+    });
+
+    $(document).on('click','.btn-tuition-delete', function(e) {
+        let button = '<button id="btn-delete-cancel" class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>';
+        $('#delete-modal-footer').append(button);
+        button = '<button id="btn-delete" class="btn btn-mod btn-small btn-round">Eliminar matrículas</button>';
+        $('#delete-modal-footer').append(button);
+        e.preventDefault();
+        let id_row       = $(this).data('id_row');
+        let id           = $(this).data('id');
+        $('#btn-delete').on('click', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: 'index.php?controller=courseController&action=deleteCourseUser&ajax=true&id_course=' + id,
+                success: function(response) {
+                    let jsonData = JSON.parse(response);
+                    if (jsonData.success == "1") {
+                        $('#' + id_row).remove();
+                        $.magnificPopup.close();
+                    }
+                    else {
+                        $(".alert").remove();
+                        let msg = `
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        `;
+                        $("#tuition-delete-form").append(msg);
+                    }
+                }
+            });
+        });
+    });
+
+    $(".magnificPopup-tuition-delete").on('mfpClose', function() {
+        $(".alert").remove();
+        $('#btn-delete-cancel').remove();
+        $('#btn-delete').remove();
+    });
+
+    $(".magnificPopup-tuition-create").magnificPopup({
+        gallery: {
+            enabled: true
+        },
+        mainClass: "mfp-fade"
+    });
+
+    $(".btn-tuition-create").on('click', function() {
+        let button = '<button id="btn-create-cancel" class="btn btn-mod btn-gray btn-small btn-round">Cancelar</button>';
+        $('#create-modal-footer').append(button);
+        button = '<button id="btn-create" class="btn btn-mod btn-small btn-round">Crear matrículas</button>';
+        $('#create-modal-footer').append(button);
+        $("#btn-create-cancel").on('click', function(e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
+        $('#btn-create').on('click', function(event) {
+            event.preventDefault();
+            let id_course = $('#assigned_course').val();
+            let id_users = '';
+            $(".assigned_users").each(function() {
+                if (id_users != '') {
+                    id_users += ";;";
+                }
+                id_users += $(this).val();
+            });
+            $.ajax({
+                type: "POST",
+                url: 'index.php?controller=courseController&action=editCourseUser&ajax=true',
+                data: {
+                    'id_course': id_course,
+                    'id_users':  id_users
+                },
+                success: function(response) {
+                    let jsonData = JSON.parse(response);
+                    if (jsonData.success == "1") {
+                        /*
+                        let course        = jsonData.course;
+                        let asigned_users = jsonData.users;
+                        let id_row        = 'row' + $('#tuition-table').children('tr').length;
+                        let row = 
+                            `<tr id='${id_row}'>
+                                <td>${course.getName()}</td>
+                                <td class='related_table'>${new_last_name}</td>
+                                <td class='related_table'>${new_email}</td>
+                                <td class='table-col-btn'>
+                                    <a href='#user-edit' class='btn-user-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-user-edit' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>
+                                    <a href='#user-delete' class='btn-user-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-user-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
+                                </td>
+                            </tr>`;
+                        $('#tuition-table').append(row);
+                        $(".magnificPopup-tuition-edit").magnificPopup({
+                            gallery: {
+                                enabled: true
+                            },
+                            mainClass: "mfp-fade"
+                        });
+                        $(".magnificPopup-tuition-delete").magnificPopup({
+                            gallery: {
+                                enabled: true
+                            },
+                            mainClass: "mfp-fade"
+                        });
+                        $.magnificPopup.close();
+                        */
+                    }
+                    else {
+                        $(".alert").remove();
+                        let msg = `
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <i class="fa  fa-times-circle" aria-hidden="true"></i> <strong>¡Error!</strong> ${jsonData.msg}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        `;
+                        $("#create-form").append(msg);
+                    }
+                }
+            });
+        });
+    });
+
+    $(".magnificPopup-tuition-create").on('mfpClose', function() {
+        $(".alert").remove();
+        $('#tuition-create #assigned_course option').remove();
+        $('#tuition-create #assigned_course').append(option_course);
+        $('#tuition-create #container-assigned_users option').remove();
+        $('#tuition-create #container-assigned_users .assigned_users').append(option_users);
+        $('#btn-create-cancel').remove();
+        $('#btn-create').remove();
+    });
+
+    $('#add-row-assigned_users').on('click', function(e) {
+        e.preventDefault();
+        let options_users = $(this).data('options_users');
+        let row_assigned_users = `
+            <div class='row-assigned_users'>
+                <select class='assigned_users input-md round form-control'>` + options_users + `</select>
+                <div class='delete-row-assigned_users btn btn-mod btn-circle button-cancel'><i class='fa fa-times'></i></div>
+            </div>`;
+        $('#container-assigned_users').append(row_assigned_users);
+    });
+
+    $(document).on('click','.delete-row-assigned_users', function(e) {
+        e.preventDefault();
+        $(this).closest(".row-assigned_users").remove();
+    });
+
 });

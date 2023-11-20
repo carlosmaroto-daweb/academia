@@ -78,7 +78,7 @@
         'id_course' => $_POST['id_course'],
         'id_user'   => $_POST['id_user']
       ];
-      $sql = "insert into module_lesson (id_course, id_user) values (:id_course, :id_user)";
+      $sql = "insert into course_user (id_course, id_user) values (:id_course, :id_user)";
       $stmt = $this->conection->prepare($sql);
       return $stmt->execute($data);
     }
