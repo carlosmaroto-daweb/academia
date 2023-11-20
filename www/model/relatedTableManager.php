@@ -139,7 +139,7 @@
             $courseUser = [];
             $query = $this->db->getCourseUser();
             foreach ($query as $row) {
-                array_push($courseUser, [$this->courseManagement->getCourseById($row['id_course']), $this->userManagement->getUserById($row['id_user'])]);
+                array_push($courseUser, [$row['id_course'], $row['id_user']]);
             }
             $tuition = [];
             $course;
@@ -161,6 +161,7 @@
                     }
                 }
             }
+            array_push($tuition, [$course, $users]);
             return $tuition;
         }
         
