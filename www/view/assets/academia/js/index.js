@@ -1499,7 +1499,7 @@ $(document).ready(function() {
         $(".alert").remove();
         $('#tuition-edit #assigned_course option').remove();
         $('#tuition-edit #assigned_course').append(option_course);
-        $('#tuition-edit #container-assigned_users option').remove();
+        $('#tuition-edit #container-assigned_users .row-assigned_users:gt(0)').remove();
         $('#tuition-edit #container-assigned_users .assigned_users').append(option_users);
         $('#btn-edit-cancel').remove();
         $('#btn-edit').remove();
@@ -1633,7 +1633,7 @@ $(document).ready(function() {
         $(".alert").remove();
         $('#tuition-create #assigned_course option').remove();
         $('#tuition-create #assigned_course').append(option_course);
-        $('#tuition-create #container-assigned_users option').remove();
+        $('#tuition-create #container-assigned_users .row-assigned_users:gt(0)').remove();
         $('#tuition-create #container-assigned_users .assigned_users').append(option_users);
         $('#btn-create-cancel').remove();
         $('#btn-create').remove();
