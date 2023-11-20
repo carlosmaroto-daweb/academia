@@ -1418,10 +1418,9 @@ $(document).ready(function() {
         let id_row    = $(this).data('id_row');
         let id_course = $(this).data('id_course');
         let id_users  = $(this).data('id_users');
-        console.log(id_users);
         $('#tuition-edit #assigned_course option[value="' + id_course + '"]').attr("selected","selected");
         let row_assigned_users = $('#tuition-edit .row-assigned_users');
-        let arrays = id_users.split(';;')
+        let arrays = id_users.toString().split(';;')
         for (let i=1; i<arrays.length; i++) {
             $('#tuition-edit #container-assigned_users').append(row_assigned_users.clone());
         }
@@ -1437,7 +1436,7 @@ $(document).ready(function() {
             e.preventDefault();
             id_course = $('#assigned_course').val();
             id_users = '';
-            $(".assigned_users").each(function() {
+            $("#tuition-edit .assigned_users").each(function() {
                 if (id_users != '') {
                     id_users += ";;";
                 }
@@ -1455,21 +1454,18 @@ $(document).ready(function() {
 
                     new_password = jsonData.password;
                     if (jsonData.success == "1") {
-                        /*
-                        let course        = jsonData.course;
-                        let asigned_users = jsonData.users;
-                        let id_row        = 'row' + $('#tuition-table').children('tr').length;
+                        let id_row = 'row' + $('#tuition-table').children('tr').length;
                         let row = 
                             `<tr id='${id_row}'>
-                                <td>${course.getName()}</td>
-                                <td class='related_table'>${new_last_name}</td>
-                                <td class='related_table'>${new_email}</td>
+                                <td>( ) </td>
+                                <td class='related_table'> </td>
+                                <td class='related_table'> </td>
                                 <td class='table-col-btn'>
-                                    <a href='#user-edit' class='btn-user-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-user-edit' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>
-                                    <a href='#user-delete' class='btn-user-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-user-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
+                                    <a href='#tuition-edit' class='btn-tuition-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-tuition-edit' data-id_row='${id_row}' data-id_course=' ' data-id_users=' '>Editar</a>
+                                    <a href='#tuition-delete' class='btn-tuition-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-tuition-delete' data-id_row='${id_row}' data-id=' '>Eliminar</a>
                                 </td>
                             </tr>`;
-                        $('#tuition-table').append(row);
+                        $('#' + id_row).html(row);
                         $(".magnificPopup-tuition-edit").magnificPopup({
                             gallery: {
                                 enabled: true
@@ -1483,7 +1479,6 @@ $(document).ready(function() {
                             mainClass: "mfp-fade"
                         });
                         $.magnificPopup.close();
-                        */
                     }
                     else {
                         $(".alert").remove();
@@ -1577,7 +1572,7 @@ $(document).ready(function() {
             event.preventDefault();
             let id_course = $('#assigned_course').val();
             let id_users = '';
-            $(".assigned_users").each(function() {
+            $("#tuition-create .assigned_users").each(function() {
                 if (id_users != '') {
                     id_users += ";;";
                 }
@@ -1593,18 +1588,15 @@ $(document).ready(function() {
                 success: function(response) {
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
-                        /*
-                        let course        = jsonData.course;
-                        let asigned_users = jsonData.users;
-                        let id_row        = 'row' + $('#tuition-table').children('tr').length;
+                        let id_row = 'row' + $('#tuition-table').children('tr').length;
                         let row = 
                             `<tr id='${id_row}'>
-                                <td>${course.getName()}</td>
-                                <td class='related_table'>${new_last_name}</td>
-                                <td class='related_table'>${new_email}</td>
+                                <td>( ) </td>
+                                <td class='related_table'> </td>
+                                <td class='related_table'> </td>
                                 <td class='table-col-btn'>
-                                    <a href='#user-edit' class='btn-user-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-user-edit' data-id_row='${id_row}' data-id='${id}' data-email='${new_email}' data-password='${new_password}' data-name='${new_name}' data-last_name='${new_last_name}' data-phone_number='${new_phone_number}' data-dni='${new_dni}' data-type='${new_type}'>Modificar</a>
-                                    <a href='#user-delete' class='btn-user-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-user-delete' data-id_row='${id_row}' data-id='${id}'>Eliminar</a>
+                                    <a href='#tuition-edit' class='btn-tuition-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-tuition-edit' data-id_row='${id_row}' data-id_course=' ' data-id_users=' '>Editar</a>
+                                    <a href='#tuition-delete' class='btn-tuition-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-tuition-delete' data-id_row='${id_row}' data-id=' '>Eliminar</a>
                                 </td>
                             </tr>`;
                         $('#tuition-table').append(row);
@@ -1621,7 +1613,6 @@ $(document).ready(function() {
                             mainClass: "mfp-fade"
                         });
                         $.magnificPopup.close();
-                        */
                     }
                     else {
                         $(".alert").remove();
@@ -1648,7 +1639,7 @@ $(document).ready(function() {
         $('#btn-create').remove();
     });
 
-    $('#add-row-assigned_users').on('click', function(e) {
+    $('#tuition-edit #add-row-assigned_users').on('click', function(e) {
         e.preventDefault();
         let options_users = $(this).data('options_users');
         let row_assigned_users = `
@@ -1656,10 +1647,26 @@ $(document).ready(function() {
                 <select class='assigned_users input-md round form-control'>` + options_users + `</select>
                 <div class='delete-row-assigned_users btn btn-mod btn-circle button-cancel'><i class='fa fa-times'></i></div>
             </div>`;
-        $('#container-assigned_users').append(row_assigned_users);
+        $('#tuition-edit #container-assigned_users').append(row_assigned_users);
     });
 
-    $(document).on('click','.delete-row-assigned_users', function(e) {
+    $(document).on('click','#tuition-edit  .delete-row-assigned_users', function(e) {
+        e.preventDefault();
+        $(this).closest(".row-assigned_users").remove();
+    });
+
+    $('#tuition-create #add-row-assigned_users').on('click', function(e) {
+        e.preventDefault();
+        let options_users = $(this).data('options_users');
+        let row_assigned_users = `
+            <div class='row-assigned_users'>
+                <select class='assigned_users input-md round form-control'>` + options_users + `</select>
+                <div class='delete-row-assigned_users btn btn-mod btn-circle button-cancel'><i class='fa fa-times'></i></div>
+            </div>`;
+        $('#tuition-create #container-assigned_users').append(row_assigned_users);
+    });
+
+    $(document).on('click','#tuition-create  .delete-row-assigned_users', function(e) {
         e.preventDefault();
         $(this).closest(".row-assigned_users").remove();
     });
