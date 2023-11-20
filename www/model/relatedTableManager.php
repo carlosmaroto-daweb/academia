@@ -142,7 +142,7 @@
                 array_push($courseUser, [$row['id_course'], $row['id_user']]);
             }
             $tuition = [];
-            $course;
+            $course = null;
             $users = [];
             for ($i=0; $i<count($courseUser); $i++) {
                 if ($i==0) {
@@ -161,7 +161,9 @@
                     }
                 }
             }
-            array_push($tuition, [$course, $users]);
+            if ($course != null) {
+                array_push($tuition, [$course, $users]);
+            }
             return $tuition;
         }
         

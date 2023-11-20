@@ -116,27 +116,29 @@
                                             </thead>
                                             <tbody id="tuition-table">
                                                 <?php
-                                                    $count = 0; 
+                                                    $count = 0;
                                                     for ($i=0; $i<count($tuition); $i++) {
                                                         echo "<tr id='row{$count}'>";
-                                                            echo "<td>{$tuition[$i][0]->getName()}</td>";
+                                                            echo "<td>" . $tuition[$i][0]->getName() . "</td>";
                                                             echo "<td class='related_table'>";
                                                             $asigned_users = $tuition[$i][1];
                                                             for ($j=0; $j<count($asigned_users); $j++) { 
-                                                                echo "<p>{$asigned_users[$j]->getName()}, {$asigned_users[$j]->getName()}</p>";
+                                                                if ($asigned_users[$j]->getType() == "student") {
+                                                                    echo "<p>" . $asigned_users[$j]->getName() . ", " . $asigned_users[$j]->getLastName() . "</p>";
+                                                                }
                                                             }
                                                             echo "</td>";
-                                                            echo "<td class='tags'>";
-                                                                echo "<p>{$tuition[$i]->getStudies()}</p>";
-                                                                echo "<p>{$tuition[$i]->getLocation()}</p>";
-                                                                echo "<p>{$tuition[$i]->getType()}</p>";
+                                                            echo "<td class='related_table'>";
+                                                            $asigned_users = $tuition[$i][1];
+                                                            for ($j=0; $j<count($asigned_users); $j++) { 
+                                                                if ($asigned_users[$j]->getType() == "teacher") {
+                                                                    echo "<p>" . $asigned_users[$j]->getName() . ", " . $asigned_users[$j]->getLastName() . "</p>";
+                                                                }
+                                                            }
                                                             echo "</td>";
-                                                            echo "<td>{$tuition[$i]->getStartDate()}</td>";
-                                                            echo "<td>{$tuition[$i]->getEndDate()}</td>";
                                                             echo "<td class='table-col-btn'>";
                                                                 echo "<a href='index.php?controller=courseController&action=editCourse&id={$tuition[$i]->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Editar</a>";
-                                                                echo "<a href='#course-duplicate' class='btn-course-duplicate btn btn-mod btn-circle btn-small button-clone magnificPopup-course-duplicate' data-id='{$tuition[$i]->getId()}'>Duplicar</a>";
-                                                                echo "<a href='#course-delete' class='btn-course-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-course-delete' data-id_row='row{$count}' data-id='{$tuition[$i]->getId()}'>Eliminar</a>";
+                                                                echo "<a href='#course-delete' class='btn-course-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-course-delete' data-id_row='row{$count}' data-id='{$tuition[$i][0]->getId()}'>Eliminar</a>";
                                                             echo "</td>";
                                                         echo "</tr>";
                                                         $count++;
