@@ -1456,7 +1456,6 @@ $(document).ready(function() {
 
                     new_password = jsonData.password;
                     if (jsonData.success == "1") {
-                        let id_row = 'row' + $('#tuition-table').children('tr').length;
                         let row = 
                             `<tr id='${id_row}'>
                                 <td>( ) </td>
@@ -1467,7 +1466,7 @@ $(document).ready(function() {
                                     <a href='#tuition-delete' class='btn-tuition-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-tuition-delete' data-id_row='${id_row}' data-id=' '>Eliminar</a>
                                 </td>
                             </tr>`;
-                        $('#' + id_row).html(row);
+                        $('#tuition-table #' + id_row).html(row);
                         $(".magnificPopup-tuition-edit").magnificPopup({
                             gallery: {
                                 enabled: true
