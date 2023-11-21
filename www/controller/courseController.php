@@ -915,9 +915,17 @@
     }
 
     function subject() {
+      $subjectModule = $this->relatedTableManager->getSubjectModule();
+      $modules = [];
+      for ($i=0; $i<count($subjectModule); $i++) { 
+        if ($subjectModule[$i][0]->getId() == $_GET['id_subject']) {
+          array_push($modules, $subjectModule[$i][1]);
+        }
+      }
       $result = [
         'course'  => $this->courseManagement->getCourseById($_GET['id_course']),
         'subject' => $this->subjectManagement->getSubjectById($_GET['id_subject']),
+        'modules' => $modules,
       ];
       $this->view = 'subject';
       return $result;
