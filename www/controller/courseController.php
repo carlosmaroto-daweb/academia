@@ -902,7 +902,12 @@
     }
 
     function courses() {
+      $result = [
+        'courses'  => $this->courseManagement->getCourses(),
+        'subjects' => $this->subjectManagement->getSubjects(),
+      ];
       $this->view = 'courses';
+      return $result;
     }
 
     function module() {
@@ -910,7 +915,12 @@
     }
 
     function subject() {
+      $result = [
+        'course'  => $this->courseManagement->getCourseById($_GET['id_course']),
+        'subject' => $this->subjectManagement->getSubjectById($_GET['id_subject']),
+      ];
       $this->view = 'subject';
+      return $result;
     }
 
     function secretary() {
