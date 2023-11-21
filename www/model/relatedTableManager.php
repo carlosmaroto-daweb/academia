@@ -86,7 +86,8 @@
         }
 
         function editCourseUser() {
-            if ($this->courseManagement->getCourseById($_POST['id_course'])) {
+            $course = $this->courseManagement->getCourseById($_POST['id_course']);
+            if ($course) {
                 $_GET['id_course'] = $_POST['id_course'];
                 $this->db->deleteCourseUser();
                 $id_users = explode(';;', $_POST['id_users']);
@@ -113,7 +114,11 @@
                 else {
                     $result = json_encode(
                         array(
-                            'success' => 1
+                            'success' => 1,
+                            'course'    => array(
+                                'id'   => $course->getId(),
+                                'name' => $course->getName(),
+                            )
                         )
                     );
                 }

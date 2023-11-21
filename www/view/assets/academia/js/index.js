@@ -1458,12 +1458,12 @@ $(document).ready(function() {
                     if (jsonData.success == "1") {
                         let row = 
                             `<tr id='${id_row}'>
-                                <td>( ) </td>
+                                <td>(${jsonData.course.id}) ${jsonData.course.name}</td>
                                 <td class='related_table'> </td>
                                 <td class='related_table'> </td>
                                 <td class='table-col-btn'>
-                                    <a href='#tuition-edit' class='btn-tuition-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-tuition-edit' data-id_row='${id_row}' data-id_course=' ' data-id_users=' '>Editar</a>
-                                    <a href='#tuition-delete' class='btn-tuition-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-tuition-delete' data-id_row='${id_row}' data-id=' '>Eliminar</a>
+                                    <a href='#tuition-edit' class='btn-tuition-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-tuition-edit' data-id_row='${id_row}' data-id_course='${jsonData.course.id}' data-id_users=' '>Editar</a>
+                                    <a href='#tuition-delete' class='btn-tuition-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-tuition-delete' data-id_row='${id_row}' data-id='${jsonData.course.id}'>Eliminar</a>
                                 </td>
                             </tr>`;
                         $('#tuition-table #' + id_row).html(row);
@@ -1594,12 +1594,12 @@ $(document).ready(function() {
                         let id_row = 'row' + $('#tuition-table').children('tr').length;
                         let row = 
                             `<tr id='${id_row}'>
-                                <td>( ) </td>
+                                <td>(${jsonData.course.id}) ${jsonData.course.name}</td>
                                 <td class='related_table'> </td>
                                 <td class='related_table'> </td>
                                 <td class='table-col-btn'>
-                                    <a href='#tuition-edit' class='btn-tuition-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-tuition-edit' data-id_row='${id_row}' data-id_course=' ' data-id_users=' '>Editar</a>
-                                    <a href='#tuition-delete' class='btn-tuition-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-tuition-delete' data-id_row='${id_row}' data-id=' '>Eliminar</a>
+                                    <a href='#tuition-edit' class='btn-tuition-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-tuition-edit' data-id_row='${id_row}' data-id_course='${jsonData.course.id}' data-id_users=' '>Editar</a>
+                                    <a href='#tuition-delete' class='btn-tuition-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-tuition-delete' data-id_row='${id_row}' data-id='${jsonData.course.id}'>Eliminar</a>
                                 </td>
                             </tr>`;
                         $('#tuition-table').append(row);
