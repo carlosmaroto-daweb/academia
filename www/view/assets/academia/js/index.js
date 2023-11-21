@@ -1456,16 +1456,24 @@ $(document).ready(function() {
 
                     new_password = jsonData.password;
                     if (jsonData.success == "1") {
+                        let teacher_users = '';
+                        let student_users = '';
+                        jsonData.list_users.forEach(user => {
+                            if (user.type == "teacher") {
+                                teacher_users += "<p>" + user.name + ", " + user.last_name + "</p>";
+                            }
+                            else if (user.type == "student") {
+                                student_users += "<p>" + user.name + ", " + user.last_name + "</p>";
+                            }
+                        });
                         let row = 
-                            `<tr id='${id_row}'>
-                                <td>(${jsonData.course.id}) ${jsonData.course.name}</td>
-                                <td class='related_table'> </td>
-                                <td class='related_table'> </td>
-                                <td class='table-col-btn'>
-                                    <a href='#tuition-edit' class='btn-tuition-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-tuition-edit' data-id_row='${id_row}' data-id_course='${jsonData.course.id}' data-id_users=' '>Editar</a>
-                                    <a href='#tuition-delete' class='btn-tuition-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-tuition-delete' data-id_row='${id_row}' data-id='${jsonData.course.id}'>Eliminar</a>
-                                </td>
-                            </tr>`;
+                           `<td>(${jsonData.course.id}) ${jsonData.course.name}</td>
+                            <td class='related_table'>${teacher_users}</td>
+                            <td class='related_table'>${student_users}</td>
+                            <td class='table-col-btn'>
+                                <a href='#tuition-edit' class='btn-tuition-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-tuition-edit' data-id_row='${id_row}' data-id_course='${jsonData.course.id}' data-id_users='${jsonData.id_users}'>Editar</a>
+                                <a href='#tuition-delete' class='btn-tuition-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-tuition-delete' data-id_row='${id_row}' data-id='${jsonData.course.id}'>Eliminar</a>
+                            </td>`;
                         $('#tuition-table #' + id_row).html(row);
                         $(".magnificPopup-tuition-edit").magnificPopup({
                             gallery: {
@@ -1500,6 +1508,7 @@ $(document).ready(function() {
         $(".alert").remove();
         $('#tuition-edit #assigned_course option').remove();
         $('#tuition-edit #assigned_course').append(option_course);
+        $('#tuition-edit #container-assigned_users option').remove();
         $('#tuition-edit #container-assigned_users .row-assigned_users:gt(0)').remove();
         $('#tuition-edit #container-assigned_users .assigned_users').append(option_users);
         $('#btn-edit-cancel').remove();
@@ -1592,13 +1601,23 @@ $(document).ready(function() {
                     let jsonData = JSON.parse(response);
                     if (jsonData.success == "1") {
                         let id_row = 'row' + $('#tuition-table').children('tr').length;
+                        let teacher_users = '';
+                        let student_users = '';
+                        jsonData.list_users.forEach(user => {
+                            if (user.type == "teacher") {
+                                teacher_users += "<p>" + user.name + ", " + user.last_name + "</p>";
+                            }
+                            else if (user.type == "student") {
+                                student_users += "<p>" + user.name + ", " + user.last_name + "</p>";
+                            }
+                        });
                         let row = 
                             `<tr id='${id_row}'>
                                 <td>(${jsonData.course.id}) ${jsonData.course.name}</td>
-                                <td class='related_table'> </td>
-                                <td class='related_table'> </td>
+                                <td class='related_table'>${teacher_users}</td>
+                                <td class='related_table'>${student_users}</td>
                                 <td class='table-col-btn'>
-                                    <a href='#tuition-edit' class='btn-tuition-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-tuition-edit' data-id_row='${id_row}' data-id_course='${jsonData.course.id}' data-id_users=' '>Editar</a>
+                                    <a href='#tuition-edit' class='btn-tuition-edit btn btn-mod btn-circle btn-small button-edit magnificPopup-tuition-edit' data-id_row='${id_row}' data-id_course='${jsonData.course.id}' data-id_users='${jsonData.id_users}'>Editar</a>
                                     <a href='#tuition-delete' class='btn-tuition-delete btn btn-mod btn-circle btn-small button-cancel magnificPopup-tuition-delete' data-id_row='${id_row}' data-id='${jsonData.course.id}'>Eliminar</a>
                                 </td>
                             </tr>`;
@@ -1636,6 +1655,7 @@ $(document).ready(function() {
         $(".alert").remove();
         $('#tuition-create #assigned_course option').remove();
         $('#tuition-create #assigned_course').append(option_course);
+        $('#tuition-create #container-assigned_users option').remove();
         $('#tuition-create #container-assigned_users .row-assigned_users:gt(0)').remove();
         $('#tuition-create #container-assigned_users .assigned_users').append(option_users);
         $('#btn-create-cancel').remove();

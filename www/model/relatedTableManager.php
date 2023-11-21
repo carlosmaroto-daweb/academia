@@ -92,11 +92,16 @@
                 $this->db->deleteCourseUser();
                 $id_users = explode(';;', $_POST['id_users']);
                 $errorCreate = false;
+                $list_users = [];
                 for ($i=0; $i<count($id_users) && !$errorCreate; $i++) {
-                    if ($this->userManagement->getUserById($id_users[$i])) {
+                    $user = $this->userManagement->getUserById($id_users[$i]);
+                    if ($user) {
                         $_POST['id_user'] = $id_users[$i];
                         if (!$this->db->createCourseUser()) {
                             $errorCreate = true;
+                        }
+                        else {
+                            array_push($list_users, ['name' => $user->getName(), 'last_name' => $user->getLastName(), 'type' => $user->getType()]);
                         }
                     }
                     else {
@@ -118,7 +123,9 @@
                             'course'    => array(
                                 'id'   => $course->getId(),
                                 'name' => $course->getName(),
-                            )
+                            ),
+                            'id_users' => $_POST['id_users'],
+                            'list_users' => $list_users
                         )
                     );
                 }
