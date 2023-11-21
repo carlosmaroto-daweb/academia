@@ -86,41 +86,50 @@
         							
         						</div>
         						<!-- End Post -->
-    						
-                                <?php
-                                    foreach ($lessons as $lesson) {
-                                ?>
-                                    <section class="page-section">
-                                        <div class="container relative">
-                                            
-                                            <div class="row wow fadeInUpShort animated" style="visibility: visible; animation-name: fadeInUpShort;">
-                                                
-                                                <div class="col-md-7 mb-sm-40">
-                                                    <img src="<?php echo $module->getHeaderImage();?>" alt="">
-                                                    
-                                                </div>
-                                                <div class="col-md-5 col-lg-4 offset-lg-1 d-flex align-items-center">
-                                                    <div>
-                                                        <h2 class="mb-30 mb-xxs-10"><?php echo $module->getName();?></h2>
-                                                        
-                                                        <?php echo $module->getPreview();?>
-                                                        
-                                                        <div class="mt-40">
-                                                            <a href="index.php?controller=courseController&action=module&id=<?php echo $module->getId();?>" class="btn btn-mod btn-border btn-round btn-medium" target="_blank">Ver módulo</a>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                    <!-- End About Project -->
-                                                    
-                                                </div>
-                                                
-                                            </div>
-                                        
-                                        </div>
-                                    </section>
-                                <?php
-                                    }
-                                ?>
+                                
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Archivos</th>
+                                            <th>Enlace</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                            $count = 0; 
+                                            foreach ($lessons as $lesson):
+                                                echo "<tr>";
+                                                    echo "<td>{$lesson->getName()}</td>";
+                                                    $arrays = explode(';;', $lesson->getFiles());
+                                                    $countVideo = 0;
+                                                    $countPdf = 0;
+                                                    for ($i=0; $i<count($arrays); $i+=2) {
+                                                        if (str_contains($arrays[$i+1], '.mp4')  || str_contains($arrays[$i+1], '.avi')) {
+                                                            $countVideo++;
+                                                        }
+                                                        else if (str_contains($arrays[$i+1], '.pdf')) {
+                                                            $countPdf++;
+                                                        }
+                                                    }
+                                                    echo "<td>";
+                                                        if ($countVideo != 0) {
+                                                            echo "<i class='fa fa-video'> {$countVideo}</i> ";
+                                                        }
+                                                        if ($countPdf != 0) {
+                                                            echo "<i class='fa fa-file-pdf'> {$countPdf}</i>";
+                                                        }
+                                                    echo "</td>";
+                                                    echo "</td>";
+                                                    echo "<td class='table-col-btn'>";
+                                                        echo "<a href='index.php?controller=courseController&action=lesson&id_course={$course->getId()}&id_subject={$subject->getId()}&id_module={$module->getId()}&id_lesson={$lesson->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Ver lección</a>";
+                                                    echo "</td>";
+                                                echo "</tr>";
+                                                $count++;
+                                            endforeach;
+                                        ?>
+                                    </tbody>
+                                </table>
         						
                                 <!-- Prev/Next Post -->
                                 <div class="clearfix mt-40">

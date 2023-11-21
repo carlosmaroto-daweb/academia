@@ -914,7 +914,7 @@
       $moduleLesson = $this->relatedTableManager->getModuleLesson();
       $lessons = [];
       for ($i=0; $i<count($moduleLesson); $i++) { 
-        if ($moduleLesson[$i][0]->getId() == $_GET['id']) {
+        if ($moduleLesson[$i][0]->getId() == $_GET['id_module']) {
           array_push($lessons, $moduleLesson[$i][1]);
         }
       }
@@ -925,6 +925,17 @@
         'lessons' => $lessons,
       ];
       $this->view = 'module';
+      return $result;
+    }
+
+    function lesson() {
+      $result = [
+        'course'  => $this->courseManagement->getCourseById($_GET['id_course']),
+        'subject' => $this->subjectManagement->getSubjectById($_GET['id_subject']),
+        'module'  => $this->moduleManagement->getModuleById($_GET['id_module']),
+        'lesson'  => $this->lessonManagement->getLessonById($_GET['id_lesson']),
+      ];
+      $this->view = 'lesson';
       return $result;
     }
 
