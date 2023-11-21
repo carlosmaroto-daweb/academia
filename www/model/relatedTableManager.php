@@ -56,6 +56,79 @@
             $this->userManagement    = new UserManagement();
         }
 
+        function createCourseUser() {
+            $course = $this->courseManagement->getCourseById($_POST['id_course']);
+            if ($course) {
+                $query = $this->db->getCourseUser();
+                $findCourse = false;
+                for ($i=0; $i<count($query) && !$findCourse; $i++) { 
+                    if ($query[$i]['id_course'] == $_POST['id_course']) {
+                        $findCourse = true;
+                    }
+                }
+                if (!$findCourse) {
+                    $_GET['id_course'] = $_POST['id_course'];
+                    $this->db->deleteCourseUser();
+                    $id_users = explode(';;', $_POST['id_users']);
+                    $errorCreate = false;
+                    $list_users = [];
+                    for ($i=0; $i<count($id_users) && !$errorCreate; $i++) {
+                        $user = $this->userManagement->getUserById($id_users[$i]);
+                        if ($user) {
+                            $_POST['id_user'] = $id_users[$i];
+                            if (!$this->db->createCourseUser()) {
+                                $errorCreate = true;
+                            }
+                            else {
+                                array_push($list_users, ['name' => $user->getName(), 'last_name' => $user->getLastName(), 'type' => $user->getType()]);
+                            }
+                        }
+                        else {
+                            $errorCreate = true;
+                        }
+                    }
+                    if ($errorCreate) {
+                        $result = json_encode(
+                            array(
+                                'success' => 0, 
+                                'msg'     => 'No se ha podido crear las matrículas del curso en la base de datos.'
+                            )
+                        );
+                    }
+                    else {
+                        $result = json_encode(
+                            array(
+                                'success' => 1,
+                                'course'    => array(
+                                    'id'   => $course->getId(),
+                                    'name' => $course->getName(),
+                                ),
+                                'id_users' => $_POST['id_users'],
+                                'list_users' => $list_users
+                            )
+                        );
+                    }
+                }
+                else {
+                    $result = json_encode(
+                        array(
+                        'success' => 0, 
+                        'msg'     => 'Este curso ya tiene sus propias matrículas.'
+                        )
+                    );
+                }
+            }
+            else {
+                $result = json_encode(
+                    array(
+                    'success' => 0, 
+                    'msg'     => 'El curso no se encuentra en la base de datos.'
+                    )
+                );
+            }
+            return $result;
+        }
+
         function deleteCourseUser() {
             if ($this->courseManagement->getCourseById($_GET['id_course'])) {
                 if ($this->db->deleteCourseUser()) {

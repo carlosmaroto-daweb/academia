@@ -1497,7 +1497,7 @@ $(document).ready(function() {
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         `;
-                        $("#edit-form").append(msg);
+                        $("#tuition-edit-form").append(msg);
                     }
                 }
             });
@@ -1592,7 +1592,7 @@ $(document).ready(function() {
             });
             $.ajax({
                 type: "POST",
-                url: 'index.php?controller=courseController&action=editCourseUser&ajax=true',
+                url: 'index.php?controller=courseController&action=createCourseUser&ajax=true',
                 data: {
                     'id_course': id_course,
                     'id_users':  id_users
@@ -1644,7 +1644,7 @@ $(document).ready(function() {
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         `;
-                        $("#create-form").append(msg);
+                        $("#tuition-create-form").append(msg);
                     }
                 }
             });
