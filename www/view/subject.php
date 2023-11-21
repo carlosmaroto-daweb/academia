@@ -119,7 +119,7 @@
                                                         <?php echo $module->getPreview();?>
                                                         
                                                         <div class="mt-40">
-                                                            <a href="index.php?controller=courseController&action=module&id=<?php echo $module->getId();?>" class="btn btn-mod btn-border btn-round btn-medium" target="_blank">Ver módulo</a>
+                                                            <a href="index.php?controller=courseController&action=module&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $subject->getId();?>&id_module=<?php echo $module->getId();?>" class="btn btn-mod btn-border btn-round btn-medium">Ver módulo</a>
                                                         </div>
                                                         
                                                     </div>
