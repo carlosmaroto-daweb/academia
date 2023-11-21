@@ -1437,10 +1437,12 @@ $(document).ready(function() {
             id_course = $('#assigned_course').val();
             id_users = '';
             $("#tuition-edit .assigned_users").each(function() {
-                if (id_users != '') {
-                    id_users += ";;";
+                if (!id_users.includes($(this).val())) {
+                    if (id_users != '') {
+                        id_users += ";;";
+                    }
+                    id_users += $(this).val();
                 }
-                id_users += $(this).val();
             });
             $.ajax({
                 type: "POST",
@@ -1573,10 +1575,12 @@ $(document).ready(function() {
             let id_course = $('#assigned_course').val();
             let id_users = '';
             $("#tuition-create .assigned_users").each(function() {
-                if (id_users != '') {
-                    id_users += ";;";
+                if (!id_users.includes($(this).val())) {
+                    if (id_users != '') {
+                        id_users += ";;";
+                    }
+                    id_users += $(this).val();
                 }
-                id_users += $(this).val();
             });
             $.ajax({
                 type: "POST",
