@@ -151,38 +151,26 @@
                                 <!-- Widget -->
                                 <div class="widget">
                                     
-                                    <h3 class="widget-title">Categories</h3>
+                                    <h3 class="widget-title">Nivel Académico</h3>
                                     
                                     <div class="widget-body">
                                         <ul class="clearlist widget-menu">
                                             <li>
-                                                <a href="#" title="">Branding</a>
+                                                <a href="#" title="">Oposiciones</a>
                                                 <small>
                                                     - 7
                                                 </small>
                                             </li>
                                             <li>
-                                                <a href="#" title="">Design</a>
+                                                <a href="#" title="">Universidad</a>
                                                 <small>
                                                     - 15
                                                 </small>
                                             </li>
                                             <li>
-                                                <a href="#" title="">Development</a>
+                                                <a href="#" title="">Bachillerato</a>
                                                 <small>
                                                     - 3
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="">Photography</a>
-                                                <small>
-                                                    - 5
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="">Other</a>
-                                                <small>
-                                                    - 1
                                                 </small>
                                             </li>
                                         </ul>
@@ -194,7 +182,38 @@
                                 <!-- Widget -->
                                 <div class="widget">
                                     
-                                    <h3 class="widget-title">Tags</h3>
+                                    <h3 class="widget-title">Ubicación</h3>
+                                    
+                                    <div class="widget-body">
+                                        <ul class="clearlist widget-menu">
+                                            <li>
+                                                <a href="#" title="">Málaga</a>
+                                                <small>
+                                                    - 7
+                                                </small>
+                                            </li>
+                                            <li>
+                                                <a href="#" title="">Granada</a>
+                                                <small>
+                                                    - 15
+                                                </small>
+                                            </li>
+                                            <li>
+                                                <a href="#" title="">Almería</a>
+                                                <small>
+                                                    - 3
+                                                </small>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                                <!-- End Widget -->
+                                
+                                <!-- Widget -->
+                                <div class="widget">
+                                    
+                                    <h3 class="widget-title">Formación</h3>
                                     
                                     <div class="widget-body">
                                         <div class="tags">

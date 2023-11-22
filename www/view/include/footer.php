@@ -20,7 +20,7 @@
             <div class="col-sm-12 col-lg-9 col-footer-contain">
                 <div class="row-footer-link">
                     <div class="col-text">
-                        <p class="uppercase">¿Y tú? ¿Quieres aprobar?</p>
+                        <p class="uppercase">¿Y tú?... ¿Quieres aprobar?</p>
                     </div>
                     <div class="footer-social-links">
                         <a class="whatsapp" href="https://api.whatsapp.com/send/?phone=34699136622&text=Hola+necesito+informaci%C3%B3n&app_absent=0" title="Whatsapp" target="_blank"><i class="fab fa-whatsapp"></i>></a>
