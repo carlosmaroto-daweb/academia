@@ -955,14 +955,47 @@
     }
 
     function lesson() {
-      $result = [
-        'course'  => $this->courseManagement->getCourseById($_GET['id_course']),
-        'subject' => $this->subjectManagement->getSubjectById($_GET['id_subject']),
-        'module'  => $this->moduleManagement->getModuleById($_GET['id_module']),
-        'lesson'  => $this->lessonManagement->getLessonById($_GET['id_lesson']),
-      ];
-      $this->view = 'lesson';
-      return $result;
+      if (hasLoggedIn()) {
+        if (isSecretary() || isAdmin()) {
+          $result = [
+            'course'  => $this->courseManagement->getCourseById($_GET['id_course']),
+            'subject' => $this->subjectManagement->getSubjectById($_GET['id_subject']),
+            'module'  => $this->moduleManagement->getModuleById($_GET['id_module']),
+            'lesson'  => $this->lessonManagement->getLessonById($_GET['id_lesson']),
+          ];
+          $this->view = 'lesson';
+          return $result;
+        }
+        else {
+          $courseUser = $this->relatedTableManager->getCourseUser();
+          $courseTuition = false;
+          for ($i=0; $i<count($courseUser) && !$courseTuition; $i++) { 
+            if ($courseUser[$i][0]->getId() == $_GET['id_course'] && $courseUser[$i][1]->getId() == $_SESSION['id']) {
+              $courseTuition = true;
+            }
+          }
+          if ($courseTuition) {
+            $result = [
+              'course'  => $this->courseManagement->getCourseById($_GET['id_course']),
+              'subject' => $this->subjectManagement->getSubjectById($_GET['id_subject']),
+              'module'  => $this->moduleManagement->getModuleById($_GET['id_module']),
+              'lesson'  => $this->lessonManagement->getLessonById($_GET['id_lesson']),
+            ];
+            $this->view = 'lesson';
+            return $result;
+          }
+          else {
+            $userController = new userController();
+            $userController->login();
+            $this->view = $userController->getView();
+          }
+        }
+      }
+      else {
+        $userController = new userController();
+        $userController->login();
+        $this->view = $userController->getView();
+      }
     }
 
     function subject() {
