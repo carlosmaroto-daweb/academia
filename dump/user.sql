@@ -12,3 +12,6 @@ CREATE TABLE `user` (
   `type` ENUM ('student', 'teacher', 'secretary', 'admin') DEFAULT 'student',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `user` (`email`, `password`, `name`, `last_name`, `phone_number`, `dni`, `type`) VALUES
+('admin@admin.com', '$2y$14$g6x7cRIDapqO6rHH/yRCUeRRr.NZOO/.Tq/hQSESXDuKpaBHBC45u', 'Admin', 'Admin', '', '', 'admin');

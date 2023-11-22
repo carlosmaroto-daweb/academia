@@ -12,3 +12,6 @@ CREATE TABLE `course` (
   `end_date` DATE,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `course` (`name`, `id_subject`, `studies`, `location`, `type`, `start_date`, `end_date`) VALUES
+('Expresión Gráfica en la Ingeniería - UMA', 1, 'Ingeniería en Diseño Industrial y Desarrollo del Producto', 'Málaga', 'Univerdidad', '2023-09-18', '2024-07-19');
