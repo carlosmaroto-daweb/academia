@@ -142,7 +142,7 @@
                                             <button class="search-button animate" type="submit" title="Start Search">
                                                 <i class="fa fa-search"></i>
                                             </button>
-                                            <input type="text" class="form-control search-field round" placeholder="Search...">
+                                            <input type="text" class="form-control search-field round" placeholder="Buscar...">
                                         </div>
                                     </form>
                                 </div>
@@ -215,7 +215,7 @@
                                 <!-- Widget -->
                                 <div class="widget">
                                     
-                                    <h3 class="widget-title">Latest posts</h3>
+                                    <h3 class="widget-title">Últimos cursos</h3>
                                     
                                     <div class="widget-body">
                                         <ul class="clearlist widget-posts">
@@ -253,76 +253,6 @@
                                                     <a href="#" title="">Duis Tristique Condimentum Nulla Bibendum Consectetu</a>
                                                     Posted by John Doe 7 March
                                                 </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    
-                                </div>
-                                <!-- End Widget -->
-                                
-                                <!-- Widget -->
-                                <div class="widget">
-                                    
-                                    <h3 class="widget-title">Comments</h3>
-                                    
-                                    <div class="widget-body">
-                                        <ul class="clearlist widget-comments">
-                                            <li>
-                                                John Doe on <a href="#" title="">Lorem ipsum dolor sit amet</a>
-                                            </li>
-                                            <li>
-                                                Emma Johnson on <a href="#" title="">Suspendisse accumsan interdum tellus</a>
-                                            </li>
-                                            <li>
-                                                John Doe on <a href="#" title="">Praesent ultricies ut ipsum</a>
-                                            </li>
-                                            <li>
-                                                Mark Deen on <a href="#" title="">Vivamus malesuada vel nulla vulputate</a>
-                                            </li>
-                                            <li>
-                                                Sam Brin on <a href="#" title="">Aenean auctor egestas auctor</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    
-                                </div>
-                                <!-- End Widget -->
-                                
-                                <!-- Widget -->
-                                <div class="widget">
-                                    
-                                    <h3 class="widget-title">Text widget</h3>
-                                    
-                                    <div class="widget-body">
-                                        <div class="widget-text clearfix">
-                                            
-                                            <img src="view/assets/images/blog/previews/post-prev-6.jpg" alt="" width="100" class="left img-left">
-                                            
-                                            Consectetur adipiscing elit. Quisque magna ante eleifend eleifend. 
-                                            Purus ut dignissim consectetur, nulla erat ultrices purus, ut consequat sem elit non sem.
-                                            Quisque magna ante eleifend eleifend. 
-                                        
-                                        </div>
-                                    </div>
-                                    
-                                </div>                            
-                                <!-- End Widget -->
-                                
-                                <!-- Widget -->
-                                <div class="widget">
-                                    
-                                    <h3 class="widget-title">Archive</h3>
-                                    
-                                    <div class="widget-body">
-                                        <ul class="clearlist widget-menu">
-                                            <li>
-                                                <a href="#" title="">February 2021</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="">January 2021</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="">December 2020</a>
                                             </li>
                                         </ul>
                                     </div>
