@@ -69,10 +69,10 @@
                                             <i class="fa fa-phone-alt"></i>
                                         </div>
                                         <div class="ci-title">
-                                            Call Us
+                                            Llámanos
                                         </div>
                                         <div class="ci-text">
-                                            +61 383 767 284
+                                            +34 699 13 66 22
                                         </div>
                                     </div>
                                 </div>
@@ -85,13 +85,13 @@
                                             <i class="fa fa-map-marker-alt"></i>
                                         </div>
                                         <div class="ci-title">
-                                            Address
+                                            Dirección
                                         </div>
                                         <div class="ci-text">
-                                            245 Quigley Blvd, Ste K
+                                            C. Melchor Almagro, 5
                                         </div>
                                         <div class="ci-link">
-                                            <a href="https://goo.gl/maps/7Vw1PBhxx5BaXStr8" target="_blank">See on the Map</a>
+                                            <a href="https://www.google.com/maps/place/Alliance+Fran%C3%A7aise/@37.1776384,-3.6070279,20.5z/data=!4m6!3m5!1s0xd71fceccea0873d:0x36fa558269803061!8m2!3d37.1776722!4d-3.6069019!16s%2Fg%2F11gbxbk7g8?entry=ttu" target="_blank">Ver en el Mapa</a>
                                         </div>
                                     </div>
                                 </div>
@@ -104,13 +104,13 @@
                                             <i class="fa fa-envelope"></i>
                                         </div>
                                         <div class="ci-title">
-                                            Email
+                                            Correo
                                         </div>
                                         <div class="ci-text">
-                                            support@bestlooker.pro
+                                            academiacartabon@gmail.com
                                         </div>
                                         <div class="ci-link">
-                                            <a href="mailto:support@bestlooker.pro">Say Hello</a>
+                                            <a href="mailto:academiacartabon@gmail.com">Di Hola</a>
                                         </div>
                                     </div>
                                 </div>
@@ -131,37 +131,37 @@
                                     <div class="col-md-6">
                                         <!-- Name -->
                                         <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" name="name" id="name" class="input-lg round form-control" placeholder="Enter your name" pattern=".{3,100}" required aria-required="true">
+                                            <label for="name">Nombre</label>
+                                            <input type="text" name="name" id="name" class="input-lg round form-control" placeholder="Introduce tu nombre" pattern=".{3,100}" required aria-required="true">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <!-- Email -->
                                         <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="email" name="email" id="email" class="input-lg round form-control" placeholder="Enter your email" pattern=".{5,100}" required aria-required="true">
+                                            <label for="email">Correo</label>
+                                            <input type="email" name="email" id="email" class="input-lg round form-control" placeholder="Introduce tu correo" pattern=".{5,100}" required aria-required="true">
                                         </div>
                                     </div>
                                 </div>
                                 
                                 <!-- Message -->
                                 <div class="form-group">
-                                    <label for="message">Message</label>
-                                    <textarea name="message" id="message" class="input-lg round form-control" style="height: 130px;" placeholder="Enter your message"></textarea>
+                                    <label for="message">Mensaje</label>
+                                    <textarea name="message" id="message" class="input-lg round form-control" style="height: 130px;" placeholder="Introduce tu mensaje"></textarea>
                                 </div>
                                 
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <!-- Inform Tip -->
                                         <div class="form-tip pt-20 pt-sm-0 mb-sm-20">
-                                            All the fields are required
+                                            Todos los campos son requeridos
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <!-- Send Button -->
                                         <div class="text-end pt-10">
                                             <button class="submit_btn btn btn-mod btn-large btn-round" id="submit_btn" aria-controls="result">
-                                                Submit Message
+                                                Enviar Mensaje
                                             </button>
                                         </div>
                                     </div>
