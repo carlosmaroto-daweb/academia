@@ -4,10 +4,6 @@
       die('Hey Bro! You cannot access this file... twat!');
   }
 
-  // Incluimos el archivo userManagement.php para instanciar la clase como objeto,
-  // esta clase va a gestionar las operaciones sobre los usuarios de la bd.
-  require_once 'model/userManagement.php';
-
   // Incluimos el archivo lessonManagement.php para instanciar la clase como objeto,
   // esta clase va a gestionar las operaciones sobre las lecciones.
   require_once 'model/lessonManagement.php';
@@ -24,8 +20,12 @@
   // esta clase va a gestionar las operaciones sobre los cursos.
   require_once 'model/courseManagement.php';
 
+  // Incluimos el archivo userManagement.php para instanciar la clase como objeto,
+  // esta clase va a gestionar las operaciones sobre los usuarios.
+  require_once 'model/userManagement.php';
+
   // Incluimos el archivo relatedTableManager.php para instanciar la clase como objeto,
-  // esta clase va a consultar los registros de las tablas relacionadas.
+  // esta clase va a gestionar las operaciones sobre las tablas relacionadas.
   require_once 'model/relatedTableManager.php';
 
   // Incluimos el archivo userController.php para instanciar la clase como objeto,
