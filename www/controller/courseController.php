@@ -898,7 +898,12 @@
 
     function home() {
       if (hasLoggedIn()) {
+        $result = [
+          'courses'  => $this->courseManagement->getCourses(),
+          'subjects' => $this->subjectManagement->getSubjects(),
+        ];
         $this->view = 'home';
+        return $result;
       }
       else {
         $userController = new userController();

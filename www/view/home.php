@@ -64,191 +64,58 @@
                             
                             <!-- Content -->
                             <div class="col-md-8 offset-lg-1 mb-sm-80 order-first order-md-last">
+
+                                <?php
+                                    $courses  = $dataToView["courses"];
+                                    $subjects = $dataToView["subjects"];
+                                ?>
                                 
-                                <!-- Post -->
-                                <div class="blog-item">
-                                    
-                                    <!-- Post Title -->
-                                    <h2 class="blog-item-title"><a href="blog-single-sidebar-right.html">Post with media gallery</a></h2>
-                                    
-                                    <!-- Author, Categories, Comments -->
-                                    <div class="blog-item-data">
-                                        <a href="#"><i class="fa fa-clock"></i> 5 December</a>
-                                        <span class="separator">&nbsp;</span>
-                                        <a href="#"><i class="fa fa-user"></i> John Doe</a>
-                                        <span class="separator">&nbsp;</span>
-                                        <i class="fa fa-folder-open"></i>
-                                        <a href="">Design</a>, <a href="#">Branding</a>
-                                        <span class="separator">&nbsp;</span>
-                                        <a href="#"><i class="fa fa-comments"></i> 5 Comments</a>
+                                <?php
+                                    foreach ($courses as $course) {
+                                        $assignedSubject = null;
+                                        for ($i=0; $i<count($subjects) && !$assignedSubject; $i++) { 
+                                            if ($course->getAssignedSubject() == $subjects[$i]->getId()) { 
+                                                $assignedSubject = $subjects[$i];
+                                            }
+                                        }
+                                ?>
+                                    <!-- Post -->
+                                    <div class="blog-item">
+                                        
+                                        <!-- Post Title -->
+                                        <h2 class="blog-item-title"><a href="blog-single-sidebar-right.html"><?php echo $course->getName();?></a></h2>
+                                        
+                                        <!-- Author, Categories, Comments -->
+                                        <div class="blog-item-data">
+                                            <i class="fa fa-folder-open"></i>
+                                            <a href=""><?php echo $course->getStudies();?></a>, <a href="#"><?php echo $course->getLocation();?></a>, <a href="#"><?php echo $course->getType();?></a>
+                                            <span class="separator">&nbsp;</span>
+                                            <a href="#"><i class="fa fa-clock"></i> <?php echo $course->getStartDate();?></a>
+                                            <span class="separator">&nbsp;</span>
+                                            <a href="#"><i class="fa fa-clock"></i> <?php echo $course->getEndDate();?></a>
+                                            <span class="separator">&nbsp;</span>
+                                        </div>
+                                        
+                                        <!-- Image -->
+                                        <div class="blog-media">
+                                            <a href="index.php?controller=courseController&action=subject&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>"><img src="<?php echo $assignedSubject->getHeaderImage();?>" alt="" /></a>
+                                        </div>
+                                        
+                                        <!-- Text Intro -->
+                                        <div class="blog-item-body">
+                                            <?php echo $assignedSubject->getPreview();?>
+                                        </div>
+                                        
+                                        <!-- Read More Link -->
+                                        <div class="blog-item-foot">
+                                            <a href="index.php?controller=courseController&action=subject&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>" class="btn btn-mod btn-round  btn-small">Ver curso</a>
+                                        </div>
+                                        
                                     </div>
-                                    
-                                    <!-- Media Gallery -->
-                                    <div class="blog-media">
-                                        <ul class="clearlist content-slider light-content">
-                                            <li>
-                                                <img src="view/assets/images/full-width-images/section-bg-16.jpg" alt="" />
-                                            </li>
-                                            <li>
-                                                <img src="view/assets/images/full-width-images/section-bg-14.jpg" alt="" />
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    
-                                    <!-- Text Intro -->
-                                    <div class="blog-item-body">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non laoreet dui. Morbi lacus massa, euismod ut turpis molestie, aliquam in ligula ac lacus blandit commodo vel luctus quam. tristique sodales est. Integer sit amet mi id sapien tempor molestie in nec massa.
-                                        </p>
-                                    </div>
-                                    
-                                    <!-- Read More Link -->
-                                    <div class="blog-item-foot">
-                                        <a href="blog-single-sidebar-right.html" class="btn btn-mod btn-round  btn-small">Read More</a>
-                                    </div>
-                                    
-                                </div>
-                                <!-- End Post -->
-                                
-                                <!-- Post -->
-                                <div class="blog-item">
-                                    
-                                    <!-- Blockquote -->
-                                    <blockquote class="blog-item-q">
-                                        <p>
-                                            <a href="blog-single-sidebar-right.html">Curabitur iaculis, ligula facilisis volutpat suscipit, sapien felis tempor, consequat vitae velit.</a>
-                                        </p>
-                                    </blockquote>
-                                    <!-- End Blockquote -->
-                                    
-                                    <!-- Author, Categories, Comments -->
-                                    <div class="blog-item-data">
-                                        <a href="#"><i class="fa fa-clock"></i> 5 December</a>
-                                        <span class="separator">&nbsp;</span>
-                                        <a href="#"><i class="fa fa-user"></i> John Doe</a>
-                                        <span class="separator">&nbsp;</span>
-                                        <i class="fa fa-folder-open"></i>
-                                        <a href="">Design</a>, <a href="#">Branding</a>
-                                        <span class="separator">&nbsp;</span>
-                                        <a href="#"><i class="fa fa-comments"></i> 5 Comments</a>
-                                    </div>
-                                    
-                                    <!-- Read More Link -->
-                                    <div class="blog-item-foot">
-                                        <a href="blog-single-sidebar-right.html" class="btn btn-mod btn-round  btn-small">Read More</a>
-                                    </div>
-                                    
-                                </div>
-                                <!-- End Post -->
-                                
-                                <!-- Post -->
-                                <div class="blog-item">
-                                    
-                                    <!-- Post Title -->
-                                    <h2 class="blog-item-title"><a href="blog-single-sidebar-right.html">Video post only</a></h2>
-                                    
-                                    <!-- Author, Categories, Comments -->
-                                    <div class="blog-item-data">
-                                        <a href="#"><i class="fa fa-clock"></i> 4 December</a>
-                                        <span class="separator">&nbsp;</span>
-                                        <a href="#"><i class="fa fa-user"></i> John Doe</a>
-                                        <span class="separator">&nbsp;</span>
-                                        <i class="fa fa-folder-open"></i>
-                                        <a href="">Design</a>, <a href="#">Branding</a>
-                                        <span class="separator">&nbsp;</span>
-                                        <a href="#"><i class="fa fa-comments"></i> 5 Comments</a>
-                                    </div>
-                                    
-                                    <!-- Media Gallery -->
-                                    <div class="blog-media">
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/jTea_8Fk5Ns" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                    
-                                    <!-- Text Intro -->
-                                    <div class="blog-item-body">
-                                        <p>
-                                            Morbi lacus massa, euismod ut turpis molestie, tristique sodales est. Integer sit amet mi id sapien tempor molestie in nec massa.
-                                        </p>
-                                    </div>
-                                    
-                                    <!-- Read More Link -->
-                                    <div class="blog-item-foot">
-                                        <a href="blog-single-sidebar-right.html" class="btn btn-mod btn-round  btn-small">Read More</a>
-                                    </div>
-                                    
-                                </div>
-                                <!-- End Post -->
-                                
-                                <!-- Post -->
-                                <div class="blog-item">
-                                    
-                                    <!-- Post Title -->
-                                    <h2 class="blog-item-title"><a href="blog-single-sidebar-right.html">Post with text only</a></h2>
-                                    
-                                    <!-- Author, Categories, Comments -->
-                                    <div class="blog-item-data">
-                                        <a href="#"><i class="fa fa-clock"></i> 4 December</a>
-                                        <span class="separator">&nbsp;</span>
-                                        <a href="#"><i class="fa fa-user"></i> John Doe</a>
-                                        <span class="separator">&nbsp;</span>
-                                        <i class="fa fa-folder-open"></i>
-                                        <a href="">Design</a>, <a href="#">Branding</a>
-                                        <span class="separator">&nbsp;</span>
-                                        <a href="#"><i class="fa fa-comments"></i> 5 Comments</a>
-                                    </div>
-                                    
-                                    <!-- Text Intro -->
-                                    <div class="blog-item-body">
-                                        <p>
-                                            Suspendisse accumsan interdum tellus, eu imperdiet lacus consectetur sed. Aliquam in ligula ac lacus blandit commodo vel luctus quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras eu ultrices mauris. 
-                                        </p>
-                                    </div>
-                                    
-                                    <!-- Read More Link -->
-                                    <div class="blog-item-foot">
-                                        <a href="blog-single-sidebar-right.html" class="btn btn-mod btn-round  btn-small">Read More</a>
-                                    </div>
-                                    
-                                </div>
-                                <!-- End Post -->
-                                
-                                <!-- Post -->
-                                <div class="blog-item">
-                                    
-                                    <!-- Post Title -->
-                                    <h2 class="blog-item-title"><a href="blog-single-sidebar-right.html">Image post only</a></h2>
-                                    
-                                    <!-- Author, Categories, Comments -->
-                                    <div class="blog-item-data">
-                                        <a href="#"><i class="fa fa-clock"></i> 3 December</a>
-                                        <span class="separator">&nbsp;</span>
-                                        <a href="#"><i class="fa fa-user"></i> John Doe</a>
-                                        <span class="separator">&nbsp;</span>
-                                        <i class="fa fa-folder-open"></i>
-                                        <a href="">Design</a>, <a href="#">Branding</a>
-                                        <span class="separator">&nbsp;</span>
-                                        <a href="#"><i class="fa fa-comments"></i> 5 Comments</a>
-                                    </div>
-                                    
-                                    <!-- Image -->
-                                    <div class="blog-media">
-                                        <a href="blog-single-sidebar-right.html"><img src="view/assets/images/portfolio/full-project-4.jpg" alt="" /></a>
-                                    </div>
-                                    
-                                    <!-- Text Intro -->
-                                    <div class="blog-item-body">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend. Aliquam ac libero et diam rutrum rutrum. Nullam interdum mattis ipsum at convallis. 
-                                        </p>
-                                    </div>
-                                    
-                                    <!-- Read More Link -->
-                                    <div class="blog-item-foot">
-                                        <a href="blog-single-sidebar-right.html" class="btn btn-mod btn-round  btn-small">Read More</a>
-                                    </div>
-                                    
-                                </div>
-                                <!-- End Post -->
+                                    <!-- End Post -->
+                                <?php
+                                    }
+                                ?>
                                 
                                 <!-- Pagination -->
                                 <div class="pagination">
