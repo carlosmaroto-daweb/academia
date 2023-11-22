@@ -4,32 +4,33 @@
       die('Hey Bro! You cannot access this file... twat!');
   }
 
-  // Incluimos el archivo lessonManagement.php para instanciar la clase como objeto,
-  // esta clase va a gestionar las operaciones sobre las lecciones.
+  // Incluimos el archivo lessonManagement.php para instanciar la clase como 
+  // objeto, esta clase va a gestionar las operaciones sobre las lecciones.
   require_once 'model/lessonManagement.php';
 
-  // Incluimos el archivo moduleManagement.php para instanciar la clase como objeto,
-  // esta clase va a gestionar las operaciones sobre los módulos.
+  // Incluimos el archivo moduleManagement.php para instanciar la clase como 
+  // objeto, esta clase va a gestionar las operaciones sobre los módulos.
   require_once 'model/moduleManagement.php';
 
-  // Incluimos el archivo subjectManagement.php para instanciar la clase como objeto,
-  // esta clase va a gestionar las operaciones sobre las asignaturas.
+  // Incluimos el archivo subjectManagement.php para instanciar la clase como 
+  // objeto, esta clase va a gestionar las operaciones sobre las asignaturas.
   require_once 'model/subjectManagement.php';
 
-  // Incluimos el archivo courseManagement.php para instanciar la clase como objeto,
-  // esta clase va a gestionar las operaciones sobre los cursos.
+  // Incluimos el archivo courseManagement.php para instanciar la clase como 
+  // objeto, esta clase va a gestionar las operaciones sobre los cursos.
   require_once 'model/courseManagement.php';
 
-  // Incluimos el archivo userManagement.php para instanciar la clase como objeto,
-  // esta clase va a gestionar las operaciones sobre los usuarios.
+  // Incluimos el archivo userManagement.php para instanciar la clase como
+  // objeto, esta clase va a gestionar las operaciones sobre los usuarios.
   require_once 'model/userManagement.php';
 
-  // Incluimos el archivo relatedTableManager.php para instanciar la clase como objeto,
-  // esta clase va a gestionar las operaciones sobre las tablas relacionadas.
+  // Incluimos el archivo relatedTableManager.php para instanciar la clase como 
+  // objeto, esta clase va a gestionar las operaciones sobre las tablas 
+  // relacionadas.
   require_once 'model/relatedTableManager.php';
 
-  // Incluimos el archivo userController.php para instanciar la clase como objeto,
-  // esta clase va a redirigir a los usuarios no logeados.
+  // Incluimos el archivo userController.php para instanciar la clase como 
+  // objeto, esta clase va a redirigir a los usuarios no logeados.
   require_once 'controller/userController.php';
 
   class courseController {
@@ -43,6 +44,11 @@
     private $userManagement;
     private $relatedTableManager;
 
+    /*
+     * Creamos una instancia de las clases al inicio para poder utilizarlas
+     * más adelante, a su vez el constructor de estas clases actualiza la lista
+     * de datos, por lo que siempre estamos trabajando con los nuevos datos.
+    */
     function __construct() {
       $this->lessonManagement    = new LessonManagement();
       $this->moduleManagement    = new ModuleManagement();
@@ -51,7 +57,7 @@
       $this->userManagement      = new UserManagement();
       $this->relatedTableManager = new RelatedTableManager();
     }
-
+    
     function createCourseUser() {
       if (isSecretary() || isAdmin()) {
         if (isset($_POST['id_course']) && isset($_POST['id_users'])) {
