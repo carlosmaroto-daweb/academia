@@ -304,6 +304,7 @@
             $result = false;
             $user = $this->getUserByEmail($_POST['email']);
             if ($user != null && $user->getEmail() == $_POST['email'] && password_verify($_POST['password'], $user->getPassword())) {
+                $_SESSION["id"]   = $user->getId();
                 $_SESSION["type"] = $user->getType();
                 $result = true;
             }
@@ -328,7 +329,9 @@
             if (!$this->isRepeated(null, $_POST['email'])) {
                 $_POST['password'] = password_hash($_POST['password'], constant('PASSWORD_HASH'), ['cost' => constant('PASSWORD_COST')]);
                 if ($this->db->registerUser()) {
-                    $_SESSION["type"] = 'student';
+                    $user = $this->getUserByEmail($_POST['email']);
+                    $_SESSION["id"]   = $user->getId();
+                    $_SESSION["type"] = $user->getType();
                     $result = json_encode(
                         array(
                             'success' => 1

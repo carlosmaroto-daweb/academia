@@ -213,6 +213,15 @@
             }
             return $result;
         }
+
+        function getCourseUser() {
+            $courseUser = [];
+            $query = $this->db->getCourseUser();
+            foreach ($query as $row) {
+                array_push($courseUser, [$this->courseManagement->getCourseById($row['id_course']), $this->userManagement->getUserById($row['id_user'])]);
+            }
+            return $courseUser;
+        }
         
         /*
          * Método que devuelve un array con los objetos Course y User

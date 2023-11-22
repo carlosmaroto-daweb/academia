@@ -898,10 +898,25 @@
 
     function home() {
       if (hasLoggedIn()) {
-        $result = [
-          'courses'  => $this->courseManagement->getCourses(),
-          'subjects' => $this->subjectManagement->getSubjects(),
-        ];
+        if (isSecretary() || isAdmin()) {
+          $result = [
+            'courses'  => $this->courseManagement->getCourses(),
+            'subjects' => $this->subjectManagement->getSubjects(),
+          ];
+        }
+        else {
+          $courseUser = $this->relatedTableManager->getCourseUser();
+          $courses = [];
+          for ($i=0; $i<count($courseUser); $i++) { 
+            if ($courseUser[$i][1]->getId() == $_SESSION['id']) {
+              array_push($courses, $courseUser[$i][0]);
+            }
+          }
+          $result = [
+            'courses'  => $courses,
+            'subjects' => $this->subjectManagement->getSubjects(),
+          ];
+        }
         $this->view = 'home';
         return $result;
       }
