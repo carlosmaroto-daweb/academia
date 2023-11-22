@@ -15,4 +15,12 @@ CREATE TABLE `user` (
 
 
 INSERT INTO `user` (`email`, `password`, `name`, `last_name`, `phone_number`, `dni`, `type`) VALUES
-('admin@admin.com', '$2y$14$g6x7cRIDapqO6rHH/yRCUeRRr.NZOO/.Tq/hQSESXDuKpaBHBC45u', 'Admin', 'Admin', '', '', 'admin');
+('carlosmarotodelgado@hotmail.com', '$2y$14$7M.7eTWxsHKsP66rb3Ev5OmuD/URQSY13wXxdUpXfTry1KKSmzDsa', 'Carlos', 'Maroto Delgado', '615763779', '45667750P', 'admin'),
+('luis@gmail.com', '$2y$14$AboTlSl12A786evKcT64nucGdRvyaakx.KErrF2Ntvg/.zf34Gpli', 'Luis', 'Ruiz Chico', '671319791', '92726281X', 'admin'),
+('maria@gmail.com', '$2y$14$S/dBjZVVYFs3KRmrahG3KOt4CjZScZP4cLILzhQtasv3dZWa6FurK', 'Maria', 'Nieves Guirado', '640023648', '17684415Z', 'secretary'),
+('fernando@gmail.com', '$2y$14$Tl91kOOPGs54DqP9ndraeuq5JlJ6X3xR.GidLxnNvLTw0gDMvPrm2', 'Fernando', 'Delgado Palma', '662511473', '13880125Q', 'teacher'),
+('angustias@gmail.com', '$2y$14$8IXKlqmiVEYuTWjMjYQCee6w4yBLixeHGv4IZ8lCa5/sTYo/7UJJ2', 'Angustias', 'San Martin', '695967306', '91751029G', 'student'),
+('ana@gmail.com', '$2y$14$qWkQNVMdJUXNIxscVXw1JeyvwPOb1sac2XebIrRiGbHHPcefHv7J2', 'Ana', 'Cabrera García', '676487309', '94297614Y', 'student'),
+('jose@gmail.com', '$2y$14$1M0q7.pTsMDNSuAdCxkP7ezznpMvoeSRPhRMiOtRNczQkTGExhtr6', 'Jose', 'Moyano Chinchilla', '635718255', '25053981N', 'student'),
+('claudia@gmail.com', '$2y$14$XESzBCpccIxFtqhYfyijwepZfFxNYApHnu7yFq87IyuI/Y82uG53e', 'Claudia', 'Valverde Perez', '631236110', '82065377C', 'student'),
+('esteban@gmail.com', '$2y$14$hY3YWsu4QFJk2IxuhdB/n.UkfZvBg9v768tDUxX48FBAiggoolHrC', 'Esteban', 'Calvo Martinez', '611739695', '79422122V', 'student');
