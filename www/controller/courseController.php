@@ -36,11 +36,11 @@
 
     // Atributos
     private $view;
+    private $lessonManagement;
+    private $moduleManagement;
+    private $subjectManagement;
     private $courseManagement;
     private $userManagement;
-    private $subjectManagement;
-    private $moduleManagement;
-    private $lessonManagement;
     private $relatedTableManager;
 
     function __construct() {
