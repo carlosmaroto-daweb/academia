@@ -59,40 +59,38 @@
                     
                     <div class="row section-text wow fadeInUpShort">
                         <div class="col-md-8 offset-md-2">
-                            
-                            <h4 class="font-alt">What do you mean by an End Product?</h4>
+                            <h4 class="font-alt">Política de Cookies</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Utore sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non consectetur veliterme pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor ac vestibulum nec, consectetur at purus. 
+                                El sitio web de Academia Cartabón utiliza cookies para mejorar la experiencia del usuario. A continuación, se detalla información sobre qué son las cookies, cómo las utilizamos y cómo los usuarios pueden gestionar sus preferencias.
                             </p>
                             
                             <hr class="mb-30"/>
-                            
-                            <h4 class="font-alt">I have bought a product that has files missing, what do I do?</h4>
+
+                            <h4 class="font-alt">¿Qué son las cookies?</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Utore sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non consectetur veliterme pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor ac vestibulum nec, consectetur at purus. 
+                                Las cookies son pequeños archivos de texto que el sitio web coloca en el dispositivo del usuario para almacenar información sobre su interacción con el sitio. Estos archivos permiten que el sitio recuerde ciertos datos para mejorar la experiencia de navegación.
                             </p>
                             
                             <hr class="mb-30"/>
-                            
-                            <h4 class="font-alt">Do I need to buy a licence for each site?</h4>
+
+                            <h4 class="font-alt">¿Cómo utilizamos las cookies?</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Utore sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non consectetur veliterme pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor ac vestibulum nec, consectetur at purus. 
+                                Academia Cartabón utiliza cookies para analizar cómo los usuarios interactúan con el sitio, personalizar contenido, proporcionar funcionalidades de redes sociales y mejorar la experiencia general del usuario.
                             </p>
                             
                             <hr class="mb-30"/>
-                            
-                            <h4 class="font-alt">Is my license transferable?</h4>
+
+                            <h4 class="font-alt">Gestión de cookies</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Utore sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non consectetur veliterme pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor ac vestibulum nec, consectetur at purus. 
+                                Los usuarios pueden gestionar sus preferencias de cookies a través de la configuración de su navegador. Pueden aceptar, rechazar o eliminar cookies según sus preferencias. Sin embargo, deshabilitar ciertas cookies puede afectar la funcionalidad del sitio.
                             </p>
                             
                             <hr class="mb-30"/>
-                            
-                            <h4 class="font-alt">Can I incorporate advertising in my end product with a regular licence?</h4>
+
+                            <h4 class="font-alt">Contacto</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Utore sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non consectetur veliterme pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor ac vestibulum nec, consectetur at purus. 
+                                Si tiene preguntas o inquietudes sobre nuestra política de cookies, no dude en ponerse en contacto con nosotros a través de la siguiente dirección de correo electrónico: <a href="mailto:academiacartabon@gmail.com">academiacartabon@gmail.com</a>.
                             </p>
-                            
                             
                         </div>
                     </div>

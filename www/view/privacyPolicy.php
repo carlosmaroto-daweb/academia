@@ -60,37 +60,58 @@
                     <div class="row section-text wow fadeInUpShort">
                         <div class="col-md-8 offset-md-2">
                             
-                            <h4 class="font-alt">What do you mean by an End Product?</h4>
+                            <h4 class="font-alt">Política de Privacidad</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Utore sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non consectetur veliterme pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor ac vestibulum nec, consectetur at purus. 
+                                En Academia Cartabón, nos comprometemos a proteger la privacidad de nuestros usuarios. Esta política detalla cómo se recopila, utiliza, divulga y gestiona la información personal obtenida a través del sitio web.
                             </p>
                             
                             <hr class="mb-30"/>
-                            
-                            <h4 class="font-alt">I have bought a product that has files missing, what do I do?</h4>
+
+                            <h4 class="font-alt">Recopilación de información</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Utore sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non consectetur veliterme pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor ac vestibulum nec, consectetur at purus. 
+                                Academia Cartabón recopila información personal, como nombres, direcciones de correo electrónico y números de teléfono, cuando los usuarios completan formularios en el sitio. Esta información se utiliza para proporcionar servicios y mejorar la experiencia del usuario.
                             </p>
                             
                             <hr class="mb-30"/>
-                            
-                            <h4 class="font-alt">Do I need to buy a licence for each site?</h4>
+
+                            <h4 class="font-alt">Uso de la información</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Utore sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non consectetur veliterme pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor ac vestibulum nec, consectetur at purus. 
+                                La información recopilada se utiliza para personalizar la experiencia del usuario, mejorar nuestros servicios, enviar actualizaciones pertinentes y responder a consultas o solicitudes.
                             </p>
                             
                             <hr class="mb-30"/>
-                            
-                            <h4 class="font-alt">Is my license transferable?</h4>
+
+                            <h4 class="font-alt">Divulgación a terceros</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Utore sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non consectetur veliterme pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor ac vestibulum nec, consectetur at purus. 
+                                Academia Cartabón no compartirá información personal con terceros, excepto cuando sea necesario para brindar un servicio solicitado por el usuario o cuando la ley lo requiera.
                             </p>
                             
                             <hr class="mb-30"/>
-                            
-                            <h4 class="font-alt">Can I incorporate advertising in my end product with a regular licence?</h4>
+
+                            <h4 class="font-alt">Seguridad</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Utore sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non consectetur veliterme pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor ac vestibulum nec, consectetur at purus. 
+                                Se implementan medidas de seguridad para proteger la información personal de los usuarios contra accesos no autorizados, alteraciones, divulgaciones o destrucciones no autorizadas.
+                            </p>
+                            
+                            <hr class="mb-30"/>
+
+                            <h4 class="font-alt">Actualización de información</h4>
+                            <p>
+                                Los usuarios pueden actualizar o solicitar la eliminación de su información personal contactando a Academia Cartabón a través de la dirección de correo electrónico proporcionada al final de esta política.
+                            </p>
+                            
+                            <hr class="mb-30"/>
+
+                            <h4 class="font-alt">Aceptación de la política</h4>
+                            <p>
+                                Al utilizar este sitio, los usuarios aceptan los términos de esta política de privacidad. Si no están de acuerdo con esta política, se recomienda no utilizar el sitio.
+                            </p>
+                            
+                            <hr class="mb-30"/>
+
+                            <h4 class="font-alt">Contacto</h4>
+                            <p>
+                                Si tiene preguntas o inquietudes sobre nuestra política de privacidad, no dude en ponerse en contacto con nosotros a través de la siguiente dirección de correo electrónico: <a href="mailto:academiacartabon@gmail.com">academiacartabon@gmail.com</a>.
                             </p>
                             
                             

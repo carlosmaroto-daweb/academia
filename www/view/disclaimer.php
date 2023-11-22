@@ -59,40 +59,43 @@
                     
                     <div class="row section-text wow fadeInUpShort">
                         <div class="col-md-8 offset-md-2">
-                            
-                            <h4 class="font-alt">What do you mean by an End Product?</h4>
+                            <h4 class="font-alt">Condiciones de Uso y Aceptación</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Utore sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non consectetur veliterme pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor ac vestibulum nec, consectetur at purus. 
+                                El Centro Academia Cartabón se reserva el derecho a modificar y actualizar sin previo aviso el contenido de estas páginas, declinando la responsabilidad sobre cualquier información contenida en la página web y respetando los derechos de la propiedad intelectual del titular y cualquier derecho derivado de la información contenida en dicha página.
                             </p>
                             
                             <hr class="mb-30"/>
-                            
-                            <h4 class="font-alt">I have bought a product that has files missing, what do I do?</h4>
+
+                            <h4 class="font-alt">Responsabilidades</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Utore sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non consectetur veliterme pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor ac vestibulum nec, consectetur at purus. 
+                                El Centro Academia Cartabón no se hace responsable de ningún daño directo o indirecto que el uso de esta página puede producir en los equipos y programas informáticos del mismo. El usuario es el único responsable de las infracciones en las que pueda incurrir o de los perjuicios que pueda causar por la utilización de la Web, quedando el Centro Academia Cartabón, sus socios, empresas de grupo, colaboradores, empleados y representantes, exonerados de cualquier clase de responsabilidad que se pudiera derivar por las acciones del usuario.
                             </p>
                             
                             <hr class="mb-30"/>
-                            
-                            <h4 class="font-alt">Do I need to buy a licence for each site?</h4>
+
+                            <h4 class="font-alt">Confidencialidad</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Utore sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non consectetur veliterme pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor ac vestibulum nec, consectetur at purus. 
+                                El Centro Academia Cartabón asegura la confidencialidad de los datos aportados y garantiza que, en ningún caso, serán cedidos para ningún otro uso sin mediar consentimiento previo y expreso de nuestros usuarios. En cumplimiento de lo dispuesto en la Ley Orgánica 15/1999 de 13 de Diciembre, los usuarios del Centro Academia Cartabón, pueden, en todo momento, ejecutar los derechos de acceso, rectificación, cancelación y oposición sobre sus datos personales comunicándolo por correo electrónico al Centro Academia Cartabón, dirección de correo electrónico: academiacartabon@gmail.com o en las instalaciones situadas en C/MELCHOR ALMAGRO, Nº 5, BAJO IZQ. 18002 GRANADA.
                             </p>
                             
                             <hr class="mb-30"/>
-                            
-                            <h4 class="font-alt">Is my license transferable?</h4>
+
+                            <h4 class="font-alt">Registro de Marca</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Utore sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non consectetur veliterme pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor ac vestibulum nec, consectetur at purus. 
+                                La reproducción, copia, uso, distribución, comercialización, comunicación pública y cualquier otra actividad que se pueda hacer con la información contenida en esta página web y que se realice sin la autorización por escrito del Centro Academia Cartabón, es una infracción sancionada por la legislación vigente.
                             </p>
                             
                             <hr class="mb-30"/>
-                            
-                            <h4 class="font-alt">Can I incorporate advertising in my end product with a regular licence?</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Utore sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non consectetur veliterme pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor ac vestibulum nec, consectetur at purus. 
-                            </p>
-                            
+
+                            <h4 class="font-alt">Identidad del Titular</h4>
+                            <ul>
+                                <li>Denominación Social: JUAN MANUEL MAROTO ROMO</li>
+                                <li>Domicilio: C/ MELCHOR ALMAGRO, Nº 5, 1º IZQ. 18002 GRANADA</li>
+                                <li>Teléfono: 699 13 66 22</li>
+                                <li>Web: <a href="https://academiacartabon.es">academiacartabon.es</a></li>
+                                <li>Email: <a href="mailto:academiacartabon@gmail.com">academiacartabon@gmail.com</a></li>
+                                <li>NIF: 26.208.754-R</li>
+                            </ul>
                             
                         </div>
                     </div>
