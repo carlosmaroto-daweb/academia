@@ -7,8 +7,15 @@ CREATE TABLE `subject_module` (
   PRIMARY KEY (`id_subject`, `id_module`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
 INSERT INTO `subject_module` (`id_subject`, `id_module`) VALUES
 (1, 1),
 (1, 2),
 (1, 3),
-(1, 4);
+(1, 4),
+(1, 5),
+(1, 6),
+(1, 7),
+(1, 8),
+(1, 9),
+(1, 10);
