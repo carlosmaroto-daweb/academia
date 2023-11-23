@@ -43,7 +43,7 @@
                         
                         <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
                             <div class="mod-breadcrumbs text-end">
-                                <a href="index.php">Inicio</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Política de privacidad</span>
+                                <a href="index.php">Inicio</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;Política de privacidad
                             </div>                                
                         </div>
                         

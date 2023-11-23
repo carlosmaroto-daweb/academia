@@ -386,3 +386,8 @@
 .widget-body .checkbox-inline input {
     margin-right: 10px;
 }
+
+.mod-breadcrumbs-column {
+    display: flex;
+    flex-direction: column;
+}

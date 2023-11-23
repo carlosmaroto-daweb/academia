@@ -45,8 +45,8 @@
                             </div>
                             
                             <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
-                                <div class="mod-breadcrumbs text-end">
-                                    <a href="index.php">Inicio</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="index.php?controller=courseController&action=courses">Cursos</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="index.php?controller=courseController&action=subject&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $subject->getId();?>"><?php echo $subject->getName();?></a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="index.php?controller=courseController&action=module&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $subject->getId();?>&id_module=<?php echo $module->getId();?>"><?php echo $module->getName();?></a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span><?php echo $lesson->getName();?></span>
+                                <div class="mod-breadcrumbs text-end mod-breadcrumbs-column">
+                                    <a href="index.php">Inicio</a><a href="index.php?controller=courseController&action=courses">Cursos</a><a href="index.php?controller=courseController&action=subject&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $subject->getId();?>"><?php echo $subject->getName();?></a><a href="index.php?controller=courseController&action=module&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $subject->getId();?>&id_module=<?php echo $module->getId();?>"><?php echo $module->getName();?></a><?php echo $lesson->getName();?>
                                 </div>                                
                             </div>
                             

@@ -58,8 +58,8 @@
                             </div>
                             
                             <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
-                                <div class="mod-breadcrumbs text-end">
-                                    <a href="index.php">Inicio</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="index.php?controller=courseController&action=courses">Cursos</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span><?php echo $subject->getName();?></span>
+                                <div class="mod-breadcrumbs text-end mod-breadcrumbs-column">
+                                    <a href="index.php">Inicio</a><a href="index.php?controller=courseController&action=courses">Cursos</a><?php echo $subject->getName();?>
                                 </div>                                
                             </div>
                             
@@ -134,7 +134,7 @@
                                 <?php
                                     }
                                 ?>
-                                
+
                             </div>
                             <!-- End Content -->                            
                         
