@@ -53,10 +53,9 @@
             </section>
             <!-- End Home Section -->
 
-            <!-- Table Styles
+            <!-- Table Users
             ===================================== -->
             <section class="page-section">
-                <!-- Table Style 2 -->
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
