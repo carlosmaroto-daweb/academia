@@ -43,7 +43,7 @@
                         
                         <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
                             <div class="mod-breadcrumbs text-end">
-                                <a href="index.php">Inicio</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="index.php?controller=courseController&action=secretary">Secretaría</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Edición asignatura</span>
+                                <a href="index.php">Inicio</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a href="index.php?controller=courseController&action=secretary">Secretaría</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;Edición asignatura
                             </div>                                
                         </div>
                         
