@@ -87,12 +87,15 @@
                                         
                                         <!-- Author, Categories, Comments -->
                                         <div class="blog-item-data">
-                                            <i class="fa fa-tags"></i>
-                                            <a href=""><?php echo $course->getStudies();?></a>, <a href="#"><?php echo $course->getLocation();?></a>, <a href="#"><?php echo $course->getType();?></a>
+                                            <a href=""><i class="fa fa-tags"></i> <?php echo $course->getStudies();?></a>
                                             <span class="separator">&nbsp;</span>
-                                            <a href="#"><i class="fa fa-clock"></i> <?php echo $course->getStartDate();?></a>
+                                            <a href=""><i class="fa fa-tags"></i> <?php echo $course->getLocation();?></a>
                                             <span class="separator">&nbsp;</span>
-                                            <a href="#"><i class="fa fa-clock"></i> <?php echo $course->getEndDate();?></a>
+                                            <a href=""><i class="fa fa-tags"></i> <?php echo $course->getType();?></a>
+                                            <span class="separator">&nbsp;</span>
+                                            <i class="fa fa-clock"></i> <?php echo $course->getStartDate();?>
+                                            <span class="separator">&nbsp;</span>
+                                            <i class="fa fa-clock"></i> <?php echo $course->getEndDate();?>
                                             <span class="separator">&nbsp;</span>
                                         </div>
                                         
