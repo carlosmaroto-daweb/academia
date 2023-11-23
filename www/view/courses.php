@@ -79,13 +79,13 @@
                                             }
                                         }
                                 ?>
-                                    <!-- Post -->
+                                    <!-- Course -->
                                     <div class="blog-item">
                                         
-                                        <!-- Post Title -->
+                                        <!-- Course Title -->
                                         <h2 class="blog-item-title"><a href="index.php?controller=courseController&action=subject&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>"><?php echo $course->getName();?></a></h2>
                                         
-                                        <!-- Author, Categories, Comments -->
+                                        <!-- Tags and Info -->
                                         <div class="blog-item-data">
                                             <a href=""><i class="fa fa-tags"></i> <?php echo $course->getStudies();?></a>
                                             <span class="separator">&nbsp;</span>
