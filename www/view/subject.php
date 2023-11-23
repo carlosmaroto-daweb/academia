@@ -100,7 +100,7 @@
                                         <?php
                                             foreach ($modules as $module) {
                                         ?>   
-                                            <div class="row wow fadeInUpShort tarjet-module" data-wow-delay=".1s">
+                                            <div class="row wow fadeInUpShort module-card" data-wow-delay=".1s">
                                                 <a href="index.php?controller=courseController&action=module&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $subject->getId();?>&id_module=<?php echo $module->getId();?>" class="col-md-5 mb-sm-40">
                                                     <img src="<?php echo $module->getHeaderImage();?>" alt="">
                                                 </a>

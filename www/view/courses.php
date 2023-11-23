@@ -120,7 +120,7 @@
                                     }
                                 ?>
                                 
-                                <!-- Pagination -->
+                                <!-- Pagination 
                                 <div class="pagination">
                                     <a href=""><i class="fa fa-chevron-left"></i></a>
                                     <a href="" class="active">1</a>
@@ -130,7 +130,7 @@
                                     <a href="">9</a>
                                     <a href=""><i class="fa fa-chevron-right"></i></a>
                                 </div>
-                                <!-- End Pagination -->
+                                End Pagination -->
                                 
                             </div>
                             <!-- End Content -->

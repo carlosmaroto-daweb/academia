@@ -72,56 +72,74 @@
                                 ?>
                                 
                                 <?php
-                                    foreach ($courses as $course) {
-                                        $assignedSubject = null;
-                                        for ($i=0; $i<count($subjects) && !$assignedSubject; $i++) { 
-                                            if ($course->getAssignedSubject() == $subjects[$i]->getId()) { 
-                                                $assignedSubject = $subjects[$i];
-                                            }
-                                        }
+                                    if (count($courses) == 0) {
                                 ?>
-                                    <!-- Post -->
-                                    <div class="blog-item">
-                                        
-                                        <!-- Post Title -->
-                                        <h2 class="blog-item-title"><a href="blog-single-sidebar-right.html"><?php echo $course->getName();?></a></h2>
-                                        
-                                        <!-- Author, Categories, Comments -->
-                                        <div class="blog-item-data">
-                                            <a href=""><i class="fa fa-tags"></i> <?php echo $course->getStudies();?></a>
-                                            <span class="separator">&nbsp;</span>
-                                            <a href=""><i class="fa fa-tags"></i> <?php echo $course->getLocation();?></a>
-                                            <span class="separator">&nbsp;</span>
-                                            <a href=""><i class="fa fa-tags"></i> <?php echo $course->getType();?></a>
-                                            <span class="separator">&nbsp;</span>
-                                            <i class="fa fa-clock"></i> <?php echo $course->getStartDate();?>
-                                            <span class="separator">&nbsp;</span>
-                                            <i class="fa fa-clock"></i> <?php echo $course->getEndDate();?>
-                                            <span class="separator">&nbsp;</span>
+                                        <div class="services-item text-center">
+                                            <div class="services-icon">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M22 9.74l-2 1.02v7.24c-1.007 2.041-5.606 3-8.5 3-3.175 0-7.389-.994-8.5-3v-7.796l-3-1.896 12-5.308 11 6.231v8.769l1 3h-3l1-3v-8.26zm-18 1.095v6.873c.958 1.28 4.217 2.292 7.5 2.292 2.894 0 6.589-.959 7.5-2.269v-6.462l-7.923 4.039-7.077-4.473zm-1.881-2.371l9.011 5.694 9.759-4.974-8.944-5.066-9.826 4.346z"></path></svg>
+                                            </div>
+                                            <h3 class="services-title">Tablón de cursos</h3>
+                                            <div class="services-descr">
+                                                Aquí encontrarás una lista de todos los cursos en los que estás matriculado. Si todavía no te has matriculado en ninguno de nuestros cursos, ¡visita nuestro catálogo!
+                                            </div>
+                                            <div class="services-more">
+                                                <a href="index.php?controller=courseController&action=courses" class="text-link">Ir a Cursos</a>
+                                            </div>
                                         </div>
-                                        
-                                        <!-- Image -->
-                                        <div class="blog-media">
-                                            <a href="index.php?controller=courseController&action=subject&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>"><img src="<?php echo $assignedSubject->getHeaderImage();?>" alt="" /></a>
-                                        </div>
-                                        
-                                        <!-- Text Intro -->
-                                        <div class="blog-item-body">
-                                            <?php echo $assignedSubject->getPreview();?>
-                                        </div>
-                                        
-                                        <!-- Read More Link -->
-                                        <div class="blog-item-foot">
-                                            <a href="index.php?controller=courseController&action=subject&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>" class="btn btn-mod btn-round  btn-small">Ver curso</a>
-                                        </div>
-                                        
-                                    </div>
-                                    <!-- End Post -->
                                 <?php
+                                    }
+                                    else {
+                                        foreach ($courses as $course) {
+                                            $assignedSubject = null;
+                                            for ($i=0; $i<count($subjects) && !$assignedSubject; $i++) { 
+                                                if ($course->getAssignedSubject() == $subjects[$i]->getId()) { 
+                                                    $assignedSubject = $subjects[$i];
+                                                }
+                                            }
+                                ?>
+                                            <!-- Post -->
+                                            <div class="blog-item">
+                                                
+                                                <!-- Post Title -->
+                                                <h2 class="blog-item-title"><a href="blog-single-sidebar-right.html"><?php echo $course->getName();?></a></h2>
+                                                
+                                                <!-- Author, Categories, Comments -->
+                                                <div class="blog-item-data">
+                                                    <a href=""><i class="fa fa-tags"></i> <?php echo $course->getStudies();?></a>
+                                                    <span class="separator">&nbsp;</span>
+                                                    <a href=""><i class="fa fa-tags"></i> <?php echo $course->getLocation();?></a>
+                                                    <span class="separator">&nbsp;</span>
+                                                    <a href=""><i class="fa fa-tags"></i> <?php echo $course->getType();?></a>
+                                                    <span class="separator">&nbsp;</span>
+                                                    <i class="fa fa-clock"></i> <?php echo $course->getStartDate();?>
+                                                    <span class="separator">&nbsp;</span>
+                                                    <i class="fa fa-clock"></i> <?php echo $course->getEndDate();?>
+                                                    <span class="separator">&nbsp;</span>
+                                                </div>
+                                                
+                                                <!-- Image -->
+                                                <div class="blog-media">
+                                                    <a href="index.php?controller=courseController&action=subject&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>"><img src="<?php echo $assignedSubject->getHeaderImage();?>" alt="" /></a>
+                                                </div>
+                                                
+                                                <!-- Text Intro -->
+                                                <div class="blog-item-body">
+                                                    <?php echo $assignedSubject->getPreview();?>
+                                                </div>
+                                                
+                                                <!-- Read More Link -->
+                                                <div class="blog-item-foot">
+                                                    <a href="index.php?controller=courseController&action=subject&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>" class="btn btn-mod btn-round  btn-small">Ver curso</a>
+                                                </div>
+                                                
+                                            </div>
+                                            <!-- End Post -->
+                                <?php
+                                        }
                                     }
                                 ?>
                                 
-                                <!-- Pagination -->
+                                <!-- Pagination
                                 <div class="pagination">
                                     <a href=""><i class="fa fa-chevron-left"></i></a>
                                     <a href="" class="active">1</a>
@@ -131,7 +149,7 @@
                                     <a href="">9</a>
                                     <a href=""><i class="fa fa-chevron-right"></i></a>
                                 </div>
-                                <!-- End Pagination -->
+                                End Pagination -->
                                 
                             </div>
                             <!-- End Content -->
