@@ -63,7 +63,7 @@
                         <div class="row">
                             
                             <!-- Content -->
-                            <div class="col-md-8 offset-lg-1 mb-sm-80 order-first order-md-last">
+                            <div class="col-md-8 mb-sm-80">
 
                                 <?php
                                     $courses  = $dataToView["courses"];
@@ -133,7 +133,7 @@
                             <!-- End Content -->
                             
                             <!-- Sidebar -->
-                            <div class="col-md-4 col-lg-3 mt-10">
+                            <div class="col-md-4 col-lg-3 offset-lg-1 mt-10">
                                 
                                 <!-- Search Widget -->
                                 <div class="widget">
