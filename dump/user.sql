@@ -15,7 +15,7 @@ CREATE TABLE `user` (
 
 
 INSERT INTO `user` (`email`, `password`, `name`, `last_name`, `phone_number`, `dni`, `type`) VALUES
-('carlosmarotodelgado@hotmail.com', '$2y$14$7M.7eTWxsHKsP66rb3Ev5OmuD/URQSY13wXxdUpXfTry1KKSmzDsa', 'Carlos', 'Maroto Delgado', '615763779', '45667750P', 'admin'),
+('admin@admin.com', '$2y$14$BZNQP.zCCYGlVybmMTjHIeRLQvU6i.ctgsd.jZ6hVoaYTqaqtx3SC', 'Carlos', 'Maroto Delgado', '615763779', '45667750P', 'admin'),
 ('luis@gmail.com', '$2y$14$AboTlSl12A786evKcT64nucGdRvyaakx.KErrF2Ntvg/.zf34Gpli', 'Luis', 'Ruiz Chico', '671319791', '92726281X', 'admin'),
 ('maria@gmail.com', '$2y$14$S/dBjZVVYFs3KRmrahG3KOt4CjZScZP4cLILzhQtasv3dZWa6FurK', 'Maria', 'Nieves Guirado', '640023648', '17684415Z', 'secretary'),
 ('fernando@gmail.com', '$2y$14$Tl91kOOPGs54DqP9ndraeuq5JlJ6X3xR.GidLxnNvLTw0gDMvPrm2', 'Fernando', 'Delgado Palma', '662511473', '13880125Q', 'teacher'),
