@@ -900,6 +900,7 @@
       if (hasLoggedIn()) {
         if (isSecretary() || isAdmin()) {
           $result = [
+            'user'     => $this->userManagement->getUserById($_SESSION['id']),
             'courses'  => $this->courseManagement->getCourses(),
             'subjects' => $this->subjectManagement->getSubjects(),
           ];
@@ -913,6 +914,7 @@
             }
           }
           $result = [
+            'user'     => $this->userManagement->getUserById($_SESSION['id']),
             'courses'  => $courses,
             'subjects' => $this->subjectManagement->getSubjects(),
           ];

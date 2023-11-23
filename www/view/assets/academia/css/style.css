@@ -335,6 +335,7 @@
 
 .comment-avatar {
     width: 80px;
+    height: 80px !important;
 }
 
 .name-profile {
@@ -348,6 +349,7 @@
 
 .profile-menu {
     display: flex;
+    align-items: center;
 }
 
 .profile-info {
@@ -366,4 +368,8 @@
 
 .profile-config i {
     min-width: 30px;
+}
+
+.profile-menu .comment-item-data {
+    margin-left: 5px;
 }

@@ -66,6 +66,7 @@
                             <div class="col-md-8 mb-sm-80">
 
                                 <?php
+                                    $user     = $dataToView["user"];
                                     $courses  = $dataToView["courses"];
                                     $subjects = $dataToView["subjects"];
                                 ?>
@@ -143,23 +144,39 @@
                                     <div class="widget-body">
                                         <ul class="clearlist">
                                             <div class="profile-menu">
-                                                <img class="media-object comment-avatar" src="view/assets/academia/img/user.jpg">
+                                                <img class="media-object comment-avatar" src="view/assets/academia/img/default-profile-picture.jpg">
                                                 <div class="media-body">
                                                     <div class="comment-item-data">
                                                         <div class="name-profile">
-                                                            John Doe
+                                                            <?php echo $user->getName();?>
+                                                        </div>
+                                                        <div class="name-profile">
+                                                            <?php echo $user->getLastName();?>
                                                         </div>
                                                     </div>
                                                     <div class="comment-item-data">
                                                         <div class="rol-profile">
-                                                            <i class="fa fa-book-reader"></i> Estudiante
+                                                            <?php 
+                                                                if ($user->getType() == 'student') {
+                                                                    echo "<i class='fa fa-book-reader'></i> Estudiante";
+                                                                }
+                                                                else if ($user->getType() == 'teacher') {
+                                                                    echo "<i class='fa fa-chalkboard-teacher'></i> Profesor";
+                                                                }
+                                                                else if ($user->getType() == 'secretary') {
+                                                                    echo "<i class='fa fa-clipboard-list'></i> Secretaría";
+                                                                }
+                                                                else if ($user->getType() == 'admin') {
+                                                                    echo "<i class='fa fa-laptop-code'></i> Administrador";
+                                                                }
+                                                            ?>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="profile-info">
-                                                <div><i class="fa fa-mail-bulk"></i> example@gmail.com</div>
-                                                <div><i class="fa fa-phone-alt"></i> +34 643 34 76 34</div>
+                                                <div><i class="fa fa-envelope"></i> <?php echo $user->getEmail();?></div>
+                                                <div><i class="fa fa-phone-alt"></i> <?php echo substr($user->getPhoneNumber(), 0, 3) . "-" . substr($user->getPhoneNumber(), 3, 2) . "-" . substr($user->getPhoneNumber(), 5, 2) . "-" . substr($user->getPhoneNumber(), 7, 2);?></div>
                                             </div>
                                         </ul>
                                     </div>
