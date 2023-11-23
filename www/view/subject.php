@@ -134,13 +134,6 @@
                                 <?php
                                     }
                                 ?>
-        						
-                                <!-- Prev/Next Post -->
-                                <div class="clearfix mt-40">
-                                    <a href="#" class="blog-item-more left"><i class="fa fa-chevron-left"></i>&nbsp;Prev post</a>
-                                    <a href="#" class="blog-item-more right">Next post&nbsp;<i class="fa fa-chevron-right"></i></a>
-                                </div>
-                                <!-- End Prev/Next Post -->
                                 
                             </div>
                             <!-- End Content -->                            
