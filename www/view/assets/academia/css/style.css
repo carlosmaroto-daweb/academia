@@ -332,3 +332,38 @@
 .tags p {
     margin: 0px;
 }
+
+.comment-avatar {
+    width: 80px;
+}
+
+.name-profile {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.rol-profile {
+    font-size: 16px;
+}
+
+.profile-menu {
+    display: flex;
+}
+
+.profile-info {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-info i {
+    margin: 10px 0;
+}
+
+.profile-config li {
+    padding: 7.5px 0px;
+}
+
+.profile-config i {
+    min-width: 30px;
+}

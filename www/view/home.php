@@ -135,56 +135,32 @@
                             <!-- Sidebar -->
                             <div class="col-md-4 col-lg-3 offset-lg-1 mt-10">
                                 
-                                <!-- Search Widget -->
-                                <div class="widget">
-                                    <form class="form">
-                                        <div class="search-wrap">
-                                            <button class="search-button animate" type="submit" title="Start Search">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                            <input type="text" class="form-control search-field round" placeholder="Search...">
-                                        </div>
-                                    </form>
-                                </div>
-                                <!-- End Search Widget -->
-                                
                                 <!-- Widget -->
                                 <div class="widget">
                                     
-                                    <h3 class="widget-title">Categories</h3>
+                                    <h3 class="widget-title">Perfil</h3>
                                     
                                     <div class="widget-body">
-                                        <ul class="clearlist widget-menu">
-                                            <li>
-                                                <a href="#" title="">Branding</a>
-                                                <small>
-                                                    - 7
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="">Design</a>
-                                                <small>
-                                                    - 15
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="">Development</a>
-                                                <small>
-                                                    - 3
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="">Photography</a>
-                                                <small>
-                                                    - 5
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="">Other</a>
-                                                <small>
-                                                    - 1
-                                                </small>
-                                            </li>
+                                        <ul class="clearlist">
+                                            <div class="profile-menu">
+                                                <img class="media-object comment-avatar" src="view/assets/academia/img/user.jpg">
+                                                <div class="media-body">
+                                                    <div class="comment-item-data">
+                                                        <div class="name-profile">
+                                                            John Doe
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-item-data">
+                                                        <div class="rol-profile">
+                                                            <i class="fa fa-book-reader"></i> Estudiante
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="profile-info">
+                                                <div><i class="fa fa-mail-bulk"></i> example@gmail.com</div>
+                                                <div><i class="fa fa-phone-alt"></i> +34 643 34 76 34</div>
+                                            </div>
                                         </ul>
                                     </div>
                                     
@@ -194,135 +170,24 @@
                                 <!-- Widget -->
                                 <div class="widget">
                                     
-                                    <h3 class="widget-title">Tags</h3>
+                                    <h3 class="widget-title">Configuración de perfil</h3>
                                     
                                     <div class="widget-body">
-                                        <div class="tags">
-                                            <a href="">Design</a>
-                                            <a href="">Portfolio</a>
-                                            <a href="">Digital</a>
-                                            <a href="">Branding</a>
-                                            <a href="">Theme</a>
-                                            <a href="">Clean</a>
-                                            <a href="">UI & UX</a>
-                                            <a href="">Love</a>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <!-- End Widget -->
-                                
-                                <!-- Widget -->
-                                <div class="widget">
-                                    
-                                    <h3 class="widget-title">Latest posts</h3>
-                                    
-                                    <div class="widget-body">
-                                        <ul class="clearlist widget-posts">
-                                            <li class="clearfix">
-                                                <a href=""><img src="view/assets/images/blog/previews/post-prev-1.jpg" alt="" width="100" class="widget-posts-img" /></a>
-                                                <div class="widget-posts-descr">
-                                                    <a href="#" title="">Minimalistic Design Forever</a>
-                                                    Posted by John Doe 7 March 
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <a href=""><img src="view/assets/images/blog/previews/post-prev-2.jpg" alt="" width="100" class="widget-posts-img" /></a>
-                                                <div class="widget-posts-descr">
-                                                    <a href="#" title="">Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit</a>
-                                                    Posted by John Doe 7 March
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <a href=""><img src="view/assets/images/blog/previews/post-prev-3.jpg" alt="" width="100" class="widget-posts-img" /></a>
-                                                <div class="widget-posts-descr">
-                                                    <a href="#" title="">New Web Design Trends in 2021 Year</a>
-                                                    Posted by John Doe 7 March
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <a href=""><img src="view/assets/images/blog/previews/post-prev-4.jpg" alt="" width="100" class="widget-posts-img" /></a>
-                                                <div class="widget-posts-descr">
-                                                    <a href="#" title="">Hipster’s Style in Web Design and Logo</a>
-                                                    Posted by John Doe 7 March
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <a href=""><img src="view/assets/images/blog/previews/post-prev-5.jpg" alt="" width="100" class="widget-posts-img" /></a>
-                                                <div class="widget-posts-descr">
-                                                    <a href="#" title="">Duis Tristique Condimentum Nulla Bibendum Consectetu</a>
-                                                    Posted by John Doe 7 March
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    
-                                </div>
-                                <!-- End Widget -->
-                                
-                                <!-- Widget -->
-                                <div class="widget">
-                                    
-                                    <h3 class="widget-title">Comments</h3>
-                                    
-                                    <div class="widget-body">
-                                        <ul class="clearlist widget-comments">
+                                        <ul class="clearlist widget-menu profile-config">
                                             <li>
-                                                John Doe on <a href="#" title="">Lorem ipsum dolor sit amet</a>
+                                                <a href="#" title=""><i class='fa fa-user-cog'></i>- Datos personales</a>
                                             </li>
                                             <li>
-                                                Emma Johnson on <a href="#" title="">Suspendisse accumsan interdum tellus</a>
+                                                <a href="#" title=""><i class='fa fa-key'></i>- Contraseñas</a>
                                             </li>
                                             <li>
-                                                John Doe on <a href="#" title="">Praesent ultricies ut ipsum</a>
+                                                <a href="#" title=""><i class='fa fa-bell'></i>- Notificaciones</a>
                                             </li>
                                             <li>
-                                                Mark Deen on <a href="#" title="">Vivamus malesuada vel nulla vulputate</a>
+                                                <a href="#" title=""><i class='fa fa-wallet'></i>- Pagos</a>
                                             </li>
                                             <li>
-                                                Sam Brin on <a href="#" title="">Aenean auctor egestas auctor</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    
-                                </div>
-                                <!-- End Widget -->
-                                
-                                <!-- Widget -->
-                                <div class="widget">
-                                    
-                                    <h3 class="widget-title">Text widget</h3>
-                                    
-                                    <div class="widget-body">
-                                        <div class="widget-text clearfix">
-                                            
-                                            <img src="view/assets/images/blog/previews/post-prev-6.jpg" alt="" width="100" class="left img-left">
-                                            
-                                            Consectetur adipiscing elit. Quisque magna ante eleifend eleifend. 
-                                            Purus ut dignissim consectetur, nulla erat ultrices purus, ut consequat sem elit non sem.
-                                            Quisque magna ante eleifend eleifend. 
-                                        
-                                        </div>
-                                    </div>
-                                    
-                                </div>                            
-                                <!-- End Widget -->
-                                
-                                <!-- Widget -->
-                                <div class="widget">
-                                    
-                                    <h3 class="widget-title">Archive</h3>
-                                    
-                                    <div class="widget-body">
-                                        <ul class="clearlist widget-menu">
-                                            <li>
-                                                <a href="#" title="">February 2021</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="">January 2021</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="">December 2020</a>
+                                                <a href="#" title=""><i class='fa fa-pen-nib'></i>- Apariencia</a>
                                             </li>
                                         </ul>
                                     </div>
