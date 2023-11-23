@@ -59,7 +59,9 @@
                             
                             <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
                                 <div class="mod-breadcrumbs text-end mod-breadcrumbs-column">
-                                    <a href="index.php">Inicio</a><a href="index.php?controller=courseController&action=courses">Cursos</a><?php echo $subject->getName();?>
+                                    <a href="index.php">Inicio <i class="fa fa-chevron-down"></i></a>
+                                    <a href="index.php?controller=courseController&action=courses">Cursos <i class="fa fa-chevron-down"></i></a>
+                                    <?php echo $subject->getName();?>
                                 </div>                                
                             </div>
                             
