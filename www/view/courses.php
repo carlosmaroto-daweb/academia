@@ -87,7 +87,7 @@
                                         
                                         <!-- Author, Categories, Comments -->
                                         <div class="blog-item-data">
-                                            <i class="fa fa-folder-open"></i>
+                                            <i class="fa fa-tags"></i>
                                             <a href=""><?php echo $course->getStudies();?></a>, <a href="#"><?php echo $course->getLocation();?></a>, <a href="#"><?php echo $course->getType();?></a>
                                             <span class="separator">&nbsp;</span>
                                             <a href="#"><i class="fa fa-clock"></i> <?php echo $course->getStartDate();?></a>

@@ -42,6 +42,20 @@
                                 <div class="wow fadeInUpShort" data-wow-delay=".1s">
                                     <h1 class="hs-line-7 mb-40 mb-xs-20"><?php echo $lesson->getName();?></h1>
                                 </div>
+                                <div class="wow fadeInUpShort" data-wow-delay=".2s">
+                                    <div class="mb-20 mb-xs-0">
+                                        <!-- Author, Categories, Comments -->
+                                        <div class="blog-item-data">
+                                            <i class="fa fa-tags"></i>
+                                            <a href=""><?php echo $course->getStudies();?></a>, <a href="#"><?php echo $course->getLocation();?></a>, <a href="#"><?php echo $course->getType();?></a>
+                                            <span class="separator">&nbsp;</span>
+                                            <a href="#"><i class="fa fa-clock"></i> <?php echo $course->getStartDate();?></a>
+                                            <span class="separator">&nbsp;</span>
+                                            <a href="#"><i class="fa fa-clock"></i> <?php echo $course->getEndDate();?></a>
+                                            <span class="separator">&nbsp;</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             
                             <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
