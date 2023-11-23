@@ -96,46 +96,33 @@
                                             </ul>
                                         </div>
                                         <?php echo $subject->getContent();?>
+
+                                        <h2>Módulos del curso:</h2>
+                                        <?php
+                                            foreach ($modules as $module) {
+                                        ?>   
+                                            <div class="row wow fadeInUpShort tarjet-module" data-wow-delay=".1s">
+                                                <a href="index.php?controller=courseController&action=module&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $subject->getId();?>&id_module=<?php echo $module->getId();?>" class="col-md-5 mb-sm-40">
+                                                    <img src="<?php echo $module->getHeaderImage();?>" alt="">
+                                                </a>
+                                                <div class="col-md-7 col-lg-6 offset-lg-1 align-items-center">
+                                                    <div>
+                                                        <h2><?php echo $module->getName();?></h2>
+                                                        <?php echo $module->getPreview();?>
+                                                        <div class="mt-40">
+                                                            <a href="index.php?controller=courseController&action=module&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $subject->getId();?>&id_module=<?php echo $module->getId();?>" class="btn btn-mod btn-border btn-round btn-medium">Ver módulo</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php
+                                            }
+                                        ?>
         							</div>
                                     <!-- End Text -->
         							
         						</div>
         						<!-- End Post -->
-    						
-                                <?php
-                                    foreach ($modules as $module) {
-                                ?>
-                                    <section class="page-section">
-                                        <div class="container relative">
-                                            
-                                            <div class="row wow fadeInUpShort animated" style="visibility: visible; animation-name: fadeInUpShort;">
-                                                
-                                                <div class="col-md-7 mb-sm-40">
-                                                    <img src="<?php echo $module->getHeaderImage();?>" alt="">
-                                                    
-                                                </div>
-                                                <div class="col-md-5 col-lg-4 offset-lg-1 d-flex align-items-center">
-                                                    <div>
-                                                        <h2 class="mb-30 mb-xxs-10"><?php echo $module->getName();?></h2>
-                                                        
-                                                        <?php echo $module->getPreview();?>
-                                                        
-                                                        <div class="mt-40">
-                                                            <a href="index.php?controller=courseController&action=module&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $subject->getId();?>&id_module=<?php echo $module->getId();?>" class="btn btn-mod btn-border btn-round btn-medium">Ver módulo</a>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                    <!-- End About Project -->
-                                                    
-                                                </div>
-                                                
-                                            </div>
-                                        
-                                        </div>
-                                    </section>
-                                <?php
-                                    }
-                                ?>
 
                             </div>
                             <!-- End Content -->                            
