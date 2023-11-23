@@ -83,7 +83,7 @@
                                     <div class="blog-item">
                                         
                                         <!-- Post Title -->
-                                        <h2 class="blog-item-title"><a href="blog-single-sidebar-right.html"><?php echo $course->getName();?></a></h2>
+                                        <h2 class="blog-item-title"><a href="index.php?controller=courseController&action=subject&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>"><?php echo $course->getName();?></a></h2>
                                         
                                         <!-- Author, Categories, Comments -->
                                         <div class="blog-item-data">

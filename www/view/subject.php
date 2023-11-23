@@ -106,7 +106,7 @@
                                                 </a>
                                                 <div class="col-md-7 col-lg-6 offset-lg-1 align-items-center">
                                                     <div>
-                                                        <h2><?php echo $module->getName();?></h2>
+                                                        <h2 class="blog-item-title"><a href="index.php?controller=courseController&action=module&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $subject->getId();?>&id_module=<?php echo $module->getId();?>"><?php echo $module->getName();?></a></h2>
                                                         <?php echo $module->getPreview();?>
                                                         <div class="mt-40">
                                                             <a href="index.php?controller=courseController&action=module&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $subject->getId();?>&id_module=<?php echo $module->getId();?>" class="btn btn-mod btn-border btn-round btn-medium">Ver módulo</a>
