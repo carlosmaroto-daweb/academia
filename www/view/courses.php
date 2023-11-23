@@ -156,22 +156,19 @@
                                     <div class="widget-body">
                                         <ul class="clearlist widget-menu">
                                             <li>
-                                                <a href="#" title="">Oposiciones</a>
-                                                <small>
-                                                    - 7
-                                                </small>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Oposiciones
+                                                </label>
                                             </li>
                                             <li>
-                                                <a href="#" title="">Universidad</a>
-                                                <small>
-                                                    - 15
-                                                </small>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Universidad
+                                                </label>
                                             </li>
                                             <li>
-                                                <a href="#" title="">Bachillerato</a>
-                                                <small>
-                                                    - 3
-                                                </small>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Bachillerato
+                                                </label>
                                             </li>
                                         </ul>
                                     </div>
@@ -187,22 +184,19 @@
                                     <div class="widget-body">
                                         <ul class="clearlist widget-menu">
                                             <li>
-                                                <a href="#" title="">Málaga</a>
-                                                <small>
-                                                    - 7
-                                                </small>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Málaga
+                                                </label>
                                             </li>
                                             <li>
-                                                <a href="#" title="">Granada</a>
-                                                <small>
-                                                    - 15
-                                                </small>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Granada
+                                                </label>
                                             </li>
                                             <li>
-                                                <a href="#" title="">Almería</a>
-                                                <small>
-                                                    - 3
-                                                </small>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Almería
+                                                </label>
                                             </li>
                                         </ul>
                                     </div>
@@ -216,16 +210,13 @@
                                     <h3 class="widget-title">Formación</h3>
                                     
                                     <div class="widget-body">
-                                        <div class="tags">
-                                            <a href="">Design</a>
-                                            <a href="">Portfolio</a>
-                                            <a href="">Digital</a>
-                                            <a href="">Branding</a>
-                                            <a href="">Theme</a>
-                                            <a href="">Clean</a>
-                                            <a href="">UI & UX</a>
-                                            <a href="">Love</a>
-                                        </div>
+                                        <ul class="clearlist widget-menu">
+                                            <li>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Ingeniería en Diseño Industrial y Desarrollo del Producto
+                                                </label>
+                                            </li>
+                                        </ul>
                                     </div>
                                     
                                 </div>
@@ -238,41 +229,27 @@
                                     
                                     <div class="widget-body">
                                         <ul class="clearlist widget-posts">
-                                            <li class="clearfix">
-                                                <a href=""><img src="view/assets/images/blog/previews/post-prev-1.jpg" alt="" width="100" class="widget-posts-img" /></a>
-                                                <div class="widget-posts-descr">
-                                                    <a href="#" title="">Minimalistic Design Forever</a>
-                                                    Posted by John Doe 7 March 
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <a href=""><img src="view/assets/images/blog/previews/post-prev-2.jpg" alt="" width="100" class="widget-posts-img" /></a>
-                                                <div class="widget-posts-descr">
-                                                    <a href="#" title="">Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit</a>
-                                                    Posted by John Doe 7 March
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <a href=""><img src="view/assets/images/blog/previews/post-prev-3.jpg" alt="" width="100" class="widget-posts-img" /></a>
-                                                <div class="widget-posts-descr">
-                                                    <a href="#" title="">New Web Design Trends in 2021 Year</a>
-                                                    Posted by John Doe 7 March
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <a href=""><img src="view/assets/images/blog/previews/post-prev-4.jpg" alt="" width="100" class="widget-posts-img" /></a>
-                                                <div class="widget-posts-descr">
-                                                    <a href="#" title="">Hipster’s Style in Web Design and Logo</a>
-                                                    Posted by John Doe 7 March
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <a href=""><img src="view/assets/images/blog/previews/post-prev-5.jpg" alt="" width="100" class="widget-posts-img" /></a>
-                                                <div class="widget-posts-descr">
-                                                    <a href="#" title="">Duis Tristique Condimentum Nulla Bibendum Consectetu</a>
-                                                    Posted by John Doe 7 March
-                                                </div>
-                                            </li>
+
+                                        <?php
+                                            for ($i=0; $i<count($courses) && $i<5; $i++) { 
+                                                $assignedSubject = null;
+                                                for ($j=0; $j<count($subjects) && !$assignedSubject; $j++) { 
+                                                    if ($courses[$i]->getAssignedSubject() == $subjects[$j]->getId()) { 
+                                                        $assignedSubject = $subjects[$j];
+                                                    }
+                                                }
+                                            ?>
+                                                <li class="clearfix last-courses">
+                                                    <a href="index.php?controller=courseController&action=subject&id_course=<?php echo $courses[$i]->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>"><img src="<?php echo $assignedSubject->getHeaderImage();?>" alt="" width="150" class="widget-posts-img" /></a>
+                                                    <div class="widget-posts-descr">
+                                                        <a href="#" title=""><?php echo $courses[$i]->getName();?></a>
+                                                        <?php echo $course->getLocation() . ", " . $course->getType();?>
+                                                    </div>
+                                                </li>
+                                        <?php
+                                            }
+                                        ?>
+
                                         </ul>
                                     </div>
                                     

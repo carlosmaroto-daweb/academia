@@ -373,3 +373,16 @@
 .profile-menu .comment-item-data {
     margin-left: 5px;
 }
+
+.last-courses {
+    display: flex;
+    align-items: center;
+}
+
+.last-courses .widget-posts-descr {
+    margin-left: 10px;
+}
+
+.widget-body .checkbox-inline input {
+    margin-right: 10px;
+}
