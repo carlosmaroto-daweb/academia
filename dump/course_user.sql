@@ -6,3 +6,9 @@ CREATE TABLE `course_user` (
   `id_user` INT NOT NULL,
   PRIMARY KEY (`id_course`, `id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `course_user` (`id_course`, `id_user`) VALUES
+(1, 4),
+(1, 5),
+(1, 6),
+(1, 7);
