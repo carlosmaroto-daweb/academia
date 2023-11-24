@@ -403,3 +403,7 @@
     margin: 0px;
     margin-bottom: 20px;
 }
+
+.container-lesson embed {
+    height: 100vh;
+}

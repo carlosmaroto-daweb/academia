@@ -62,6 +62,7 @@
             }
             for ($i=0; $i<$_POST['count_archives'] && !$noPrivileges; $i++) { 
                 $title = str_replace(' ', '_', $_POST['title-'.$i]);
+                $title = str_replace('.', '_', $title);
                 $array = explode('.', $_FILES[$title]['name']);
                 $ext = end($array);
                 $url_temp = $_FILES[$title]['tmp_name'];

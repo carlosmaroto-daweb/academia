@@ -79,7 +79,7 @@
                 <section class="page-section">
                     <div class="container relative">
                         
-                        <div class="row">
+                        <div class="row container-lesson">
                             
                             <?php
                                 $files = $lesson->getFiles();
