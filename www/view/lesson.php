@@ -85,8 +85,15 @@
                                 $files = explode(';;', $files);
                                 for ($i=0; $i<count($files); $i+=2) {
                                     echo "<h3>" . $files[$i] . "</h3>";
-                                    if (str_contains($files[$i+1], '.mp4')  || str_contains($files[$i+1], '.avi')) {
-                                        echo "<video src='" . base64_encode($files[$i+1]) . "' controls disablepictureinpicture controlslist='nodownload noplaybackrate'></video>";
+                                    if (str_contains($files[$i+1], '.mp4')) {
+                                        //$content = file_get_contents($files[$i+1]); 
+                                        //$files[$i+1] = "data:video/mp4;base64," . base64_encode($content);
+                                        echo "<video src='" . $files[$i+1] . "' controls disablepictureinpicture controlslist='nodownload noplaybackrate'></video>";
+                                    }
+                                    else if (str_contains($files[$i+1], '.avi')) {
+                                        //$content = file_get_contents($files[$i+1]); 
+                                        //$files[$i+1] = "data:video/avi;base64," . base64_encode($content);
+                                        echo "<video src='" . $files[$i+1] . "' controls disablepictureinpicture controlslist='nodownload noplaybackrate'></video>";
                                     }
                                     else if (str_contains($files[$i+1], '.pdf')) {
                                         echo "<embed src='" . $files[$i+1] . "' type='application/pdf'></embed>";
