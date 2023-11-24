@@ -245,7 +245,7 @@
                                                 <li class="clearfix last-courses">
                                                     <a href="index.php?controller=courseController&action=subject&id_course=<?php echo $courses[$i]->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>"><img src="<?php echo $assignedSubject->getHeaderImage();?>" alt="" width="150" class="widget-posts-img" /></a>
                                                     <div class="widget-posts-descr">
-                                                        <a href="#" title=""><?php echo $courses[$i]->getName();?></a>
+                                                        <a href="index.php?controller=courseController&action=subject&id_course=<?php echo $courses[$i]->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>" title=""><?php echo $courses[$i]->getName();?></a>
                                                         <?php echo $course->getLocation() . ", " . $course->getType();?>
                                                     </div>
                                                 </li>
