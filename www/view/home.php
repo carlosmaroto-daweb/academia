@@ -233,6 +233,40 @@
                                 </div>
                                 <!-- End Widget -->
                                 
+                                <?php
+                                    if (count($courses) != 0) {
+                                ?>
+                                        <!-- Widget -->
+                                        <div class="widget">
+                                            
+                                            <h3 class="widget-title">Mis cursos</h3>
+                                            
+                                            <div class="widget-body">
+                                                <ul class="clearlist widget-menu profile-config">
+                                                    <?php
+                                                        foreach ($courses as $course) {
+                                                            $assignedSubject = null;
+                                                            for ($i=0; $i<count($subjects) && !$assignedSubject; $i++) { 
+                                                                if ($course->getAssignedSubject() == $subjects[$i]->getId()) { 
+                                                                    $assignedSubject = $subjects[$i];
+                                                                }
+                                                            }
+                                                    ?>
+                                                            <li>
+                                                                <a href="index.php?controller=courseController&action=subject&id_course=<?php echo $course->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>" title=""><i class='fa fa-graduation-cap'></i>- <?php echo $course->getName();?></a>
+                                                            </li>
+                                                    <?php
+                                                        }
+                                                    ?>
+                                                </ul>
+                                            </div>
+                                            
+                                        </div>
+                                        <!-- End Widget -->
+                                <?php
+                                    }
+                                ?>
+                                
                             </div>
                             <!-- End Sidebar -->
                         
