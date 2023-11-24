@@ -6,3 +6,8 @@ CREATE TABLE `module_lesson` (
   `id_lesson` INT NOT NULL,
   PRIMARY KEY (`id_module`, `id_lesson`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+INSERT INTO `module_lesson` (`id_module`, `id_lesson`) VALUES
+(1, 1),
+(1, 2);
