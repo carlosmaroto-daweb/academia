@@ -932,8 +932,36 @@
     }
 
     function courses() {
+      $studies = '';
+      $location = '';
+      $type = '';
+      $courses = $this->courseManagement->getCourses();
+      
+      foreach ($courses as $course) {
+        if ($studies != '') {
+          $studies .= ';;';
+        }
+        if ($location != '') {
+          $location .= ';;';
+        }
+        if ($type != '') {
+          $type .= ';;';
+        }
+        $studies .= $course->getStudies();
+        $location .= $course->getLocation();
+        $type .= $course->getType();
+      }
+      $studies = explode(';;', $studies);
+      $studies = array_unique($studies);
+      $location = explode(';;', $location);
+      $location = array_unique($location);
+      $type = explode(';;', $type);
+      $type = array_unique($type);
       $result = [
-        'courses'  => $this->courseManagement->getCourses(),
+        'studies'  => $studies,
+        'location' => $location,
+        'type'     => $type,
+        'courses'  => $courses,
         'subjects' => $this->subjectManagement->getSubjects(),
       ];
       $this->view = 'courses';

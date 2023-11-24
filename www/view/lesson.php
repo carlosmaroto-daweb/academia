@@ -86,7 +86,7 @@
                                 for ($i=0; $i<count($files); $i+=2) {
                                     echo "<h3>" . $files[$i] . "</h3>";
                                     if (str_contains($files[$i+1], '.mp4')  || str_contains($files[$i+1], '.avi')) {
-                                        echo "<video src='" . $files[$i+1] . "' controls disablepictureinpicture controlslist='nodownload noplaybackrate'></video>";
+                                        echo "<video src='" . base64_encode($files[$i+1]) . "' controls disablepictureinpicture controlslist='nodownload noplaybackrate'></video>";
                                     }
                                     else if (str_contains($files[$i+1], '.pdf')) {
                                         echo "<embed src='" . $files[$i+1] . "' type='application/pdf'></embed>";

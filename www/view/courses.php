@@ -66,6 +66,9 @@
                             <div class="col-md-8 offset-lg-1 mb-sm-80 order-first order-md-last">
 
                                 <?php
+                                    $studies  = $dataToView["studies"];
+                                    $location = $dataToView["location"];
+                                    $type     = $dataToView["type"];
                                     $courses  = $dataToView["courses"];
                                     $subjects = $dataToView["subjects"];
                                 ?>
@@ -158,21 +161,17 @@
                                     
                                     <div class="widget-body">
                                         <ul class="clearlist widget-menu">
-                                            <li>
-                                                <label class="checkbox-inline">
-                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Oposiciones
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-inline">
-                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Universidad
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-inline">
-                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Bachillerato
-                                                </label>
-                                            </li>
+                                            <?php
+                                                foreach ($type as $i) {
+                                            ?>
+                                                    <li>
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox" id="inlineCheckbox1" value="<? echo $i;?>"><? echo $i;?>
+                                                        </label>
+                                                    </li>
+                                            <?php
+                                                }
+                                            ?>
                                         </ul>
                                     </div>
                                     
@@ -186,21 +185,17 @@
                                     
                                     <div class="widget-body">
                                         <ul class="clearlist widget-menu">
-                                            <li>
-                                                <label class="checkbox-inline">
-                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Málaga
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-inline">
-                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Granada
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-inline">
-                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Almería
-                                                </label>
-                                            </li>
+                                            <?php
+                                                foreach ($location as $i) {
+                                            ?>
+                                                    <li>
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox" id="inlineCheckbox1" value="<? echo $i;?>"><? echo $i;?>
+                                                        </label>
+                                                    </li>
+                                            <?php
+                                                }
+                                            ?>
                                         </ul>
                                     </div>
                                     
@@ -214,11 +209,17 @@
                                     
                                     <div class="widget-body">
                                         <ul class="clearlist widget-menu">
-                                            <li>
-                                                <label class="checkbox-inline">
-                                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Ingeniería en Diseño Industrial y Desarrollo del Producto
-                                                </label>
-                                            </li>
+                                            <?php
+                                                foreach ($studies as $i) {
+                                            ?>
+                                                    <li>
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox" id="inlineCheckbox1" value="<? echo $i;?>"><? echo $i;?>
+                                                        </label>
+                                                    </li>
+                                            <?php
+                                                }
+                                            ?>
                                         </ul>
                                     </div>
                                     
