@@ -429,7 +429,7 @@
                         $ext = end($array);
                         if ($ext != 'mp4' && $ext != 'avi' && $ext != 'pdf') {
                           $valid = false;
-                        }
+                        } 
                       }
                       else {
                         $valid = false;
