@@ -407,3 +407,7 @@
 .container-lesson embed {
     height: 100vh;
 }
+
+.container-lesson h3:not(:first-child) {
+    margin-top: 100px;
+}

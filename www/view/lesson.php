@@ -46,7 +46,6 @@
                                     <div class="mb-20 mb-xs-0">
                                         <!-- Author, Categories, Comments -->
                                         <div class="blog-item-data">
-                                            <i class="fa fa-tags"></i>
                                             <a href=""><i class="fa fa-tags"></i> <?php echo $course->getStudies();?></a>
                                             <span class="separator">&nbsp;</span>
                                             <a href=""><i class="fa fa-tags"></i> <?php echo $course->getLocation();?></a>
