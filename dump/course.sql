@@ -15,4 +15,4 @@ CREATE TABLE `course` (
 
 
 INSERT INTO `course` (`name`, `id_subject`, `studies`, `location`, `type`, `start_date`, `end_date`) VALUES
-('Expresión Gráfica en la Ingeniería - UMA', 1, 'Ingeniería en Diseño Industrial y Desarrollo del Producto', 'Málaga', 'Univerdidad', '2023-09-18', '2024-07-19');
+('Expresión Gráfica en la Ingeniería - UMA', 1, 'Ingeniería en Diseño Industrial y Desarrollo del Producto', 'Málaga', 'Universidad', '2023-09-18', '2024-07-19');

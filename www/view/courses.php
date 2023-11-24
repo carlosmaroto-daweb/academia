@@ -90,11 +90,11 @@
                                         
                                         <!-- Tags and Info -->
                                         <div class="blog-item-data">
-                                            <a href=""><i class="fa fa-tags"></i> <?php echo $course->getStudies();?></a>
+                                            <a href="index.php?controller=courseController&action=courses&type=<?php echo $course->getType();?>"><i class="fa fa-tags"></i> <?php echo $course->getType();?></a>
                                             <span class="separator">&nbsp;</span>
-                                            <a href=""><i class="fa fa-tags"></i> <?php echo $course->getLocation();?></a>
+                                            <a href="index.php?controller=courseController&action=courses&location=<?php echo $course->getLocation();?>"><i class="fa fa-tags"></i> <?php echo $course->getLocation();?></a>
                                             <span class="separator">&nbsp;</span>
-                                            <a href=""><i class="fa fa-tags"></i> <?php echo $course->getType();?></a>
+                                            <a href="index.php?controller=courseController&action=courses&studies=<?php echo $course->getStudies();?>"><i class="fa fa-tags"></i> <?php echo $course->getStudies();?></a>
                                             <span class="separator">&nbsp;</span>
                                             <i class="fa fa-clock"></i> <?php echo $course->getStartDate();?>
                                             <span class="separator">&nbsp;</span>
@@ -166,7 +166,7 @@
                                             ?>
                                                     <li>
                                                         <label class="checkbox-inline">
-                                                            <input type="checkbox" id="inlineCheckbox1" value="<? echo $i;?>"><? echo $i;?>
+                                                            <input class="course_filter_type" type="checkbox" value="<? echo $i;?>" <?php if (isset($_GET['type']) && $_GET['type'] == $i) echo "checked" ?>><? echo $i;?>
                                                         </label>
                                                     </li>
                                             <?php
@@ -190,7 +190,7 @@
                                             ?>
                                                     <li>
                                                         <label class="checkbox-inline">
-                                                            <input type="checkbox" id="inlineCheckbox1" value="<? echo $i;?>"><? echo $i;?>
+                                                            <input class="course_filter_location" type="checkbox" value="<? echo $i;?>" <?php if (isset($_GET['location']) && $_GET['location'] == $i) echo "checked" ?>><? echo $i;?>
                                                         </label>
                                                     </li>
                                             <?php
@@ -214,7 +214,7 @@
                                             ?>
                                                     <li>
                                                         <label class="checkbox-inline">
-                                                            <input type="checkbox" id="inlineCheckbox1" value="<? echo $i;?>"><? echo $i;?>
+                                                            <input class="course_filter_studies" type="checkbox" value="<? echo $i;?>" <?php if (isset($_GET['studies']) && $_GET['studies'] == $i) echo "checked" ?>><? echo $i;?>
                                                         </label>
                                                     </li>
                                             <?php

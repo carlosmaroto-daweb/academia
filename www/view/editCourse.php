@@ -105,7 +105,7 @@
                                     echo "<select id='type' class='input-md round form-control'>";
                                         echo "<option disabled"; if($type == '') echo " selected"; echo ">Selecciona el tipo</option>";
                                         echo "<option value='Oposiciones'"; if($type == 'Oposiciones') echo " selected"; echo ">Oposiciones</option>";
-                                        echo "<option value='Univerdidad'"; if($type == 'Univerdidad') echo " selected"; echo ">Univerdidad</option>";
+                                        echo "<option value='Universidad'"; if($type == 'Universidad') echo " selected"; echo ">Universidad</option>";
                                         echo "<option value='Instituto'"; if($type == 'Instituto') echo " selected"; echo ">Instituto</option>";
                                     echo "</select>";
                                 echo "</div>";

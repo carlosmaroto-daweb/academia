@@ -1694,4 +1694,46 @@ $(document).ready(function() {
         $(this).closest(".row-assigned_users").remove();
     });
 
+    $('.course_filter_type').on('click', function(e) {
+        e.preventDefault();
+        if ($(this).is(':checked')) {
+            let path = window.location.href + "&type=" + encodeURIComponent($(this).val());
+            location.replace(path);
+        }
+        else {
+            let path = window.location.href;
+            let search = "&type=" + encodeURIComponent($(this).val());
+            path = path.replace(search, '');
+            location.replace(path);
+        }
+    });
+
+    $('.course_filter_location').on('click', function(e) {
+        e.preventDefault();
+        if ($(this).is(':checked')) {
+            let path = window.location.href + "&location=" + encodeURIComponent($(this).val());
+            location.replace(path);
+        }
+        else {
+            let path = window.location.href;
+            let search = "&location=" + encodeURIComponent($(this).val());
+            path = path.replace(search, '');
+            location.replace(path);
+        }
+    });
+
+    $('.course_filter_studies').on('click', function(e) {
+        e.preventDefault();
+        if ($(this).is(':checked')) {
+            let path = window.location.href + "&studies=" + encodeURIComponent($(this).val());
+            location.replace(path);
+        }
+        else {
+            let path = window.location.href;
+            let search = "&studies=" + encodeURIComponent($(this).val());
+            path = path.replace(search, '');
+            location.replace(path);
+        }
+    });
+
 });

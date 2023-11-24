@@ -951,6 +951,35 @@
         $location .= $course->getLocation();
         $type .= $course->getType();
       }
+      
+      if ((isset($_GET['studies']) && !empty($_GET['studies'])) || (isset($_GET['location']) && !empty($_GET['location'])) || (isset($_GET['type']) && !empty($_GET['type']))) {
+        $filterCourses = [];
+        foreach ($courses as $course) {
+          if (((isset($_GET['studies']) && !empty($_GET['studies'])) && $_GET['studies'] == $course->getStudies()) && ((isset($_GET['location']) && !empty($_GET['location'])) && $_GET['location'] == $course->getLocation()) && ((isset($_GET['type']) && !empty($_GET['type'])) && $_GET['type'] == $course->getType())) {
+            array_push($filterCourses, $course);
+          }
+          else if (((isset($_GET['studies']) && !empty($_GET['studies'])) && $_GET['studies'] == $course->getStudies()) && ((isset($_GET['location']) && !empty($_GET['location'])) && $_GET['location'] == $course->getLocation())) {
+            array_push($filterCourses, $course);
+          }
+          else if (((isset($_GET['studies']) && !empty($_GET['studies'])) && $_GET['studies'] == $course->getStudies()) && ((isset($_GET['type']) && !empty($_GET['type'])) && $_GET['type'] == $course->getType())) {
+            array_push($filterCourses, $course);
+          }
+          else if (((isset($_GET['location']) && !empty($_GET['location'])) && $_GET['location'] == $course->getLocation()) && ((isset($_GET['type']) && !empty($_GET['type'])) && $_GET['type'] == $course->getType())) {
+            array_push($filterCourses, $course);
+          }
+          else if ((isset($_GET['studies']) && !empty($_GET['studies'])) && $_GET['studies'] == $course->getStudies()) {
+            array_push($filterCourses, $course);
+          }
+          else if ((isset($_GET['location']) && !empty($_GET['location'])) && $_GET['location'] == $course->getLocation()) {
+            array_push($filterCourses, $course);
+          }
+          else if ((isset($_GET['type']) && !empty($_GET['type'])) && $_GET['type'] == $course->getType()) {
+            array_push($filterCourses, $course);
+          }
+        }
+        $courses = $filterCourses;
+      }
+
       $studies = explode(';;', $studies);
       $studies = array_unique($studies);
       $location = explode(';;', $location);

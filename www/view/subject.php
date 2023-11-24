@@ -45,11 +45,11 @@
                                     <div class="mb-20 mb-xs-0">
                                         <!-- Author, Categories, Comments -->
                                         <div class="blog-item-data">
-                                            <a href=""><i class="fa fa-tags"></i> <?php echo $course->getStudies();?></a>
+                                            <a href="index.php?controller=courseController&action=courses&type=<?php echo $course->getType();?>"><i class="fa fa-tags"></i> <?php echo $course->getType();?></a>
                                             <span class="separator">&nbsp;</span>
-                                            <a href=""><i class="fa fa-tags"></i> <?php echo $course->getLocation();?></a>
+                                            <a href="index.php?controller=courseController&action=courses&location=<?php echo $course->getLocation();?>"><i class="fa fa-tags"></i> <?php echo $course->getLocation();?></a>
                                             <span class="separator">&nbsp;</span>
-                                            <a href=""><i class="fa fa-tags"></i> <?php echo $course->getType();?></a>
+                                            <a href="index.php?controller=courseController&action=courses&studies=<?php echo $course->getStudies();?>"><i class="fa fa-tags"></i> <?php echo $course->getStudies();?></a>
                                             <span class="separator">&nbsp;</span>
                                         </div>
                                     </div>
