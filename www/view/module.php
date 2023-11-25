@@ -134,7 +134,7 @@
                                                             echo "</td>";
                                                             echo "</td>";
                                                             echo "<td class='table-col-btn'>";
-                                                                echo "<a href='index.php?controller=courseController&action=lesson&id_course={$course->getId()}&id_subject={$subject->getId()}&id_module={$module->getId()}&id_lesson={$lesson->getId()}' class='btn btn-mod btn-circle btn-small button-edit'>Ver lección</a>";
+                                                                echo "<a href='index.php?controller=courseController&action=lesson&id_course={$course->getId()}&id_subject={$subject->getId()}&id_module={$module->getId()}&id_lesson={$lesson->getId()}' class='btn btn-mod btn-circle btn-small button-lesson'>Ver lección</a>";
                                                             echo "</td>";
                                                         echo "</tr>";
                                                         $count++;
