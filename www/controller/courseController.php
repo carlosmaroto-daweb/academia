@@ -57,6 +57,15 @@
       $this->userManagement      = new UserManagement();
       $this->relatedTableManager = new RelatedTableManager();
     }
+
+    function byCourse() {
+      $result = [
+        'course'  => $this->courseManagement->getCourseById($_GET['id_course']),
+        'subject' => $this->subjectManagement->getSubjectById($_GET['id_subject']),
+      ];
+      $this->view = 'byCourse';
+      return $result;
+    }
     
     function createCourseUser() {
       if (isSecretary() || isAdmin()) {
@@ -1069,9 +1078,7 @@
             return $result;
           }
           else {
-            $userController = new userController();
-            $userController->login();
-            $this->view = $userController->getView();
+            return $this->byCourse();
           }
         }
       }

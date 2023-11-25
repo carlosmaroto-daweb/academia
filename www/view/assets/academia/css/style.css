@@ -433,3 +433,26 @@
 .fa-sign-out-alt {
     color: rgb(243, 150, 78);
 }
+
+.button-buy .btn {
+    color: white;
+    min-width: 200px;
+}
+
+.btn-bizzum {
+    background: #05C0C7 !important;
+}
+
+.button-card {
+    background: #c75f05 !important;
+}
+
+.button-transfer {
+    background: #05c75f !important;
+}
+
+.btn-paypal {
+    background: #3b7bbf !important;
+}
+
+
