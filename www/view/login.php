@@ -27,7 +27,7 @@
             <main id="main">    
             
                 <!-- Home Section -->
-                <section class="page-section bg-dark-alfa-50 bg-scroll" data-background="view/assets/images/full-width-images/section-bg-19.jpg" id="home">
+                <section class="page-section bg-dark-alfa-50 bg-scroll" data-background="view/assets/academia/img/headers/board.jpg" id="home">
                     <div class="container relative">
                     
                         <div class="row">
