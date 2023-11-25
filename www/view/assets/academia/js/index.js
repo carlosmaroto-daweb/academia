@@ -1736,4 +1736,19 @@ $(document).ready(function() {
         }
     });
 
+    $('.search-button').on('click', function(e) {
+        e.preventDefault();
+        if ($('.search-field').val() != '') {
+            let path = "index.php?controller=courseController&action=courses&search=" + encodeURIComponent($('.search-field').val());
+            location.replace(path);
+        }
+        else {
+            let path = window.location.href;
+            let search = "&search=";
+            let regex = new RegExp(search + "[^&]*");
+            path = path.replace(regex, '');
+            location.replace(path);
+        }
+    });
+
 });

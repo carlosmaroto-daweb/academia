@@ -145,10 +145,10 @@
                                 <div class="widget">
                                     <form class="form">
                                         <div class="search-wrap">
-                                            <button class="search-button animate" type="submit" title="Start Search">
+                                            <button class="search-button animate" title="Start Search">
                                                 <i class="fa fa-search"></i>
                                             </button>
-                                            <input type="text" class="form-control search-field round" placeholder="Buscar...">
+                                            <input type="text" class="form-control search-field round" value="<?php if (isset($_GET['search']) && $_GET['search'] != '') echo $_GET['search']; ?>" placeholder="Buscar...">
                                         </div>
                                     </form>
                                 </div>
@@ -235,7 +235,7 @@
                                         <ul class="clearlist widget-posts">
 
                                         <?php
-                                            for ($i=0; $i<count($courses) && $i<5; $i++) { 
+                                            for ($i=count($courses)-1; $i>=0 && $i>count($courses)-6; $i--) { 
                                                 $assignedSubject = null;
                                                 for ($j=0; $j<count($subjects) && !$assignedSubject; $j++) { 
                                                     if ($courses[$i]->getAssignedSubject() == $subjects[$j]->getId()) { 

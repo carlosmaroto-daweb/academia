@@ -952,7 +952,16 @@
         $type .= $course->getType();
       }
       
-      if ((isset($_GET['studies']) && !empty($_GET['studies'])) || (isset($_GET['location']) && !empty($_GET['location'])) || (isset($_GET['type']) && !empty($_GET['type']))) {
+      if (isset($_GET['search']) && !empty($_GET['search'])) {
+        $filterCourses = [];
+        foreach ($courses as $course) {
+          if (str_contains($course->getName(), $_GET['search'])) {
+            array_push($filterCourses, $course);
+          }
+        }
+        $courses = $filterCourses;
+      }
+      else if ((isset($_GET['studies']) && !empty($_GET['studies'])) || (isset($_GET['location']) && !empty($_GET['location'])) || (isset($_GET['type']) && !empty($_GET['type']))) {
         $filterCourses = [];
         foreach ($courses as $course) {
           if (((isset($_GET['studies']) && !empty($_GET['studies'])) && $_GET['studies'] == $course->getStudies()) && ((isset($_GET['location']) && !empty($_GET['location'])) && $_GET['location'] == $course->getLocation()) && ((isset($_GET['type']) && !empty($_GET['type'])) && $_GET['type'] == $course->getType())) {
