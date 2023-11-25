@@ -50,6 +50,117 @@
                 
                 </div>
                 <!-- End Fullwidth Slider -->
+                
+                
+                <!-- Promo Section -->
+                <section class="page-section">
+                    <div class="container relative">
+                        <div class="row">
+                            
+                            <!-- Text -->
+                            <div class="col-lg-6 wow fadeInUpShort" data-wow-duration="1.2s" data-wow-offset="205">
+                                
+                                <div class="row">
+                                    <div class="col-lg-10">
+                                        <h2 class="section-title mb-60 mb-sm-30">Nuestra misión</h2>
+                                    </div>
+                                </div>
+                                
+                                <!-- Features Grid -->
+                                <div class="row alt-features-grid">
+                                    
+                                    <!-- Features Item -->
+                                    <div class="col-lg-6">
+                                        <div class="alt-features-item">
+                                            <div class="alt-features-icon">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                    <path d="M21.62 20.196c1.055-.922 1.737-2.262 1.737-3.772 0-1.321-.521-2.515-1.357-3.412v-6.946l-11.001-6.066-11 6v12.131l11 5.869 5.468-2.917c.578.231 1.205.367 1.865.367.903 0 1.739-.258 2.471-.676l2.394 3.226.803-.596-2.38-3.208zm-11.121 2.404l-9.5-5.069v-10.447l9.5 4.946v10.57zm1-.001v-10.567l5.067-2.608.029.015.021-.04 4.384-2.256v5.039c-.774-.488-1.686-.782-2.668-.782-2.773 0-5.024 2.252-5.024 5.024 0 1.686.838 3.171 2.113 4.083l-3.922 2.092zm6.833-2.149c-2.219 0-4.024-1.808-4.024-4.026s1.805-4.025 4.024-4.025c2.22 0 4.025 1.807 4.025 4.025 0 2.218-1.805 4.026-4.025 4.026zm-.364-3.333l-1.306-1.147-.66.751 2.029 1.782 2.966-3.12-.725-.689-2.304 2.423zm-16.371-10.85l4.349-2.372 9.534 4.964-4.479 2.305-9.404-4.897zm9.4-5.127l9.404 5.186-3.832 1.972-9.565-4.98 3.993-2.178z"/>
+                                                </svg>
+                                            </div>
+                                            <h3 class="alt-features-title">Excelencia Académica</h3>
+                                            <div class="alt-features-descr">
+                                                Proporcionar cursos rigurosos y actualizados, con materiales de estudio de primera categoría, videos explicativos y documentos descargables, diseñados para optimizar la comprensión y el dominio de las asignaturas de dibujo técnico.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Features Item -->
+                                    
+                                    <!-- Features Item -->
+                                    <div class="col-lg-6">
+                                        <div class="alt-features-item">
+                                            <div class="alt-features-icon">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                    <path d="M12 0c-3.371 2.866-5.484 3-9 3v11.535c0 4.603 3.203 5.804 9 9.465 5.797-3.661 9-4.862 9-9.465v-11.535c-3.516 0-5.629-.134-9-3zm0 1.292c2.942 2.31 5.12 2.655 8 2.701v10.542c0 3.891-2.638 4.943-8 8.284-5.375-3.35-8-4.414-8-8.284v-10.542c2.88-.046 5.058-.391 8-2.701zm5 7.739l-5.992 6.623-3.672-3.931.701-.683 3.008 3.184 5.227-5.878.728.685z"/>
+                                                </svg>
+                                            </div>
+                                            <h3 class="alt-features-title">Accesibilidad y Flexibilidad</h3>
+                                            <div class="alt-features-descr">
+                                                Garantizar que nuestros cursos sean accesibles para todos los estudiantes, independientemente de su ubicación o disponibilidad horaria. Ofrecemos una plataforma en línea que permite el acceso a los recursos educativos en cualquier momento y desde cualquier dispositivo.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Features Item -->
+                                    
+                                    <!-- Features Item -->
+                                    <div class="col-lg-6">
+                                        <div class="alt-features-item">
+                                            <div class="alt-features-icon">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                    <path d="M6.514 24.015h-3v-3.39c-2.08-.638-3.5-2.652-3.5-5.04 0-1.19.202-1.693 1.774-5.603.521-1.294 1.195-2.97 2.068-5.179.204-.518.67-.806 1.17-.802.482.004.941.284 1.146.802.718 1.817 1.302 3.274 1.777 4.454.26-.596.567-1.288.928-2.103.694-1.565 1.591-3.592 2.754-6.265.258-.592.881-.906 1.397-.888.572.015 1.126.329 1.369.888 1.163 2.673 2.06 4.7 2.754 6.265 2.094 4.727 2.363 5.334 2.363 6.764 0 2.927-2.078 5.422-5 6.082v4.015h-3v-4.015c-.943-.213-1.797-.617-2.523-1.165-.612.845-1.466 1.48-2.477 1.79v3.39zm14.493-6c1.652 0 2.993 1.341 2.993 2.993s-1.341 2.993-2.993 2.993-2.993-1.341-2.993-2.993 1.341-2.993 2.993-2.993zm.007.993c1.104 0 2 .896 2 2s-.896 2-2 2-2-.896-2-2 .896-2 2-2zm-7.5 3.993v-3.839c4.906-.786 5-4.751 5-5.244 0-1.218-.216-1.705-2.277-6.359-2.134-4.82-2.721-6.198-2.755-6.261-.079-.145-.193-.292-.455-.297-.238 0-.37.092-.481.297-.034.063-.621 1.441-2.755 6.261-2.061 4.654-2.277 5.141-2.277 6.359 0 .493.094 4.458 5 5.244v3.839h1zm-6.123-12.448l-.08-.198c-1.589-3.957-2.04-5.116-2.067-5.171-.072-.151-.15-.226-.226-.228-.109 0-.188.13-.235.228-.028.05-.316.818-2.066 5.171-1.542 3.833-1.703 4.233-1.703 5.23 0 1.988 1.076 3.728 3.5 4.25v3.166h1v-3.166c1.266-.273 2.159-.876 2.725-1.666-1.078-1.12-1.725-2.619-1.725-4.251 0-.979.126-1.572.877-3.365z"/>
+                                                </svg>
+                                            </div>
+                                            <h3 class="alt-features-title">Apoyo Integral</h3>
+                                            <div class="alt-features-descr">
+                                                Brindar un apoyo integral a nuestros alumnos, no solo a través de la entrega de contenido de alta calidad, sino también mediante la opción de clases en vivo y videotutorías individuales con nuestros experimentados profesores. Estamos comprometidos con el progreso y el éxito académico de cada estudiante.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Features Item -->
+                                    
+                                    <!-- Features Item -->
+                                    <div class="col-lg-6">
+                                        <div class="alt-features-item">
+                                            <div class="alt-features-icon">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                    <path d="M16 3.383l-.924-.383-7.297 17.617.924.383 7.297-17.617zm.287 3.617l6.153 4.825-6.173 5.175.678.737 7.055-5.912-7.048-5.578-.665.753zm-8.478 0l-6.249 4.825 6.003 5.175-.679.737-6.884-5.912 7.144-5.578.665.753z"/>
+                                                </svg>
+                                            </div>
+                                            <h3 class="alt-features-title">Innovación Continua</h3>
+                                            <div class="alt-features-descr">
+                                                Permanecer a la vanguardia de la educación en línea, actualizando constantemente nuestros métodos de enseñanza, integrando nuevas tecnologías y respondiendo a las necesidades cambiantes de los estudiantes y del campo del dibujo técnico.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Features Item -->
+                                    
+                                </div>
+                                <!-- End Features Grid -->
+                                
+                            </div>
+                            <!-- End Text -->
+                            
+                            <!-- Images --> 
+                            <div class="col-lg-6">                                                               
+                                <div class="call-action-3-images mt-xs-0 text-end">
+                                    
+                                    <div class="call-action-3-image-1">
+                                        <img src="view/assets/images/promo-6.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" data-wow-offset="205" />
+                                    </div>
+                                    
+                                    <div class="call-action-3-image-2-wrap d-flex align-items-center">
+                                        <div class="call-action-3-image-2">
+                                            <img src="view/assets/images/promo-7.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" />
+                                        </div>
+                                    </div>
+                                    
+                                </div>                                                                              
+                            </div>
+                            <!-- End Images -->
+                            
+                        </div>
+                    </div>
+                </section>
+                <!-- End Promo Section -->
 
 
                 <!-- About Section -->
@@ -332,160 +443,6 @@
                 </section>
                 <!-- End Call Action Section -->
                 
-                
-                <!-- Portfolio Section -->
-                <section class="page-section pb-0" id="portfolio">
-                    <div class="full-wrapper relative">
-                        
-                        <div class="text-center mb-80 mb-sm-50">
-                            <h2 class="section-title">Our Works</h2>
-                            <p class="section-title-descr">
-                                Look at selection of our projects
-                            </p>
-                        </div>
-                        
-                        <!-- Works Filter -->                    
-                        <div class="works-filter text-center">
-                            <a href="#" class="filter active" role="button" aria-pressed="true" data-filter="*">All works</a>
-                            <a href="#branding" class="filter" role="button" aria-pressed="false" data-filter=".branding">Branding</a>
-                            <a href="#design" class="filter" role="button" aria-pressed="false" data-filter=".design">Design</a>
-                            <a href="#photography" class="filter" role="button" aria-pressed="false" data-filter=".photography">Photography</a>
-                        </div>                    
-                        <!-- End Works Filter -->
-                        
-                        <!-- Works Grid -->
-                        <ul class="works-grid work-grid-3 work-grid-gut clearfix hover-white hide-titles" id="work-grid">
-                            
-                            <!-- Work Item (Lightbox) -->
-                            <li class="work-item mix photography">
-                                <a href="view/assets/images/portfolio/full-project-1.jpg" class="work-lightbox-link mfp-image">
-                                    <div class="work-img">
-                                        <div class="work-img-bg wow-p scalexIn"></div>
-                                        <img src="view/assets/images/portfolio/projects-1.jpg" alt="Work Description" class="wow-p fadeIn" data-wow-delay="1s" />
-                                    </div>
-                                    <div class="work-intro">
-                                        <h3 class="work-title">Green Leaf</h3>
-                                        <div class="work-descr">
-                                            Lightbox 
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <!-- End Work Item -->
-                            
-                            <!-- Work Item (External Page) -->
-                            <li class="work-item mix branding design">
-                                <a href="portfolio-single-1.html" class="work-ext-link">
-                                    <div class="work-img">
-                                        <div class="work-img-bg wow-p scalexIn"></div>
-                                        <img src="view/assets/images/portfolio/projects-2.jpg" alt="Work Description" class="wow-p fadeIn" data-wow-delay="1s" />
-                                    </div>
-                                    <div class="work-intro">
-                                        <h3 class="work-title">Photo Lighting</h3>
-                                        <div class="work-descr">
-                                            External Page
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <!-- End Work Item -->
-                            
-                            <!-- Work Item (External Page) -->
-                            <li class="work-item mix branding">
-                                <a href="portfolio-single-1.html" class="work-ext-link">
-                                    <div class="work-img">
-                                        <div class="work-img-bg wow-p scalexIn"></div>
-                                        <img src="view/assets/images/portfolio/projects-3.jpg" alt="Work Description" class="wow-p fadeIn" data-wow-delay="1s" />
-                                    </div>
-                                    <div class="work-intro">
-                                        <h3 class="work-title">Green Branch</h3>
-                                        <div class="work-descr">
-                                            External Page
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <!-- End Work Item -->
-                            
-                            <!-- Work Item (External Page) -->
-                            <li class="work-item mix design photography">
-                                <a href="portfolio-single-1.html" class="work-ext-link">
-                                    <div class="work-img">
-                                        <div class="work-img-bg wow-p scalexIn"></div>
-                                        <img src="view/assets/images/portfolio/projects-4.jpg" alt="Work Description" class="wow-p fadeIn" data-wow-delay="1s" />
-                                    </div>
-                                    <div class="work-intro">
-                                        <h3 class="work-title">White Chair</h3>
-                                        <div class="work-descr">
-                                            External Page
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <!-- End Work Item -->
-                            
-                            <!-- Work Item (External Page) -->
-                            <li class="work-item mix design">
-                                <a href="portfolio-single-1.html" class="work-ext-link">
-                                    <div class="work-img">
-                                        <div class="work-img-bg wow-p scalexIn"></div>
-                                        <img src="view/assets/images/portfolio/projects-5.jpg" alt="Work Description" class="wow-p fadeIn" data-wow-delay="1s" />
-                                    </div>
-                                    <div class="work-intro">
-                                        <h3 class="work-title">White Table</h3>
-                                        <div class="work-descr">
-                                            External Page
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <!-- End Work Item -->
-                            
-                            <!-- Work Item (Lightbox) -->
-                            <li class="work-item mix design branding">
-                                <a href="view/assets/images/portfolio/full-project-6.jpg" class="work-lightbox-link mfp-image">
-                                    <div class="work-img">
-                                        <div class="work-img-bg wow-p scalexIn"></div>
-                                        <img src="view/assets/images/portfolio/projects-6.jpg" alt="Work Description" class="wow-p fadeIn" data-wow-delay="1s" />
-                                    </div>
-                                    <div class="work-intro">
-                                        <h3 class="work-title">The Book</h3>
-                                        <div class="work-descr">
-                                            Lightbox
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <!-- End Work Item -->
-                            
-                        </ul>
-                        <!-- End Works Grid -->
-                        
-                        <!-- Call Action Section -->
-                        <section class="small-section bg-gray">
-                            <div class="container relative">
-                                <div class="row wow fadeInUpShort">
-                                    <div class="col-lg-5 offset-lg-2">
-                                        <h3 class="call-action-1-heading">Want to see more works?</h3>
-                                        <div class="call-action-1-decription mb-0 pb-md-20">
-                                            Proin fringilla augue at maximus vestibulum nam pulvinar vitae integer non dapibus diam, ac eleifend lectus.
-                                        </div>                                        
-                                    </div>
-                                    <div class="col-lg-3 pt-10 text-lg-end">
-                                        <div class="local-scroll">
-                                            <a href="portfolio-wide-gutter-3col.html" class="btn btn-mod btn-large btn-round">View Portfolio</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <!-- End Call Action Section -->
-                        
-                    </div>
-                </section>
-                <!-- End Portfolio Section -->
-                
-                
                 <!-- Process Section -->
                 <section class="page-section">
                     <div class="container relative">
@@ -622,126 +579,15 @@
                 <!-- End Divider -->
                 
                 
-                <!-- Promo Section -->
-                <section class="page-section">
-                    <div class="container relative">
-                        <div class="row">
-                            
-                            <!-- Text -->
-                            <div class="col-lg-6 wow fadeInUpShort" data-wow-duration="1.2s" data-wow-offset="205">
-                                
-                                <div class="row">
-                                    <div class="col-lg-10">
-                                        <h2 class="section-title mb-60 mb-sm-30">Awesome Template With Clean Design</h2>
-                                    </div>
-                                </div>
-                                
-                                <!-- Features Grid -->
-                                <div class="row alt-features-grid">
-                                    
-                                    <!-- Features Item -->
-                                    <div class="col-lg-6">
-                                        <div class="alt-features-item">
-                                            <div class="alt-features-icon">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                                                    <path d="M21.62 20.196c1.055-.922 1.737-2.262 1.737-3.772 0-1.321-.521-2.515-1.357-3.412v-6.946l-11.001-6.066-11 6v12.131l11 5.869 5.468-2.917c.578.231 1.205.367 1.865.367.903 0 1.739-.258 2.471-.676l2.394 3.226.803-.596-2.38-3.208zm-11.121 2.404l-9.5-5.069v-10.447l9.5 4.946v10.57zm1-.001v-10.567l5.067-2.608.029.015.021-.04 4.384-2.256v5.039c-.774-.488-1.686-.782-2.668-.782-2.773 0-5.024 2.252-5.024 5.024 0 1.686.838 3.171 2.113 4.083l-3.922 2.092zm6.833-2.149c-2.219 0-4.024-1.808-4.024-4.026s1.805-4.025 4.024-4.025c2.22 0 4.025 1.807 4.025 4.025 0 2.218-1.805 4.026-4.025 4.026zm-.364-3.333l-1.306-1.147-.66.751 2.029 1.782 2.966-3.12-.725-.689-2.304 2.423zm-16.371-10.85l4.349-2.372 9.534 4.964-4.479 2.305-9.404-4.897zm9.4-5.127l9.404 5.186-3.832 1.972-9.565-4.98 3.993-2.178z"/>
-                                                </svg>
-                                            </div>
-                                            <h3 class="alt-features-title">Unique Design</h3>
-                                            <div class="alt-features-descr">
-                                                Fusce aliquet quam eget neque ultrices elementum felis id arcu blandit sagittis.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Features Item -->
-                                    
-                                    <!-- Features Item -->
-                                    <div class="col-lg-6">
-                                        <div class="alt-features-item">
-                                            <div class="alt-features-icon">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                                                    <path d="M12 0c-3.371 2.866-5.484 3-9 3v11.535c0 4.603 3.203 5.804 9 9.465 5.797-3.661 9-4.862 9-9.465v-11.535c-3.516 0-5.629-.134-9-3zm0 1.292c2.942 2.31 5.12 2.655 8 2.701v10.542c0 3.891-2.638 4.943-8 8.284-5.375-3.35-8-4.414-8-8.284v-10.542c2.88-.046 5.058-.391 8-2.701zm5 7.739l-5.992 6.623-3.672-3.931.701-.683 3.008 3.184 5.227-5.878.728.685z"/>
-                                                </svg>
-                                            </div>
-                                            <h3 class="alt-features-title">Quality Code</h3>
-                                            <div class="alt-features-descr">
-                                                Lorem ipsum dolor sit amet rembe adipiscing elite Inwege maximus ligula. 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Features Item -->
-                                    
-                                    <!-- Features Item -->
-                                    <div class="col-lg-6">
-                                        <div class="alt-features-item">
-                                            <div class="alt-features-icon">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                                                    <path d="M6.514 24.015h-3v-3.39c-2.08-.638-3.5-2.652-3.5-5.04 0-1.19.202-1.693 1.774-5.603.521-1.294 1.195-2.97 2.068-5.179.204-.518.67-.806 1.17-.802.482.004.941.284 1.146.802.718 1.817 1.302 3.274 1.777 4.454.26-.596.567-1.288.928-2.103.694-1.565 1.591-3.592 2.754-6.265.258-.592.881-.906 1.397-.888.572.015 1.126.329 1.369.888 1.163 2.673 2.06 4.7 2.754 6.265 2.094 4.727 2.363 5.334 2.363 6.764 0 2.927-2.078 5.422-5 6.082v4.015h-3v-4.015c-.943-.213-1.797-.617-2.523-1.165-.612.845-1.466 1.48-2.477 1.79v3.39zm14.493-6c1.652 0 2.993 1.341 2.993 2.993s-1.341 2.993-2.993 2.993-2.993-1.341-2.993-2.993 1.341-2.993 2.993-2.993zm.007.993c1.104 0 2 .896 2 2s-.896 2-2 2-2-.896-2-2 .896-2 2-2zm-7.5 3.993v-3.839c4.906-.786 5-4.751 5-5.244 0-1.218-.216-1.705-2.277-6.359-2.134-4.82-2.721-6.198-2.755-6.261-.079-.145-.193-.292-.455-.297-.238 0-.37.092-.481.297-.034.063-.621 1.441-2.755 6.261-2.061 4.654-2.277 5.141-2.277 6.359 0 .493.094 4.458 5 5.244v3.839h1zm-6.123-12.448l-.08-.198c-1.589-3.957-2.04-5.116-2.067-5.171-.072-.151-.15-.226-.226-.228-.109 0-.188.13-.235.228-.028.05-.316.818-2.066 5.171-1.542 3.833-1.703 4.233-1.703 5.23 0 1.988 1.076 3.728 3.5 4.25v3.166h1v-3.166c1.266-.273 2.159-.876 2.725-1.666-1.078-1.12-1.725-2.619-1.725-4.251 0-.979.126-1.572.877-3.365z"/>
-                                                </svg>
-                                            </div>
-                                            <h3 class="alt-features-title">Clean and Minimal</h3>
-                                            <div class="alt-features-descr">
-                                                Maecenas volutpat, diam enime volutpa cras luctus interdum sodales. 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Features Item -->
-                                    
-                                    <!-- Features Item -->
-                                    <div class="col-lg-6">
-                                        <div class="alt-features-item">
-                                            <div class="alt-features-icon">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                                                    <path d="M16 3.383l-.924-.383-7.297 17.617.924.383 7.297-17.617zm.287 3.617l6.153 4.825-6.173 5.175.678.737 7.055-5.912-7.048-5.578-.665.753zm-8.478 0l-6.249 4.825 6.003 5.175-.679.737-6.884-5.912 7.144-5.578.665.753z"/>
-                                                </svg>
-                                            </div>
-                                            <h3 class="alt-features-title">Easy Customization</h3>
-                                            <div class="alt-features-descr">
-                                                Praesent sed nisi eleifend lorem ember fermete acome ante lorem ipsum.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Features Item -->
-                                    
-                                </div>
-                                <!-- End Features Grid -->
-                                
-                            </div>
-                            <!-- End Text -->
-                            
-                            <!-- Images --> 
-                            <div class="col-lg-6">                                                               
-                                <div class="call-action-3-images mt-xs-0 text-end">
-                                    
-                                    <div class="call-action-3-image-1">
-                                        <img src="view/assets/images/promo-6.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" data-wow-offset="205" />
-                                    </div>
-                                    
-                                    <div class="call-action-3-image-2-wrap d-flex align-items-center">
-                                        <div class="call-action-3-image-2">
-                                            <img src="view/assets/images/promo-7.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" />
-                                        </div>
-                                    </div>
-                                    
-                                </div>                                                                              
-                            </div>
-                            <!-- End Images -->
-                            
-                        </div>
-                    </div>
-                </section>
-                <!-- End Promo Section -->
-                
-                
                 <!-- Testimonials Section -->
-                <section class="page-section bg-dark bg-dark-alfa-70 bg-scroll light-content" data-background="view/assets/images/full-width-images/section-bg-2.jpg">
+                <section class="page-section bg-dark bg-dark-alfa-70 bg-scroll light-content" data-background="view/assets/academia/img/backgrounds/comments.webp">
                     <div class="container relative">
                         
                     <div class="row">
                         <div class=" col-lg-8 offset-lg-2 wow fadeInUpShort">
                             
                             <div class="text-center mb-50 mb-sm-20">
-                                <h2 class="section-title">What People Say?</h2>
+                                <h2 class="section-title">¿Qué opinan nuestros alumnos?</h2>
                             </div>
                             
                             <div class="text-slider">
@@ -750,10 +596,10 @@
                                 <div>
                                     <blockquote class="testimonial">
                                         <p>
-                                            Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit aenean congue, risus utaliquam dapibus lorem ipsum dolor. Thanks!
+                                            Es una academia magnífica, la organización extraordinaria y la atención un 10. El profesor, Juanma...🤔, un 1000. He aprendido muchísimo, y lo mejor, tengo muchas más ganas de seguir aprendiendo todo lo que pueda.  Garcías Academia Cartabón.
                                         </p>
                                         <footer class="testimonial-author mt-50 mt-sm-20">
-                                            — John Doe, doodle inc.
+                                            — Marisa, alumna de Oposiciones
                                         </footer>
                                     </blockquote>
                                 </div>
@@ -763,10 +609,10 @@
                                 <div>
                                     <blockquote class="testimonial">
                                         <p>
-                                            Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit aenean congue, risus utaliquam dapibus lorem ipsum dolor. Thanks!
+                                            No tuve dibujo técnico en Segundo de bachillerato y he conseguido sacarme la asignatura de Expresión Gráfica (ingeniería química) con buena nota. Recomendable 100% tanto on-line, como presencial.					
                                         </p>
                                         <footer class="testimonial-author mt-50 mt-sm-20">
-                                            — John Doe, doodle inc.
+                                            — Elena M, alumna UGR
                                         </footer>
                                     </blockquote>
                                 </div>
@@ -776,10 +622,10 @@
                                 <div>
                                     <blockquote class="testimonial">
                                         <p>
-                                            Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit aenean congue, risus utaliquam dapibus lorem ipsum dolor. Thanks!
+                                            Es una academia ONLINE que se ha sabido adaptar perfectamente a los tiempos que corren. Dan muchas facilidades de aprendizaje, el profesor explica muy bien y no se da por vencido, utiliza todas las herramientas a su alcance hasta que se entiende sobradamente el ejercicio, adaptándose al nivel de cada alumno/a. RECOMENDADO 🙂
                                         </p>
                                         <footer class="testimonial-author mt-50 mt-sm-20">
-                                            — John Doe, doodle inc.
+                                            — Óscar Sánchez, alumno UGR
                                         </footer>
                                     </blockquote>
                                 </div>
@@ -865,107 +711,6 @@
                     </div>
                 </section>
                 <!-- End Features Section -->
-                
-                
-                <!-- Shop Section -->
-                <section class="page-section">
-                    <div class="container relative">
-                        
-                        <div class="text-center mb-80 mb-sm-50">
-                            <div class="row">
-                                <div class="col-sm-6 offset-sm-3">
-                                    <h2 class="section-title">Bestsellers</h2>
-                                    <p class="section-title-descr">
-                                        Our best selling products in this place.
-                                    </p>
-                                </div>
-                                <div class="col-sm-3 text-sm-end pt-30 pt-xs-0">
-                                    <a href="shop-columns-3col.html" class="section-more">Our Shop <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                        
-                            <!-- Shop Item -->
-                            <div class="col-sm-6 col-md-3 col-lg-3 mb-md-50">
-                                <div class="post-prev-img">
-                                    <a href="shop-single.html" tabindex="-1"><img src="view/assets/images/shop/shop-prev-1.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" /></a>
-                                    <div class="intro-label">
-                                        <span class="badge badge-danger bg-red">Sale</span>
-                                    </div>
-                                </div>
-                                <div class="post-prev-title text-center mb-10">
-                                    <a href="shop-single.html">Polo Applique Jersey</a>
-                                </div>
-                                <div class="post-prev-text text-center">
-                                    <del>
-                                        $150.00
-                                    </del>
-                                    &nbsp;<strong>$94.75</strong>
-                                </div>
-                                <div class="post-prev-more text-center">
-                                    <a href="#" class="btn btn-mod btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                </div>
-                            </div>
-                            <!-- End Shop Item -->
-                            
-                            <!-- Shop Item -->
-                            <div class="col-sm-6 col-md-3 col-lg-3 mb-md-50">
-                                <div class="post-prev-img">
-                                    <a href="shop-single.html" tabindex="-1"><img src="view/assets/images/shop/shop-prev-2.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" /></a>
-                                </div>
-                                <div class="post-prev-title text-center mb-10">
-                                    <a href="shop-single.html">Pique Polo Shirt</a>
-                                </div>
-                                <div class="post-prev-text text-center">
-                                    <strong>$28.99</strong>
-                                </div>
-                                <div class="post-prev-more text-center">
-                                    <a href="#" class="btn btn-mod btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                </div>
-                            </div>
-                            <!-- End Shop Item -->
-                            
-                            <!-- Shop Item -->
-                            <div class="col-sm-6 col-md-3 col-lg-3 mb-md-50">
-                                <div class="post-prev-img">
-                                    <a href="shop-single.html" tabindex="-1"><img src="view/assets/images/shop/shop-prev-3.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" /></a>
-                                </div>
-                                <div class="post-prev-title text-center mb-10">
-                                    <a href="shop-single.html">Longline Long Sleeve</a>
-                                </div>
-                                <div class="post-prev-text text-center">
-                                    <strong>$39.99</strong>
-                                </div>
-                                <div class="post-prev-more text-center">
-                                    <a href="#" class="btn btn-mod btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                </div>
-                            </div>
-                            <!-- End Shop Item -->
-                            
-                            <!-- Shop Item -->
-                            <div class="col-sm-6 col-md-3 col-lg-3 mb-md-50">
-                                <div class="post-prev-img">
-                                    <a href="shop-single.html" tabindex="-1"><img src="view/assets/images/shop/shop-prev-4.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" /></a>
-                                </div>
-                                <div class="post-prev-title text-center mb-10">
-                                    <a href="shop-single.html">Shirt Floral Sleeves</a>
-                                </div>
-                                <div class="post-prev-text text-center">
-                                    <strong>$85.99</strong>
-                                </div>
-                                <div class="post-prev-more text-center">
-                                    <a href="#" class="btn btn-mod btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                </div>
-                            </div>
-                            <!-- End Shop Item -->
-                        
-                        </div>
-                        
-                    </div>
-                </section>
-                <!-- End Shop Section -->
                 
                 
                 <!-- Section -->
@@ -1107,112 +852,7 @@
                     </div>
                 </section>
                 <!-- End Section -->
-                
-                
-                <!-- Blog Section -->
-                <section class="page-section" id="blog">
-                    <div class="container relative">
-                        
-                        <div class="text-center mb-80 mb-sm-50">
-                            <div class="row">
-                                <div class="col-sm-6 offset-sm-3">
-                                    <h2 class="section-title">Our Blog</h2>
-                                    <p class="section-title-descr">
-                                        The latest news in our blog
-                                    </p>
-                                </div>
-                                <div class="col-sm-3 text-sm-end pt-30 pt-xs-0">
-                                    <a href="blog-classic-sidebar-right.html" class="section-more">Our Blog <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            
-                            <!-- Post Item -->
-                            <div class="col-sm-6 col-md-4 col-lg-4 mb-md-50">
-                                
-                                <div class="post-prev-img">
-                                    <a href="blog-single-sidebar-right.html" tabindex="-1"><img src="view/assets/images/blog/post-prev-1.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" /></a>
-                                </div>
-                                
-                                <h3 class="post-prev-title">
-                                    <a href="blog-single-sidebar-right.html">Meet the New Web Design Trends</a>
-                                </h3>
-                                
-                                <div class="post-prev-info">
-                                    <a href="">John Doe</a> • 10 December
-                                </div>
-                                
-                                <div class="post-prev-text">
-                                    Lorem ipsum dolor sit amet, rembe adipiscing elite. Inwege maximus ligula semper metusere pellentesque mattis. Maecenas volutpat, diam enime volutpa. 
-                                </div>
-                                
-                                <div class="post-prev-more">
-                                    <a href="blog-single-sidebar-right.html" class="text-link" tabindex="-1">Learn More</a>
-                                </div>
-                                
-                            </div>
-                            <!-- End Post Item -->
-                            
-                            <!-- Post Item -->
-                            <div class="col-sm-6 col-md-4 col-lg-4 mb-md-50">
-                                
-                                <div class="post-prev-img">
-                                    <a href="blog-single-sidebar-right.html" tabindex="-1"><img src="view/assets/images/blog/post-prev-2.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" /></a>
-                                </div>
-                                
-                                <h3 class="post-prev-title">
-                                    <a href="blog-single-sidebar-right.html">Minimalistic Product Design</a>
-                                </h3>
-                                
-                                <div class="post-prev-info">
-                                    <a href="">John Doe</a> • 9 December
-                                </div>
-                                
-                                <div class="post-prev-text">
-                                    Proin fringilla augue at maximus vestibulum. Nam pulvi vitae neque et porttitor. Praesent sed nisi eleifend, lorem fermentum ac ante lorem ipsum sit amet. 
-                                </div>
-                                
-                                <div class="post-prev-more">
-                                    <a href="blog-single-sidebar-right.html" class="text-link" tabindex="-1">Learn More</a>
-                                </div>
-                                
-                            </div>
-                            <!-- End Post Item -->
-                            
-                            <!-- Post Item -->
-                            <div class="col-sm-6 col-md-4 col-lg-4 mb-md-50">
-                                
-                                <div class="post-prev-img">
-                                    <a href="blog-single-sidebar-right.html" tabindex="-1"><img src="view/assets/images/blog/post-prev-3.jpg" alt="" class="wow scaleOutIn" data-wow-duration="1.2s" /></a>
-                                </div>
-                                
-                                <h3 class="post-prev-title">
-                                    <a href="blog-single-sidebar-right.html">Clean Style in the Web</a>
-                                </h3>
-                                
-                                <div class="post-prev-info">
-                                    <a href="">John Doe</a> • 7 December
-                                </div>
-                                
-                                <div class="post-prev-text">
-                                    Ember adipiscing elite curabitur iaculis accumsan augu nec finibus mauris pretium eu. Duis placerat ex gravida nibh tristique ultricies eros lorem blandit. 
-                                </div>
-                                
-                                <div class="post-prev-more">
-                                    <a href="blog-single-sidebar-right.html" class="text-link" tabindex="-1">Learn More</a>
-                                </div>
-                                
-                            </div>
-                            <!-- End Post Item -->                            
-                            
-                        </div>
-                        
-                    </div>
-                </section>
-                <!-- End Blog Section -->
-                
+            
                 
                 <!-- Newsletter Section -->
                 <section class="small-section bg-dark bg-dark-alfa-70 bg-scroll bg-position-top light-content" data-background="view/assets/images/full-width-images/section-bg-3.jpg">
@@ -1227,19 +867,19 @@
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M1.999 1v7.269l-2 1.456v13.275h24.001v-13.275l-2.001-1.453v-7.272h-20zm1 11.234v-10.234h18v10.233l-9 5.766-9-5.765zm19 .54v-3.17l1.001.764v11.632h-22.001v-11.641l1-.707.063 3.134 9.937 6.413 10-6.425zm-14.305-6.752l-2.694.496 1.888 1.986-.361 2.716 2.472-1.182 2.473 1.182-.361-2.716 1.888-1.986-2.695-.496-1.305-2.41-1.305 2.41zm.248 2.139l-.945-.994 1.349-.249.653-1.206.654 1.206 1.349.249-.945.994.18 1.36-1.238-.591-1.238.591.181-1.36zm6.058-3.078h4.999v-1h-4.999v1zm0 2h4.999v-1h-4.999v1zm0 2h4.999v-1h-4.999v1zm0 2h3v-1h-3v1z"/></svg>
                                         </div>
                                         <h2 class="newsletter-label-text">
-                                            Stay informed with&nbsp;our newsletter
+                                            Mantante informado con&nbsp;nuestro boletín
                                         </h2>
                                     </div>
                                     
                                     <div class="d-sm-flex justify-content-between mb-20">
-                                        <input placeholder="Your Email" class="newsletter-field input-lg round" type="email" pattern=".{5,100}" required aria-required="true">
+                                        <input placeholder="Tu correo" class="newsletter-field input-lg round" type="email" pattern=".{5,100}" required aria-required="true">
                                         <button type="submit" aria-controls="subscribe-result" class="newsletter-button btn btn-mod btn-w btn-large btn-round">
-                                            Subscribe Now
+                                            Suscríbete ahora
                                         </button>
                                     </div>
                                     
                                     <div class="form-tip">
-                                        Proin fringilla augue at maximus vestibulum <a href="#">Terms & Conditions</a>.
+                                        <a href="#">Términos y Condiciones</a>.
                                     </div>
                                     
                                     <div id="subscribe-result" role="region" aria-live="polite" aria-atomic="true"></div>
@@ -1251,107 +891,7 @@
                     </div>
                 </section>
                 <!-- End Newsletter Section -->
-                
-                
-                <!-- Contact Section -->
-                <section class="page-section" id="contact">
-                    <div class="container relative">
-                        
-                        <div class="text-center mb-80 mb-sm-50">
-                            <h2 class="section-title">Contact</h2>
-                            <p class="section-title-descr">
-                                We’re available for the new projects
-                            </p>
-                        </div>
-                        
-                        <div class="row mb-60 mb-xs-40">
-                            
-                            <div class="col-md-10 offset-md-1">
-                                <div class="row">
-                                    
-                                    <!-- Phone -->
-                                    <div class="col-sm-6 col-lg-4 pb-20">
-                                        <div class="contact-item wow fadeScaleIn" data-wow-delay="0" data-wow-duration="1s">
-                                            <div class="ci-icon">
-                                                <i class="fa fa-phone-alt"></i>
-                                            </div>
-                                            <div class="ci-title">
-                                                Call Us
-                                            </div>
-                                            <div class="ci-text">
-                                                +61 383 767 284
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Phone -->
-                                    
-                                    <!-- Address -->
-                                    <div class="col-sm-6 col-lg-4 pb-20">
-                                        <div class="contact-item wow fadeScaleIn" data-wow-delay=".1s" data-wow-duration="1s">
-                                            <div class="ci-icon">
-                                                <i class="fa fa-map-marker-alt"></i>
-                                            </div>
-                                            <div class="ci-title">
-                                                Address
-                                            </div>
-                                            <div class="ci-text">
-                                                245 Quigley Blvd, Ste K
-                                            </div>
-                                            <div class="ci-link">
-                                                <a href="https://goo.gl/maps/7Vw1PBhxx5BaXStr8" target="_blank">See on the Map</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Address -->
-                                    
-                                    <!-- Email -->
-                                    <div class="col-sm-6 col-lg-4 pb-20">
-                                        <div class="contact-item wow fadeScaleIn" data-wow-delay=".2s" data-wow-duration="1s">
-                                            <div class="ci-icon">
-                                                <i class="fa fa-envelope"></i>
-                                            </div>
-                                            <div class="ci-title">
-                                                Email
-                                            </div>
-                                            <div class="ci-text">
-                                                support@bestlooker.pro
-                                            </div>
-                                            <div class="ci-link">
-                                                <a href="mailto:support@bestlooker.pro">Say Hello</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Email -->
-                                    
-                                </div>
-                            </div>
-                            
-                        </div>
-                        
-                    </div>
-                </section>
-                <!-- End Contact Section -->
-                
-                
-                <!-- Call Action Section -->
-                <section class="small-section bg-dark light-content">
-                    <div class="container relative">
-                        <div class="row wow fadeInUpShort">
-                            <div class="col-md-8 offset-md-2 text-center">
-                                <h3 class="call-action-1-heading">Want to discuss your new project?</h3>
-                                <div class="call-action-1-decription mb-60 mb-sm-30">
-                                    Proin fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Integer non dapibus diam, ac eleifend lectus. Duis placerat ex gravida nibh tristique ultricies eros lorem blandit.
-                                </div>                                     
-                            
-                                <div class="local-scroll">
-                                    <a href="pages-contact-1.html" class="btn btn-mod btn-w btn-large btn-round">Let's Talk</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- End Call Action Section -->
-                
+
             </main>
 
             <!-- Footer
