@@ -44,10 +44,10 @@
                     else {
                         echo "<li>";
                             if (str_contains($_SERVER["REQUEST_URI"], 'home')) {
-                                echo "<a href='index.php?controller=courseController&action=home' class='active'>Mi área</a>";
+                                echo "<a href='index.php?controller=courseController&action=home' class='active'>Mi área <i class='fa fa-unlock-alt'></i></a>";
                             }
                             else {
-                                echo "<a href='index.php?controller=courseController&action=home'>Mi área</a>";
+                                echo "<a href='index.php?controller=courseController&action=home'>Mi área <i class='fa fa-unlock-alt'></i></a>";
                             }
                         echo "</li>";
                         if (isSecretary() || isAdmin()) {

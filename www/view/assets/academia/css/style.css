@@ -411,3 +411,21 @@
 .container-lesson h3:not(:first-child) {
     margin-top: 100px;
 }
+
+.btn-mod.btn-yellow {
+    color: #111;
+    background: rgba(243, 216, 78, 0.9);
+}
+
+.btn-mod.btn-yellow:hover {
+    color: #111;
+    background: rgba(255,255,255, .9);
+}
+
+.fa-lock,.fa-unlock-alt {
+    color: rgba(243, 216, 78, 0.9);
+}
+
+.fa-sign-out-alt {
+    color: rgb(243, 150, 78);
+}
