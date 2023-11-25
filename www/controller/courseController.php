@@ -955,7 +955,21 @@
       if (isset($_GET['search']) && !empty($_GET['search'])) {
         $filterCourses = [];
         foreach ($courses as $course) {
-          if (str_contains($course->getName(), $_GET['search'])) {
+          $characterString1 = str_replace(
+            ['á', 'é', 'í', 'ó', 'ú', 'ü', 'Á', 'É', 'Í', 'Ó', 'Ú', 'Ü'],
+            ['a', 'e', 'i', 'o', 'u', 'u', 'A', 'E', 'I', 'O', 'U', 'U'],
+            $course->getName()
+          );
+          $characterString1 = preg_replace('/[^a-zA-Z0-9]+/', '', $characterString1);
+          $characterString1 = strtolower($characterString1);
+          $characterString2 = str_replace(
+            ['á', 'é', 'í', 'ó', 'ú', 'ü', 'Á', 'É', 'Í', 'Ó', 'Ú', 'Ü'],
+            ['a', 'e', 'i', 'o', 'u', 'u', 'A', 'E', 'I', 'O', 'U', 'U'],
+            $_GET['search']
+          );
+          $characterString2 = preg_replace('/[^a-zA-Z0-9]+/', '', $characterString2);
+          $characterString2 = strtolower($characterString2);
+          if (str_contains($characterString1, $characterString2)) {
             array_push($filterCourses, $course);
           }
         }
