@@ -455,4 +455,6 @@
     background: #3b7bbf !important;
 }
 
-
+.widget-posts-img{
+    max-width: 110px !important;
+}
