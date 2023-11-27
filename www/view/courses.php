@@ -66,11 +66,12 @@
                             <div class="col-md-8 offset-lg-1 mb-sm-80 order-first order-md-last">
 
                                 <?php
-                                    $studies  = $dataToView["studies"];
-                                    $location = $dataToView["location"];
-                                    $type     = $dataToView["type"];
-                                    $courses  = $dataToView["courses"];
-                                    $subjects = $dataToView["subjects"];
+                                    $studies    = $dataToView["studies"];
+                                    $location   = $dataToView["location"];
+                                    $type       = $dataToView["type"];
+                                    $courses    = $dataToView["courses"];
+                                    $allCourses = $dataToView["allCourses"];
+                                    $subjects   = $dataToView["subjects"];
                                 ?>
                                 
                                 <?php
@@ -235,19 +236,19 @@
                                         <ul class="clearlist widget-posts">
 
                                         <?php
-                                            for ($i=count($courses)-1; $i>=0 && $i>count($courses)-6; $i--) { 
+                                            for ($i=count($allCourses)-1; $i>=0 && $i>count($allCourses)-6; $i--) { 
                                                 $assignedSubject = null;
                                                 for ($j=0; $j<count($subjects) && !$assignedSubject; $j++) { 
-                                                    if ($courses[$i]->getAssignedSubject() == $subjects[$j]->getId()) { 
+                                                    if ($allCourses[$i]->getAssignedSubject() == $subjects[$j]->getId()) { 
                                                         $assignedSubject = $subjects[$j];
                                                     }
                                                 }
                                             ?>
                                                 <li class="clearfix last-courses">
-                                                    <a href="index.php?controller=courseController&action=subject&id_course=<?php echo $courses[$i]->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>"><img src="<?php echo $assignedSubject->getHeaderImage();?>" alt="" width="150" class="widget-posts-img" /></a>
+                                                    <a href="index.php?controller=courseController&action=subject&id_course=<?php echo $allCourses[$i]->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>"><img src="<?php echo $assignedSubject->getHeaderImage();?>" alt="" width="150" class="widget-posts-img" /></a>
                                                     <div class="widget-posts-descr">
-                                                        <a href="index.php?controller=courseController&action=subject&id_course=<?php echo $courses[$i]->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>" title=""><?php echo $courses[$i]->getName();?></a>
-                                                        <?php echo $courses[$i]->getLocation() . ", " . $courses[$i]->getType();?>
+                                                        <a href="index.php?controller=courseController&action=subject&id_course=<?php echo $allCourses[$i]->getId();?>&id_subject=<?php echo $assignedSubject->getId();?>" title=""><?php echo $allCourses[$i]->getName();?></a>
+                                                        <?php echo $allCourses[$i]->getLocation() . ", " . $allCourses[$i]->getType();?>
                                                     </div>
                                                 </li>
                                         <?php

@@ -984,31 +984,26 @@
         }
         $courses = $filterCourses;
       }
-      else if ((isset($_GET['studies']) && !empty($_GET['studies'])) || (isset($_GET['location']) && !empty($_GET['location'])) || (isset($_GET['type']) && !empty($_GET['type']))) {
-        $filterCourses = [];
-        foreach ($courses as $course) {
-          if (((isset($_GET['studies']) && !empty($_GET['studies'])) && $_GET['studies'] == $course->getStudies()) && ((isset($_GET['location']) && !empty($_GET['location'])) && $_GET['location'] == $course->getLocation()) && ((isset($_GET['type']) && !empty($_GET['type'])) && $_GET['type'] == $course->getType())) {
-            array_push($filterCourses, $course);
-          }
-          else if (((isset($_GET['studies']) && !empty($_GET['studies'])) && $_GET['studies'] == $course->getStudies()) && ((isset($_GET['location']) && !empty($_GET['location'])) && $_GET['location'] == $course->getLocation())) {
-            array_push($filterCourses, $course);
-          }
-          else if (((isset($_GET['studies']) && !empty($_GET['studies'])) && $_GET['studies'] == $course->getStudies()) && ((isset($_GET['type']) && !empty($_GET['type'])) && $_GET['type'] == $course->getType())) {
-            array_push($filterCourses, $course);
-          }
-          else if (((isset($_GET['location']) && !empty($_GET['location'])) && $_GET['location'] == $course->getLocation()) && ((isset($_GET['type']) && !empty($_GET['type'])) && $_GET['type'] == $course->getType())) {
-            array_push($filterCourses, $course);
-          }
-          else if ((isset($_GET['studies']) && !empty($_GET['studies'])) && $_GET['studies'] == $course->getStudies()) {
-            array_push($filterCourses, $course);
-          }
-          else if ((isset($_GET['location']) && !empty($_GET['location'])) && $_GET['location'] == $course->getLocation()) {
-            array_push($filterCourses, $course);
-          }
-          else if ((isset($_GET['type']) && !empty($_GET['type'])) && $_GET['type'] == $course->getType()) {
-            array_push($filterCourses, $course);
-          }
+      if ((isset($_GET['studies']) && !empty($_GET['studies'])) || (isset($_GET['location']) && !empty($_GET['location'])) || (isset($_GET['type']) && !empty($_GET['type']))) {
+        $filters = [];
+        if (isset($_GET['studies']) && !empty($_GET['studies'])) {
+          $filters['studies'] = $_GET['studies'];
         }
+        if (isset($_GET['location']) && !empty($_GET['location'])) {
+          $filters['location'] = $_GET['location'];
+        }
+        if (isset($_GET['type']) && !empty($_GET['type'])) {
+          $filters['type'] = $_GET['type'];
+        }
+        $filterCourses = [];
+        $filterCourses = array_filter($courses, function ($course) use ($filters) {
+          foreach ($filters as $key => $value) {
+            if ($course->{'get' . ucfirst($key)}() !== $value) {
+              return false;
+            }
+          }
+          return true;
+        });
         $courses = $filterCourses;
       }
 
@@ -1019,11 +1014,12 @@
       $type = explode(';;', $type);
       $type = array_unique($type);
       $result = [
-        'studies'  => $studies,
-        'location' => $location,
-        'type'     => $type,
-        'courses'  => $courses,
-        'subjects' => $this->subjectManagement->getSubjects(),
+        'studies'    => $studies,
+        'location'   => $location,
+        'type'       => $type,
+        'courses'    => $courses,
+        'allCourses' => $this->courseManagement->getCourses(),
+        'subjects'   => $this->subjectManagement->getSubjects(),
       ];
       $this->view = 'courses';
       return $result;

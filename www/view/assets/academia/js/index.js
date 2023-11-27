@@ -1697,13 +1697,18 @@ $(document).ready(function() {
     $('.course_filter_type').on('click', function(e) {
         e.preventDefault();
         if ($(this).is(':checked')) {
-            let path = window.location.href + "&type=" + encodeURIComponent($(this).val());
+            let path = window.location.href;
+            let search = "&type=";
+            let regex = new RegExp(search + "[^&]*");
+            path = path.replace(regex, '');
+            path = path + "&type=" + encodeURIComponent($(this).val());
             location.replace(path);
         }
         else {
             let path = window.location.href;
-            let search = "&type=" + encodeURIComponent($(this).val());
-            path = path.replace(search, '');
+            let search = "&type=";
+            let regex = new RegExp(search + "[^&]*");
+            path = path.replace(regex, '');
             location.replace(path);
         }
     });
@@ -1711,13 +1716,18 @@ $(document).ready(function() {
     $('.course_filter_location').on('click', function(e) {
         e.preventDefault();
         if ($(this).is(':checked')) {
-            let path = window.location.href + "&location=" + encodeURIComponent($(this).val());
+            let path = window.location.href;
+            let search = "&location=";
+            let regex = new RegExp(search + "[^&]*");
+            path = path.replace(regex, '');
+            path = path + "&location=" + encodeURIComponent($(this).val());
             location.replace(path);
         }
         else {
             let path = window.location.href;
-            let search = "&location=" + encodeURIComponent($(this).val());
-            path = path.replace(search, '');
+            let search = "&location=";
+            let regex = new RegExp(search + "[^&]*");
+            path = path.replace(regex, '');
             location.replace(path);
         }
     });
@@ -1725,13 +1735,18 @@ $(document).ready(function() {
     $('.course_filter_studies').on('click', function(e) {
         e.preventDefault();
         if ($(this).is(':checked')) {
-            let path = window.location.href + "&studies=" + encodeURIComponent($(this).val());
+            let path = window.location.href;
+            let search = "&studies=";
+            let regex = new RegExp(search + "[^&]*");
+            path = path.replace(regex, '');
+            path = path + "&studies=" + encodeURIComponent($(this).val());
             location.replace(path);
         }
         else {
             let path = window.location.href;
-            let search = "&studies=" + encodeURIComponent($(this).val());
-            path = path.replace(search, '');
+            let search = "&studies=";
+            let regex = new RegExp(search + "[^&]*");
+            path = path.replace(regex, '');
             location.replace(path);
         }
     });
