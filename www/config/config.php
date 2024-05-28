@@ -2,8 +2,8 @@
 	// Constantes de la base de datos
 	define("DB_HOST", "db");
 	define("DB", "academia");
-	define("DB_USER", "u-Area14");
-	define("DB_PASS", "u-Area14");
+	define("DB_USER", "admin");
+	define("DB_PASS", "admin");
 
 	// Constantes de la ruta por defecto
 	define("DEFAULT_CONTROLLER", "pageController");
