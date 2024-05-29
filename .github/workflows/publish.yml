@@ -1,0 +1,103 @@
+name: publish
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+env:
+  DOCKER_IMAGE_1: academia-db
+  DOCKER_IMAGE_2: academia-www
+  DOCKER_FILE_1: Dockerfile_db
+  DOCKER_FILE_2: Dockerfile_www
+  DOCKER_CONTAINER_1: mysql_academia
+  DOCKER_CONTAINER_2: www_academia
+  DOCKER_CONTAINER_3: phpmyadmin_academia
+  PORT_1: 8003
+  PORT_2: 8004
+  PORT_3: 9000
+  NGINX_LOCATION_1: /academia/
+  NGINX_LOCATION_2: /academia/phpmyadmin/
+  NGINX_CONF_FILE: /etc/nginx/sites-available/default
+
+jobs:
+  create-docker-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.TOKEN_CD }}
+
+      - name: Build image
+        run: |
+          docker build -f $DOCKER_FILE_1 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
+          docker push ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
+          docker build -f $DOCKER_FILE_2 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
+          docker push ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
+  
+  deploy:
+    needs: create-docker-images
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH into Server
+        run: |
+          echo "${{ secrets.AUTH_PASS }}" > mi_clave.pem
+          chmod 600 mi_clave.pem
+          ssh -i mi_clave.pem -o StrictHostKeyChecking=no ${{ secrets.AUTH_SERVER }} << EOF
+            cat << EOF > docker-compose.yml
+              version: "3.1"
+              services:
+                  db:
+                      container_name: $DOCKER_CONTAINER_1
+                      image:$DOCKER_IMAGE_1
+                      ports: 
+                          - "$PORT_3:3306"
+                      environment:
+                          MYSQL_DATABASE: academia
+                          MYSQL_USER: admin
+                          MYSQL_PASSWORD: admin
+                          MYSQL_ROOT_PASSWORD: root
+                      volumes:
+                          - persistent:/var/lib/mysql
+                      networks:
+                          - default
+                  www:
+                      container_name: $DOCKER_CONTAINER_2
+                      image:$DOCKER_IMAGE_2
+                      ports: 
+                          - "$PORT_1:80"
+                      links:
+                          - db
+                      networks:
+                          - default
+                  phpmyadmin:
+                      container_name: $DOCKER_CONTAINER_3
+                      image: phpmyadmin/phpmyadmin
+                      links: 
+                          - db:db
+                      ports:
+                          - $PORT_2:80
+                      environment:
+                          MYSQL_USER: admin
+                          MYSQL_PASSWORD: admin
+                          MYSQL_ROOT_PASSWORD: root
+              volumes:
+                  persistent:
+            EOF
+            sudo docker compose down
+            docker volume rm academia_persistent
+            sudo docker login ghcr.io -u carlosmaroto-daweb -p ${{ secrets.TOKEN_CD }}
+            sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
+            sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
+            sudo docker compose up -d
+            sudo rm docker-compose.yml
+            sudo bash update_nginx_config.sh $NGINX_LOCATION_1 $NGINX_CONF_FILE $PORT_1
+            sudo bash update_nginx_config.sh $NGINX_LOCATION_2 $NGINX_CONF_FILE $PORT_2
+          EOF
