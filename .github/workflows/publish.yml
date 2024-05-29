@@ -91,14 +91,12 @@ jobs:
               volumes:
                 persistent:
             ' >> docker-compose.yml
-            EOYAML
             sudo docker compose down
             docker volume rm academia_persistent
             sudo docker login ghcr.io -u carlosmaroto-daweb -p ${{ secrets.TOKEN_CD }}
             sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
             sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
             sudo docker compose up -d
-            sudo rm docker-compose.yml
             sudo bash update_nginx_config.sh $NGINX_LOCATION_1 $NGINX_CONF_FILE $PORT_1
             sudo bash update_nginx_config.sh $NGINX_LOCATION_2 $NGINX_CONF_FILE $PORT_2
           EOF
