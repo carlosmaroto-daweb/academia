@@ -6,15 +6,15 @@ Bienvenido a Academia Cartabón, donde la calidad y la formación han sido nuest
 
 ¡Explora nuestra plataforma ahora mismo! Visita la demostración en vivo de Academia Cartabón [aquí](https://www.carlosmaroto-daweb.com/academia/).
 
-Usuario Admin: admin@admin.com
-Contraseña: Admin123.
+- **Usuario Admin**: admin@admin.com
+- **Contraseña**: Admin123.
 
 ## Acceso a la Base de Datos
 
 Para acceder a la base de datos a través de phpMyAdmin, visita: [phpMyAdmin](https://www.carlosmaroto-daweb.com/academia/phpmyadmin/).
 
-Usuario phpMyAdmin: admin
-Contraseña: admin
+- **Usuario Admin**: admin
+- **Contraseña**: admin
 
 ### Tecnologías Utilizadas
 
@@ -33,8 +33,8 @@ Contraseña: admin
 - Docker para contenerización
 - Docker Compose
 - Infraestructura LAMP
-- Servidor web Nginx
 - Implementación continua y entrega continua (CI/CD) con GitHub Actions
+- Proxy inverso Nginx
 - Uso de EC2 de AWS para alojamiento
 
 ## Dibujo Técnico Online
@@ -75,3 +75,7 @@ En Academia Cartabón nos comprometemos a ofrecer cursos de dibujo técnico actu
 ## Autor
 
 - Desarrollador: [Carlos Maroto](https://github.com/carlosmaroto-daweb)
+
+## Mi web
+
+¿Quieres ver más proyectos? Visita mi página web [aquí](https://www.carlosmaroto-daweb.com).
