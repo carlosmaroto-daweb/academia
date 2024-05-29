@@ -56,7 +56,7 @@ jobs:
               services:
                 db:
                   container_name: $DOCKER_CONTAINER_1
-                  image:$DOCKER_IMAGE_1
+                  image: $DOCKER_IMAGE_1
                   ports: 
                     - "$PORT_3:3306"
                   environment:
@@ -70,7 +70,7 @@ jobs:
                     - default
                 www:
                   container_name: $DOCKER_CONTAINER_2
-                  image:$DOCKER_IMAGE_2
+                  image: $DOCKER_IMAGE_2
                   ports: 
                     - "$PORT_1:80"
                   links:
@@ -97,6 +97,7 @@ jobs:
             sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
             sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
             sudo docker compose up -d
+            sudo rm docker-compose.yml
             sudo bash update_nginx_config.sh $NGINX_LOCATION_1 $NGINX_CONF_FILE $PORT_1
             sudo bash update_nginx_config.sh $NGINX_LOCATION_2 $NGINX_CONF_FILE $PORT_2
           EOF
