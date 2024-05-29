@@ -37,9 +37,9 @@ jobs:
 
       - name: Build image
         run: |
-          docker build -f $DOCKER_FILE_1 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
+          docker build $DOCKER_FILE_1 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
           docker push ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
-          docker build -f $DOCKER_FILE_2 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
+          docker build $DOCKER_FILE_2 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
           docker push ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
   
   deploy:
@@ -54,42 +54,42 @@ jobs:
             cat << EOF > docker-compose.yml
               version: "3.1"
               services:
-                  db:
-                      container_name: $DOCKER_CONTAINER_1
-                      image:$DOCKER_IMAGE_1
-                      ports: 
-                          - "$PORT_3:3306"
-                      environment:
-                          MYSQL_DATABASE: academia
-                          MYSQL_USER: admin
-                          MYSQL_PASSWORD: admin
-                          MYSQL_ROOT_PASSWORD: root
-                      volumes:
-                          - persistent:/var/lib/mysql
-                      networks:
-                          - default
-                  www:
-                      container_name: $DOCKER_CONTAINER_2
-                      image:$DOCKER_IMAGE_2
-                      ports: 
-                          - "$PORT_1:80"
-                      links:
-                          - db
-                      networks:
-                          - default
-                  phpmyadmin:
-                      container_name: $DOCKER_CONTAINER_3
-                      image: phpmyadmin/phpmyadmin
-                      links: 
-                          - db:db
-                      ports:
-                          - $PORT_2:80
-                      environment:
-                          MYSQL_USER: admin
-                          MYSQL_PASSWORD: admin
-                          MYSQL_ROOT_PASSWORD: root
+                db:
+                  container_name: $DOCKER_CONTAINER_1
+                  image:$DOCKER_IMAGE_1
+                  ports: 
+                    - "$PORT_3:3306"
+                  environment:
+                    MYSQL_DATABASE: academia
+                    MYSQL_USER: admin
+                    MYSQL_PASSWORD: admin
+                    MYSQL_ROOT_PASSWORD: root
+                  volumes:
+                    - persistent:/var/lib/mysql
+                  networks:
+                    - default
+                www:
+                  container_name: $DOCKER_CONTAINER_2
+                  image:$DOCKER_IMAGE_2
+                  ports: 
+                    - "$PORT_1:80"
+                  links:
+                    - db
+                  networks:
+                    - default
+                phpmyadmin:
+                  container_name: $DOCKER_CONTAINER_3
+                  image: phpmyadmin/phpmyadmin
+                  links: 
+                    - db:db
+                  ports:
+                    - $PORT_2:80
+                  environment:
+                    MYSQL_USER: admin
+                    MYSQL_PASSWORD: admin
+                    MYSQL_ROOT_PASSWORD: root
               volumes:
-                  persistent:
+                persistent:
             EOF
             sudo docker compose down
             docker volume rm academia_persistent
