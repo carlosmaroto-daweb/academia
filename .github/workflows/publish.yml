@@ -14,8 +14,8 @@ env:
   DOCKER_CONTAINER_1: mysql_academia
   DOCKER_CONTAINER_2: www_academia
   DOCKER_CONTAINER_3: phpmyadmin_academia
-  PORT_1: 8003
-  PORT_2: 8004
+  PORT_1: 8002
+  PORT_2: 8003
   PORT_3: 9000
   NGINX_LOCATION_1: /academia/
   NGINX_LOCATION_2: /academia/phpmyadmin/

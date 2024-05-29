@@ -22,7 +22,7 @@ services:
             context: .
             dockerfile: Dockerfile_www
         ports: 
-            - "8003:80"
+            - "8002:80"
         links:
             - db
         networks:
@@ -33,7 +33,7 @@ services:
         links: 
             - db:db
         ports:
-            - 8004:80
+            - 8003:80
         environment:
             MYSQL_USER: admin
             MYSQL_PASSWORD: admin
