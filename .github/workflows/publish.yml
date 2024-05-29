@@ -50,8 +50,8 @@ jobs:
         run: |
           echo "${{ secrets.AUTH_PASS }}" > mi_clave.pem
           chmod 600 mi_clave.pem
-          ssh -i mi_clave.pem -o StrictHostKeyChecking=no ${{ secrets.AUTH_SERVER }} << EOF1
-            cat << EOF2 > docker-compose.yml
+          ssh -i mi_clave.pem -o StrictHostKeyChecking=no ${{ secrets.AUTH_SERVER }} << EOF
+            cat > docker-compose.yml << 'EOYAML'
               version: "3.1"
               services:
                 db:
@@ -90,7 +90,7 @@ jobs:
                     MYSQL_ROOT_PASSWORD: root
               volumes:
                 persistent:
-            EOF2
+            EOYAML
             sudo docker compose down
             docker volume rm academia_persistent
             sudo docker login ghcr.io -u carlosmaroto-daweb -p ${{ secrets.TOKEN_CD }}
@@ -100,4 +100,4 @@ jobs:
             sudo rm docker-compose.yml
             sudo bash update_nginx_config.sh $NGINX_LOCATION_1 $NGINX_CONF_FILE $PORT_1
             sudo bash update_nginx_config.sh $NGINX_LOCATION_2 $NGINX_CONF_FILE $PORT_2
-          EOF1
+          EOF
