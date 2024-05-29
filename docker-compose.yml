@@ -1,35 +1,39 @@
 version: "3.1"
 services:
     db:
-        image: mysql
+        container_name: mysql_academia
+        build: 
+            context: .
+            dockerfile: Dockerfile_db
         ports: 
-            - "8003:3306"
+            - "9000:3306"
         environment:
             MYSQL_DATABASE: academia
             MYSQL_USER: admin
             MYSQL_PASSWORD: admin
             MYSQL_ROOT_PASSWORD: root
         volumes:
-            - ./dump:/docker-entrypoint-initdb.d
             - persistent:/var/lib/mysql
         networks:
             - default
     www:
-        build: .
+        container_name: www_academia
+        build: 
+            context: .
+            dockerfile: Dockerfile_www
         ports: 
-            - "8004:80"
-        volumes:
-            - ./www:/var/www/html
+            - "8003:80"
         links:
             - db
         networks:
             - default
     phpmyadmin:
+        container_name: phpmyadmin_academia
         image: phpmyadmin/phpmyadmin
         links: 
             - db:db
         ports:
-            - 8005:80
+            - 8004:80
         environment:
             MYSQL_USER: admin
             MYSQL_PASSWORD: admin
