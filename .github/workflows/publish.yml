@@ -51,7 +51,7 @@ jobs:
           echo "${{ secrets.AUTH_PASS }}" > mi_clave.pem
           chmod 600 mi_clave.pem
           ssh -i mi_clave.pem -o StrictHostKeyChecking=no ${{ secrets.AUTH_SERVER }} << EOF
-            cat > docker-compose.yml << 'EOYAML'
+            echo '
               version: "3.1"
               services:
                 db:
@@ -90,6 +90,7 @@ jobs:
                     MYSQL_ROOT_PASSWORD: root
               volumes:
                 persistent:
+            ' >> docker-compose.yml
             EOYAML
             sudo docker compose down
             docker volume rm academia_persistent
