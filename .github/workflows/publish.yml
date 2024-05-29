@@ -7,8 +7,8 @@ on:
     branches: ["main"]
 
 env:
-  DOCKER_IMAGE_1: academia-db
-  DOCKER_IMAGE_2: academia-www
+  DOCKER_IMAGE_1: academia-db:latest
+  DOCKER_IMAGE_2: academia-www:latest
   DOCKER_FILE_1: Dockerfile_db
   DOCKER_FILE_2: Dockerfile_www
   DOCKER_CONTAINER_1: mysql_academia
@@ -22,36 +22,36 @@ env:
   NGINX_CONF_FILE: /etc/nginx/sites-available/default
 
 jobs:
-  create-docker-images:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v4
+  #create-docker-images:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: Checkout the code
+  #      uses: actions/checkout@v4
 
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.TOKEN_CD }}
+  #    - name: Login to GitHub Container Registry
+  #      uses: docker/login-action@v3
+  #      with:
+  #        registry: ghcr.io
+  #        username: ${{ github.actor }}
+  #        password: ${{ secrets.TOKEN_CD }}
 
-      - name: Build image
-        run: |
-          docker build -f $DOCKER_FILE_1 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1 .
-          docker push ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
-          docker build -f $DOCKER_FILE_2 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2 .
-          docker push ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
+  #    - name: Build image
+  #      run: |
+  #        docker build -f $DOCKER_FILE_1 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1 .
+  #        docker push ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
+  #        docker build -f $DOCKER_FILE_2 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2 .
+  #        docker push ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
   
   deploy:
-    needs: create-docker-images
+    #needs: create-docker-images
     runs-on: ubuntu-latest
     steps:
       - name: SSH into Server
         run: |
           echo "${{ secrets.AUTH_PASS }}" > mi_clave.pem
           chmod 600 mi_clave.pem
-          ssh -i mi_clave.pem -o StrictHostKeyChecking=no ${{ secrets.AUTH_SERVER }} << EOF
-            cat << EOF > docker-compose.yml
+          ssh -i mi_clave.pem -o StrictHostKeyChecking=no ${{ secrets.AUTH_SERVER }} << EOF1
+            cat << EOF2 > docker-compose.yml
               version: "3.1"
               services:
                 db:
@@ -90,7 +90,7 @@ jobs:
                     MYSQL_ROOT_PASSWORD: root
               volumes:
                 persistent:
-            EOF
+            EOF2
             sudo docker compose down
             docker volume rm academia_persistent
             sudo docker login ghcr.io -u carlosmaroto-daweb -p ${{ secrets.TOKEN_CD }}
@@ -100,4 +100,4 @@ jobs:
             sudo rm docker-compose.yml
             sudo bash update_nginx_config.sh $NGINX_LOCATION_1 $NGINX_CONF_FILE $PORT_1
             sudo bash update_nginx_config.sh $NGINX_LOCATION_2 $NGINX_CONF_FILE $PORT_2
-          EOF
+          EOF1
