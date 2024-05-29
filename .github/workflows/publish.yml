@@ -22,28 +22,28 @@ env:
   NGINX_CONF_FILE: /etc/nginx/sites-available/default
 
 jobs:
-  #create-docker-images:
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - name: Checkout the code
-  #      uses: actions/checkout@v4
+  create-docker-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
 
-  #    - name: Login to GitHub Container Registry
-  #      uses: docker/login-action@v3
-  #      with:
-  #        registry: ghcr.io
-  #        username: ${{ github.actor }}
-  #        password: ${{ secrets.TOKEN_CD }}
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.TOKEN_CD }}
 
-  #    - name: Build image
-  #      run: |
-  #        docker build -f $DOCKER_FILE_1 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1 .
-  #        docker push ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
-  #        docker build -f $DOCKER_FILE_2 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2 .
-  #        docker push ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
+      - name: Build image
+        run: |
+          docker build -f $DOCKER_FILE_1 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1 .
+          docker push ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
+          docker build -f $DOCKER_FILE_2 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2 .
+          docker push ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
   
   deploy:
-    #needs: create-docker-images
+    needs: create-docker-images
     runs-on: ubuntu-latest
     steps:
       - name: SSH into Server
