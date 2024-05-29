@@ -51,6 +51,9 @@ jobs:
           echo "${{ secrets.AUTH_PASS }}" > mi_clave.pem
           chmod 600 mi_clave.pem
           ssh -i mi_clave.pem -o StrictHostKeyChecking=no ${{ secrets.AUTH_SERVER }} << EOF
+            sudo docker login ghcr.io -u carlosmaroto-daweb -p ${{ secrets.TOKEN_CD }}
+            sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
+            sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
             echo '
               version: "3.1"
               services:
@@ -93,9 +96,6 @@ jobs:
             ' >> docker-compose.yml
             sudo docker compose down
             docker volume rm academia_persistent
-            sudo docker login ghcr.io -u carlosmaroto-daweb -p ${{ secrets.TOKEN_CD }}
-            sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
-            sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
             sudo docker compose up -d
             sudo rm docker-compose.yml
             sudo bash update_nginx_config.sh $NGINX_LOCATION_1 $NGINX_CONF_FILE $PORT_1
