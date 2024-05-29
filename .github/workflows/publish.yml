@@ -37,9 +37,9 @@ jobs:
 
       - name: Build image
         run: |
-          docker build $DOCKER_FILE_1 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
+          docker build -f ./$DOCKER_FILE_1 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
           docker push ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
-          docker build $DOCKER_FILE_2 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
+          docker build -f ./$DOCKER_FILE_2 --tag ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
           docker push ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
   
   deploy:
