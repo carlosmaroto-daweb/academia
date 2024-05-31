@@ -11,7 +11,7 @@ Bienvenido a Academia Cartabón, donde la calidad y la formación han sido nuest
 
 ## Acceso a la Base de Datos
 
-Para acceder a la base de datos a través de phpMyAdmin, visita: [phpMyAdmin](https://www.carlosmaroto-daweb.com/academia/phpmyadmin/).
+Para acceder a la base de datos a través de phpMyAdmin, visita: [phpMyAdmin](https://www.carlosmaroto-daweb.com/academia-phpmyadmin/).
 
 - **Usuario Admin**: admin
 - **Contraseña**: admin

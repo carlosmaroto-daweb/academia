@@ -13,14 +13,17 @@ services:
             MYSQL_PASSWORD: admin
             MYSQL_ROOT_PASSWORD: root
         volumes:
-            - persistent:/var/lib/mysql
+            - academia_db_data:/var/lib/mysql
         networks:
             - default
+        mem_limit: 512m
     www:
         container_name: www_academia
         build: 
             context: .
             dockerfile: Dockerfile_www
+        #volumes:
+        #    - ./www:/var/www/html
         ports: 
             - "8002:80"
         links:
@@ -39,4 +42,4 @@ services:
             MYSQL_PASSWORD: admin
             MYSQL_ROOT_PASSWORD: root
 volumes:
-    persistent:
+    academia_db_data: 

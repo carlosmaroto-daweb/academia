@@ -14,11 +14,12 @@ env:
   DOCKER_CONTAINER_1: mysql_academia
   DOCKER_CONTAINER_2: www_academia
   DOCKER_CONTAINER_3: phpmyadmin_academia
+  DOCKER_VOLUME: academia_db_data
   PORT_1: 8002
   PORT_2: 8003
   PORT_3: 9000
   NGINX_LOCATION_1: /academia/
-  NGINX_LOCATION_2: /academia/phpmyadmin/
+  NGINX_LOCATION_2: /academia-phpmyadmin/
   NGINX_CONF_FILE: /etc/nginx/sites-available/default
 
 jobs:
@@ -65,9 +66,10 @@ jobs:
                     MYSQL_PASSWORD: admin
                     MYSQL_ROOT_PASSWORD: root
                   volumes:
-                    - persistent:/var/lib/mysql
+                    - $DOCKER_VOLUME:/var/lib/mysql
                   networks:
                     - default
+                  mem_limit: 512m
                 www:
                   container_name: $DOCKER_CONTAINER_2
                   image: ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
@@ -89,10 +91,10 @@ jobs:
                     MYSQL_PASSWORD: admin
                     MYSQL_ROOT_PASSWORD: root
               volumes:
-                persistent:
+                $DOCKER_VOLUME:
             ' >> docker-compose.yml
             sudo docker compose down
-            sudo docker volume rm academia_persistent
+            sudo docker volume rm $(sudo docker volume ls -q | grep "$DOCKER_VOLUME")
             sudo docker login ghcr.io -u carlosmaroto-daweb -p ${{ secrets.TOKEN_CD }}
             sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
             sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
