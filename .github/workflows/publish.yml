@@ -55,7 +55,7 @@ jobs:
             sudo echo '
               version: "3.1"
               services:
-                db:
+                $DOCKER_CONTAINER_1:
                   container_name: $DOCKER_CONTAINER_1
                   image: ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
                   ports: 
@@ -70,7 +70,7 @@ jobs:
                   networks:
                     - default
                   mem_limit: 512m
-                www:
+                $DOCKER_CONTAINER_2:
                   container_name: $DOCKER_CONTAINER_2
                   image: ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
                   ports: 
@@ -79,7 +79,7 @@ jobs:
                     - db
                   networks:
                     - default
-                phpmyadmin:
+                $DOCKER_CONTAINER_3:
                   container_name: $DOCKER_CONTAINER_3
                   image: phpmyadmin/phpmyadmin
                   links: 
