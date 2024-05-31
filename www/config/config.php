@@ -1,6 +1,6 @@
 <?php
 	// Constantes de la base de datos
-	define("DB_HOST", "db");
+	define("DB_HOST", "mysql_academia");
 	define("DB", "academia");
 	define("DB_USER", "admin");
 	define("DB_PASS", "admin");

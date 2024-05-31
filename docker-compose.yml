@@ -1,10 +1,11 @@
 version: "3.1"
 services:
-    db:
+    mysql_academia:
         container_name: mysql_academia
         build: 
             context: .
             dockerfile: Dockerfile_db
+        image: academia-db
         ports: 
             - "9000:3306"
         environment:
@@ -17,24 +18,25 @@ services:
         networks:
             - default
         mem_limit: 512m
-    www:
+    www_academia:
         container_name: www_academia
         build: 
             context: .
             dockerfile: Dockerfile_www
+        image: academia-www
         #volumes:
         #    - ./www:/var/www/html
         ports: 
             - "8002:80"
         links:
-            - db
+            - mysql_academia
         networks:
             - default
-    phpmyadmin:
+    phpmyadmin_academia:
         container_name: phpmyadmin_academia
         image: phpmyadmin/phpmyadmin
         links: 
-            - db:db
+            - mysql_academia:db
         ports:
             - 8003:80
         environment:

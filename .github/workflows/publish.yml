@@ -76,14 +76,14 @@ jobs:
                   ports: 
                     - "$PORT_1:80"
                   links:
-                    - db
+                    - $DOCKER_CONTAINER_1
                   networks:
                     - default
                 $DOCKER_CONTAINER_3:
                   container_name: $DOCKER_CONTAINER_3
                   image: phpmyadmin/phpmyadmin
                   links: 
-                    - db:db
+                    - $DOCKER_CONTAINER_1:db
                   ports:
                     - $PORT_2:80
                   environment:
