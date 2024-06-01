@@ -52,6 +52,13 @@ jobs:
           echo "${{ secrets.AUTH_PASS }}" > mi_clave.pem
           chmod 600 mi_clave.pem
           ssh -i mi_clave.pem -o StrictHostKeyChecking=no ${{ secrets.AUTH_SERVER }} << EOF
+            sudo docker stop $DOCKER_CONTAINER_1 && sudo docker rm $DOCKER_CONTAINER_1
+            sudo docker stop $DOCKER_CONTAINER_2 && sudo docker rm $DOCKER_CONTAINER_2
+            sudo docker stop $DOCKER_CONTAINER_3 && sudo docker rm $DOCKER_CONTAINER_3
+            sudo docker volume rm $(sudo docker volume ls -q | grep "$DOCKER_VOLUME")
+            sudo docker login ghcr.io -u carlosmaroto-daweb -p ${{ secrets.TOKEN_CD }}
+            sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
+            sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
             sudo echo '
               version: "3.1"
               services:
@@ -93,13 +100,6 @@ jobs:
               volumes:
                 $DOCKER_VOLUME:
             ' >> docker-compose.yml
-            sudo docker stop $DOCKER_CONTAINER_1 && sudo docker rm $DOCKER_CONTAINER_1
-            sudo docker stop $DOCKER_CONTAINER_2 && sudo docker rm $DOCKER_CONTAINER_2
-            sudo docker stop $DOCKER_CONTAINER_3 && sudo docker rm $DOCKER_CONTAINER_3
-            sudo docker volume rm $(sudo docker volume ls -q | grep "$DOCKER_VOLUME")
-            sudo docker login ghcr.io -u carlosmaroto-daweb -p ${{ secrets.TOKEN_CD }}
-            sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_1
-            sudo docker pull ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
             sudo docker compose up -d
             sudo rm docker-compose.yml
             sudo bash update_nginx_config.sh $NGINX_LOCATION_1 $NGINX_CONF_FILE $PORT_1
