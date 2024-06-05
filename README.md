@@ -28,6 +28,7 @@ Para acceder a la base de datos a través de phpMyAdmin, visita: [phpMyAdmin](ht
 - Summernote
 - Html2canvas
 - Bootstrap
+- Modelado Base de Datos
 - MySQL
 - phpMyAdmin
 - Docker para contenerización
