@@ -7,7 +7,7 @@ services:
             dockerfile: Dockerfile_db
         image: academia-db
         ports: 
-            - "9000:3306"
+            - "9001:3306"
         environment:
             MYSQL_DATABASE: academia
             MYSQL_USER: admin
@@ -27,7 +27,7 @@ services:
         #volumes:
         #    - ./www:/var/www/html
         ports: 
-            - "8002:80"
+            - "8005:80"
         links:
             - mysql_academia
         networks:
@@ -38,7 +38,7 @@ services:
         links: 
             - mysql_academia:db
         ports:
-            - 8003:80
+            - 8006:80
         environment:
             MYSQL_USER: admin
             MYSQL_PASSWORD: admin

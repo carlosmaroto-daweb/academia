@@ -15,12 +15,10 @@ env:
   DOCKER_CONTAINER_2: www_academia
   DOCKER_CONTAINER_3: phpmyadmin_academia
   DOCKER_VOLUME: academia_db_data
-  PORT_1: 8002
-  PORT_2: 8003
-  PORT_3: 9000
-  NGINX_LOCATION_1: /academia/
-  NGINX_LOCATION_2: /academia-phpmyadmin/
-  NGINX_CONF_FILE: /etc/nginx/sites-available/default
+  PORT_1: 8005
+  PORT_2: 8006
+  PORT_3: 9001
+  SUBDOMAIN: academia.carlosmaroto-daweb.com
 
 jobs:
   create-docker-images:
@@ -103,6 +101,38 @@ jobs:
             sudo docker compose up -d
             sudo docker compose stop
             sudo rm docker-compose.yml
-            sudo bash update_nginx_config.sh $NGINX_LOCATION_1 $NGINX_CONF_FILE $PORT_1
-            sudo bash update_nginx_config.sh $NGINX_LOCATION_2 $NGINX_CONF_FILE $PORT_2
+            sudo systemctl stop nginx
+            if [ ! -f /etc/nginx/sites-available/$SUBDOMAIN ]; then
+              sudo touch /etc/nginx/sites-available/$SUBDOMAIN
+              sudo ln -s /etc/nginx/sites-available/$SUBDOMAIN /etc/nginx/sites-enabled/$SUBDOMAIN
+              sudo certbot certonly --standalone -d $SUBDOMAIN --cert-name $SUBDOMAIN --non-interactive --agree-tos --email carlosmaroto.daweb@gmail.com
+            fi
+            sudo echo '
+            server {
+              listen 443 ssl;
+              server_name $SUBDOMAIN;
+
+              ssl_certificate /etc/letsencrypt/live/$SUBDOMAIN/fullchain.pem;
+              ssl_certificate_key /etc/letsencrypt/live/$SUBDOMAIN/privkey.pem;
+
+              location / {
+                proxy_pass http://localhost:$PORT_1;
+                proxy_set_header Host \$host;
+                proxy_set_header X-Real-IP \$remote_addr;
+                proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto \$scheme;
+              }
+
+              location /phpmyadmin/ {
+                rewrite ^/phpmyadmin/(.*)$ /$1 break;
+                proxy_pass http://localhost:$PORT_2;
+                proxy_set_header Host \$host;
+                proxy_set_header X-Real-IP \$remote_addr;
+                proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto \$scheme;
+                proxy_redirect ~^(/.*)$ /phpmyadmin$1;
+              }
+            }' > /tmp/nginx_site_config
+            sudo mv /tmp/nginx_site_config /etc/nginx/sites-available/$SUBDOMAIN
+            sudo systemctl start nginx
           EOF

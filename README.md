@@ -1,17 +1,17 @@
-# Academia Cartabón
+# Academia Cartabón 
 
 Bienvenido a Academia Cartabón, donde la calidad y la formación han sido nuestra pasión desde 1994.
 
 ## Demostración
 
-¡Explora nuestra plataforma ahora mismo! Visita la demostración en vivo de Academia Cartabón [aquí](https://www.carlosmaroto-daweb.com/academia/).
+¡Explora nuestra plataforma ahora mismo! Visita la demostración en vivo de Academia Cartabón [aquí](https://academia.carlosmaroto-daweb.com).
 
 - **Usuario Admin**: admin@admin.com
 - **Contraseña**: Admin123.
 
-## Acceso a la Base de Datos
+### Acceso a la Base de Datos
 
-Para acceder a la base de datos a través de phpMyAdmin, visita: [phpMyAdmin](https://www.carlosmaroto-daweb.com/academia-phpmyadmin/).
+Para acceder a la base de datos a través de phpMyAdmin, dirígete [aquí](https://academia.carlosmaroto-daweb.com/phpmyadmin).
 
 - **Usuario Admin**: admin
 - **Contraseña**: admin
@@ -31,9 +31,9 @@ Para acceder a la base de datos a través de phpMyAdmin, visita: [phpMyAdmin](ht
 - Modelado Base de Datos
 - MySQL
 - phpMyAdmin
-- Docker para contenerización
-- Docker Compose
 - Infraestructura LAMP
+- Docker para contenerización
+- Docker Compose para despliegue en local
 - Implementación continua y entrega continua (CI/CD) con GitHub Actions
 - Proxy inverso Nginx
 - Uso de EC2 de AWS para alojamiento
