@@ -132,6 +132,13 @@ jobs:
                 proxy_set_header X-Forwarded-Proto \$scheme;
                 proxy_redirect ~^(/.*)$ /phpmyadmin\$1;
               }
+
+              error_page 502 @handle_502;
+
+              location @handle_502 {
+                proxy_pass http://localhost:8080;
+                proxy_set_header X-Subdomain $host;
+              }
             }' > /tmp/nginx_site_config
             sudo mv /tmp/nginx_site_config /etc/nginx/sites-available/$SUBDOMAIN
             sudo systemctl start nginx
