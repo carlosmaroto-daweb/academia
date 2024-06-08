@@ -133,9 +133,9 @@ jobs:
                 proxy_redirect ~^(/.*)$ /phpmyadmin\$1;
               }
 
-              error_page 502 @handle_502;
+              error_page 502 @start_containers;
 
-              location @handle_502 {
+              location @start_containers {
                 proxy_pass http://localhost:8080;
                 proxy_set_header X-Subdomain $host;
               }
