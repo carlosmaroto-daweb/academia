@@ -47,9 +47,9 @@ jobs:
     steps:
       - name: SSH into Server
         run: |
-          echo "${{ secrets.AUTH_PASS }}" > mi_clave.pem
-          chmod 600 mi_clave.pem
-          ssh -i mi_clave.pem -o StrictHostKeyChecking=no ${{ secrets.AUTH_SERVER }} << EOF
+          echo "${{ secrets.AUTH_PASS }}" > rsa_key
+          chmod 600 rsa_key
+          ssh -i rsa_key -o StrictHostKeyChecking=no ${{ secrets.AUTH_SERVER }} << EOF
             sudo docker stop $DOCKER_CONTAINER_1 && sudo docker rm $DOCKER_CONTAINER_1
             sudo docker stop $DOCKER_CONTAINER_2 && sudo docker rm $DOCKER_CONTAINER_2
             sudo docker stop $DOCKER_CONTAINER_3 && sudo docker rm $DOCKER_CONTAINER_3
@@ -74,7 +74,6 @@ jobs:
                     - $DOCKER_VOLUME:/var/lib/mysql
                   networks:
                     - default
-                  mem_limit: 512m
                 $DOCKER_CONTAINER_2:
                   container_name: $DOCKER_CONTAINER_2
                   image: ghcr.io/carlosmaroto-daweb/$DOCKER_IMAGE_2
@@ -99,7 +98,6 @@ jobs:
                 $DOCKER_VOLUME:
             ' >> docker-compose.yml
             sudo docker compose up -d
-            sudo docker compose stop
             sudo rm docker-compose.yml
             sudo systemctl stop nginx
             if [ ! -f /etc/nginx/sites-available/$SUBDOMAIN ]; then
@@ -108,6 +106,13 @@ jobs:
               sudo certbot certonly --standalone -d $SUBDOMAIN --cert-name $SUBDOMAIN --non-interactive --agree-tos --email carlosmaroto.daweb@gmail.com
             fi
             sudo echo '
+            server {
+              listen 80;
+              server_name $SUBDOMAIN;
+
+              return 301 https://\$host\$request_uri;
+            }
+            
             server {
               listen 443 ssl;
               server_name $SUBDOMAIN;

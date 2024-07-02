@@ -17,7 +17,6 @@ services:
             - academia_db_data:/var/lib/mysql
         networks:
             - default
-        mem_limit: 512m
     www_academia:
         container_name: www_academia
         build: 
